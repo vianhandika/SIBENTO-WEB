@@ -1,0 +1,469 @@
+<template>
+<v-app id="inspire">
+<div class="application">
+  <!-- toolbar   -->
+  <v-toolbar 
+    dark 
+    app 
+    :color="$root.themeColor">
+    <v-toolbar-title>
+      <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
+    </v-toolbar-title>
+
+    <v-spacer></v-spacer>
+
+    <v-dialog v-model="dialogSettings"
+      width="700">
+      <v-card>
+        <v-card-title class="headline"
+          primary-title>
+          Settings
+        </v-card-title>
+
+        <v-card-text>
+          Set Up System User
+          <v-form>
+            <v-container>
+              <v-layout row wrap>
+
+                <v-flex xs12 xs6 md11>
+                  <v-text-field
+                    v-model="userEmail"
+                    label="User Email"
+                    hint="Set user email"/>
+                </v-flex>
+
+                <v-flex xs12 xs6 md1 />
+
+                <v-flex xs12 sm6 md11>
+                  <v-text-field
+                    v-model="password"
+                    :append-icon="showPassword ? 'visibility_off' : 'visibility'"
+                    :type="showPassword ? 'text' : 'password'"
+                    label="New Password"
+                    hint="Please choose a complex one.."
+                    :error="error"
+                    @click:append="showPassword = !showPassword" />
+                </v-flex>
+
+                <v-flex xs12 sm6 md1 />
+
+                <v-flex xs12 sm6 md11>
+                  <v-text-field
+                    v-model="passwordConfirm"
+                    :append-icon="showPasswordConfirm ? 'visibility_off' : 'visibility'"
+                    :type="showPasswordConfirm ? 'text' : 'password'"
+                    label="Confirm New Password"
+                    hint="and confirm it."
+                    :error="error"
+                    @click:append="showPasswordConfirm = !showPasswordConfirm" />
+                </v-flex>
+
+                <v-flex xs12 sm6 md1 />
+
+                <v-flex xs12 xs6 md11>
+                  <v-switch
+                    label="Email Notification"
+                    color="success"
+                    v-model="switchEmailNotification" />
+                </v-flex>
+
+                <v-flex xs12 xs6 md1 />
+
+              </v-layout>
+            </v-container>
+          </v-form>
+        </v-card-text>
+
+        <v-divider></v-divider>
+
+        <v-card-actions>
+          <v-spacer></v-spacer>
+          <v-btn
+            color="primary"
+            flat
+            @click="setUpSettings">
+            Save Changes
+          </v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
+
+
+    <v-menu offset-y origin="center center" :nudge-bottom="10" transition="scale-transition">
+
+      <v-btn icon flat slot="activator" @click="notifications.map(x => x.isActive = false)">
+        <v-badge color="green" overlap>
+          <span slot="badge" v-if="notifications.filter(x => x.isActive).length > 0">
+             {{ notifications.filter(x => x.isActive).length }}
+          </span>
+          <v-icon medium>notifications</v-icon>
+        </v-badge>
+      </v-btn>
+
+      <v-card class="elevation-0">
+        <v-toolbar card dense color="transparent">
+          <v-toolbar-title><h5>You have {{ notifications.length }} new notification(s)</h5></v-toolbar-title>
+        </v-toolbar>
+        <v-card-text class="pa-0">
+          <v-list two-line class="pa-0">
+          <template v-for="(item, index) in notifications">
+            <v-divider :key="index" />
+            <v-list-tile avatar :key="item.title">
+            <!-- <v-list-tile avatar :key="item.title" @click.parent="item.onClick"> -->
+            <v-list-tile-avatar :color="item.color">
+              <v-icon dark>{{item.icon}}</v-icon>
+            </v-list-tile-avatar>
+            <v-list-tile-content>
+              <v-list-tile-sub-title v-html="item.title"></v-list-tile-sub-title>
+            </v-list-tile-content>
+            <v-list-tile-action class="caption">
+              {{item.actionAt}}
+            </v-list-tile-action>
+            </v-list-tile>
+          </template>
+          </v-list>
+          <v-divider></v-divider>
+          <v-btn block flat v-if="false">See all notifications</v-btn>
+          <v-divider></v-divider>
+        </v-card-text>
+      </v-card>
+    </v-menu>
+
+    <v-menu offset-y origin="center center" :nudge-bottom="10" transition="scale-transition">
+      <v-btn icon large flat slot="activator" :ripple="false">
+        <v-avatar size="42px">
+          <img src="https://avataaars.io/?avatarStyle=Circle&topType=ShortHairShortFlat&accessoriesType=Sunglasses&hairColor=Black&facialHairType=Blank&clotheType=CollarSweater&clotheColor=Black&eyeType=Default&eyebrowType=Default&mouthType=Smile&skinColor=Light"/>
+        </v-avatar>
+      </v-btn>
+      <v-list>
+        <v-list-tile
+          v-for="(item,index) in items"
+          :key="index"
+          :to="!item.href ? { name: item.name } : null"
+          :href="item.href"
+          ripple="ripple"
+          :disabled="item.disabled"
+          :target="item.target"
+          @click="item.click">
+          <v-list-tile-action v-if="item.icon">
+            <v-icon>{{ item.icon }}</v-icon>
+          </v-list-tile-action>
+          <v-list-tile-content>
+            <v-list-tile-title>{{ item.title }}</v-list-tile-title>
+          </v-list-tile-content>
+        </v-list-tile>
+      </v-list>
+    </v-menu>
+  </v-toolbar>
+
+  <!-- side menu -->
+  <v-navigation-drawer
+    v-model="drawer"
+    fixed app>
+    <v-toolbar flat dark :color="$root.themeColor" class="toolbar">
+      <router-link :to="{ name: 'Dashboard' }">
+        <img src="http://localhost:8000/images/logo.png" width="36px">
+      </router-link>
+      <router-link :to="{ name: 'Dashboard' }" class="text">
+         SIBENTO Admin Panel
+      </router-link>
+    </v-toolbar>
+    <v-list>
+      <v-list-tile @click="changeRoute('AdminDashboard', 1)">
+        <v-list-tile-action>
+          <v-icon>dashboard</v-icon>
+        </v-list-tile-action>
+        <v-list-tile-title :class="[{'active': selectedIndex === 1}, 'item-title' ]" >Dashboard</v-list-tile-title>
+      </v-list-tile>
+
+      <v-list-tile @click="changeRoute('AdminEmployee', 2)">
+        <v-list-tile-action>
+          <v-icon>fas fa-users</v-icon>
+        </v-list-tile-action>
+        <v-list-tile-title :class="[{'active': selectedIndex === 2}, 'item-title' ]">Pegawai</v-list-tile-title>
+      </v-list-tile>
+
+      <v-list-tile @click="changeRoute('AdminUser', 3)">
+        <v-list-tile-action>
+          <v-icon>fas fa-user</v-icon>
+        </v-list-tile-action>
+        <v-list-tile-title :class="[{'active': selectedIndex === 3}, 'item-title' ]">Akun User</v-list-tile-title>
+      </v-list-tile>
+
+      <v-list-tile @click="changeRoute('AdminService', 4)">
+        <v-list-tile-action>
+          <v-icon>fas fa-wrench</v-icon>
+        </v-list-tile-action>
+        <v-list-tile-title :class="[{'active': selectedIndex === 4}, 'item-title' ]">Jasa Servis</v-list-tile-title>
+      </v-list-tile>
+      
+      <v-list-tile @click="changeRoute('AdminSparepart', 5)">
+        <v-list-tile-action>
+          <v-icon>fas fa-box-open</v-icon>
+        </v-list-tile-action>
+        <v-list-tile-title :class="[{'active': selectedIndex === 5}, 'item-title' ]">Sparepart</v-list-tile-title>
+      </v-list-tile>
+
+      <v-list-tile @click="changeRoute('AdminSupplier', 6)">
+        <v-list-tile-action>
+          <v-icon>fas fa-truck</v-icon>
+        </v-list-tile-action>
+        <v-list-tile-title :class="[{'active': selectedIndex === 6}, 'item-title' ]">Supplier</v-list-tile-title>
+      </v-list-tile>
+
+      <v-list-tile @click="changeRoute('AdminSales', 7)">
+        <v-list-tile-action>
+          <v-icon>fas fa-user-tie</v-icon>
+        </v-list-tile-action>
+        <v-list-tile-title :class="[{'active': selectedIndex === 7}, 'item-title' ]">Sales</v-list-tile-title>
+      </v-list-tile>
+
+      <!-- <v-list-group
+          prepend-icon="pageview">
+          <v-list-tile slot="activator">
+            <v-list-tile-title class="item-title">Widgets</v-list-tile-title>
+          </v-list-tile>
+          <v-list-tile @click="changeRoute('Social', 4)">
+            <v-list-tile-action>
+              <v-icon>group</v-icon>
+            </v-list-tile-action>
+            <v-list-tile-title :class="[{'active': selectedIndex === 4}, 'item-title' ]">Social</v-list-tile-title>
+          </v-list-tile>
+          <v-list-tile @click="changeRoute('Chart', 5)">
+            <v-list-tile-action>
+              <v-icon>bar_chart</v-icon>
+            </v-list-tile-action>
+            <v-list-tile-title :class="[{'active': selectedIndex === 5}, 'item-title' ]">Charts</v-list-tile-title>
+          </v-list-tile>
+          <v-list-tile @click="changeRoute('Media', 6)">
+            <v-list-tile-action>
+              <v-icon>perm_media</v-icon>
+            </v-list-tile-action>
+            <v-list-tile-title :class="[{'active': selectedIndex === 6}, 'item-title' ]">Media</v-list-tile-title>
+          </v-list-tile>
+      </v-list-group>
+
+      <v-list-group
+          prepend-icon="select_all">
+          <v-list-tile slot="activator">
+            <v-list-tile-title class="item-title">Overlays</v-list-tile-title>
+          </v-list-tile>
+          <v-list-tile @click="changeRoute('Snackbar', 7)">
+            <v-list-tile-action>
+              <v-icon>event_note</v-icon>
+            </v-list-tile-action>
+            <v-list-tile-title :class="[{'active': selectedIndex === 7}, 'item-title' ]">Snackbar</v-list-tile-title>
+          </v-list-tile>
+      </v-list-group>
+
+      <v-list-group
+          prepend-icon="fingerprint">
+          <v-list-tile slot="activator">
+            <v-list-tile-title class="item-title">Authorization</v-list-tile-title>
+          </v-list-tile>
+
+          <v-list-tile @click="$router.push({ name: 'Error', params: { errorCode: '403' } })">
+            <v-list-tile-action>
+              <v-icon>cancel</v-icon>
+            </v-list-tile-action>
+            <v-list-tile-title class="item-title">403</v-list-tile-title>
+          </v-list-tile>
+
+          <v-list-tile @click="$router.push({ name: 'Error', params: { errorCode: '404' } })">
+            <v-list-tile-action>
+              <v-icon>cancel</v-icon>
+            </v-list-tile-action>
+            <v-list-tile-title class="item-title">404</v-list-tile-title>
+          </v-list-tile>
+
+          <v-list-tile @click="$router.push({ name: 'Error', params: { errorCode: '500' } })">
+            <v-list-tile-action>
+              <v-icon>cancel</v-icon>
+            </v-list-tile-action>
+            <v-list-tile-title class="item-title">500</v-list-tile-title>
+          </v-list-tile>
+
+          <v-list-tile @click="$router.push({ name: 'Login' })">
+            <v-list-tile-action>
+              <v-icon>cancel</v-icon>
+            </v-list-tile-action>
+            <v-list-tile-title class="item-title">Login</v-list-tile-title>
+          </v-list-tile>
+      </v-list-group> -->
+
+      <!-- <v-list-group
+        prepend-icon="account_circle">
+        <v-list-tile slot="activator">
+          <v-list-tile-title class="item-title">Users</v-list-tile-title>
+        </v-list-tile>
+            <v-list-tile
+              v-for="(admin, i) in admins"
+              :key="i"
+              @click="">
+              <v-list-tile-action>
+                <v-icon v-text="admin[1]"></v-icon>
+              </v-list-tile-action>
+              <v-list-tile-title v-text="admin[0]"></v-list-tile-title>
+            </v-list-tile>
+      </v-list-group> -->
+    </v-list>
+  </v-navigation-drawer>
+
+  <!-- content -->
+  <v-content>
+    <router-view/>
+  </v-content>
+  
+</div>
+</v-app>
+</template>
+
+
+<script>
+
+export default {
+  props: {
+    toggle: {
+        type: Boolean,
+        required: false,
+        default: true
+    }
+  },  
+  data() {
+    return {
+      rating: null,
+      dialog: false,
+      dialogSettings: false,
+      switchEmailNotification: true,
+      showPassword: null,
+      showPasswordConfirm: null,
+      userEmail: null,
+      password: null,
+      passwordConfirm: null,
+      error: false,
+      showResult: false,
+      result: '',
+      items: [
+        {
+          icon: 'account_circle',
+          href: '#',
+          title: 'Profile',
+          click: (e) => {
+          }
+        },
+        {
+          icon: 'settings',
+          href: '#',
+          title: 'Settings',
+          click: () => {
+            const vm = this;
+
+            vm.dialogSettings = true;
+          }
+        },
+        {
+          icon: 'exit_to_app',
+          href: '#',
+          title: 'Log Out',
+          click: () => {
+            const vm = this;
+
+            vm.$router.push({ name: 'Login' });
+          }
+        },
+        
+      ],
+      notifications:[
+        {
+          title: 'New mail from Adam Joe',
+          color: 'light-blue',
+          icon: 'email',
+          actionAt: '12 min ago',
+          isActive: true,
+          onClick: () => {
+            const vm = this;
+
+            vm.$router.push({ name: 'Mailbox' });
+          }
+        },
+        {
+          title: 'Scheculed meeting',
+          color: 'red',
+          icon: 'calendar_today',
+          actionAt: '46 min ago',
+          isActive: true,
+          onClick: () => {
+            const vm = this;
+
+            vm.$router.push({ name: 'Calendar' });
+          }
+        },
+        {
+          title: 'New mail from Github',
+          color: 'light-blue',
+          icon: 'email',
+          isActive: true,
+          timeLabel: '2 hour ago',
+          onClick: () => {
+            const vm = this;
+
+            vm.$router.push({ name: 'Mailbox' });
+          }
+        }
+      ],
+      selectedIndex: this.$route.meta.menu,
+      // admins: [
+      //   ['Management', 'people_outline'],
+      //   ['Settings', 'settings']
+      // ],
+      drawer: null,
+    }
+  },
+
+  methods: {
+    toggleNavigationBar() {
+      const vm = this;
+
+      vm.$emit('toggleNavigationBar');
+    },
+
+    setUpSettings() {
+      const vm = this;
+
+      if (vm.userEmail === null || vm.password === null || vm.passwordConfirm === null) {
+
+        vm.result = "Email and Password can't be null.";
+        vm.showResult = true;
+
+        return;
+      }
+
+      if (vm.password !== vm.passwordConfirm) {
+
+        vm.error = true;
+        vm.result = "Passwords does not match the confirm password.";
+        vm.showResult = true;
+
+        return;
+      }
+
+      vm.$root.userEmail = vm.userEmail;
+      vm.$root.userPassword = vm.password;
+
+      vm.result = "Email and password changed succesfully.";
+      vm.showResult = true;
+
+      vm.dialogSettings = false;
+    },
+
+    changeRoute(routeName, selectedIndex) {
+      const vm = this;
+
+      vm.selectedIndex = selectedIndex;
+
+      return vm.$router.push({ name: routeName });
+    }
+  }
+};
+</script>
