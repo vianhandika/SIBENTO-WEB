@@ -17,28 +17,28 @@
       <!-- Widgets Ends -->
       <!-- Statistics -->
         <v-flex d-flex lg4 sm6 xs12>
-            <site-view-statistic/>
+            <!-- <site-view-statistic/> -->
         </v-flex>
         <v-flex d-flex lg4 sm6 xs12>
-            <location-statistic/>
+            <!-- <location-statistic/> -->
         </v-flex>
         <v-flex d-flex lg4 sm6 xs12>
-            <total-earnings-statistic/>
+            <!-- <total-earnings-statistic/> -->
         </v-flex>
       <!-- Statistics Ends -->
       <!-- DataTable&TimeLine Starts -->
         <v-flex d-flex lg8 sm6 xs12>
-            <data-table/>
+            <!-- <data-table/> -->
         </v-flex>
         <v-flex d-flex lg4 sm6 xs12>
-            <time-line />
+            <!-- <time-line /> -->
         </v-flex>
       <!-- DataTable&TimeLine Ends -->
         <v-flex d-flex lg6 sm6 xs12>
-            <stepper/>
+            <!-- <stepper/> -->
         </v-flex>
         <v-flex d-flex lg6 sm6 xs12>
-            <user-tree-view />
+            <!-- <user-tree-view /> -->
         </v-flex>
     </v-layout>
   </v-container>

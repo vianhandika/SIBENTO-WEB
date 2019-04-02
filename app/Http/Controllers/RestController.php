@@ -53,4 +53,9 @@ abstract class RestController extends Controller
     {
         return response()->json($status, 500);
     }
+
+    protected function sendNotAuthorizeResponse($status)
+    {
+        return response()->json($status, 401);
+    }
 }

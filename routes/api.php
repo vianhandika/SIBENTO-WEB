@@ -19,6 +19,8 @@ use Illuminate\Http\Request;
 
 Route::resource ('user','UserController');
 Route::patch    ('user/changepassword/{id}' ,'UserController@changePassword');
+Route::post('/authenticate', 'SessionController@authenticate');
+Route::get('/session', 'SessionController@validateSession');
 
 
 Route::resource ('employee','EmployeeController');
@@ -30,6 +32,13 @@ Route::post ('/sparepart/updateimage','SparepartController@updateImage');
 Route::resource ('spareparttype','SparepartTypeController');
 Route::resource ('supplier','SupplierController');
 Route::resource ('sales','SalesController');
+Route::resource ('motorbrand','MotorcycleBrandController');
+Route::resource ('motortype','MotorcycleTypeController');
+Route::resource ('motorcustomer','MotorcycleCustomerController');
+Route::resource ('customer','CustomerController');
+
+
+
 
 
 

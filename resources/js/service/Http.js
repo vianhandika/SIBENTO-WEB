@@ -6,6 +6,7 @@ export default {
   },
 
   setHeader (token) {
+    // console.log(token)
     axios.defaults.headers.common['Authorization'] = 'Basic ' + btoa(token.username + ':' + token.password)
   },
 

@@ -41,7 +41,24 @@
           </v-flex>
 
         </v-toolbar>
-
+          <VCardText
+            v-if="loading || error"
+            class="text-xs-center"
+          >
+            <VAlert
+              v-if="error"
+              type="error"
+              dismissible
+              :value="true"
+            >
+              {{ error.message }}
+            </VAlert>
+            <VProgressCircular
+              :size="45"
+              indeterminate
+              class="loading-section"
+            />
+          </VCardText>
         <!-- Tabel -->
         <v-data-table
           :headers="headers"
@@ -112,6 +129,8 @@
         return this.editedIndex === -1 ? 'Add Employee' : 'Edit Employee'
       },
       ...mapState({
+        loading: state => state.User.loading,
+        error: state => state.User.error,
         users: state => state.User.users,
       }),
       initialize () {

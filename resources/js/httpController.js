@@ -151,6 +151,38 @@ export default {
 
             Http.get('/api/spareparttype', successCallback, errorCallback)
         })
+    },
+    getallmotortype(){
+        return new Promise((resolve, reject) => {
+            
+            const successCallback = (res) => {
+                const data = res.data
+                resolve(data.data)
+            }
+
+            const errorCallback = (err) => {
+                reject(err)
+    
+            }
+
+            Http.get('/api/motortype', successCallback, errorCallback)
+        })
+    },
+    getallmotorbrand(){
+        return new Promise((resolve, reject) => {
+            
+            const successCallback = (res) => {
+                const data = res.data
+                resolve(data.data)
+            }
+
+            const errorCallback = (err) => {
+                reject(err)
+    
+            }
+
+            Http.get('/api/motorbrand', successCallback, errorCallback)
+        })
     }
 
 

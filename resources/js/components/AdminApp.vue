@@ -5,7 +5,8 @@
   <v-toolbar 
     dark 
     app 
-    :color="$root.themeColor">
+    :color="$root.themeColor"
+    v-if="!isLoginPage">
     <v-toolbar-title>
       <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
     </v-toolbar-title>
@@ -159,154 +160,168 @@
 
   <!-- side menu -->
   <v-navigation-drawer
+
     v-model="drawer"
-    fixed app>
+    fixed app
+    v-if="!isLoginPage && panel !=null && selectedMenu">
     <v-toolbar flat dark :color="$root.themeColor" class="toolbar">
-      <router-link :to="{ name: 'Dashboard' }">
+      <router-link :to="{ name: 'AdminDashboard' }">
         <img src="http://localhost:8000/images/logo.png" width="36px">
       </router-link>
-      <router-link :to="{ name: 'Dashboard' }" class="text">
-         SIBENTO Admin Panel
+      <router-link :to="{ name: 'AdminDashboard' }" class="text">
+         {{panel.title}}
       </router-link>
     </v-toolbar>
     <v-list>
-      <v-list-tile @click="changeRoute('AdminDashboard', 1)">
+
+      <v-list-tile 
+        v-for="menu in panel.menu"
+        :key="menu.id"
+        @click="changeRoute(menu.route, menu.id)">
         <v-list-tile-action>
-          <v-icon>dashboard</v-icon>
+          <v-icon>{{menu.icon}}</v-icon>
         </v-list-tile-action>
-        <v-list-tile-title :class="[{'active': selectedIndex === 1}, 'item-title' ]" >Dashboard</v-list-tile-title>
+        <v-list-tile-title :class="[{'active': selectedIndex === menu.id}, 'item-title' ]" >{{menu.name}}</v-list-tile-title>
       </v-list-tile>
-
-      <v-list-tile @click="changeRoute('AdminEmployee', 2)">
-        <v-list-tile-action>
-          <v-icon>fas fa-users</v-icon>
-        </v-list-tile-action>
-        <v-list-tile-title :class="[{'active': selectedIndex === 2}, 'item-title' ]">Pegawai</v-list-tile-title>
-      </v-list-tile>
-
-      <v-list-tile @click="changeRoute('AdminUser', 3)">
-        <v-list-tile-action>
-          <v-icon>fas fa-user</v-icon>
-        </v-list-tile-action>
-        <v-list-tile-title :class="[{'active': selectedIndex === 3}, 'item-title' ]">Akun User</v-list-tile-title>
-      </v-list-tile>
-
-      <v-list-tile @click="changeRoute('AdminService', 4)">
-        <v-list-tile-action>
-          <v-icon>fas fa-wrench</v-icon>
-        </v-list-tile-action>
-        <v-list-tile-title :class="[{'active': selectedIndex === 4}, 'item-title' ]">Jasa Servis</v-list-tile-title>
-      </v-list-tile>
-      
-      <v-list-tile @click="changeRoute('AdminSparepart', 5)">
-        <v-list-tile-action>
-          <v-icon>fas fa-box-open</v-icon>
-        </v-list-tile-action>
-        <v-list-tile-title :class="[{'active': selectedIndex === 5}, 'item-title' ]">Sparepart</v-list-tile-title>
-      </v-list-tile>
-
-      <v-list-tile @click="changeRoute('AdminSupplier', 6)">
-        <v-list-tile-action>
-          <v-icon>fas fa-truck</v-icon>
-        </v-list-tile-action>
-        <v-list-tile-title :class="[{'active': selectedIndex === 6}, 'item-title' ]">Supplier</v-list-tile-title>
-      </v-list-tile>
-
-      <v-list-tile @click="changeRoute('AdminSales', 7)">
-        <v-list-tile-action>
-          <v-icon>fas fa-user-tie</v-icon>
-        </v-list-tile-action>
-        <v-list-tile-title :class="[{'active': selectedIndex === 7}, 'item-title' ]">Sales</v-list-tile-title>
-      </v-list-tile>
-
-      <!-- <v-list-group
-          prepend-icon="pageview">
-          <v-list-tile slot="activator">
-            <v-list-tile-title class="item-title">Widgets</v-list-tile-title>
-          </v-list-tile>
-          <v-list-tile @click="changeRoute('Social', 4)">
-            <v-list-tile-action>
-              <v-icon>group</v-icon>
-            </v-list-tile-action>
-            <v-list-tile-title :class="[{'active': selectedIndex === 4}, 'item-title' ]">Social</v-list-tile-title>
-          </v-list-tile>
-          <v-list-tile @click="changeRoute('Chart', 5)">
-            <v-list-tile-action>
-              <v-icon>bar_chart</v-icon>
-            </v-list-tile-action>
-            <v-list-tile-title :class="[{'active': selectedIndex === 5}, 'item-title' ]">Charts</v-list-tile-title>
-          </v-list-tile>
-          <v-list-tile @click="changeRoute('Media', 6)">
-            <v-list-tile-action>
-              <v-icon>perm_media</v-icon>
-            </v-list-tile-action>
-            <v-list-tile-title :class="[{'active': selectedIndex === 6}, 'item-title' ]">Media</v-list-tile-title>
-          </v-list-tile>
-      </v-list-group>
-
-      <v-list-group
-          prepend-icon="select_all">
-          <v-list-tile slot="activator">
-            <v-list-tile-title class="item-title">Overlays</v-list-tile-title>
-          </v-list-tile>
-          <v-list-tile @click="changeRoute('Snackbar', 7)">
-            <v-list-tile-action>
-              <v-icon>event_note</v-icon>
-            </v-list-tile-action>
-            <v-list-tile-title :class="[{'active': selectedIndex === 7}, 'item-title' ]">Snackbar</v-list-tile-title>
-          </v-list-tile>
-      </v-list-group>
-
-      <v-list-group
-          prepend-icon="fingerprint">
-          <v-list-tile slot="activator">
-            <v-list-tile-title class="item-title">Authorization</v-list-tile-title>
-          </v-list-tile>
-
-          <v-list-tile @click="$router.push({ name: 'Error', params: { errorCode: '403' } })">
-            <v-list-tile-action>
-              <v-icon>cancel</v-icon>
-            </v-list-tile-action>
-            <v-list-tile-title class="item-title">403</v-list-tile-title>
-          </v-list-tile>
-
-          <v-list-tile @click="$router.push({ name: 'Error', params: { errorCode: '404' } })">
-            <v-list-tile-action>
-              <v-icon>cancel</v-icon>
-            </v-list-tile-action>
-            <v-list-tile-title class="item-title">404</v-list-tile-title>
-          </v-list-tile>
-
-          <v-list-tile @click="$router.push({ name: 'Error', params: { errorCode: '500' } })">
-            <v-list-tile-action>
-              <v-icon>cancel</v-icon>
-            </v-list-tile-action>
-            <v-list-tile-title class="item-title">500</v-list-tile-title>
-          </v-list-tile>
-
-          <v-list-tile @click="$router.push({ name: 'Login' })">
-            <v-list-tile-action>
-              <v-icon>cancel</v-icon>
-            </v-list-tile-action>
-            <v-list-tile-title class="item-title">Login</v-list-tile-title>
-          </v-list-tile>
-      </v-list-group> -->
-
-      <!-- <v-list-group
-        prepend-icon="account_circle">
-        <v-list-tile slot="activator">
-          <v-list-tile-title class="item-title">Users</v-list-tile-title>
+      <!--------------------------------->
+        <!-- <v-list-tile @click="changeRoute('AdminDashboard', 1)">
+          <v-list-tile-action>
+            <v-icon>dashboard</v-icon>
+          </v-list-tile-action>
+          <v-list-tile-title :class="[{'active': selectedIndex === 1}, 'item-title' ]" >Dashboard</v-list-tile-title>
         </v-list-tile>
-            <v-list-tile
-              v-for="(admin, i) in admins"
-              :key="i"
-              @click="">
-              <v-list-tile-action>
-                <v-icon v-text="admin[1]"></v-icon>
-              </v-list-tile-action>
-              <v-list-tile-title v-text="admin[0]"></v-list-tile-title>
+
+        <v-list-tile @click="changeRoute('AdminEmployee', 2)">
+          <v-list-tile-action>
+            <v-icon>fas fa-users</v-icon>
+          </v-list-tile-action>
+          <v-list-tile-title :class="[{'active': selectedIndex === 2}, 'item-title' ]">Pegawai</v-list-tile-title>
+        </v-list-tile>
+
+        <v-list-tile @click="changeRoute('AdminUser', 3)">
+          <v-list-tile-action>
+            <v-icon>fas fa-user</v-icon>
+          </v-list-tile-action>
+          <v-list-tile-title :class="[{'active': selectedIndex === 3}, 'item-title' ]">Akun User</v-list-tile-title>
+        </v-list-tile>
+
+        <v-list-tile @click="changeRoute('AdminService', 4)">
+          <v-list-tile-action>
+            <v-icon>fas fa-wrench</v-icon>
+          </v-list-tile-action>
+          <v-list-tile-title :class="[{'active': selectedIndex === 4}, 'item-title' ]">Jasa Servis</v-list-tile-title>
+        </v-list-tile>
+        
+        <v-list-tile @click="changeRoute('AdminSparepart', 5)">
+          <v-list-tile-action>
+            <v-icon>fas fa-box-open</v-icon>
+          </v-list-tile-action>
+          <v-list-tile-title :class="[{'active': selectedIndex === 5}, 'item-title' ]">Sparepart</v-list-tile-title>
+        </v-list-tile>
+
+        <v-list-tile @click="changeRoute('AdminSupplier', 6)">
+          <v-list-tile-action>
+            <v-icon>fas fa-truck</v-icon>
+          </v-list-tile-action>
+          <v-list-tile-title :class="[{'active': selectedIndex === 6}, 'item-title' ]">Supplier</v-list-tile-title>
+        </v-list-tile>
+
+        <v-list-tile @click="changeRoute('AdminSales', 7)">
+          <v-list-tile-action>
+            <v-icon>fas fa-user-tie</v-icon>
+          </v-list-tile-action>
+          <v-list-tile-title :class="[{'active': selectedIndex === 7}, 'item-title' ]">Sales</v-list-tile-title>
+        </v-list-tile> -->
+
+        <!-- <v-list-group
+            prepend-icon="pageview">
+            <v-list-tile slot="activator">
+              <v-list-tile-title class="item-title">Widgets</v-list-tile-title>
             </v-list-tile>
-      </v-list-group> -->
+            <v-list-tile @click="changeRoute('Social', 4)">
+              <v-list-tile-action>
+                <v-icon>group</v-icon>
+              </v-list-tile-action>
+              <v-list-tile-title :class="[{'active': selectedIndex === 4}, 'item-title' ]">Social</v-list-tile-title>
+            </v-list-tile>
+            <v-list-tile @click="changeRoute('Chart', 5)">
+              <v-list-tile-action>
+                <v-icon>bar_chart</v-icon>
+              </v-list-tile-action>
+              <v-list-tile-title :class="[{'active': selectedIndex === 5}, 'item-title' ]">Charts</v-list-tile-title>
+            </v-list-tile>
+            <v-list-tile @click="changeRoute('Media', 6)">
+              <v-list-tile-action>
+                <v-icon>perm_media</v-icon>
+              </v-list-tile-action>
+              <v-list-tile-title :class="[{'active': selectedIndex === 6}, 'item-title' ]">Media</v-list-tile-title>
+            </v-list-tile>
+        </v-list-group>
+
+        <v-list-group
+            prepend-icon="select_all">
+            <v-list-tile slot="activator">
+              <v-list-tile-title class="item-title">Overlays</v-list-tile-title>
+            </v-list-tile>
+            <v-list-tile @click="changeRoute('Snackbar', 7)">
+              <v-list-tile-action>
+                <v-icon>event_note</v-icon>
+              </v-list-tile-action>
+              <v-list-tile-title :class="[{'active': selectedIndex === 7}, 'item-title' ]">Snackbar</v-list-tile-title>
+            </v-list-tile>
+        </v-list-group>
+
+        <v-list-group
+            prepend-icon="fingerprint">
+            <v-list-tile slot="activator">
+              <v-list-tile-title class="item-title">Authorization</v-list-tile-title>
+            </v-list-tile>
+
+            <v-list-tile @click="$router.push({ name: 'Error', params: { errorCode: '403' } })">
+              <v-list-tile-action>
+                <v-icon>cancel</v-icon>
+              </v-list-tile-action>
+              <v-list-tile-title class="item-title">403</v-list-tile-title>
+            </v-list-tile>
+
+            <v-list-tile @click="$router.push({ name: 'Error', params: { errorCode: '404' } })">
+              <v-list-tile-action>
+                <v-icon>cancel</v-icon>
+              </v-list-tile-action>
+              <v-list-tile-title class="item-title">404</v-list-tile-title>
+            </v-list-tile>
+
+            <v-list-tile @click="$router.push({ name: 'Error', params: { errorCode: '500' } })">
+              <v-list-tile-action>
+                <v-icon>cancel</v-icon>
+              </v-list-tile-action>
+              <v-list-tile-title class="item-title">500</v-list-tile-title>
+            </v-list-tile>
+
+            <v-list-tile @click="$router.push({ name: 'Login' })">
+              <v-list-tile-action>
+                <v-icon>cancel</v-icon>
+              </v-list-tile-action>
+              <v-list-tile-title class="item-title">Login</v-list-tile-title>
+            </v-list-tile>
+        </v-list-group> -->
+
+        <!-- <v-list-group
+          prepend-icon="account_circle">
+          <v-list-tile slot="activator">
+            <v-list-tile-title class="item-title">Users</v-list-tile-title>
+          </v-list-tile>
+              <v-list-tile
+                v-for="(admin, i) in admins"
+                :key="i"
+                @click="">
+                <v-list-tile-action>
+                  <v-icon v-text="admin[1]"></v-icon>
+                </v-list-tile-action>
+                <v-list-tile-title v-text="admin[0]"></v-list-tile-title>
+              </v-list-tile>
+        </v-list-group> -->
+
     </v-list>
   </v-navigation-drawer>
 
@@ -321,6 +336,8 @@
 
 
 <script>
+import { mapGetters } from 'vuex'
+import Auth from '../service/Auth'
 
 export default {
   props: {
@@ -329,6 +346,72 @@ export default {
         required: false,
         default: true
     }
+  },
+  created(){
+    // console.log('Created '+this.role)
+  },
+  beforeMount(){
+    // console.log('Before Mounted '+this.role)
+  },
+  mounted(){
+    // console.log('Mounted '+this.role)
+  },
+
+  computed: {
+      ...mapGetters({
+        name: 'LoggedUser/name',
+        username: 'LoggedUser/username',
+        role: 'LoggedUser/role'
+      }),
+
+      isLoginPage() {
+        return this.$route.meta.page === 'login'
+      },
+
+      panel () {
+        if(this.role!=null){
+          // console.log('Masuk Pak eko '+this.role )
+          switch (this.role) {
+            case 'Admin': 
+              return {
+                title:'SIBENTO Admin Panel',
+                menu:[
+                  { id: 1, route: 'AdminDashboard', icon: 'dashboard', text: 'Dashboard', name: 'Dashboard'},
+                  { id: 2, route: 'AdminEmployee', icon: 'fas fa-user-friends', text: 'Pegawai', name: 'Pegawai'},
+                  { id: 3, route: 'AdminUser', icon: 'fas fa-user', text: 'Akun User', name: 'Akun User'},
+                  { id: 4, route: 'AdminService', icon: 'fas fa-wrench', text: 'Jasa Service', name: 'Jasa Service'},
+                  { id: 5, route: 'AdminSparepart', icon: 'fas fa-box-open', text: 'Sparepart', name: 'Sparepart'},
+                  { id: 6, route: 'AdminSupplier', icon: 'fas fa-truck', text: 'Supplier', name: 'Supplier'},
+                  { id: 7, route: 'AdminSales', icon: 'fas fa-user-tie', text: 'Sales', name: 'Sales'},
+                  { id: 8, route: 'AdminCustomer', icon: 'fas fa-users', text: 'Pelanggan', name: 'Pelanggan'},
+                ]
+              }
+              break
+
+            case 'Customer Service': 
+              return {
+                title:'SIBENTO CS Panel',
+                menu:[
+                  { id: 1, route: 'AdminDashboard', icon: 'dashboard', text: 'Dashboard', name: 'Dashboard'},
+                ]
+              }
+              break
+
+            case 'Cashier': 
+              return {
+                title:'SIBENTO Chasier Panel',
+                menu:[
+                  { id: 1, route: 'AdminDashboard', icon: 'dashboard', text: 'Dashboard', name: 'Dashboard'},               
+                ]
+              }
+              break
+          }
+        }
+      },
+      selectedMenu(){
+        return this.selectedIndex= this.$route.meta.menu
+      }
+
   },  
   data() {
     return {
@@ -344,12 +427,14 @@ export default {
       error: false,
       showResult: false,
       result: '',
+      menu:'',
       items: [
         {
           icon: 'account_circle',
           href: '#',
           title: 'Profile',
           click: (e) => {
+
           }
         },
         {
@@ -367,9 +452,10 @@ export default {
           href: '#',
           title: 'Log Out',
           click: () => {
-            const vm = this;
+            // const vm = this;
 
-            vm.$router.push({ name: 'Login' });
+            // vm.$router.push({ name: 'Login' });
+            this.logoutHandler();
           }
         },
         
@@ -456,14 +542,17 @@ export default {
 
       vm.dialogSettings = false;
     },
-
+    logoutHandler() {
+        Auth.logout()
+        this.$router.push({ name: 'Login' })
+    },
     changeRoute(routeName, selectedIndex) {
       const vm = this;
 
       vm.selectedIndex = selectedIndex;
 
       return vm.$router.push({ name: routeName });
-    }
+    },
   }
 };
 </script>

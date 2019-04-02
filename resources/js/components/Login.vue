@@ -7,7 +7,7 @@
             <v-card class="elevation-1 pa-3">
               <v-card-text>
                 <div class="layout column align-center">
-                  <img src="images/logo.png" alt="SIBENTO Login Panel" width="180" height="180">
+                  <img src="http://localhost:8000/images/logo.png" alt="SIBENTO Login Panel" width="180" height="180">
                   <h1 class="flex my-4 primary--text">SIBENTO Login Panel</h1>
                 </div>
                 <v-form>
@@ -45,11 +45,16 @@
         top>
         {{ result }}
       </v-snackbar>
+      <!-- Alert -->
+      <v-snackbar right bottom :color="alert.type"  value="true" v-if="alert.type">
+        <v-icon>{{alert.icon}}</v-icon>{{alert.message}}
+      </v-snackbar>
     </v-content>
   </v-app>
 </template>
 
 <script>
+import auth from '../service/Auth'
 export default {
   data() {
     return {
@@ -60,6 +65,11 @@ export default {
       error: false,
       showResult: false,
       result: '',
+      alert:{
+        type: null,
+        message: null,
+        icon: null,
+      },
       rules: {
         required: value => !!value || 'Required.'
       }
@@ -67,26 +77,43 @@ export default {
   },
 
   methods: {
-    login() {
-      const vm = this;
+    async login() {
+        try {
+          const data= {
+            username : this.username,
+            password : this.password,
+          }
 
-      if (!vm.username || !vm.password) {
 
-        vm.result = "Email and Password can't be null.";
-        vm.showResult = true;
+          await auth.authenticate(data)
+          this.$router.push({ name: 'AdminDashboard' })
+        } catch (err) {
+           this.showAlert('error','Gagal Login, Username atau Password salah!')
+        }
+    },
+    showAlert (type,alert_message) {
 
-        return;
+        if(type == 'success'){
+          this.alert.icon = 'fas fa-check-circle'
+        }
+        else if(type == 'error'){
+          this.alert.icon = 'fas fa-exclamation-circle'
+        }
+
+        this.alert.type = type
+        this.alert.message = alert_message
+        
+        let timer = this.showAlert.timer
+        if (timer) {
+          clearTimeout(timer)
+        }
+        this.showAlert.timer = setTimeout(() => {
+            this.alert.type = null
+            this.alert.icon = null
+            this.alert.message = null
+        }, 3000)
+        
       }
-
-      if (vm.username === vm.$root.username && vm.password === vm.$root.userPassword) {
-        vm.$router.push({ name: 'Dashboard' });
-      }
-      else {
-        vm.error = true;
-        vm.result = "Email or Password is incorrect.";
-        vm.showResult = true;
-      }
-    }
   }
 }
 </script>

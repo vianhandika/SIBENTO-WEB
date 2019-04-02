@@ -1766,6 +1766,1094 @@ module.exports = {
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Admin/AdminCustomer.vue?vue&type=script&lang=js&":
+/*!******************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Admin/AdminCustomer.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _httpController__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../httpController */ "./resources/js/httpController.js");
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var _service_Customer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../service/Customer */ "./resources/js/service/Customer.js");
+/* harmony import */ var _service_MotorCustomer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../service/MotorCustomer */ "./resources/js/service/MotorCustomer.js");
+/* harmony import */ var vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! vuelidate/lib/validators */ "./node_modules/vuelidate/lib/validators/index.js");
+/* harmony import */ var vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_5__);
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  validations: {
+    editedItem: {
+      name: {
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_5__["required"],
+        maxLength: Object(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_5__["maxLength"])(25)
+      },
+      phone_number: {
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_5__["required"],
+        numeric: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_5__["numeric"],
+        maxLength: Object(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_5__["maxLength"])(12)
+      },
+      address: {
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_5__["required"],
+        maxLength: Object(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_5__["maxLength"])(100)
+      }
+    },
+    editedMotor: {
+      plate: {
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_5__["required"],
+        maxLength: Object(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_5__["maxLength"])(12)
+      },
+      brand: {
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_5__["required"]
+      },
+      type: {
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_5__["required"]
+      }
+    }
+  },
+  data: function data() {
+    return {
+      dialog: false,
+      delDialog: false,
+      motorDialog: false,
+      search: '',
+      i: 0,
+      headers: [{
+        text: 'No',
+        align: 'left',
+        sortable: false
+      }, {
+        text: 'Nama Pelanggan',
+        align: 'left',
+        value: 'name'
+      }, {
+        text: 'Nomor Telepon',
+        align: 'center',
+        value: 'phone_number',
+        sortable: false
+      }, {
+        text: 'Alamat',
+        align: 'center',
+        value: 'address',
+        sortable: false
+      }, {
+        text: 'Motor',
+        align: 'center',
+        sortable: false
+      }, {
+        text: 'Actions',
+        align: 'center',
+        sortable: false
+      }],
+      motorheaders: [{
+        text: 'Nomor Plat',
+        align: 'left',
+        value: 'plate'
+      }, {
+        text: 'Brand',
+        align: 'center',
+        value: 'brand',
+        sortable: false
+      }, {
+        text: 'Tipe',
+        align: 'center',
+        value: 'tipe',
+        sortable: false
+      }, {
+        text: 'Actions',
+        align: 'center',
+        sortable: false
+      }],
+      customerData: [],
+      motorData: [],
+      motorCustomer: [],
+      addmotor: false,
+      dropdown_brand: [],
+      selectedMotor: {
+        id: '',
+        plate: '',
+        brand: '',
+        type: ''
+      },
+      dropdown_type: [],
+      editedIndex: -1,
+      editedMotor: {
+        id: '',
+        plate: '',
+        brand: '',
+        type: ''
+      },
+      addedMotor: {
+        id: '',
+        plate: '',
+        brand: '',
+        type: ''
+      },
+      defaultdMotor: {
+        id: '',
+        plate: '',
+        brand: '',
+        type: ''
+      },
+      selectedCustomer: {
+        name: '',
+        phone_number: '',
+        address: ''
+      },
+      editedItem: {
+        name: '',
+        phone_number: '',
+        address: ''
+      },
+      defaultItem: {
+        name: '',
+        phone_number: '',
+        address: ''
+      },
+      alert: {
+        type: null,
+        message: null,
+        icon: null // elapse: null
+
+      }
+    };
+  },
+  computed: _objectSpread({
+    formTitle: function formTitle() {
+      return this.editedIndex === -1 ? 'Tambah Pelanggan' : 'Edit Pelanggan';
+    }
+  }, Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapState"])({
+    loading: function loading(state) {
+      return state.Customer.loading;
+    },
+    error: function error(state) {
+      return state.Customer.error;
+    },
+    customers: function customers(state) {
+      return state.Customer.customers;
+    },
+    motorcustomers: function motorcustomers(state) {
+      return state.MotorCustomer.motorcustomers;
+    }
+  }), {
+    typefilter: function typefilter() {
+      var _this = this;
+
+      // console.log(this.editedMotor.brand)
+      var type = this.dropdown_type.filter(function (obj) {
+        return obj.brand.name === _this.editedMotor.brand;
+      });
+      return type;
+    },
+    initcustomer: function initcustomer() {
+      this.customerData = this.customers;
+      return this.customerData;
+    },
+    initmotorcustomer: function initmotorcustomer() {
+      var _this2 = this;
+
+      this.motorCustomer = this.motorcustomers.filter(function (obj) {
+        return obj.customer.id == _this2.selectedCustomer.id;
+      });
+      return this.motorCustomer;
+    },
+    //VALIDATION ERROR
+    nameErrors: function nameErrors() {
+      var errors = [];
+      if (!this.$v.editedItem.name.$dirty) return errors;
+      !this.$v.editedItem.name.maxLength && errors.push('Name tidak lebih dari 25 karakter.');
+      !this.$v.editedItem.name.required && errors.push('Name diperlukan.');
+      return errors;
+    },
+    phoneErrors: function phoneErrors() {
+      var errors = [];
+      if (!this.$v.editedItem.phone_number.$dirty) return errors;
+      !this.$v.editedItem.phone_number.maxLength && errors.push('Nomor Telepon tidak lebih dari 12 karakter.');
+      !this.$v.editedItem.phone_number.numeric && errors.push('Nomor Telepo harus numerik.');
+      !this.$v.editedItem.phone_number.required && errors.push('Nomor Telepon diperlukan.');
+      return errors;
+    },
+    addressErrors: function addressErrors() {
+      var errors = [];
+      if (!this.$v.editedItem.address.$dirty) return errors;
+      !this.$v.editedItem.address.maxLength && errors.push('Alamat tidak lebih dari 100 karakter.');
+      !this.$v.editedItem.address.required && errors.push('Alamat diperlukan.');
+      return errors;
+    },
+    plateErrors: function plateErrors() {
+      var errors = [];
+      if (!this.$v.editedMotor.plate.$dirty) return errors;
+      !this.$v.editedMotor.plate.maxLength && errors.push('Plat tidak lebih dari 12 karakter.');
+      !this.$v.editedMotor.plate.required && errors.push('Plat diperlukan.');
+      return errors;
+    },
+    brandErrors: function brandErrors() {
+      var errors = [];
+      if (!this.$v.editedMotor.brand.$dirty) return errors;
+      !this.$v.editedMotor.brand.required && errors.push('Brand diperlukan.');
+      return errors;
+    },
+    typeErrors: function typeErrors() {
+      var errors = [];
+      if (!this.$v.editedMotor.type.$dirty) return errors;
+      !this.$v.editedMotor.type.required && errors.push('Type diperlukan.');
+      return errors;
+    }
+  }),
+  watch: {
+    dialog: function dialog(val) {
+      val || this.close();
+    },
+    delDialog: function delDialog(val) {
+      val || this.close();
+    },
+    motorDialog: function motorDialog(val) {
+      val || this.close();
+    }
+  },
+  created: function created() {// this.loaddata ()
+    // this.showAlert('error','Failed Update Customer');
+    //  console.log(this.dropdown_role);
+    // this.topayload()
+  },
+  mounted: function mounted() {
+    this.getCustomer();
+    this.getMotorCustomer();
+    this.getMotorBrand();
+    this.getMotorType(); // this.initialize()
+  },
+  methods: _objectSpread({
+    initialize: function initialize() {},
+    getMotorType: function () {
+      var _getMotorType = _asyncToGenerator(
+      /*#__PURE__*/
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.prev = 0;
+                _context.next = 3;
+                return _httpController__WEBPACK_IMPORTED_MODULE_1__["default"].getallmotortype();
+
+              case 3:
+                this.dropdown_type = _context.sent;
+                _context.next = 9;
+                break;
+
+              case 6:
+                _context.prev = 6;
+                _context.t0 = _context["catch"](0);
+                console.log(_context.t0);
+
+              case 9:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, this, [[0, 6]]);
+      }));
+
+      function getMotorType() {
+        return _getMotorType.apply(this, arguments);
+      }
+
+      return getMotorType;
+    }(),
+    getMotorBrand: function () {
+      var _getMotorBrand = _asyncToGenerator(
+      /*#__PURE__*/
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                _context2.prev = 0;
+                _context2.next = 3;
+                return _httpController__WEBPACK_IMPORTED_MODULE_1__["default"].getallmotorbrand();
+
+              case 3:
+                this.dropdown_brand = _context2.sent;
+                _context2.next = 9;
+                break;
+
+              case 6:
+                _context2.prev = 6;
+                _context2.t0 = _context2["catch"](0);
+                console.log(_context2.t0);
+
+              case 9:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2, this, [[0, 6]]);
+      }));
+
+      function getMotorBrand() {
+        return _getMotorBrand.apply(this, arguments);
+      }
+
+      return getMotorBrand;
+    }()
+  }, Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapActions"])({
+    getCustomer: 'Customer/get',
+    getMotorCustomer: 'MotorCustomer/get',
+    storeCustomer: 'Customer/store',
+    storeMotorcycle: 'MotorCustomer/store',
+    deleteCustomer: 'Customer/delete',
+    deleteMotorcycle: 'MotorCustomer/delete',
+    updateCustomer: 'Customer/update',
+    updateMotorcycle: 'MotorCustomer/update'
+  }), {
+    filtertype: function filtertype(brand) {
+      var _this3 = this;
+
+      this.dropdown_type = this.dropdown_type.filter(function (obj) {
+        return obj.brand.name === _this3.editedMotor.brand;
+      });
+      return this.dropdown_type;
+    },
+    addcustomer: function () {
+      var _addcustomer = _asyncToGenerator(
+      /*#__PURE__*/
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3() {
+        var data;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
+          while (1) {
+            switch (_context3.prev = _context3.next) {
+              case 0:
+                _context3.prev = 0;
+                data = {
+                  name_customer: this.editedItem.name,
+                  address_customer: this.editedItem.phone_number,
+                  phone_number_customer: this.editedItem.address
+                };
+                console.log(data);
+                _context3.next = 5;
+                return this.storeCustomer(data);
+
+              case 5:
+                this.customerData.push(this.editedItem);
+                this.getCustomer();
+                this.close();
+                this.showAlert('success', 'Success Add Customer');
+                _context3.next = 15;
+                break;
+
+              case 11:
+                _context3.prev = 11;
+                _context3.t0 = _context3["catch"](0);
+                console.log(_context3.t0);
+                this.showAlert('error', 'Failed Add Customer');
+
+              case 15:
+              case "end":
+                return _context3.stop();
+            }
+          }
+        }, _callee3, this, [[0, 11]]);
+      }));
+
+      function addcustomer() {
+        return _addcustomer.apply(this, arguments);
+      }
+
+      return addcustomer;
+    }(),
+    addmotorcycle: function () {
+      var _addmotorcycle = _asyncToGenerator(
+      /*#__PURE__*/
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4() {
+        var _this4 = this;
+
+        var data;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee4$(_context4) {
+          while (1) {
+            switch (_context4.prev = _context4.next) {
+              case 0:
+                _context4.prev = 0;
+                // console.log(this.editedMotor)
+                data = {
+                  plate_number: this.editedMotor.plate,
+                  id_motorcycle_type: this.dropdown_type.find(function (obj) {
+                    return obj.name == _this4.editedMotor.type;
+                  }).id,
+                  id_customer: this.selectedCustomer.id
+                };
+                console.log(data);
+                _context4.next = 5;
+                return this.storeMotorcycle(data);
+
+              case 5:
+                this.getCustomer();
+                this.getMotorCustomer();
+                this.motorAddClose();
+                this.showAlert('success', 'Berhasil Menambahkan Motor');
+                _context4.next = 15;
+                break;
+
+              case 11:
+                _context4.prev = 11;
+                _context4.t0 = _context4["catch"](0);
+                console.log(_context4.t0);
+                this.showAlert('error', 'Gagal Menambahkan Motor');
+
+              case 15:
+              case "end":
+                return _context4.stop();
+            }
+          }
+        }, _callee4, this, [[0, 11]]);
+      }));
+
+      function addmotorcycle() {
+        return _addmotorcycle.apply(this, arguments);
+      }
+
+      return addmotorcycle;
+    }(),
+    updatecustomer: function () {
+      var _updatecustomer = _asyncToGenerator(
+      /*#__PURE__*/
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee5() {
+        var data;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee5$(_context5) {
+          while (1) {
+            switch (_context5.prev = _context5.next) {
+              case 0:
+                _context5.prev = 0;
+                data = {
+                  id_customer: this.customerData[this.editedIndex].id,
+                  name_customer: this.editedItem.name,
+                  phone_number: this.editedItem.phone_number,
+                  address_customer: this.editedItem.address
+                };
+                _context5.next = 4;
+                return this.updateCustomer(data);
+
+              case 4:
+                Object.assign(this.customerData[this.editedIndex], this.editedItem);
+                this.getCustomer();
+                this.close();
+                this.showAlert('success', 'Success Update Customer');
+                _context5.next = 14;
+                break;
+
+              case 10:
+                _context5.prev = 10;
+                _context5.t0 = _context5["catch"](0);
+                console.log(_context5.t0);
+                this.showAlert('error', 'Failed Update Customer');
+
+              case 14:
+              case "end":
+                return _context5.stop();
+            }
+          }
+        }, _callee5, this, [[0, 10]]);
+      }));
+
+      function updatecustomer() {
+        return _updatecustomer.apply(this, arguments);
+      }
+
+      return updatecustomer;
+    }(),
+    updatemotorcycle: function () {
+      var _updatemotorcycle = _asyncToGenerator(
+      /*#__PURE__*/
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee6() {
+        var _this5 = this;
+
+        var data;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee6$(_context6) {
+          while (1) {
+            switch (_context6.prev = _context6.next) {
+              case 0:
+                _context6.prev = 0;
+                data = {
+                  id_motorcycle: this.selectedMotor.id,
+                  plate_number: this.editedMotor.plate,
+                  id_motorcycle_type: this.dropdown_type.find(function (obj) {
+                    return obj.name == _this5.editedMotor.type;
+                  }).id,
+                  id_customer: this.selectedCustomer.id // console.log(data)
+
+                };
+                _context6.next = 4;
+                return this.updateMotorcycle(data);
+
+              case 4:
+                Object.assign(this.customerData[this.editedIndex], this.editedItem);
+                this.getCustomer();
+                this.getMotorCustomer();
+                this.motorEditClose();
+                this.showAlert('success', 'Success Update Customer');
+                _context6.next = 15;
+                break;
+
+              case 11:
+                _context6.prev = 11;
+                _context6.t0 = _context6["catch"](0);
+                console.log(_context6.t0);
+                this.showAlert('error', 'Failed Update Customer');
+
+              case 15:
+              case "end":
+                return _context6.stop();
+            }
+          }
+        }, _callee6, this, [[0, 11]]);
+      }));
+
+      function updatemotorcycle() {
+        return _updatemotorcycle.apply(this, arguments);
+      }
+
+      return updatemotorcycle;
+    }(),
+    deletecustomer: function () {
+      var _deletecustomer = _asyncToGenerator(
+      /*#__PURE__*/
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee7() {
+        var id_customer;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee7$(_context7) {
+          while (1) {
+            switch (_context7.prev = _context7.next) {
+              case 0:
+                _context7.prev = 0;
+                id_customer = this.customerData[this.editedIndex].id;
+                _context7.next = 4;
+                return this.deleteCustomer(id_customer);
+
+              case 4:
+                this.getCustomer();
+                this.close();
+                this.showAlert('success', 'Success Delete Customer');
+                _context7.next = 13;
+                break;
+
+              case 9:
+                _context7.prev = 9;
+                _context7.t0 = _context7["catch"](0);
+                console.log(_context7.t0);
+                this.showAlert('error', 'Failed Delete Customer');
+
+              case 13:
+              case "end":
+                return _context7.stop();
+            }
+          }
+        }, _callee7, this, [[0, 9]]);
+      }));
+
+      function deletecustomer() {
+        return _deletecustomer.apply(this, arguments);
+      }
+
+      return deletecustomer;
+    }(),
+    deletemotorcycle: function () {
+      var _deletemotorcycle = _asyncToGenerator(
+      /*#__PURE__*/
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee8() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee8$(_context8) {
+          while (1) {
+            switch (_context8.prev = _context8.next) {
+              case 0:
+                _context8.prev = 0;
+                _context8.next = 3;
+                return this.deleteMotorcycle(this.editedItem.id);
+
+              case 3:
+                this.getCustomer();
+                this.getMotorCustomer();
+                this.editedItem = Object.assign({}, this.defaultdMotor);
+                this.showAlert('success', 'Berhasil Menghapus Motor');
+                _context8.next = 13;
+                break;
+
+              case 9:
+                _context8.prev = 9;
+                _context8.t0 = _context8["catch"](0);
+                console.log(_context8.t0);
+                this.showAlert('error', 'Gagal Menghapus Motor');
+
+              case 13:
+              case "end":
+                return _context8.stop();
+            }
+          }
+        }, _callee8, this, [[0, 9]]);
+      }));
+
+      function deletemotorcycle() {
+        return _deletemotorcycle.apply(this, arguments);
+      }
+
+      return deletemotorcycle;
+    }(),
+    editItem: function editItem(item) {
+      this.editedIndex = this.customerData.indexOf(item);
+      this.editedItem = Object.assign({}, item);
+      this.dialog = true;
+    },
+    motorDelete: function motorDelete(item) {
+      this.editedItem = item;
+      this.deletemotorcycle();
+    },
+    motorEdit: function motorEdit(item) {
+      this.addmotor = false;
+      this.editedMotor = item;
+      this.selectedMotor = item;
+      this.editedIndex = this.motorCustomer.indexOf(item);
+    },
+    motorEditClose: function motorEditClose() {
+      this.editedMotor = Object.assign({}, this.defaultdMotor);
+      this.selectedMotor = Object.assign({}, this.defaultdMotor);
+      this.editedIndex = -1;
+    },
+    motorAdd: function motorAdd() {
+      this.addmotor = true;
+      this.editedMotor = Object.assign({}, this.defaultdMotor);
+      this.selectedMotor = Object.assign({}, this.defaultdMotor);
+      this.editedIndex = -1;
+    },
+    motorAddClose: function motorAddClose() {
+      this.addmotor = false;
+      this.editedMotor = Object.assign({}, this.defaultdMotor);
+      this.selectedMotor = Object.assign({}, this.defaultdMotor);
+      this.editedIndex = -1;
+    },
+    deleteItem: function deleteItem(item) {
+      this.delDialog = true;
+      this.editedIndex = this.customerData.indexOf(item);
+    },
+    close: function close() {
+      var _this6 = this;
+
+      this.dialog = false;
+      this.delDialog = false;
+      this.motorDialog = false;
+      setTimeout(function () {
+        _this6.editedItem = Object.assign({}, _this6.defaultItem);
+        _this6.editedMotor = Object.assign({}, _this6.defaultdMotor);
+        _this6.selectedMotor = Object.assign({}, _this6.defaultdMotor);
+        _this6.selectedCustomer = Object.assign({}, _this6.defaultItem);
+        _this6.editedIndex = -1;
+        _this6.addmotor = false;
+
+        _this6.$v.$reset();
+      }, 300);
+    },
+    save: function save() {
+      if (this.editedIndex > -1) {
+        Object.assign(this.customerData[this.editedIndex], this.editedItem);
+      } else {
+        this.customerData.push(this.editedItem);
+      }
+
+      this.close();
+    },
+    showMotor: function showMotor(item) {
+      this.motorDialog = true;
+      this.selectedCustomer = item; // this.motorCustomer = this.motorData.filter(obj => obj.customer.id == item.id);
+
+      this.motorCustomer = item.motorcycle.data;
+    },
+    showAlert: function showAlert(type, alert_message) {
+      var _this7 = this;
+
+      if (type == 'success') {
+        this.alert.icon = 'fas fa-check-circle';
+      } else if (type == 'error') {
+        this.alert.icon = 'fas fa-exclamation-circle';
+      }
+
+      this.alert.type = type;
+      this.alert.message = alert_message;
+      var timer = this.showAlert.timer;
+
+      if (timer) {
+        clearTimeout(timer);
+      }
+
+      this.showAlert.timer = setTimeout(function () {
+        _this7.alert.type = null;
+        _this7.alert.icon = null;
+        _this7.alert.message = null;
+      }, 3000);
+    }
+  })
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Admin/AdminEmployee.vue?vue&type=script&lang=js&":
 /*!******************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Admin/AdminEmployee.vue?vue&type=script&lang=js& ***!
@@ -1794,6 +2882,23 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -2669,6 +3774,23 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -3197,6 +4319,23 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -3519,6 +4658,23 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -4676,6 +5832,23 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -5143,6 +6316,23 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -5194,6 +6384,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       return this.editedIndex === -1 ? 'Add Employee' : 'Edit Employee';
     }
   }, Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapState"])({
+    loading: function loading(state) {
+      return state.User.loading;
+    },
+    error: function error(state) {
+      return state.User.error;
+    },
     users: function users(state) {
       return state.User.users;
     }
@@ -5361,6 +6557,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var _service_Auth__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../service/Auth */ "./resources/js/service/Auth.js");
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 //
 //
 //
@@ -5683,6 +6885,23 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     toggle: {
@@ -5691,6 +6910,111 @@ __webpack_require__.r(__webpack_exports__);
       default: true
     }
   },
+  created: function created() {// console.log('Created '+this.role)
+  },
+  beforeMount: function beforeMount() {// console.log('Before Mounted '+this.role)
+  },
+  mounted: function mounted() {// console.log('Mounted '+this.role)
+  },
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])({
+    name: 'LoggedUser/name',
+    username: 'LoggedUser/username',
+    role: 'LoggedUser/role'
+  }), {
+    isLoginPage: function isLoginPage() {
+      return this.$route.meta.page === 'login';
+    },
+    panel: function panel() {
+      if (this.role != null) {
+        // console.log('Masuk Pak eko '+this.role )
+        switch (this.role) {
+          case 'Admin':
+            return {
+              title: 'SIBENTO Admin Panel',
+              menu: [{
+                id: 1,
+                route: 'AdminDashboard',
+                icon: 'dashboard',
+                text: 'Dashboard',
+                name: 'Dashboard'
+              }, {
+                id: 2,
+                route: 'AdminEmployee',
+                icon: 'fas fa-user-friends',
+                text: 'Pegawai',
+                name: 'Pegawai'
+              }, {
+                id: 3,
+                route: 'AdminUser',
+                icon: 'fas fa-user',
+                text: 'Akun User',
+                name: 'Akun User'
+              }, {
+                id: 4,
+                route: 'AdminService',
+                icon: 'fas fa-wrench',
+                text: 'Jasa Service',
+                name: 'Jasa Service'
+              }, {
+                id: 5,
+                route: 'AdminSparepart',
+                icon: 'fas fa-box-open',
+                text: 'Sparepart',
+                name: 'Sparepart'
+              }, {
+                id: 6,
+                route: 'AdminSupplier',
+                icon: 'fas fa-truck',
+                text: 'Supplier',
+                name: 'Supplier'
+              }, {
+                id: 7,
+                route: 'AdminSales',
+                icon: 'fas fa-user-tie',
+                text: 'Sales',
+                name: 'Sales'
+              }, {
+                id: 8,
+                route: 'AdminCustomer',
+                icon: 'fas fa-users',
+                text: 'Pelanggan',
+                name: 'Pelanggan'
+              }]
+            };
+            break;
+
+          case 'Customer Service':
+            return {
+              title: 'SIBENTO CS Panel',
+              menu: [{
+                id: 1,
+                route: 'AdminDashboard',
+                icon: 'dashboard',
+                text: 'Dashboard',
+                name: 'Dashboard'
+              }]
+            };
+            break;
+
+          case 'Cashier':
+            return {
+              title: 'SIBENTO Chasier Panel',
+              menu: [{
+                id: 1,
+                route: 'AdminDashboard',
+                icon: 'dashboard',
+                text: 'Dashboard',
+                name: 'Dashboard'
+              }]
+            };
+            break;
+        }
+      }
+    },
+    selectedMenu: function selectedMenu() {
+      return this.selectedIndex = this.$route.meta.menu;
+    }
+  }),
   data: function data() {
     var _this = this;
 
@@ -5707,6 +7031,7 @@ __webpack_require__.r(__webpack_exports__);
       error: false,
       showResult: false,
       result: '',
+      menu: '',
       items: [{
         icon: 'account_circle',
         href: '#',
@@ -5725,10 +7050,9 @@ __webpack_require__.r(__webpack_exports__);
         href: '#',
         title: 'Log Out',
         click: function click() {
-          var vm = _this;
-          vm.$router.push({
-            name: 'Login'
-          });
+          // const vm = this;
+          // vm.$router.push({ name: 'Login' });
+          _this.logoutHandler();
         }
       }],
       notifications: [{
@@ -5803,6 +7127,12 @@ __webpack_require__.r(__webpack_exports__);
       vm.showResult = true;
       vm.dialogSettings = false;
     },
+    logoutHandler: function logoutHandler() {
+      _service_Auth__WEBPACK_IMPORTED_MODULE_1__["default"].logout();
+      this.$router.push({
+        name: 'Login'
+      });
+    },
     changeRoute: function changeRoute(routeName, selectedIndex) {
       var vm = this;
       vm.selectedIndex = selectedIndex;
@@ -5857,6 +7187,15 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _service_Auth__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../service/Auth */ "./resources/js/service/Auth.js");
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
 //
 //
 //
@@ -5908,6 +7247,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -5918,6 +7262,11 @@ __webpack_require__.r(__webpack_exports__);
       error: false,
       showResult: false,
       result: '',
+      alert: {
+        type: null,
+        message: null,
+        icon: null
+      },
       rules: {
         required: function required(value) {
           return !!value || 'Required.';
@@ -5926,24 +7275,71 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   methods: {
-    login: function login() {
-      var vm = this;
+    login: function () {
+      var _login = _asyncToGenerator(
+      /*#__PURE__*/
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+        var data;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.prev = 0;
+                data = {
+                  username: this.username,
+                  password: this.password
+                };
+                _context.next = 4;
+                return _service_Auth__WEBPACK_IMPORTED_MODULE_1__["default"].authenticate(data);
 
-      if (!vm.username || !vm.password) {
-        vm.result = "Email and Password can't be null.";
-        vm.showResult = true;
-        return;
+              case 4:
+                this.$router.push({
+                  name: 'AdminDashboard'
+                });
+                _context.next = 10;
+                break;
+
+              case 7:
+                _context.prev = 7;
+                _context.t0 = _context["catch"](0);
+                this.showAlert('error', 'Gagal Login, Username atau Password salah!');
+
+              case 10:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, this, [[0, 7]]);
+      }));
+
+      function login() {
+        return _login.apply(this, arguments);
       }
 
-      if (vm.username === vm.$root.username && vm.password === vm.$root.userPassword) {
-        vm.$router.push({
-          name: 'Dashboard'
-        });
-      } else {
-        vm.error = true;
-        vm.result = "Email or Password is incorrect.";
-        vm.showResult = true;
+      return login;
+    }(),
+    showAlert: function showAlert(type, alert_message) {
+      var _this = this;
+
+      if (type == 'success') {
+        this.alert.icon = 'fas fa-check-circle';
+      } else if (type == 'error') {
+        this.alert.icon = 'fas fa-exclamation-circle';
       }
+
+      this.alert.type = type;
+      this.alert.message = alert_message;
+      var timer = this.showAlert.timer;
+
+      if (timer) {
+        clearTimeout(timer);
+      }
+
+      this.showAlert.timer = setTimeout(function () {
+        _this.alert.type = null;
+        _this.alert.icon = null;
+        _this.alert.message = null;
+      }, 3000);
     }
   }
 });
@@ -6345,6 +7741,186 @@ function isBuffer (obj) {
 function isSlowBuffer (obj) {
   return typeof obj.readFloatLE === 'function' && typeof obj.slice === 'function' && isBuffer(obj.slice(0, 0))
 }
+
+
+/***/ }),
+
+/***/ "./node_modules/js-cookie/src/js.cookie.js":
+/*!*************************************************!*\
+  !*** ./node_modules/js-cookie/src/js.cookie.js ***!
+  \*************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
+ * JavaScript Cookie v2.2.0
+ * https://github.com/js-cookie/js-cookie
+ *
+ * Copyright 2006, 2015 Klaus Hartl & Fagner Brack
+ * Released under the MIT license
+ */
+;(function (factory) {
+	var registeredInModuleLoader = false;
+	if (true) {
+		!(__WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.call(exports, __webpack_require__, exports, module)) :
+				__WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+		registeredInModuleLoader = true;
+	}
+	if (true) {
+		module.exports = factory();
+		registeredInModuleLoader = true;
+	}
+	if (!registeredInModuleLoader) {
+		var OldCookies = window.Cookies;
+		var api = window.Cookies = factory();
+		api.noConflict = function () {
+			window.Cookies = OldCookies;
+			return api;
+		};
+	}
+}(function () {
+	function extend () {
+		var i = 0;
+		var result = {};
+		for (; i < arguments.length; i++) {
+			var attributes = arguments[ i ];
+			for (var key in attributes) {
+				result[key] = attributes[key];
+			}
+		}
+		return result;
+	}
+
+	function init (converter) {
+		function api (key, value, attributes) {
+			var result;
+			if (typeof document === 'undefined') {
+				return;
+			}
+
+			// Write
+
+			if (arguments.length > 1) {
+				attributes = extend({
+					path: '/'
+				}, api.defaults, attributes);
+
+				if (typeof attributes.expires === 'number') {
+					var expires = new Date();
+					expires.setMilliseconds(expires.getMilliseconds() + attributes.expires * 864e+5);
+					attributes.expires = expires;
+				}
+
+				// We're using "expires" because "max-age" is not supported by IE
+				attributes.expires = attributes.expires ? attributes.expires.toUTCString() : '';
+
+				try {
+					result = JSON.stringify(value);
+					if (/^[\{\[]/.test(result)) {
+						value = result;
+					}
+				} catch (e) {}
+
+				if (!converter.write) {
+					value = encodeURIComponent(String(value))
+						.replace(/%(23|24|26|2B|3A|3C|3E|3D|2F|3F|40|5B|5D|5E|60|7B|7D|7C)/g, decodeURIComponent);
+				} else {
+					value = converter.write(value, key);
+				}
+
+				key = encodeURIComponent(String(key));
+				key = key.replace(/%(23|24|26|2B|5E|60|7C)/g, decodeURIComponent);
+				key = key.replace(/[\(\)]/g, escape);
+
+				var stringifiedAttributes = '';
+
+				for (var attributeName in attributes) {
+					if (!attributes[attributeName]) {
+						continue;
+					}
+					stringifiedAttributes += '; ' + attributeName;
+					if (attributes[attributeName] === true) {
+						continue;
+					}
+					stringifiedAttributes += '=' + attributes[attributeName];
+				}
+				return (document.cookie = key + '=' + value + stringifiedAttributes);
+			}
+
+			// Read
+
+			if (!key) {
+				result = {};
+			}
+
+			// To prevent the for loop in the first place assign an empty array
+			// in case there are no cookies at all. Also prevents odd result when
+			// calling "get()"
+			var cookies = document.cookie ? document.cookie.split('; ') : [];
+			var rdecode = /(%[0-9A-Z]{2})+/g;
+			var i = 0;
+
+			for (; i < cookies.length; i++) {
+				var parts = cookies[i].split('=');
+				var cookie = parts.slice(1).join('=');
+
+				if (!this.json && cookie.charAt(0) === '"') {
+					cookie = cookie.slice(1, -1);
+				}
+
+				try {
+					var name = parts[0].replace(rdecode, decodeURIComponent);
+					cookie = converter.read ?
+						converter.read(cookie, name) : converter(cookie, name) ||
+						cookie.replace(rdecode, decodeURIComponent);
+
+					if (this.json) {
+						try {
+							cookie = JSON.parse(cookie);
+						} catch (e) {}
+					}
+
+					if (key === name) {
+						result = cookie;
+						break;
+					}
+
+					if (!key) {
+						result[name] = cookie;
+					}
+				} catch (e) {}
+			}
+
+			return result;
+		}
+
+		api.set = api;
+		api.get = function (key) {
+			return api.call(api, key);
+		};
+		api.getJSON = function () {
+			return api.apply({
+				json: true
+			}, [].slice.call(arguments));
+		};
+		api.defaults = {};
+
+		api.remove = function (key, attributes) {
+			api(key, '', extend(attributes, {
+				expires: -1
+			}));
+		};
+
+		api.withConverter = init;
+
+		return api;
+	}
+
+	return init(function () {});
+}));
 
 
 /***/ }),
@@ -8253,6 +9829,1012 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;var _typeof="fun
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Admin/AdminCustomer.vue?vue&type=template&id=0e32c8d2&":
+/*!**********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Admin/AdminCustomer.vue?vue&type=template&id=0e32c8d2& ***!
+  \**********************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    [
+      _c(
+        "v-toolbar",
+        { attrs: { flat: "", color: "white" } },
+        [
+          _c("v-toolbar-title", [_vm._v("MANAJEMEN PELANGGAN")]),
+          _vm._v(" "),
+          _c("v-divider", {
+            staticClass: "mx-2",
+            attrs: { inset: "", vertical: "" }
+          }),
+          _vm._v(" "),
+          _c(
+            "v-dialog",
+            {
+              attrs: { "max-width": "500px" },
+              scopedSlots: _vm._u([
+                {
+                  key: "activator",
+                  fn: function(ref) {
+                    var on = ref.on
+                    return [
+                      _c(
+                        "v-btn",
+                        _vm._g(
+                          {
+                            staticClass: "mb-2",
+                            attrs: { color: "primary", dark: "" }
+                          },
+                          on
+                        ),
+                        [_vm._v("Tambah")]
+                      )
+                    ]
+                  }
+                }
+              ]),
+              model: {
+                value: _vm.dialog,
+                callback: function($$v) {
+                  _vm.dialog = $$v
+                },
+                expression: "dialog"
+              }
+            },
+            [
+              _vm._v(" "),
+              _c(
+                "v-card",
+                [
+                  _c("v-card-title", [
+                    _c("span", { staticClass: "headline" }, [
+                      _vm._v(_vm._s(_vm.formTitle))
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "v-card-text",
+                    [
+                      _c(
+                        "v-container",
+                        { attrs: { "grid-list-md": "" } },
+                        [
+                          _c(
+                            "v-layout",
+                            { attrs: { wrap: "" } },
+                            [
+                              _c(
+                                "v-flex",
+                                { attrs: { xs12: "" } },
+                                [
+                                  _c("v-text-field", {
+                                    attrs: {
+                                      label: "Nama",
+                                      counter: 25,
+                                      "error-messages": _vm.nameErrors,
+                                      required: "",
+                                      "prepend-inner-icon": "fa fa-user"
+                                    },
+                                    on: {
+                                      input: function($event) {
+                                        return _vm.$v.editedItem.name.$touch()
+                                      },
+                                      blur: function($event) {
+                                        return _vm.$v.editedItem.name.$touch()
+                                      }
+                                    },
+                                    model: {
+                                      value: _vm.editedItem.name,
+                                      callback: function($$v) {
+                                        _vm.$set(_vm.editedItem, "name", $$v)
+                                      },
+                                      expression: "editedItem.name"
+                                    }
+                                  })
+                                ],
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "v-flex",
+                                { attrs: { xs12: "", sm6: "", md8: "" } },
+                                [
+                                  _c("v-text-field", {
+                                    attrs: {
+                                      label: "Nomor Telepon",
+                                      counter: 12,
+                                      "error-messages": _vm.phoneErrors,
+                                      required: "",
+                                      "prepend-inner-icon": "fa fa-phone"
+                                    },
+                                    on: {
+                                      input: function($event) {
+                                        return _vm.$v.editedItem.phone_number.$touch()
+                                      },
+                                      blur: function($event) {
+                                        return _vm.$v.editedItem.phone_number.$touch()
+                                      }
+                                    },
+                                    model: {
+                                      value: _vm.editedItem.phone_number,
+                                      callback: function($$v) {
+                                        _vm.$set(
+                                          _vm.editedItem,
+                                          "phone_number",
+                                          $$v
+                                        )
+                                      },
+                                      expression: "editedItem.phone_number"
+                                    }
+                                  })
+                                ],
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "v-flex",
+                                { attrs: { xs12: "" } },
+                                [
+                                  _c("v-text-field", {
+                                    attrs: {
+                                      label: "Alamat",
+                                      counter: 100,
+                                      "error-messages": _vm.addressErrors,
+                                      required: "",
+                                      "prepend-inner-icon":
+                                        "fas fa-map-marker-alt"
+                                    },
+                                    on: {
+                                      input: function($event) {
+                                        return _vm.$v.editedItem.address.$touch()
+                                      },
+                                      blur: function($event) {
+                                        return _vm.$v.editedItem.address.$touch()
+                                      }
+                                    },
+                                    model: {
+                                      value: _vm.editedItem.address,
+                                      callback: function($$v) {
+                                        _vm.$set(_vm.editedItem, "address", $$v)
+                                      },
+                                      expression: "editedItem.address"
+                                    }
+                                  })
+                                ],
+                                1
+                              )
+                            ],
+                            1
+                          )
+                        ],
+                        1
+                      )
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "v-card-actions",
+                    [
+                      _c("v-spacer"),
+                      _vm._v(" "),
+                      _c(
+                        "v-btn",
+                        {
+                          attrs: { color: "blue darken-1", flat: "" },
+                          on: { click: _vm.close }
+                        },
+                        [_vm._v("Batal")]
+                      ),
+                      _vm._v(" "),
+                      _vm.editedIndex != -1
+                        ? _c(
+                            "v-btn",
+                            {
+                              attrs: { color: "blue darken-1", flat: "" },
+                              on: { click: _vm.updatecustomer }
+                            },
+                            [_vm._v("Simpan")]
+                          )
+                        : _c(
+                            "v-btn",
+                            {
+                              attrs: {
+                                color: "blue darken-1",
+                                disabled: _vm.$v.editedItem.$invalid,
+                                flat: ""
+                              },
+                              on: { click: _vm.addcustomer }
+                            },
+                            [_vm._v("Tambah")]
+                          )
+                    ],
+                    1
+                  )
+                ],
+                1
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "v-dialog",
+            {
+              attrs: { "max-width": "500px" },
+              model: {
+                value: _vm.delDialog,
+                callback: function($$v) {
+                  _vm.delDialog = $$v
+                },
+                expression: "delDialog"
+              }
+            },
+            [
+              _c(
+                "v-card",
+                [
+                  _c("v-card-title", [
+                    _c("span", { staticClass: "headline" }, [
+                      _vm._v("Hapus Pelanggan")
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("v-card-text", [
+                    _c("h3", { staticClass: "text-sm-center" }, [
+                      _vm._v("Apakah Anda yakin akan menghapus data ini ?")
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "v-card-actions",
+                    [
+                      _c("v-spacer"),
+                      _vm._v(" "),
+                      _c(
+                        "v-btn",
+                        {
+                          attrs: { color: "blue darken-1", flat: "" },
+                          on: {
+                            click: function($event) {
+                              return _vm.deletecustomer()
+                            }
+                          }
+                        },
+                        [_vm._v("Ya")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "v-btn",
+                        {
+                          attrs: { color: "blue darken-1", flat: "" },
+                          on: { click: _vm.close }
+                        },
+                        [_vm._v("Tidak")]
+                      ),
+                      _vm._v(" "),
+                      _c("v-spacer")
+                    ],
+                    1
+                  )
+                ],
+                1
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "v-dialog",
+            {
+              attrs: { "max-width": "700px", width: "700px" },
+              model: {
+                value: _vm.motorDialog,
+                callback: function($$v) {
+                  _vm.motorDialog = $$v
+                },
+                expression: "motorDialog"
+              }
+            },
+            [
+              _c(
+                "v-card",
+                [
+                  _c("v-card-title", [
+                    _c("span", { staticClass: "headline" }, [
+                      _vm._v("List Motor")
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "v-card-text",
+                    [
+                      _c("v-data-table", {
+                        attrs: {
+                          headers: _vm.motorheaders,
+                          items: _vm.initmotorcustomer
+                        },
+                        scopedSlots: _vm._u([
+                          {
+                            key: "items",
+                            fn: function(props) {
+                              return [
+                                _vm.selectedMotor.id != props.item.id ||
+                                _vm.addmotor ||
+                                props.item.id == ""
+                                  ? _c("td", [_vm._v(_vm._s(props.item.plate))])
+                                  : _c(
+                                      "td",
+                                      [
+                                        _c("v-text-field", {
+                                          attrs: {
+                                            label: "Nomor Plat",
+                                            "single-line": "",
+                                            counter: "",
+                                            "error-messages": _vm.plateErrors,
+                                            required: ""
+                                          },
+                                          on: {
+                                            input: function($event) {
+                                              return _vm.$v.editedMotor.plate.$touch()
+                                            },
+                                            blur: function($event) {
+                                              return _vm.$v.editedMotor.plate.$touch()
+                                            }
+                                          },
+                                          model: {
+                                            value: _vm.editedMotor.plate,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                _vm.editedMotor,
+                                                "plate",
+                                                $$v
+                                              )
+                                            },
+                                            expression: "editedMotor.plate"
+                                          }
+                                        })
+                                      ],
+                                      1
+                                    ),
+                                _vm._v(" "),
+                                _vm.selectedMotor.id != props.item.id ||
+                                _vm.addmotor
+                                  ? _c(
+                                      "td",
+                                      { staticClass: "text-xs-center" },
+                                      [_vm._v(_vm._s(props.item.brand))]
+                                    )
+                                  : _c(
+                                      "td",
+                                      [
+                                        _c("v-select", {
+                                          attrs: {
+                                            items: _vm.dropdown_brand,
+                                            "item-text": "name",
+                                            "item-value": "name",
+                                            label: "Brand",
+                                            "error-messages": _vm.brandErrors,
+                                            required: ""
+                                          },
+                                          on: {
+                                            change: function($event) {
+                                              return _vm.$v.editedMotor.brand.$touch()
+                                            },
+                                            blur: function($event) {
+                                              return _vm.$v.editedMotor.brand.$touch()
+                                            }
+                                          },
+                                          model: {
+                                            value: _vm.editedMotor.brand,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                _vm.editedMotor,
+                                                "brand",
+                                                $$v
+                                              )
+                                            },
+                                            expression: "editedMotor.brand"
+                                          }
+                                        })
+                                      ],
+                                      1
+                                    ),
+                                _vm._v(" "),
+                                _vm.selectedMotor.id != props.item.id ||
+                                _vm.addmotor
+                                  ? _c(
+                                      "td",
+                                      { staticClass: "text-xs-center" },
+                                      [_vm._v(_vm._s(props.item.type))]
+                                    )
+                                  : _c(
+                                      "td",
+                                      [
+                                        _c("v-select", {
+                                          attrs: {
+                                            items: _vm.typefilter,
+                                            "item-text": "name",
+                                            "item-value": "name",
+                                            label: "Tipe",
+                                            "error-messages": _vm.typeErrors,
+                                            required: ""
+                                          },
+                                          on: {
+                                            change: function($event) {
+                                              return _vm.$v.editedMotor.type.$touch()
+                                            },
+                                            blur: function($event) {
+                                              return _vm.$v.editedMotor.type.$touch()
+                                            }
+                                          },
+                                          model: {
+                                            value: _vm.editedMotor.type,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                _vm.editedMotor,
+                                                "type",
+                                                $$v
+                                              )
+                                            },
+                                            expression: "editedMotor.type"
+                                          }
+                                        })
+                                      ],
+                                      1
+                                    ),
+                                _vm._v(" "),
+                                _c(
+                                  "td",
+                                  { staticClass: "justify-center layout px-0" },
+                                  [
+                                    _vm.selectedMotor.id != props.item.id ||
+                                    _vm.addmotor
+                                      ? _c(
+                                          "v-icon",
+                                          {
+                                            staticClass: "mr-2",
+                                            attrs: { small: "" },
+                                            on: {
+                                              click: function($event) {
+                                                return _vm.motorEdit(props.item)
+                                              }
+                                            }
+                                          },
+                                          [
+                                            _vm._v(
+                                              "\n                        edit\n                    "
+                                            )
+                                          ]
+                                        )
+                                      : _c(
+                                          "v-icon",
+                                          {
+                                            staticClass: "mr-2",
+                                            attrs: { small: "" },
+                                            on: {
+                                              click: function($event) {
+                                                return _vm.updatemotorcycle()
+                                              }
+                                            }
+                                          },
+                                          [
+                                            _vm._v(
+                                              "\n                        done\n                    "
+                                            )
+                                          ]
+                                        ),
+                                    _vm._v(" "),
+                                    _vm.selectedMotor.id != props.item.id ||
+                                    _vm.addmotor
+                                      ? _c(
+                                          "v-icon",
+                                          {
+                                            attrs: { small: "" },
+                                            on: {
+                                              click: function($event) {
+                                                return _vm.motorDelete(
+                                                  props.item
+                                                )
+                                              }
+                                            }
+                                          },
+                                          [
+                                            _vm._v(
+                                              "\n                        delete\n                    "
+                                            )
+                                          ]
+                                        )
+                                      : _c(
+                                          "v-icon",
+                                          {
+                                            staticClass: "mr-2",
+                                            attrs: { small: "" },
+                                            on: {
+                                              click: function($event) {
+                                                return _vm.motorEditClose()
+                                              }
+                                            }
+                                          },
+                                          [
+                                            _vm._v(
+                                              "\n                        close\n                    "
+                                            )
+                                          ]
+                                        )
+                                  ],
+                                  1
+                                )
+                              ]
+                            }
+                          },
+                          {
+                            key: "footer",
+                            fn: function() {
+                              return [
+                                _c(
+                                  "td",
+                                  {
+                                    attrs: {
+                                      colspan: _vm.motorheaders[0].length
+                                    }
+                                  },
+                                  [
+                                    _vm.addmotor
+                                      ? _c("v-text-field", {
+                                          attrs: {
+                                            label: "Nomor Plat",
+                                            "single-line": "",
+                                            counter: "",
+                                            "error-messages": _vm.plateErrors,
+                                            required: ""
+                                          },
+                                          on: {
+                                            input: function($event) {
+                                              return _vm.$v.editedMotor.plate.$touch()
+                                            },
+                                            blur: function($event) {
+                                              return _vm.$v.editedMotor.plate.$touch()
+                                            }
+                                          },
+                                          model: {
+                                            value: _vm.editedMotor.plate,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                _vm.editedMotor,
+                                                "plate",
+                                                $$v
+                                              )
+                                            },
+                                            expression: "editedMotor.plate"
+                                          }
+                                        })
+                                      : _vm._e()
+                                  ],
+                                  1
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "td",
+                                  {
+                                    attrs: {
+                                      colspan: _vm.motorheaders[1].length
+                                    }
+                                  },
+                                  [
+                                    _vm.addmotor
+                                      ? _c("v-select", {
+                                          attrs: {
+                                            items: _vm.dropdown_brand,
+                                            "item-text": "name",
+                                            "item-value": "name",
+                                            label: "Brand",
+                                            "error-messages": _vm.brandErrors,
+                                            required: ""
+                                          },
+                                          on: {
+                                            change: function($event) {
+                                              return _vm.$v.editedMotor.brand.$touch()
+                                            },
+                                            blur: function($event) {
+                                              return _vm.$v.editedMotor.brand.$touch()
+                                            }
+                                          },
+                                          model: {
+                                            value: _vm.editedMotor.brand,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                _vm.editedMotor,
+                                                "brand",
+                                                $$v
+                                              )
+                                            },
+                                            expression: "editedMotor.brand"
+                                          }
+                                        })
+                                      : _vm._e()
+                                  ],
+                                  1
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "td",
+                                  {
+                                    attrs: {
+                                      colspan: _vm.motorheaders[2].length
+                                    }
+                                  },
+                                  [
+                                    _vm.addmotor
+                                      ? _c("v-select", {
+                                          attrs: {
+                                            items: _vm.typefilter,
+                                            "item-text": "name",
+                                            "item-value": "name",
+                                            label: "Tipe",
+                                            "error-messages": _vm.typeErrors,
+                                            required: ""
+                                          },
+                                          on: {
+                                            change: function($event) {
+                                              return _vm.$v.editedMotor.type.$touch()
+                                            },
+                                            blur: function($event) {
+                                              return _vm.$v.editedMotor.type.$touch()
+                                            }
+                                          },
+                                          model: {
+                                            value: _vm.editedMotor.type,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                _vm.editedMotor,
+                                                "type",
+                                                $$v
+                                              )
+                                            },
+                                            expression: "editedMotor.type"
+                                          }
+                                        })
+                                      : _vm._e()
+                                  ],
+                                  1
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "td",
+                                  {
+                                    staticClass: "justify-center layout px-0",
+                                    attrs: {
+                                      colspan: _vm.motorheaders[3].length
+                                    }
+                                  },
+                                  [
+                                    !_vm.addmotor
+                                      ? _c(
+                                          "v-icon",
+                                          {
+                                            staticClass: "mr-2",
+                                            attrs: { small: "" },
+                                            on: {
+                                              click: function($event) {
+                                                return _vm.motorAdd()
+                                              }
+                                            }
+                                          },
+                                          [
+                                            _vm._v(
+                                              "\n                        add\n                    "
+                                            )
+                                          ]
+                                        )
+                                      : _vm._e(),
+                                    _vm._v(" "),
+                                    _vm.addmotor
+                                      ? _c(
+                                          "v-icon",
+                                          {
+                                            staticClass: "mr-2",
+                                            attrs: {
+                                              small: "",
+                                              disabled:
+                                                _vm.$v.editedMotor.$invalid
+                                            },
+                                            on: {
+                                              click: function($event) {
+                                                return _vm.addmotorcycle()
+                                              }
+                                            }
+                                          },
+                                          [
+                                            _vm._v(
+                                              "\n                        done\n                    "
+                                            )
+                                          ]
+                                        )
+                                      : _vm._e(),
+                                    _vm._v(" "),
+                                    _vm.addmotor
+                                      ? _c(
+                                          "v-icon",
+                                          {
+                                            staticClass: "mr-2",
+                                            attrs: { small: "" },
+                                            on: {
+                                              click: function($event) {
+                                                return _vm.motorAddClose()
+                                              }
+                                            }
+                                          },
+                                          [
+                                            _vm._v(
+                                              "\n                        close\n                    "
+                                            )
+                                          ]
+                                        )
+                                      : _vm._e()
+                                  ],
+                                  1
+                                )
+                              ]
+                            },
+                            proxy: true
+                          }
+                        ])
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "v-card-actions",
+                    [
+                      _c("v-spacer"),
+                      _vm._v(" "),
+                      _c(
+                        "v-btn",
+                        {
+                          attrs: { color: "blue darken-1", flat: "" },
+                          on: { click: _vm.close }
+                        },
+                        [_vm._v("Keluar")]
+                      )
+                    ],
+                    1
+                  )
+                ],
+                1
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c("v-spacer"),
+          _vm._v(" "),
+          _c(
+            "v-flex",
+            { attrs: { xs4: "", sm4: "", md4: "" } },
+            [
+              _c("v-text-field", {
+                attrs: {
+                  "append-icon": "search",
+                  label: "Cari",
+                  "single-line": "",
+                  "hide-details": ""
+                },
+                model: {
+                  value: _vm.search,
+                  callback: function($$v) {
+                    _vm.search = $$v
+                  },
+                  expression: "search"
+                }
+              })
+            ],
+            1
+          )
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _vm.loading || _vm.error
+        ? _c(
+            "VCardText",
+            { staticClass: "text-xs-center" },
+            [
+              _vm.error
+                ? _c(
+                    "VAlert",
+                    { attrs: { type: "error", dismissible: "", value: true } },
+                    [
+                      _vm._v(
+                        "\n          " +
+                          _vm._s(_vm.error.message) +
+                          "\n        "
+                      )
+                    ]
+                  )
+                : _vm._e(),
+              _vm._v(" "),
+              _c("VProgressCircular", {
+                staticClass: "loading-section",
+                attrs: { size: 45, indeterminate: "" }
+              })
+            ],
+            1
+          )
+        : _vm._e(),
+      _vm._v(" "),
+      _vm.initcustomer
+        ? _c(
+            "v-data-table",
+            {
+              staticClass: "elevation-1",
+              attrs: {
+                headers: _vm.headers,
+                items: _vm.initcustomer,
+                search: _vm.search
+              },
+              scopedSlots: _vm._u(
+                [
+                  {
+                    key: "items",
+                    fn: function(props) {
+                      return [
+                        _c("td", [_vm._v(_vm._s(props.index + 1))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(props.item.name))]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-xs-center" }, [
+                          _vm._v(_vm._s(props.item.phone_number))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-xs-left" }, [
+                          _vm._v(_vm._s(props.item.address))
+                        ]),
+                        _vm._v(" "),
+                        _c(
+                          "td",
+                          { staticClass: "text-xs-center" },
+                          [
+                            _c(
+                              "v-btn",
+                              {
+                                staticStyle: {
+                                  "text-transform": "none !important"
+                                },
+                                attrs: {
+                                  depressed: "",
+                                  small: "",
+                                  color: "grey",
+                                  dark: ""
+                                },
+                                on: {
+                                  click: function($event) {
+                                    return _vm.showMotor(props.item)
+                                  }
+                                }
+                              },
+                              [
+                                _vm._v(
+                                  "\n                Lihat Motor\n              "
+                                )
+                              ]
+                            )
+                          ],
+                          1
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "td",
+                          { staticClass: "justify-center layout px-0" },
+                          [
+                            _c(
+                              "v-icon",
+                              {
+                                staticClass: "mr-2",
+                                attrs: { small: "" },
+                                on: {
+                                  click: function($event) {
+                                    return _vm.editItem(props.item)
+                                  }
+                                }
+                              },
+                              [_vm._v("\n              edit\n          ")]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "v-icon",
+                              {
+                                attrs: { small: "" },
+                                on: {
+                                  click: function($event) {
+                                    return _vm.deleteItem(props.item)
+                                  }
+                                }
+                              },
+                              [_vm._v("\n              delete\n          ")]
+                            )
+                          ],
+                          1
+                        )
+                      ]
+                    }
+                  }
+                ],
+                null,
+                false,
+                1432471898
+              )
+            },
+            [
+              _vm._v(" "),
+              _c("v-alert", {
+                attrs: { value: true, color: "error", icon: "warning" },
+                scopedSlots: _vm._u(
+                  [
+                    {
+                      key: "no-results",
+                      fn: function() {
+                        return [
+                          _vm._v(
+                            '\n          Pencarian untuk "' +
+                              _vm._s(_vm.search) +
+                              '" tidak ditemukan.\n      '
+                          )
+                        ]
+                      },
+                      proxy: true
+                    }
+                  ],
+                  null,
+                  false,
+                  1552886665
+                )
+              })
+            ],
+            1
+          )
+        : _vm._e(),
+      _vm._v(" "),
+      _vm.alert.type
+        ? _c(
+            "v-snackbar",
+            {
+              attrs: {
+                right: "",
+                bottom: "",
+                color: _vm.alert.type,
+                value: "true"
+              }
+            },
+            [
+              _c("v-icon", [_vm._v(_vm._s(_vm.alert.icon))]),
+              _vm._v(_vm._s(_vm.alert.message) + "\n    ")
+            ],
+            1
+          )
+        : _vm._e()
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Admin/AdminDashboard.vue?vue&type=template&id=10df2950&":
 /*!***********************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Admin/AdminDashboard.vue?vue&type=template&id=10df2950& ***!
@@ -8344,54 +10926,19 @@ var render = function() {
             1
           ),
           _vm._v(" "),
-          _c(
-            "v-flex",
-            { attrs: { "d-flex": "", lg4: "", sm6: "", xs12: "" } },
-            [_c("site-view-statistic")],
-            1
-          ),
+          _c("v-flex", { attrs: { "d-flex": "", lg4: "", sm6: "", xs12: "" } }),
           _vm._v(" "),
-          _c(
-            "v-flex",
-            { attrs: { "d-flex": "", lg4: "", sm6: "", xs12: "" } },
-            [_c("location-statistic")],
-            1
-          ),
+          _c("v-flex", { attrs: { "d-flex": "", lg4: "", sm6: "", xs12: "" } }),
           _vm._v(" "),
-          _c(
-            "v-flex",
-            { attrs: { "d-flex": "", lg4: "", sm6: "", xs12: "" } },
-            [_c("total-earnings-statistic")],
-            1
-          ),
+          _c("v-flex", { attrs: { "d-flex": "", lg4: "", sm6: "", xs12: "" } }),
           _vm._v(" "),
-          _c(
-            "v-flex",
-            { attrs: { "d-flex": "", lg8: "", sm6: "", xs12: "" } },
-            [_c("data-table")],
-            1
-          ),
+          _c("v-flex", { attrs: { "d-flex": "", lg8: "", sm6: "", xs12: "" } }),
           _vm._v(" "),
-          _c(
-            "v-flex",
-            { attrs: { "d-flex": "", lg4: "", sm6: "", xs12: "" } },
-            [_c("time-line")],
-            1
-          ),
+          _c("v-flex", { attrs: { "d-flex": "", lg4: "", sm6: "", xs12: "" } }),
           _vm._v(" "),
-          _c(
-            "v-flex",
-            { attrs: { "d-flex": "", lg6: "", sm6: "", xs12: "" } },
-            [_c("stepper")],
-            1
-          ),
+          _c("v-flex", { attrs: { "d-flex": "", lg6: "", sm6: "", xs12: "" } }),
           _vm._v(" "),
-          _c(
-            "v-flex",
-            { attrs: { "d-flex": "", lg6: "", sm6: "", xs12: "" } },
-            [_c("user-tree-view")],
-            1
-          )
+          _c("v-flex", { attrs: { "d-flex": "", lg6: "", sm6: "", xs12: "" } })
         ],
         1
       )
@@ -8837,6 +11384,34 @@ var render = function() {
         ],
         1
       ),
+      _vm._v(" "),
+      _vm.loading || _vm.error
+        ? _c(
+            "VCardText",
+            { staticClass: "text-xs-center" },
+            [
+              _vm.error
+                ? _c(
+                    "VAlert",
+                    { attrs: { type: "error", dismissible: "", value: true } },
+                    [
+                      _vm._v(
+                        "\n          " +
+                          _vm._s(_vm.error.message) +
+                          "\n        "
+                      )
+                    ]
+                  )
+                : _vm._e(),
+              _vm._v(" "),
+              _c("VProgressCircular", {
+                staticClass: "loading-section",
+                attrs: { size: 45, indeterminate: "" }
+              })
+            ],
+            1
+          )
+        : _vm._e(),
       _vm._v(" "),
       _c(
         "v-data-table",
@@ -9305,6 +11880,34 @@ var render = function() {
         1
       ),
       _vm._v(" "),
+      _vm.loading || _vm.error
+        ? _c(
+            "VCardText",
+            { staticClass: "text-xs-center" },
+            [
+              _vm.error
+                ? _c(
+                    "VAlert",
+                    { attrs: { type: "error", dismissible: "", value: true } },
+                    [
+                      _vm._v(
+                        "\n          " +
+                          _vm._s(_vm.error.message) +
+                          "\n        "
+                      )
+                    ]
+                  )
+                : _vm._e(),
+              _vm._v(" "),
+              _c("VProgressCircular", {
+                staticClass: "loading-section",
+                attrs: { size: 45, indeterminate: "" }
+              })
+            ],
+            1
+          )
+        : _vm._e(),
+      _vm._v(" "),
       _c(
         "v-data-table",
         {
@@ -9733,6 +12336,34 @@ var render = function() {
         ],
         1
       ),
+      _vm._v(" "),
+      _vm.loading || _vm.error
+        ? _c(
+            "VCardText",
+            { staticClass: "text-xs-center" },
+            [
+              _vm.error
+                ? _c(
+                    "VAlert",
+                    { attrs: { type: "error", dismissible: "", value: true } },
+                    [
+                      _vm._v(
+                        "\n          " +
+                          _vm._s(_vm.error.message) +
+                          "\n        "
+                      )
+                    ]
+                  )
+                : _vm._e(),
+              _vm._v(" "),
+              _c("VProgressCircular", {
+                staticClass: "loading-section",
+                attrs: { size: 45, indeterminate: "" }
+              })
+            ],
+            1
+          )
+        : _vm._e(),
       _vm._v(" "),
       _c(
         "v-data-table",
@@ -10540,6 +13171,34 @@ var render = function() {
         1
       ),
       _vm._v(" "),
+      _vm.loading || _vm.error
+        ? _c(
+            "VCardText",
+            { staticClass: "text-xs-center" },
+            [
+              _vm.error
+                ? _c(
+                    "VAlert",
+                    { attrs: { type: "error", dismissible: "", value: true } },
+                    [
+                      _vm._v(
+                        "\n          " +
+                          _vm._s(_vm.error.message) +
+                          "\n        "
+                      )
+                    ]
+                  )
+                : _vm._e(),
+              _vm._v(" "),
+              _c("VProgressCircular", {
+                staticClass: "loading-section",
+                attrs: { size: 45, indeterminate: "" }
+              })
+            ],
+            1
+          )
+        : _vm._e(),
+      _vm._v(" "),
       _c(
         "v-data-table",
         {
@@ -11096,6 +13755,34 @@ var render = function() {
         1
       ),
       _vm._v(" "),
+      _vm.loading || _vm.error
+        ? _c(
+            "VCardText",
+            { staticClass: "text-xs-center" },
+            [
+              _vm.error
+                ? _c(
+                    "VAlert",
+                    { attrs: { type: "error", dismissible: "", value: true } },
+                    [
+                      _vm._v(
+                        "\n          " +
+                          _vm._s(_vm.error.message) +
+                          "\n        "
+                      )
+                    ]
+                  )
+                : _vm._e(),
+              _vm._v(" "),
+              _c("VProgressCircular", {
+                staticClass: "loading-section",
+                attrs: { size: 45, indeterminate: "" }
+              })
+            ],
+            1
+          )
+        : _vm._e(),
+      _vm._v(" "),
       _c(
         "v-data-table",
         {
@@ -11366,6 +14053,34 @@ var render = function() {
         1
       ),
       _vm._v(" "),
+      _vm.loading || _vm.error
+        ? _c(
+            "VCardText",
+            { staticClass: "text-xs-center" },
+            [
+              _vm.error
+                ? _c(
+                    "VAlert",
+                    { attrs: { type: "error", dismissible: "", value: true } },
+                    [
+                      _vm._v(
+                        "\n          " +
+                          _vm._s(_vm.error.message) +
+                          "\n        "
+                      )
+                    ]
+                  )
+                : _vm._e(),
+              _vm._v(" "),
+              _c("VProgressCircular", {
+                staticClass: "loading-section",
+                attrs: { size: 45, indeterminate: "" }
+              })
+            ],
+            1
+          )
+        : _vm._e(),
+      _vm._v(" "),
       _c(
         "v-data-table",
         {
@@ -11493,201 +14208,226 @@ var render = function() {
       "div",
       { staticClass: "application" },
       [
-        _c(
-          "v-toolbar",
-          { attrs: { dark: "", app: "", color: _vm.$root.themeColor } },
-          [
-            _c(
-              "v-toolbar-title",
-              [
-                _c("v-toolbar-side-icon", {
-                  on: {
-                    click: function($event) {
-                      $event.stopPropagation()
-                      _vm.drawer = !_vm.drawer
-                    }
-                  }
-                })
-              ],
-              1
-            ),
-            _vm._v(" "),
-            _c("v-spacer"),
-            _vm._v(" "),
-            _c(
-              "v-dialog",
-              {
-                attrs: { width: "700" },
-                model: {
-                  value: _vm.dialogSettings,
-                  callback: function($$v) {
-                    _vm.dialogSettings = $$v
-                  },
-                  expression: "dialogSettings"
-                }
-              },
+        !_vm.isLoginPage
+          ? _c(
+              "v-toolbar",
+              { attrs: { dark: "", app: "", color: _vm.$root.themeColor } },
               [
                 _c(
-                  "v-card",
+                  "v-toolbar-title",
+                  [
+                    _c("v-toolbar-side-icon", {
+                      on: {
+                        click: function($event) {
+                          $event.stopPropagation()
+                          _vm.drawer = !_vm.drawer
+                        }
+                      }
+                    })
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c("v-spacer"),
+                _vm._v(" "),
+                _c(
+                  "v-dialog",
+                  {
+                    attrs: { width: "700" },
+                    model: {
+                      value: _vm.dialogSettings,
+                      callback: function($$v) {
+                        _vm.dialogSettings = $$v
+                      },
+                      expression: "dialogSettings"
+                    }
+                  },
                   [
                     _c(
-                      "v-card-title",
-                      {
-                        staticClass: "headline",
-                        attrs: { "primary-title": "" }
-                      },
-                      [_vm._v("\r\n          Settings\r\n        ")]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "v-card-text",
+                      "v-card",
                       [
-                        _vm._v(
-                          "\r\n          Set Up System User\r\n          "
-                        ),
                         _c(
-                          "v-form",
+                          "v-card-title",
+                          {
+                            staticClass: "headline",
+                            attrs: { "primary-title": "" }
+                          },
+                          [_vm._v("\r\n          Settings\r\n        ")]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "v-card-text",
                           [
+                            _vm._v(
+                              "\r\n          Set Up System User\r\n          "
+                            ),
                             _c(
-                              "v-container",
+                              "v-form",
                               [
                                 _c(
-                                  "v-layout",
-                                  { attrs: { row: "", wrap: "" } },
+                                  "v-container",
                                   [
                                     _c(
-                                      "v-flex",
-                                      {
-                                        attrs: { xs12: "", xs6: "", md11: "" }
-                                      },
+                                      "v-layout",
+                                      { attrs: { row: "", wrap: "" } },
                                       [
-                                        _c("v-text-field", {
-                                          attrs: {
-                                            label: "User Email",
-                                            hint: "Set user email"
-                                          },
-                                          model: {
-                                            value: _vm.userEmail,
-                                            callback: function($$v) {
-                                              _vm.userEmail = $$v
-                                            },
-                                            expression: "userEmail"
-                                          }
-                                        })
-                                      ],
-                                      1
-                                    ),
-                                    _vm._v(" "),
-                                    _c("v-flex", {
-                                      attrs: { xs12: "", xs6: "", md1: "" }
-                                    }),
-                                    _vm._v(" "),
-                                    _c(
-                                      "v-flex",
-                                      {
-                                        attrs: { xs12: "", sm6: "", md11: "" }
-                                      },
-                                      [
-                                        _c("v-text-field", {
-                                          attrs: {
-                                            "append-icon": _vm.showPassword
-                                              ? "visibility_off"
-                                              : "visibility",
-                                            type: _vm.showPassword
-                                              ? "text"
-                                              : "password",
-                                            label: "New Password",
-                                            hint:
-                                              "Please choose a complex one..",
-                                            error: _vm.error
-                                          },
-                                          on: {
-                                            "click:append": function($event) {
-                                              _vm.showPassword = !_vm.showPassword
+                                        _c(
+                                          "v-flex",
+                                          {
+                                            attrs: {
+                                              xs12: "",
+                                              xs6: "",
+                                              md11: ""
                                             }
                                           },
-                                          model: {
-                                            value: _vm.password,
-                                            callback: function($$v) {
-                                              _vm.password = $$v
-                                            },
-                                            expression: "password"
-                                          }
-                                        })
-                                      ],
-                                      1
-                                    ),
-                                    _vm._v(" "),
-                                    _c("v-flex", {
-                                      attrs: { xs12: "", sm6: "", md1: "" }
-                                    }),
-                                    _vm._v(" "),
-                                    _c(
-                                      "v-flex",
-                                      {
-                                        attrs: { xs12: "", sm6: "", md11: "" }
-                                      },
-                                      [
-                                        _c("v-text-field", {
-                                          attrs: {
-                                            "append-icon": _vm.showPasswordConfirm
-                                              ? "visibility_off"
-                                              : "visibility",
-                                            type: _vm.showPasswordConfirm
-                                              ? "text"
-                                              : "password",
-                                            label: "Confirm New Password",
-                                            hint: "and confirm it.",
-                                            error: _vm.error
-                                          },
-                                          on: {
-                                            "click:append": function($event) {
-                                              _vm.showPasswordConfirm = !_vm.showPasswordConfirm
+                                          [
+                                            _c("v-text-field", {
+                                              attrs: {
+                                                label: "User Email",
+                                                hint: "Set user email"
+                                              },
+                                              model: {
+                                                value: _vm.userEmail,
+                                                callback: function($$v) {
+                                                  _vm.userEmail = $$v
+                                                },
+                                                expression: "userEmail"
+                                              }
+                                            })
+                                          ],
+                                          1
+                                        ),
+                                        _vm._v(" "),
+                                        _c("v-flex", {
+                                          attrs: { xs12: "", xs6: "", md1: "" }
+                                        }),
+                                        _vm._v(" "),
+                                        _c(
+                                          "v-flex",
+                                          {
+                                            attrs: {
+                                              xs12: "",
+                                              sm6: "",
+                                              md11: ""
                                             }
                                           },
-                                          model: {
-                                            value: _vm.passwordConfirm,
-                                            callback: function($$v) {
-                                              _vm.passwordConfirm = $$v
-                                            },
-                                            expression: "passwordConfirm"
-                                          }
-                                        })
-                                      ],
-                                      1
-                                    ),
-                                    _vm._v(" "),
-                                    _c("v-flex", {
-                                      attrs: { xs12: "", sm6: "", md1: "" }
-                                    }),
-                                    _vm._v(" "),
-                                    _c(
-                                      "v-flex",
-                                      {
-                                        attrs: { xs12: "", xs6: "", md11: "" }
-                                      },
-                                      [
-                                        _c("v-switch", {
-                                          attrs: {
-                                            label: "Email Notification",
-                                            color: "success"
+                                          [
+                                            _c("v-text-field", {
+                                              attrs: {
+                                                "append-icon": _vm.showPassword
+                                                  ? "visibility_off"
+                                                  : "visibility",
+                                                type: _vm.showPassword
+                                                  ? "text"
+                                                  : "password",
+                                                label: "New Password",
+                                                hint:
+                                                  "Please choose a complex one..",
+                                                error: _vm.error
+                                              },
+                                              on: {
+                                                "click:append": function(
+                                                  $event
+                                                ) {
+                                                  _vm.showPassword = !_vm.showPassword
+                                                }
+                                              },
+                                              model: {
+                                                value: _vm.password,
+                                                callback: function($$v) {
+                                                  _vm.password = $$v
+                                                },
+                                                expression: "password"
+                                              }
+                                            })
+                                          ],
+                                          1
+                                        ),
+                                        _vm._v(" "),
+                                        _c("v-flex", {
+                                          attrs: { xs12: "", sm6: "", md1: "" }
+                                        }),
+                                        _vm._v(" "),
+                                        _c(
+                                          "v-flex",
+                                          {
+                                            attrs: {
+                                              xs12: "",
+                                              sm6: "",
+                                              md11: ""
+                                            }
                                           },
-                                          model: {
-                                            value: _vm.switchEmailNotification,
-                                            callback: function($$v) {
-                                              _vm.switchEmailNotification = $$v
-                                            },
-                                            expression:
-                                              "switchEmailNotification"
-                                          }
+                                          [
+                                            _c("v-text-field", {
+                                              attrs: {
+                                                "append-icon": _vm.showPasswordConfirm
+                                                  ? "visibility_off"
+                                                  : "visibility",
+                                                type: _vm.showPasswordConfirm
+                                                  ? "text"
+                                                  : "password",
+                                                label: "Confirm New Password",
+                                                hint: "and confirm it.",
+                                                error: _vm.error
+                                              },
+                                              on: {
+                                                "click:append": function(
+                                                  $event
+                                                ) {
+                                                  _vm.showPasswordConfirm = !_vm.showPasswordConfirm
+                                                }
+                                              },
+                                              model: {
+                                                value: _vm.passwordConfirm,
+                                                callback: function($$v) {
+                                                  _vm.passwordConfirm = $$v
+                                                },
+                                                expression: "passwordConfirm"
+                                              }
+                                            })
+                                          ],
+                                          1
+                                        ),
+                                        _vm._v(" "),
+                                        _c("v-flex", {
+                                          attrs: { xs12: "", sm6: "", md1: "" }
+                                        }),
+                                        _vm._v(" "),
+                                        _c(
+                                          "v-flex",
+                                          {
+                                            attrs: {
+                                              xs12: "",
+                                              xs6: "",
+                                              md11: ""
+                                            }
+                                          },
+                                          [
+                                            _c("v-switch", {
+                                              attrs: {
+                                                label: "Email Notification",
+                                                color: "success"
+                                              },
+                                              model: {
+                                                value:
+                                                  _vm.switchEmailNotification,
+                                                callback: function($$v) {
+                                                  _vm.switchEmailNotification = $$v
+                                                },
+                                                expression:
+                                                  "switchEmailNotification"
+                                              }
+                                            })
+                                          ],
+                                          1
+                                        ),
+                                        _vm._v(" "),
+                                        _c("v-flex", {
+                                          attrs: { xs12: "", xs6: "", md1: "" }
                                         })
                                       ],
                                       1
-                                    ),
-                                    _vm._v(" "),
-                                    _c("v-flex", {
-                                      attrs: { xs12: "", xs6: "", md1: "" }
-                                    })
+                                    )
                                   ],
                                   1
                                 )
@@ -11696,88 +14436,30 @@ var render = function() {
                             )
                           ],
                           1
-                        )
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c("v-divider"),
-                    _vm._v(" "),
-                    _c(
-                      "v-card-actions",
-                      [
-                        _c("v-spacer"),
+                        ),
+                        _vm._v(" "),
+                        _c("v-divider"),
                         _vm._v(" "),
                         _c(
-                          "v-btn",
-                          {
-                            attrs: { color: "primary", flat: "" },
-                            on: { click: _vm.setUpSettings }
-                          },
-                          [_vm._v("\r\n            Save Changes\r\n          ")]
-                        )
-                      ],
-                      1
-                    )
-                  ],
-                  1
-                )
-              ],
-              1
-            ),
-            _vm._v(" "),
-            _c(
-              "v-menu",
-              {
-                attrs: {
-                  "offset-y": "",
-                  origin: "center center",
-                  "nudge-bottom": 10,
-                  transition: "scale-transition"
-                }
-              },
-              [
-                _c(
-                  "v-btn",
-                  {
-                    attrs: { slot: "activator", icon: "", flat: "" },
-                    on: {
-                      click: function($event) {
-                        return _vm.notifications.map(function(x) {
-                          return (x.isActive = false)
-                        })
-                      }
-                    },
-                    slot: "activator"
-                  },
-                  [
-                    _c(
-                      "v-badge",
-                      { attrs: { color: "green", overlap: "" } },
-                      [
-                        _vm.notifications.filter(function(x) {
-                          return x.isActive
-                        }).length > 0
-                          ? _c(
-                              "span",
-                              { attrs: { slot: "badge" }, slot: "badge" },
+                          "v-card-actions",
+                          [
+                            _c("v-spacer"),
+                            _vm._v(" "),
+                            _c(
+                              "v-btn",
+                              {
+                                attrs: { color: "primary", flat: "" },
+                                on: { click: _vm.setUpSettings }
+                              },
                               [
                                 _vm._v(
-                                  "\r\n             " +
-                                    _vm._s(
-                                      _vm.notifications.filter(function(x) {
-                                        return x.isActive
-                                      }).length
-                                    ) +
-                                    "\r\n          "
+                                  "\r\n            Save Changes\r\n          "
                                 )
                               ]
                             )
-                          : _vm._e(),
-                        _vm._v(" "),
-                        _c("v-icon", { attrs: { medium: "" } }, [
-                          _vm._v("notifications")
-                        ])
+                          ],
+                          1
+                        )
                       ],
                       1
                     )
@@ -11786,93 +14468,248 @@ var render = function() {
                 ),
                 _vm._v(" "),
                 _c(
-                  "v-card",
-                  { staticClass: "elevation-0" },
+                  "v-menu",
+                  {
+                    attrs: {
+                      "offset-y": "",
+                      origin: "center center",
+                      "nudge-bottom": 10,
+                      transition: "scale-transition"
+                    }
+                  },
                   [
                     _c(
-                      "v-toolbar",
-                      { attrs: { card: "", dense: "", color: "transparent" } },
+                      "v-btn",
+                      {
+                        attrs: { slot: "activator", icon: "", flat: "" },
+                        on: {
+                          click: function($event) {
+                            return _vm.notifications.map(function(x) {
+                              return (x.isActive = false)
+                            })
+                          }
+                        },
+                        slot: "activator"
+                      },
                       [
-                        _c("v-toolbar-title", [
-                          _c("h5", [
-                            _vm._v(
-                              "You have " +
-                                _vm._s(_vm.notifications.length) +
-                                " new notification(s)"
-                            )
-                          ])
+                        _c(
+                          "v-badge",
+                          { attrs: { color: "green", overlap: "" } },
+                          [
+                            _vm.notifications.filter(function(x) {
+                              return x.isActive
+                            }).length > 0
+                              ? _c(
+                                  "span",
+                                  { attrs: { slot: "badge" }, slot: "badge" },
+                                  [
+                                    _vm._v(
+                                      "\r\n             " +
+                                        _vm._s(
+                                          _vm.notifications.filter(function(x) {
+                                            return x.isActive
+                                          }).length
+                                        ) +
+                                        "\r\n          "
+                                    )
+                                  ]
+                                )
+                              : _vm._e(),
+                            _vm._v(" "),
+                            _c("v-icon", { attrs: { medium: "" } }, [
+                              _vm._v("notifications")
+                            ])
+                          ],
+                          1
+                        )
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "v-card",
+                      { staticClass: "elevation-0" },
+                      [
+                        _c(
+                          "v-toolbar",
+                          {
+                            attrs: { card: "", dense: "", color: "transparent" }
+                          },
+                          [
+                            _c("v-toolbar-title", [
+                              _c("h5", [
+                                _vm._v(
+                                  "You have " +
+                                    _vm._s(_vm.notifications.length) +
+                                    " new notification(s)"
+                                )
+                              ])
+                            ])
+                          ],
+                          1
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "v-card-text",
+                          { staticClass: "pa-0" },
+                          [
+                            _c(
+                              "v-list",
+                              {
+                                staticClass: "pa-0",
+                                attrs: { "two-line": "" }
+                              },
+                              [
+                                _vm._l(_vm.notifications, function(
+                                  item,
+                                  index
+                                ) {
+                                  return [
+                                    _c("v-divider", { key: index }),
+                                    _vm._v(" "),
+                                    _c(
+                                      "v-list-tile",
+                                      {
+                                        key: item.title,
+                                        attrs: { avatar: "" }
+                                      },
+                                      [
+                                        _c(
+                                          "v-list-tile-avatar",
+                                          { attrs: { color: item.color } },
+                                          [
+                                            _c(
+                                              "v-icon",
+                                              { attrs: { dark: "" } },
+                                              [_vm._v(_vm._s(item.icon))]
+                                            )
+                                          ],
+                                          1
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "v-list-tile-content",
+                                          [
+                                            _c("v-list-tile-sub-title", {
+                                              domProps: {
+                                                innerHTML: _vm._s(item.title)
+                                              }
+                                            })
+                                          ],
+                                          1
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "v-list-tile-action",
+                                          { staticClass: "caption" },
+                                          [
+                                            _vm._v(
+                                              "\r\n              " +
+                                                _vm._s(item.actionAt) +
+                                                "\r\n            "
+                                            )
+                                          ]
+                                        )
+                                      ],
+                                      1
+                                    )
+                                  ]
+                                })
+                              ],
+                              2
+                            ),
+                            _vm._v(" "),
+                            _c("v-divider"),
+                            _vm._v(" "),
+                            false
+                              ? undefined
+                              : _vm._e(),
+                            _vm._v(" "),
+                            _c("v-divider")
+                          ],
+                          1
+                        )
+                      ],
+                      1
+                    )
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "v-menu",
+                  {
+                    attrs: {
+                      "offset-y": "",
+                      origin: "center center",
+                      "nudge-bottom": 10,
+                      transition: "scale-transition"
+                    }
+                  },
+                  [
+                    _c(
+                      "v-btn",
+                      {
+                        attrs: {
+                          slot: "activator",
+                          icon: "",
+                          large: "",
+                          flat: "",
+                          ripple: false
+                        },
+                        slot: "activator"
+                      },
+                      [
+                        _c("v-avatar", { attrs: { size: "42px" } }, [
+                          _c("img", {
+                            attrs: {
+                              src:
+                                "https://avataaars.io/?avatarStyle=Circle&topType=ShortHairShortFlat&accessoriesType=Sunglasses&hairColor=Black&facialHairType=Blank&clotheType=CollarSweater&clotheColor=Black&eyeType=Default&eyebrowType=Default&mouthType=Smile&skinColor=Light"
+                            }
+                          })
                         ])
                       ],
                       1
                     ),
                     _vm._v(" "),
                     _c(
-                      "v-card-text",
-                      { staticClass: "pa-0" },
-                      [
-                        _c(
-                          "v-list",
-                          { staticClass: "pa-0", attrs: { "two-line": "" } },
+                      "v-list",
+                      _vm._l(_vm.items, function(item, index) {
+                        return _c(
+                          "v-list-tile",
+                          {
+                            key: index,
+                            attrs: {
+                              to: !item.href ? { name: item.name } : null,
+                              href: item.href,
+                              ripple: "ripple",
+                              disabled: item.disabled,
+                              target: item.target
+                            },
+                            on: { click: item.click }
+                          },
                           [
-                            _vm._l(_vm.notifications, function(item, index) {
-                              return [
-                                _c("v-divider", { key: index }),
-                                _vm._v(" "),
-                                _c(
-                                  "v-list-tile",
-                                  { key: item.title, attrs: { avatar: "" } },
-                                  [
-                                    _c(
-                                      "v-list-tile-avatar",
-                                      { attrs: { color: item.color } },
-                                      [
-                                        _c("v-icon", { attrs: { dark: "" } }, [
-                                          _vm._v(_vm._s(item.icon))
-                                        ])
-                                      ],
-                                      1
-                                    ),
-                                    _vm._v(" "),
-                                    _c(
-                                      "v-list-tile-content",
-                                      [
-                                        _c("v-list-tile-sub-title", {
-                                          domProps: {
-                                            innerHTML: _vm._s(item.title)
-                                          }
-                                        })
-                                      ],
-                                      1
-                                    ),
-                                    _vm._v(" "),
-                                    _c(
-                                      "v-list-tile-action",
-                                      { staticClass: "caption" },
-                                      [
-                                        _vm._v(
-                                          "\r\n              " +
-                                            _vm._s(item.actionAt) +
-                                            "\r\n            "
-                                        )
-                                      ]
-                                    )
-                                  ],
+                            item.icon
+                              ? _c(
+                                  "v-list-tile-action",
+                                  [_c("v-icon", [_vm._v(_vm._s(item.icon))])],
                                   1
                                 )
-                              ]
-                            })
+                              : _vm._e(),
+                            _vm._v(" "),
+                            _c(
+                              "v-list-tile-content",
+                              [
+                                _c("v-list-tile-title", [
+                                  _vm._v(_vm._s(item.title))
+                                ])
+                              ],
+                              1
+                            )
                           ],
-                          2
-                        ),
-                        _vm._v(" "),
-                        _c("v-divider"),
-                        _vm._v(" "),
-                        false
-                          ? undefined
-                          : _vm._e(),
-                        _vm._v(" "),
-                        _c("v-divider")
-                      ],
+                          1
+                        )
+                      }),
                       1
                     )
                   ],
@@ -11880,77 +14717,90 @@ var render = function() {
                 )
               ],
               1
-            ),
-            _vm._v(" "),
-            _c(
-              "v-menu",
+            )
+          : _vm._e(),
+        _vm._v(" "),
+        !_vm.isLoginPage && _vm.panel != null && _vm.selectedMenu
+          ? _c(
+              "v-navigation-drawer",
               {
-                attrs: {
-                  "offset-y": "",
-                  origin: "center center",
-                  "nudge-bottom": 10,
-                  transition: "scale-transition"
+                attrs: { fixed: "", app: "" },
+                model: {
+                  value: _vm.drawer,
+                  callback: function($$v) {
+                    _vm.drawer = $$v
+                  },
+                  expression: "drawer"
                 }
               },
               [
                 _c(
-                  "v-btn",
+                  "v-toolbar",
                   {
-                    attrs: {
-                      slot: "activator",
-                      icon: "",
-                      large: "",
-                      flat: "",
-                      ripple: false
-                    },
-                    slot: "activator"
+                    staticClass: "toolbar",
+                    attrs: { flat: "", dark: "", color: _vm.$root.themeColor }
                   },
                   [
-                    _c("v-avatar", { attrs: { size: "42px" } }, [
-                      _c("img", {
-                        attrs: {
-                          src:
-                            "https://avataaars.io/?avatarStyle=Circle&topType=ShortHairShortFlat&accessoriesType=Sunglasses&hairColor=Black&facialHairType=Blank&clotheType=CollarSweater&clotheColor=Black&eyeType=Default&eyebrowType=Default&mouthType=Smile&skinColor=Light"
-                        }
-                      })
-                    ])
+                    _c(
+                      "router-link",
+                      { attrs: { to: { name: "AdminDashboard" } } },
+                      [
+                        _c("img", {
+                          attrs: {
+                            src: "http://localhost:8000/images/logo.png",
+                            width: "36px"
+                          }
+                        })
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "router-link",
+                      {
+                        staticClass: "text",
+                        attrs: { to: { name: "AdminDashboard" } }
+                      },
+                      [
+                        _vm._v(
+                          "\r\n         " +
+                            _vm._s(_vm.panel.title) +
+                            "\r\n      "
+                        )
+                      ]
+                    )
                   ],
                   1
                 ),
                 _vm._v(" "),
                 _c(
                   "v-list",
-                  _vm._l(_vm.items, function(item, index) {
+                  _vm._l(_vm.panel.menu, function(menu) {
                     return _c(
                       "v-list-tile",
                       {
-                        key: index,
-                        attrs: {
-                          to: !item.href ? { name: item.name } : null,
-                          href: item.href,
-                          ripple: "ripple",
-                          disabled: item.disabled,
-                          target: item.target
-                        },
-                        on: { click: item.click }
+                        key: menu.id,
+                        on: {
+                          click: function($event) {
+                            return _vm.changeRoute(menu.route, menu.id)
+                          }
+                        }
                       },
                       [
-                        item.icon
-                          ? _c(
-                              "v-list-tile-action",
-                              [_c("v-icon", [_vm._v(_vm._s(item.icon))])],
-                              1
-                            )
-                          : _vm._e(),
+                        _c(
+                          "v-list-tile-action",
+                          [_c("v-icon", [_vm._v(_vm._s(menu.icon))])],
+                          1
+                        ),
                         _vm._v(" "),
                         _c(
-                          "v-list-tile-content",
-                          [
-                            _c("v-list-tile-title", [
-                              _vm._v(_vm._s(item.title))
-                            ])
-                          ],
-                          1
+                          "v-list-tile-title",
+                          {
+                            class: [
+                              { active: _vm.selectedIndex === menu.id },
+                              "item-title"
+                            ]
+                          },
+                          [_vm._v(_vm._s(menu.name))]
                         )
                       ],
                       1
@@ -11961,266 +14811,7 @@ var render = function() {
               ],
               1
             )
-          ],
-          1
-        ),
-        _vm._v(" "),
-        _c(
-          "v-navigation-drawer",
-          {
-            attrs: { fixed: "", app: "" },
-            model: {
-              value: _vm.drawer,
-              callback: function($$v) {
-                _vm.drawer = $$v
-              },
-              expression: "drawer"
-            }
-          },
-          [
-            _c(
-              "v-toolbar",
-              {
-                staticClass: "toolbar",
-                attrs: { flat: "", dark: "", color: _vm.$root.themeColor }
-              },
-              [
-                _c("router-link", { attrs: { to: { name: "Dashboard" } } }, [
-                  _c("img", {
-                    attrs: {
-                      src: "http://localhost:8000/images/logo.png",
-                      width: "36px"
-                    }
-                  })
-                ]),
-                _vm._v(" "),
-                _c(
-                  "router-link",
-                  { staticClass: "text", attrs: { to: { name: "Dashboard" } } },
-                  [_vm._v("\r\n         SIBENTO Admin Panel\r\n      ")]
-                )
-              ],
-              1
-            ),
-            _vm._v(" "),
-            _c(
-              "v-list",
-              [
-                _c(
-                  "v-list-tile",
-                  {
-                    on: {
-                      click: function($event) {
-                        return _vm.changeRoute("AdminDashboard", 1)
-                      }
-                    }
-                  },
-                  [
-                    _c(
-                      "v-list-tile-action",
-                      [_c("v-icon", [_vm._v("dashboard")])],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "v-list-tile-title",
-                      {
-                        class: [
-                          { active: _vm.selectedIndex === 1 },
-                          "item-title"
-                        ]
-                      },
-                      [_vm._v("Dashboard")]
-                    )
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _c(
-                  "v-list-tile",
-                  {
-                    on: {
-                      click: function($event) {
-                        return _vm.changeRoute("AdminEmployee", 2)
-                      }
-                    }
-                  },
-                  [
-                    _c(
-                      "v-list-tile-action",
-                      [_c("v-icon", [_vm._v("fas fa-users")])],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "v-list-tile-title",
-                      {
-                        class: [
-                          { active: _vm.selectedIndex === 2 },
-                          "item-title"
-                        ]
-                      },
-                      [_vm._v("Pegawai")]
-                    )
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _c(
-                  "v-list-tile",
-                  {
-                    on: {
-                      click: function($event) {
-                        return _vm.changeRoute("AdminUser", 3)
-                      }
-                    }
-                  },
-                  [
-                    _c(
-                      "v-list-tile-action",
-                      [_c("v-icon", [_vm._v("fas fa-user")])],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "v-list-tile-title",
-                      {
-                        class: [
-                          { active: _vm.selectedIndex === 3 },
-                          "item-title"
-                        ]
-                      },
-                      [_vm._v("Akun User")]
-                    )
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _c(
-                  "v-list-tile",
-                  {
-                    on: {
-                      click: function($event) {
-                        return _vm.changeRoute("AdminService", 4)
-                      }
-                    }
-                  },
-                  [
-                    _c(
-                      "v-list-tile-action",
-                      [_c("v-icon", [_vm._v("fas fa-wrench")])],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "v-list-tile-title",
-                      {
-                        class: [
-                          { active: _vm.selectedIndex === 4 },
-                          "item-title"
-                        ]
-                      },
-                      [_vm._v("Jasa Servis")]
-                    )
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _c(
-                  "v-list-tile",
-                  {
-                    on: {
-                      click: function($event) {
-                        return _vm.changeRoute("AdminSparepart", 5)
-                      }
-                    }
-                  },
-                  [
-                    _c(
-                      "v-list-tile-action",
-                      [_c("v-icon", [_vm._v("fas fa-box-open")])],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "v-list-tile-title",
-                      {
-                        class: [
-                          { active: _vm.selectedIndex === 5 },
-                          "item-title"
-                        ]
-                      },
-                      [_vm._v("Sparepart")]
-                    )
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _c(
-                  "v-list-tile",
-                  {
-                    on: {
-                      click: function($event) {
-                        return _vm.changeRoute("AdminSupplier", 6)
-                      }
-                    }
-                  },
-                  [
-                    _c(
-                      "v-list-tile-action",
-                      [_c("v-icon", [_vm._v("fas fa-truck")])],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "v-list-tile-title",
-                      {
-                        class: [
-                          { active: _vm.selectedIndex === 6 },
-                          "item-title"
-                        ]
-                      },
-                      [_vm._v("Supplier")]
-                    )
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _c(
-                  "v-list-tile",
-                  {
-                    on: {
-                      click: function($event) {
-                        return _vm.changeRoute("AdminSales", 7)
-                      }
-                    }
-                  },
-                  [
-                    _c(
-                      "v-list-tile-action",
-                      [_c("v-icon", [_vm._v("fas fa-user-tie")])],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "v-list-tile-title",
-                      {
-                        class: [
-                          { active: _vm.selectedIndex === 7 },
-                          "item-title"
-                        ]
-                      },
-                      [_vm._v("Sales")]
-                    )
-                  ],
-                  1
-                )
-              ],
-              1
-            )
-          ],
-          1
-        ),
+          : _vm._e(),
         _vm._v(" "),
         _c("v-content", [_c("router-view")], 1)
       ],
@@ -12399,7 +14990,8 @@ var render = function() {
                                 [
                                   _c("img", {
                                     attrs: {
-                                      src: "images/logo.png",
+                                      src:
+                                        "http://localhost:8000/images/logo.png",
                                       alt: "SIBENTO Login Panel",
                                       width: "180",
                                       height: "180"
@@ -12515,7 +15107,26 @@ var render = function() {
               }
             },
             [_vm._v("\n      " + _vm._s(_vm.result) + "\n    ")]
-          )
+          ),
+          _vm._v(" "),
+          _vm.alert.type
+            ? _c(
+                "v-snackbar",
+                {
+                  attrs: {
+                    right: "",
+                    bottom: "",
+                    color: _vm.alert.type,
+                    value: "true"
+                  }
+                },
+                [
+                  _c("v-icon", [_vm._v(_vm._s(_vm.alert.icon))]),
+                  _vm._v(_vm._s(_vm.alert.message) + "\n    ")
+                ],
+                1
+              )
+            : _vm._e()
         ],
         1
       )
@@ -55423,6 +58034,75 @@ new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
 
 /***/ }),
 
+/***/ "./resources/js/components/Admin/AdminCustomer.vue":
+/*!*********************************************************!*\
+  !*** ./resources/js/components/Admin/AdminCustomer.vue ***!
+  \*********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _AdminCustomer_vue_vue_type_template_id_0e32c8d2___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./AdminCustomer.vue?vue&type=template&id=0e32c8d2& */ "./resources/js/components/Admin/AdminCustomer.vue?vue&type=template&id=0e32c8d2&");
+/* harmony import */ var _AdminCustomer_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./AdminCustomer.vue?vue&type=script&lang=js& */ "./resources/js/components/Admin/AdminCustomer.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _AdminCustomer_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _AdminCustomer_vue_vue_type_template_id_0e32c8d2___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _AdminCustomer_vue_vue_type_template_id_0e32c8d2___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/Admin/AdminCustomer.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/Admin/AdminCustomer.vue?vue&type=script&lang=js&":
+/*!**********************************************************************************!*\
+  !*** ./resources/js/components/Admin/AdminCustomer.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_AdminCustomer_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./AdminCustomer.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Admin/AdminCustomer.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_AdminCustomer_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/Admin/AdminCustomer.vue?vue&type=template&id=0e32c8d2&":
+/*!****************************************************************************************!*\
+  !*** ./resources/js/components/Admin/AdminCustomer.vue?vue&type=template&id=0e32c8d2& ***!
+  \****************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AdminCustomer_vue_vue_type_template_id_0e32c8d2___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./AdminCustomer.vue?vue&type=template&id=0e32c8d2& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Admin/AdminCustomer.vue?vue&type=template&id=0e32c8d2&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AdminCustomer_vue_vue_type_template_id_0e32c8d2___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AdminCustomer_vue_vue_type_template_id_0e32c8d2___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
 /***/ "./resources/js/components/Admin/AdminDashboard.vue":
 /*!**********************************************************!*\
   !*** ./resources/js/components/Admin/AdminDashboard.vue ***!
@@ -56494,8 +59174,152 @@ __webpack_require__.r(__webpack_exports__);
 
       _http__WEBPACK_IMPORTED_MODULE_0__["default"].get('/api/spareparttype', successCallback, errorCallback);
     });
+  },
+  getallmotortype: function getallmotortype() {
+    return new Promise(function (resolve, reject) {
+      var successCallback = function successCallback(res) {
+        var data = res.data;
+        resolve(data.data);
+      };
+
+      var errorCallback = function errorCallback(err) {
+        reject(err);
+      };
+
+      _http__WEBPACK_IMPORTED_MODULE_0__["default"].get('/api/motortype', successCallback, errorCallback);
+    });
+  },
+  getallmotorbrand: function getallmotorbrand() {
+    return new Promise(function (resolve, reject) {
+      var successCallback = function successCallback(res) {
+        var data = res.data;
+        resolve(data.data);
+      };
+
+      var errorCallback = function errorCallback(err) {
+        reject(err);
+      };
+
+      _http__WEBPACK_IMPORTED_MODULE_0__["default"].get('/api/motorbrand', successCallback, errorCallback);
+    });
   }
 });
+
+/***/ }),
+
+/***/ "./resources/js/middleware.js":
+/*!************************************!*\
+  !*** ./resources/js/middleware.js ***!
+  \************************************/
+/*! exports provided: auth, default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "auth", function() { return auth; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return middleware; });
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _service_Auth__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./service/Auth */ "./resources/js/service/Auth.js");
+/* harmony import */ var _store__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./store */ "./resources/js/store/index.js");
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+
+
+function auth(_x, _x2, _x3) {
+  return _auth.apply(this, arguments);
+}
+
+function _auth() {
+  _auth = _asyncToGenerator(
+  /*#__PURE__*/
+  _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(to, from, next) {
+    var role;
+    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+      while (1) {
+        switch (_context2.prev = _context2.next) {
+          case 0:
+            if (_service_Auth__WEBPACK_IMPORTED_MODULE_1__["default"].getToken()) {
+              _context2.next = 4;
+              break;
+            }
+
+            next({
+              name: 'Login'
+            });
+            _context2.next = 15;
+            break;
+
+          case 4:
+            _context2.prev = 4;
+            _context2.next = 7;
+            return _service_Auth__WEBPACK_IMPORTED_MODULE_1__["default"].refresh();
+
+          case 7:
+            console.log(_store__WEBPACK_IMPORTED_MODULE_2__["default"].getters['LoggedUser/role']);
+            role = _store__WEBPACK_IMPORTED_MODULE_2__["default"].getters['LoggedUser/role'];
+
+            if (to.meta.role.includes(role)) {
+              next();
+            } else {
+              next({
+                name: 'Dashboard'
+              }); // Fallback if the role doesn't have any permission to access page
+            }
+
+            _context2.next = 15;
+            break;
+
+          case 12:
+            _context2.prev = 12;
+            _context2.t0 = _context2["catch"](4);
+            next({
+              name: 'Login'
+            });
+
+          case 15:
+          case "end":
+            return _context2.stop();
+        }
+      }
+    }, _callee2, null, [[4, 12]]);
+  }));
+  return _auth.apply(this, arguments);
+}
+
+function middleware(guards) {
+  return function (to, from, next) {
+    guards.forEach(
+    /*#__PURE__*/
+    function () {
+      var _ref = _asyncToGenerator(
+      /*#__PURE__*/
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(guard) {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.next = 2;
+                return guard(to, from, next);
+
+              case 2:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee);
+      }));
+
+      return function (_x4) {
+        return _ref.apply(this, arguments);
+      };
+    }());
+  };
+}
 
 /***/ }),
 
@@ -56509,17 +59333,20 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "routes", function() { return routes; });
-/* harmony import */ var _components_AdminApp__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/AdminApp */ "./resources/js/components/AdminApp.vue");
-/* harmony import */ var _components_Index__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/Index */ "./resources/js/components/Index.vue");
-/* harmony import */ var _components_ExampleComponent__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/ExampleComponent */ "./resources/js/components/ExampleComponent.vue");
-/* harmony import */ var _components_Login__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/Login */ "./resources/js/components/Login.vue");
-/* harmony import */ var _components_Admin_AdminDashboard__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/Admin/AdminDashboard */ "./resources/js/components/Admin/AdminDashboard.vue");
-/* harmony import */ var _components_Admin_AdminEmployee__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/Admin/AdminEmployee */ "./resources/js/components/Admin/AdminEmployee.vue");
-/* harmony import */ var _components_Admin_AdminUser__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/Admin/AdminUser */ "./resources/js/components/Admin/AdminUser.vue");
-/* harmony import */ var _components_Admin_AdminService__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/Admin/AdminService */ "./resources/js/components/Admin/AdminService.vue");
-/* harmony import */ var _components_Admin_AdminSparepart__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/Admin/AdminSparepart */ "./resources/js/components/Admin/AdminSparepart.vue");
-/* harmony import */ var _components_Admin_AdminSupplier__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/Admin/AdminSupplier */ "./resources/js/components/Admin/AdminSupplier.vue");
-/* harmony import */ var _components_Admin_AdminSales__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/Admin/AdminSales */ "./resources/js/components/Admin/AdminSales.vue");
+/* harmony import */ var _middleware__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./middleware */ "./resources/js/middleware.js");
+/* harmony import */ var _components_AdminApp__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/AdminApp */ "./resources/js/components/AdminApp.vue");
+/* harmony import */ var _components_Index__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/Index */ "./resources/js/components/Index.vue");
+/* harmony import */ var _components_ExampleComponent__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/ExampleComponent */ "./resources/js/components/ExampleComponent.vue");
+/* harmony import */ var _components_Login__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/Login */ "./resources/js/components/Login.vue");
+/* harmony import */ var _components_Admin_AdminDashboard__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/Admin/AdminDashboard */ "./resources/js/components/Admin/AdminDashboard.vue");
+/* harmony import */ var _components_Admin_AdminEmployee__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/Admin/AdminEmployee */ "./resources/js/components/Admin/AdminEmployee.vue");
+/* harmony import */ var _components_Admin_AdminUser__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/Admin/AdminUser */ "./resources/js/components/Admin/AdminUser.vue");
+/* harmony import */ var _components_Admin_AdminService__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/Admin/AdminService */ "./resources/js/components/Admin/AdminService.vue");
+/* harmony import */ var _components_Admin_AdminSparepart__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/Admin/AdminSparepart */ "./resources/js/components/Admin/AdminSparepart.vue");
+/* harmony import */ var _components_Admin_AdminSupplier__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/Admin/AdminSupplier */ "./resources/js/components/Admin/AdminSupplier.vue");
+/* harmony import */ var _components_Admin_AdminSales__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/Admin/AdminSales */ "./resources/js/components/Admin/AdminSales.vue");
+/* harmony import */ var _components_Admin_AdminCustomer__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./components/Admin/AdminCustomer */ "./resources/js/components/Admin/AdminCustomer.vue");
+
 
 
 
@@ -56532,65 +59359,279 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 var routes = [{
-  path: '/',
+  path: '/panel/login',
   name: 'Login',
-  component: _components_Login__WEBPACK_IMPORTED_MODULE_3__["default"]
+  component: _components_Login__WEBPACK_IMPORTED_MODULE_4__["default"],
+  meta: {
+    page: 'login'
+  }
 }, {
   path: '/welcome',
   name: 'welcome',
-  component: _components_ExampleComponent__WEBPACK_IMPORTED_MODULE_2__["default"]
+  component: _components_ExampleComponent__WEBPACK_IMPORTED_MODULE_3__["default"]
 }, //ADMIN AREA
 {
   path: '/admin',
   name: 'AdminDashboard',
-  component: _components_Admin_AdminDashboard__WEBPACK_IMPORTED_MODULE_4__["default"],
+  component: _components_Admin_AdminDashboard__WEBPACK_IMPORTED_MODULE_5__["default"],
   meta: {
+    role: ['Admin', 'Customer Service', 'Cashier'],
     menu: 1
-  }
+  },
+  beforeEnter: Object(_middleware__WEBPACK_IMPORTED_MODULE_0__["default"])([_middleware__WEBPACK_IMPORTED_MODULE_0__["auth"]])
 }, {
   path: '/admin/employee',
   name: 'AdminEmployee',
-  component: _components_Admin_AdminEmployee__WEBPACK_IMPORTED_MODULE_5__["default"],
+  component: _components_Admin_AdminEmployee__WEBPACK_IMPORTED_MODULE_6__["default"],
   meta: {
+    role: ['Admin'],
     menu: 2
-  }
+  },
+  beforeEnter: Object(_middleware__WEBPACK_IMPORTED_MODULE_0__["default"])([_middleware__WEBPACK_IMPORTED_MODULE_0__["auth"]])
 }, {
   path: '/admin/user',
   name: 'AdminUser',
-  component: _components_Admin_AdminUser__WEBPACK_IMPORTED_MODULE_6__["default"],
+  component: _components_Admin_AdminUser__WEBPACK_IMPORTED_MODULE_7__["default"],
   meta: {
+    role: ['Admin'],
     menu: 3
-  }
+  },
+  beforeEnter: Object(_middleware__WEBPACK_IMPORTED_MODULE_0__["default"])([_middleware__WEBPACK_IMPORTED_MODULE_0__["auth"]])
 }, {
   path: '/admin/service',
   name: 'AdminService',
-  component: _components_Admin_AdminService__WEBPACK_IMPORTED_MODULE_7__["default"],
+  component: _components_Admin_AdminService__WEBPACK_IMPORTED_MODULE_8__["default"],
   meta: {
+    role: ['Admin'],
     menu: 4
-  }
+  },
+  beforeEnter: Object(_middleware__WEBPACK_IMPORTED_MODULE_0__["default"])([_middleware__WEBPACK_IMPORTED_MODULE_0__["auth"]])
 }, {
   path: '/admin/sparepart',
   name: 'AdminSparepart',
-  component: _components_Admin_AdminSparepart__WEBPACK_IMPORTED_MODULE_8__["default"],
+  component: _components_Admin_AdminSparepart__WEBPACK_IMPORTED_MODULE_9__["default"],
   meta: {
+    role: ['Admin'],
     menu: 5
-  }
+  },
+  beforeEnter: Object(_middleware__WEBPACK_IMPORTED_MODULE_0__["default"])([_middleware__WEBPACK_IMPORTED_MODULE_0__["auth"]])
 }, {
   path: '/admin/supplier',
   name: 'AdminSupplier',
-  component: _components_Admin_AdminSupplier__WEBPACK_IMPORTED_MODULE_9__["default"],
+  component: _components_Admin_AdminSupplier__WEBPACK_IMPORTED_MODULE_10__["default"],
   meta: {
+    role: ['Admin'],
     menu: 6
-  }
+  },
+  beforeEnter: Object(_middleware__WEBPACK_IMPORTED_MODULE_0__["default"])([_middleware__WEBPACK_IMPORTED_MODULE_0__["auth"]])
 }, {
   path: '/admin/sales',
   name: 'AdminSales',
-  component: _components_Admin_AdminSales__WEBPACK_IMPORTED_MODULE_10__["default"],
+  component: _components_Admin_AdminSales__WEBPACK_IMPORTED_MODULE_11__["default"],
   meta: {
+    role: ['Admin'],
     menu: 7
-  }
+  },
+  beforeEnter: Object(_middleware__WEBPACK_IMPORTED_MODULE_0__["default"])([_middleware__WEBPACK_IMPORTED_MODULE_0__["auth"]])
+}, {
+  path: '/admin/customer',
+  name: 'AdminCustomer',
+  component: _components_Admin_AdminCustomer__WEBPACK_IMPORTED_MODULE_12__["default"],
+  meta: {
+    role: ['Admin'],
+    menu: 8
+  },
+  beforeEnter: Object(_middleware__WEBPACK_IMPORTED_MODULE_0__["default"])([_middleware__WEBPACK_IMPORTED_MODULE_0__["auth"]])
 }];
+
+/***/ }),
+
+/***/ "./resources/js/service/Auth.js":
+/*!**************************************!*\
+  !*** ./resources/js/service/Auth.js ***!
+  \**************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _Http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Http */ "./resources/js/service/Http.js");
+/* harmony import */ var _store__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../store */ "./resources/js/store/index.js");
+/* harmony import */ var js_cookie__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! js-cookie */ "./node_modules/js-cookie/src/js.cookie.js");
+/* harmony import */ var js_cookie__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(js_cookie__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _routes__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../routes */ "./resources/js/routes.js");
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  authenticate: function () {
+    var _authenticate = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(_ref) {
+      var username, password, res, accessToken;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              username = _ref.username, password = _ref.password;
+              _context.prev = 1;
+              _context.next = 4;
+              return _Http__WEBPACK_IMPORTED_MODULE_1__["default"].post('/api/authenticate', {
+                username: username,
+                password: password
+              });
+
+            case 4:
+              res = _context.sent;
+              accessToken = {
+                username: res.data.data.session_username,
+                password: res.data.data.session_password
+              };
+              _Http__WEBPACK_IMPORTED_MODULE_1__["default"].setHeader(accessToken);
+              js_cookie__WEBPACK_IMPORTED_MODULE_3___default.a.set('accessToken', accessToken);
+              _context.t0 = _store__WEBPACK_IMPORTED_MODULE_2__["default"];
+              _context.next = 11;
+              return this.session();
+
+            case 11:
+              _context.t1 = _context.sent;
+
+              _context.t0.commit.call(_context.t0, 'LoggedUser/setLoggedUser', _context.t1);
+
+              _context.next = 18;
+              break;
+
+            case 15:
+              _context.prev = 15;
+              _context.t2 = _context["catch"](1);
+              throw new Error('username / password salah');
+
+            case 18:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee, this, [[1, 15]]);
+    }));
+
+    function authenticate(_x) {
+      return _authenticate.apply(this, arguments);
+    }
+
+    return authenticate;
+  }(),
+  session: function () {
+    var _session = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
+      var res;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+        while (1) {
+          switch (_context2.prev = _context2.next) {
+            case 0:
+              _context2.prev = 0;
+              _context2.next = 3;
+              return _Http__WEBPACK_IMPORTED_MODULE_1__["default"].get('/api/session');
+
+            case 3:
+              res = _context2.sent;
+              return _context2.abrupt("return", res.data.data);
+
+            case 7:
+              _context2.prev = 7;
+              _context2.t0 = _context2["catch"](0);
+
+              if (!(_context2.t0.response.status === 401)) {
+                _context2.next = 13;
+                break;
+              }
+
+              _routes__WEBPACK_IMPORTED_MODULE_4__["routes"].push({
+                name: 'Login'
+              });
+              _context2.next = 14;
+              break;
+
+            case 13:
+              throw new Error('Failed fetch authenticated user');
+
+            case 14:
+            case "end":
+              return _context2.stop();
+          }
+        }
+      }, _callee2, null, [[0, 7]]);
+    }));
+
+    function session() {
+      return _session.apply(this, arguments);
+    }
+
+    return session;
+  }(),
+  refresh: function () {
+    var _refresh = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3() {
+      var accessToken;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
+        while (1) {
+          switch (_context3.prev = _context3.next) {
+            case 0:
+              accessToken = js_cookie__WEBPACK_IMPORTED_MODULE_3___default.a.get('accessToken');
+
+              if (!(typeof accessToken === 'undefined')) {
+                _context3.next = 3;
+                break;
+              }
+
+              throw new Error('Access token not exist');
+
+            case 3:
+              _Http__WEBPACK_IMPORTED_MODULE_1__["default"].setHeader(JSON.parse(accessToken));
+              _context3.t0 = _store__WEBPACK_IMPORTED_MODULE_2__["default"];
+              _context3.next = 7;
+              return this.session();
+
+            case 7:
+              _context3.t1 = _context3.sent;
+
+              _context3.t0.commit.call(_context3.t0, 'LoggedUser/setLoggedUser', _context3.t1);
+
+            case 9:
+            case "end":
+              return _context3.stop();
+          }
+        }
+      }, _callee3, this);
+    }));
+
+    function refresh() {
+      return _refresh.apply(this, arguments);
+    }
+
+    return refresh;
+  }(),
+  logout: function logout() {
+    _store__WEBPACK_IMPORTED_MODULE_2__["default"].commit('LoggedUser/setLoggedUser', {});
+    _store__WEBPACK_IMPORTED_MODULE_2__["default"].commit('LoggedUser/loggedOut');
+    js_cookie__WEBPACK_IMPORTED_MODULE_3___default.a.remove('accessToken');
+  },
+  getToken: function getToken() {
+    return typeof js_cookie__WEBPACK_IMPORTED_MODULE_3___default.a.get('accessToken') !== 'undefined';
+  }
+});
 
 /***/ }),
 
@@ -56649,6 +59690,208 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     }
 
     return get;
+  }()
+});
+
+/***/ }),
+
+/***/ "./resources/js/service/Customer.js":
+/*!******************************************!*\
+  !*** ./resources/js/service/Customer.js ***!
+  \******************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _Http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Http */ "./resources/js/service/Http.js");
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  get: function () {
+    var _get = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+      var res;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              _context.prev = 0;
+              _context.next = 3;
+              return _Http__WEBPACK_IMPORTED_MODULE_1__["default"].get('/api/customer');
+
+            case 3:
+              res = _context.sent;
+              return _context.abrupt("return", res.data.data);
+
+            case 7:
+              _context.prev = 7;
+              _context.t0 = _context["catch"](0);
+              throw new Error(_context.t0);
+
+            case 10:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee, null, [[0, 7]]);
+    }));
+
+    function get() {
+      return _get.apply(this, arguments);
+    }
+
+    return get;
+  }(),
+  store: function () {
+    var _store = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(payload) {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+        while (1) {
+          switch (_context2.prev = _context2.next) {
+            case 0:
+              _context2.prev = 0;
+              _context2.next = 3;
+              return _Http__WEBPACK_IMPORTED_MODULE_1__["default"].post('/api/customer', payload);
+
+            case 3:
+              _context2.next = 8;
+              break;
+
+            case 5:
+              _context2.prev = 5;
+              _context2.t0 = _context2["catch"](0);
+              throw new Error(_context2.t0);
+
+            case 8:
+            case "end":
+              return _context2.stop();
+          }
+        }
+      }, _callee2, null, [[0, 5]]);
+    }));
+
+    function store(_x) {
+      return _store.apply(this, arguments);
+    }
+
+    return store;
+  }(),
+  find: function () {
+    var _find = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3(id) {
+      var res;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
+        while (1) {
+          switch (_context3.prev = _context3.next) {
+            case 0:
+              _context3.prev = 0;
+              _context3.next = 3;
+              return _Http__WEBPACK_IMPORTED_MODULE_1__["default"].get("/api/customer/".concat(id));
+
+            case 3:
+              res = _context3.sent;
+              return _context3.abrupt("return", res.data.data);
+
+            case 7:
+              _context3.prev = 7;
+              _context3.t0 = _context3["catch"](0);
+              throw new Error(_context3.t0);
+
+            case 10:
+            case "end":
+              return _context3.stop();
+          }
+        }
+      }, _callee3, null, [[0, 7]]);
+    }));
+
+    function find(_x2) {
+      return _find.apply(this, arguments);
+    }
+
+    return find;
+  }(),
+  update: function () {
+    var _update = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4(id, payload) {
+      var res;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee4$(_context4) {
+        while (1) {
+          switch (_context4.prev = _context4.next) {
+            case 0:
+              _context4.prev = 0;
+              _context4.next = 3;
+              return _Http__WEBPACK_IMPORTED_MODULE_1__["default"].patch("/api/customer/".concat(id), payload);
+
+            case 3:
+              res = _context4.sent;
+              return _context4.abrupt("return", res.data.data);
+
+            case 7:
+              _context4.prev = 7;
+              _context4.t0 = _context4["catch"](0);
+              throw new Error(_context4.t0);
+
+            case 10:
+            case "end":
+              return _context4.stop();
+          }
+        }
+      }, _callee4, null, [[0, 7]]);
+    }));
+
+    function update(_x3, _x4) {
+      return _update.apply(this, arguments);
+    }
+
+    return update;
+  }(),
+  delete: function () {
+    var _delete2 = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee5(id) {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee5$(_context5) {
+        while (1) {
+          switch (_context5.prev = _context5.next) {
+            case 0:
+              _context5.prev = 0;
+              _context5.next = 3;
+              return _Http__WEBPACK_IMPORTED_MODULE_1__["default"].delete("/api/customer/".concat(id));
+
+            case 3:
+              _context5.next = 8;
+              break;
+
+            case 5:
+              _context5.prev = 5;
+              _context5.t0 = _context5["catch"](0);
+              throw new Error(_context5.t0);
+
+            case 8:
+            case "end":
+              return _context5.stop();
+          }
+        }
+      }, _callee5, null, [[0, 5]]);
+    }));
+
+    function _delete(_x5) {
+      return _delete2.apply(this, arguments);
+    }
+
+    return _delete;
   }()
 });
 
@@ -56873,6 +60116,7 @@ __webpack_require__.r(__webpack_exports__);
     axios__WEBPACK_IMPORTED_MODULE_0___default.a.defaults.baseURL = 'http://127.0.0.1/';
   },
   setHeader: function setHeader(token) {
+    // console.log(token)
     axios__WEBPACK_IMPORTED_MODULE_0___default.a.defaults.headers.common['Authorization'] = 'Basic ' + btoa(token.username + ':' + token.password);
   },
   getHeader: function getHeader() {
@@ -56920,6 +60164,208 @@ __webpack_require__.r(__webpack_exports__);
       throw err;
     }
   }
+});
+
+/***/ }),
+
+/***/ "./resources/js/service/MotorCustomer.js":
+/*!***********************************************!*\
+  !*** ./resources/js/service/MotorCustomer.js ***!
+  \***********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _Http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Http */ "./resources/js/service/Http.js");
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  get: function () {
+    var _get = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+      var res;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              _context.prev = 0;
+              _context.next = 3;
+              return _Http__WEBPACK_IMPORTED_MODULE_1__["default"].get('/api/motorcustomer');
+
+            case 3:
+              res = _context.sent;
+              return _context.abrupt("return", res.data.data);
+
+            case 7:
+              _context.prev = 7;
+              _context.t0 = _context["catch"](0);
+              throw new Error(_context.t0);
+
+            case 10:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee, null, [[0, 7]]);
+    }));
+
+    function get() {
+      return _get.apply(this, arguments);
+    }
+
+    return get;
+  }(),
+  store: function () {
+    var _store = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(payload) {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+        while (1) {
+          switch (_context2.prev = _context2.next) {
+            case 0:
+              _context2.prev = 0;
+              _context2.next = 3;
+              return _Http__WEBPACK_IMPORTED_MODULE_1__["default"].post('/api/motorcustomer', payload);
+
+            case 3:
+              _context2.next = 8;
+              break;
+
+            case 5:
+              _context2.prev = 5;
+              _context2.t0 = _context2["catch"](0);
+              throw new Error(_context2.t0);
+
+            case 8:
+            case "end":
+              return _context2.stop();
+          }
+        }
+      }, _callee2, null, [[0, 5]]);
+    }));
+
+    function store(_x) {
+      return _store.apply(this, arguments);
+    }
+
+    return store;
+  }(),
+  find: function () {
+    var _find = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3(id) {
+      var res;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
+        while (1) {
+          switch (_context3.prev = _context3.next) {
+            case 0:
+              _context3.prev = 0;
+              _context3.next = 3;
+              return _Http__WEBPACK_IMPORTED_MODULE_1__["default"].get("/api/motorcustomer/".concat(id));
+
+            case 3:
+              res = _context3.sent;
+              return _context3.abrupt("return", res.data.data);
+
+            case 7:
+              _context3.prev = 7;
+              _context3.t0 = _context3["catch"](0);
+              throw new Error(_context3.t0);
+
+            case 10:
+            case "end":
+              return _context3.stop();
+          }
+        }
+      }, _callee3, null, [[0, 7]]);
+    }));
+
+    function find(_x2) {
+      return _find.apply(this, arguments);
+    }
+
+    return find;
+  }(),
+  update: function () {
+    var _update = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4(id, payload) {
+      var res;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee4$(_context4) {
+        while (1) {
+          switch (_context4.prev = _context4.next) {
+            case 0:
+              _context4.prev = 0;
+              _context4.next = 3;
+              return _Http__WEBPACK_IMPORTED_MODULE_1__["default"].patch("/api/motorcustomer/".concat(id), payload);
+
+            case 3:
+              res = _context4.sent;
+              return _context4.abrupt("return", res.data.data);
+
+            case 7:
+              _context4.prev = 7;
+              _context4.t0 = _context4["catch"](0);
+              throw new Error(_context4.t0);
+
+            case 10:
+            case "end":
+              return _context4.stop();
+          }
+        }
+      }, _callee4, null, [[0, 7]]);
+    }));
+
+    function update(_x3, _x4) {
+      return _update.apply(this, arguments);
+    }
+
+    return update;
+  }(),
+  delete: function () {
+    var _delete2 = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee5(id) {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee5$(_context5) {
+        while (1) {
+          switch (_context5.prev = _context5.next) {
+            case 0:
+              _context5.prev = 0;
+              _context5.next = 3;
+              return _Http__WEBPACK_IMPORTED_MODULE_1__["default"].delete("/api/motorcustomer/".concat(id));
+
+            case 3:
+              _context5.next = 8;
+              break;
+
+            case 5:
+              _context5.prev = 5;
+              _context5.t0 = _context5["catch"](0);
+              throw new Error(_context5.t0);
+
+            case 8:
+            case "end":
+              return _context5.stop();
+          }
+        }
+      }, _callee5, null, [[0, 5]]);
+    }));
+
+    function _delete(_x5) {
+      return _delete2.apply(this, arguments);
+    }
+
+    return _delete;
+  }()
 });
 
 /***/ }),
@@ -58049,6 +61495,2457 @@ function setupComponents(Vue) {
 }
 
 
+
+/***/ }),
+
+/***/ "./resources/js/store/index.js":
+/*!*************************************!*\
+  !*** ./resources/js/store/index.js ***!
+  \*************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var _modules__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules */ "./resources/js/store/modules/index.js");
+
+
+
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__["default"]);
+/* harmony default export */ __webpack_exports__["default"] = (new vuex__WEBPACK_IMPORTED_MODULE_1__["default"].Store({
+  modules: _modules__WEBPACK_IMPORTED_MODULE_2__["default"]
+}));
+
+/***/ }),
+
+/***/ "./resources/js/store/modules/Branch.js":
+/*!**********************************************!*\
+  !*** ./resources/js/store/modules/Branch.js ***!
+  \**********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _service_Branch__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../service/Branch */ "./resources/js/service/Branch.js");
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+
+var state = {
+  branches: [],
+  branch: {
+    name: '',
+    address: '',
+    phoneNumber: ''
+  },
+  loading: true,
+  error: null
+};
+var mutations = {
+  setSource: function setSource(state, payload) {
+    state.branches = payload;
+    state.loading = false;
+    state.error = null;
+  },
+  setFailedAction: function setFailedAction(state, payload) {
+    state.loading = false;
+    state.error = payload.error;
+  },
+  setBranchForm: function setBranchForm(state, payload) {
+    state.branch.name = payload.branch_name;
+    state.branch.address = payload.branch_address;
+    state.branch.phoneNumber = payload.branch_phone_number;
+  }
+};
+var getters = {
+  error: function error(state) {
+    return state.error;
+  },
+  loading: function loading(state) {
+    return state.loading;
+  },
+  branch: function branch(state) {
+    return state.branch;
+  }
+};
+var actions = {
+  get: function () {
+    var _get = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(context) {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              _context.prev = 0;
+              _context.t0 = context;
+              _context.next = 4;
+              return _service_Branch__WEBPACK_IMPORTED_MODULE_1__["default"].get();
+
+            case 4:
+              _context.t1 = _context.sent;
+
+              _context.t0.commit.call(_context.t0, 'setSource', _context.t1);
+
+              _context.next = 11;
+              break;
+
+            case 8:
+              _context.prev = 8;
+              _context.t2 = _context["catch"](0);
+              context.commit('setFailedAction', _context.t2);
+
+            case 11:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee, null, [[0, 8]]);
+    }));
+
+    function get(_x) {
+      return _get.apply(this, arguments);
+    }
+
+    return get;
+  }(),
+  //   async store(context, payload) {
+  //     try {
+  //       await branchService.store(payload)
+  //     } catch (err) {
+  //       context.commit('setFailedStore', err)
+  //     }
+  //   },
+  //   async edit(context, id) {
+  //     try {
+  //       const res = await branchService.find(id)
+  //       context.commit('setBranchForm', res)
+  //     } catch (err) {
+  //       context.commit('setFailedAction', err)
+  //     }
+  //   },
+  //   async update(context, payload) {
+  //     try {
+  //       const data = {
+  //         branch_name: payload.branch_name,
+  //         branch_address: payload.branch_address,
+  //         branch_phone_number: payload.branch_phone_number
+  //       }
+  //       await branchService.update(payload.id_branch, data)
+  //     } catch (err) {
+  //       context.commit('setFailedAction', err)
+  //     }
+  //   },
+  //   async delete (context, id) {
+  //     try {
+  //       await branchService.delete(id)
+  //     } catch (err) {
+  //       context.commit('setFailedAction', err)
+  //     }
+  //   },
+  resetForm: function resetForm(context) {
+    context.commit('setBranchForm', {});
+  }
+};
+/* harmony default export */ __webpack_exports__["default"] = ({
+  namespaced: true,
+  state: state,
+  getters: getters,
+  actions: actions,
+  mutations: mutations
+});
+
+/***/ }),
+
+/***/ "./resources/js/store/modules/Customer.js":
+/*!************************************************!*\
+  !*** ./resources/js/store/modules/Customer.js ***!
+  \************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _service_Customer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../service/Customer */ "./resources/js/service/Customer.js");
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+
+var state = {
+  customers: [],
+  customer: {
+    id_customer: '',
+    name_customer: '',
+    address_customer: '',
+    phone_number_customer: ''
+  },
+  loading: true,
+  error: null
+};
+var mutations = {
+  setSource: function setSource(state, payload) {
+    state.customers = payload;
+    state.loading = false;
+    state.error = null;
+  },
+  setFailedAction: function setFailedAction(state, payload) {
+    state.loading = false;
+    state.error = payload.error;
+  }
+};
+var getters = {
+  error: function error(state) {
+    return state.error;
+  },
+  loading: function loading(state) {
+    return state.loading;
+  },
+  customer: function customer(state) {
+    return state.customer;
+  }
+};
+var actions = {
+  get: function () {
+    var _get = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(context) {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              _context.prev = 0;
+              _context.t0 = context;
+              _context.next = 4;
+              return _service_Customer__WEBPACK_IMPORTED_MODULE_1__["default"].get();
+
+            case 4:
+              _context.t1 = _context.sent;
+
+              _context.t0.commit.call(_context.t0, 'setSource', _context.t1);
+
+              _context.next = 11;
+              break;
+
+            case 8:
+              _context.prev = 8;
+              _context.t2 = _context["catch"](0);
+              context.commit('setFailedAction', _context.t2);
+
+            case 11:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee, null, [[0, 8]]);
+    }));
+
+    function get(_x) {
+      return _get.apply(this, arguments);
+    }
+
+    return get;
+  }(),
+  store: function () {
+    var _store = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(context, payload) {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+        while (1) {
+          switch (_context2.prev = _context2.next) {
+            case 0:
+              _context2.prev = 0;
+              _context2.next = 3;
+              return _service_Customer__WEBPACK_IMPORTED_MODULE_1__["default"].store(payload);
+
+            case 3:
+              _context2.next = 8;
+              break;
+
+            case 5:
+              _context2.prev = 5;
+              _context2.t0 = _context2["catch"](0);
+              context.commit('setFailedStore', _context2.t0);
+
+            case 8:
+            case "end":
+              return _context2.stop();
+          }
+        }
+      }, _callee2, null, [[0, 5]]);
+    }));
+
+    function store(_x2, _x3) {
+      return _store.apply(this, arguments);
+    }
+
+    return store;
+  }(),
+  edit: function () {
+    var _edit = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3(context, id) {
+      var res;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
+        while (1) {
+          switch (_context3.prev = _context3.next) {
+            case 0:
+              _context3.prev = 0;
+              _context3.next = 3;
+              return _service_Customer__WEBPACK_IMPORTED_MODULE_1__["default"].find(id);
+
+            case 3:
+              res = _context3.sent;
+              _context3.next = 9;
+              break;
+
+            case 6:
+              _context3.prev = 6;
+              _context3.t0 = _context3["catch"](0);
+              context.commit('setFailedAction', _context3.t0);
+
+            case 9:
+            case "end":
+              return _context3.stop();
+          }
+        }
+      }, _callee3, null, [[0, 6]]);
+    }));
+
+    function edit(_x4, _x5) {
+      return _edit.apply(this, arguments);
+    }
+
+    return edit;
+  }(),
+  update: function () {
+    var _update = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4(context, payload) {
+      var data;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee4$(_context4) {
+        while (1) {
+          switch (_context4.prev = _context4.next) {
+            case 0:
+              _context4.prev = 0;
+              data = {
+                name_customer: payload.name_customer,
+                address_customer: payload.address_customer,
+                phone_number_customer: payload.phone_number_customer
+              };
+              _context4.next = 4;
+              return _service_Customer__WEBPACK_IMPORTED_MODULE_1__["default"].update(payload.id_customer, data);
+
+            case 4:
+              _context4.next = 9;
+              break;
+
+            case 6:
+              _context4.prev = 6;
+              _context4.t0 = _context4["catch"](0);
+              context.commit('setFailedAction', _context4.t0);
+
+            case 9:
+            case "end":
+              return _context4.stop();
+          }
+        }
+      }, _callee4, null, [[0, 6]]);
+    }));
+
+    function update(_x6, _x7) {
+      return _update.apply(this, arguments);
+    }
+
+    return update;
+  }(),
+  delete: function () {
+    var _delete2 = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee5(context, id) {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee5$(_context5) {
+        while (1) {
+          switch (_context5.prev = _context5.next) {
+            case 0:
+              _context5.prev = 0;
+              _context5.next = 3;
+              return _service_Customer__WEBPACK_IMPORTED_MODULE_1__["default"].delete(id);
+
+            case 3:
+              _context5.next = 8;
+              break;
+
+            case 5:
+              _context5.prev = 5;
+              _context5.t0 = _context5["catch"](0);
+              context.commit('setFailedAction', _context5.t0);
+
+            case 8:
+            case "end":
+              return _context5.stop();
+          }
+        }
+      }, _callee5, null, [[0, 5]]);
+    }));
+
+    function _delete(_x8, _x9) {
+      return _delete2.apply(this, arguments);
+    }
+
+    return _delete;
+  }(),
+  resetForm: function resetForm(context) {
+    context.commit('setCustomerForm', {});
+  }
+};
+/* harmony default export */ __webpack_exports__["default"] = ({
+  namespaced: true,
+  state: state,
+  getters: getters,
+  actions: actions,
+  mutations: mutations
+});
+
+/***/ }),
+
+/***/ "./resources/js/store/modules/Employee.js":
+/*!************************************************!*\
+  !*** ./resources/js/store/modules/Employee.js ***!
+  \************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _service_Employee__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../service/Employee */ "./resources/js/service/Employee.js");
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+
+var state = {
+  employees: [],
+  employee: {
+    id: '',
+    name: '',
+    salary: '',
+    phone_number: '',
+    address: '',
+    id_user: '',
+    id_branch: '',
+    id_role: ''
+  },
+  loading: true,
+  error: null
+};
+var mutations = {
+  setSource: function setSource(state, payload) {
+    state.employees = payload;
+    state.loading = false;
+    state.error = null;
+  },
+  setFailedAction: function setFailedAction(state, payload) {
+    state.loading = false;
+    state.error = payload.error;
+  }
+};
+var getters = {
+  error: function error(state) {
+    return state.error;
+  },
+  loading: function loading(state) {
+    return state.loading;
+  },
+  employee: function employee(state) {
+    return state.employee;
+  }
+};
+var actions = {
+  get: function () {
+    var _get = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(context) {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              _context.prev = 0;
+              _context.t0 = context;
+              _context.next = 4;
+              return _service_Employee__WEBPACK_IMPORTED_MODULE_1__["default"].get();
+
+            case 4:
+              _context.t1 = _context.sent;
+
+              _context.t0.commit.call(_context.t0, 'setSource', _context.t1);
+
+              _context.next = 11;
+              break;
+
+            case 8:
+              _context.prev = 8;
+              _context.t2 = _context["catch"](0);
+              context.commit('setFailedAction', _context.t2);
+
+            case 11:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee, null, [[0, 8]]);
+    }));
+
+    function get(_x) {
+      return _get.apply(this, arguments);
+    }
+
+    return get;
+  }(),
+  store: function () {
+    var _store = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(context, payload) {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+        while (1) {
+          switch (_context2.prev = _context2.next) {
+            case 0:
+              _context2.prev = 0;
+              _context2.next = 3;
+              return _service_Employee__WEBPACK_IMPORTED_MODULE_1__["default"].store(payload);
+
+            case 3:
+              _context2.next = 8;
+              break;
+
+            case 5:
+              _context2.prev = 5;
+              _context2.t0 = _context2["catch"](0);
+              context.commit('setFailedStore', _context2.t0);
+
+            case 8:
+            case "end":
+              return _context2.stop();
+          }
+        }
+      }, _callee2, null, [[0, 5]]);
+    }));
+
+    function store(_x2, _x3) {
+      return _store.apply(this, arguments);
+    }
+
+    return store;
+  }(),
+  edit: function () {
+    var _edit = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3(context, id) {
+      var res;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
+        while (1) {
+          switch (_context3.prev = _context3.next) {
+            case 0:
+              _context3.prev = 0;
+              _context3.next = 3;
+              return _service_Employee__WEBPACK_IMPORTED_MODULE_1__["default"].find(id);
+
+            case 3:
+              res = _context3.sent;
+              _context3.next = 9;
+              break;
+
+            case 6:
+              _context3.prev = 6;
+              _context3.t0 = _context3["catch"](0);
+              context.commit('setFailedAction', _context3.t0);
+
+            case 9:
+            case "end":
+              return _context3.stop();
+          }
+        }
+      }, _callee3, null, [[0, 6]]);
+    }));
+
+    function edit(_x4, _x5) {
+      return _edit.apply(this, arguments);
+    }
+
+    return edit;
+  }(),
+  update: function () {
+    var _update = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4(context, payload) {
+      var data;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee4$(_context4) {
+        while (1) {
+          switch (_context4.prev = _context4.next) {
+            case 0:
+              _context4.prev = 0;
+              data = {
+                name_employee: payload.name_employee,
+                address: payload.address,
+                phone_number: payload.phone_number,
+                salary: payload.salary,
+                id_branch: payload.branch,
+                id_role: payload.role
+              };
+              _context4.next = 4;
+              return _service_Employee__WEBPACK_IMPORTED_MODULE_1__["default"].update(payload.id_employee, data);
+
+            case 4:
+              _context4.next = 9;
+              break;
+
+            case 6:
+              _context4.prev = 6;
+              _context4.t0 = _context4["catch"](0);
+              context.commit('setFailedAction', _context4.t0);
+
+            case 9:
+            case "end":
+              return _context4.stop();
+          }
+        }
+      }, _callee4, null, [[0, 6]]);
+    }));
+
+    function update(_x6, _x7) {
+      return _update.apply(this, arguments);
+    }
+
+    return update;
+  }(),
+  delete: function () {
+    var _delete2 = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee5(context, id) {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee5$(_context5) {
+        while (1) {
+          switch (_context5.prev = _context5.next) {
+            case 0:
+              _context5.prev = 0;
+              _context5.next = 3;
+              return _service_Employee__WEBPACK_IMPORTED_MODULE_1__["default"].delete(id);
+
+            case 3:
+              _context5.next = 8;
+              break;
+
+            case 5:
+              _context5.prev = 5;
+              _context5.t0 = _context5["catch"](0);
+              context.commit('setFailedAction', _context5.t0);
+
+            case 8:
+            case "end":
+              return _context5.stop();
+          }
+        }
+      }, _callee5, null, [[0, 5]]);
+    }));
+
+    function _delete(_x8, _x9) {
+      return _delete2.apply(this, arguments);
+    }
+
+    return _delete;
+  }(),
+  resetForm: function resetForm(context) {
+    context.commit('setEmployeeForm', {});
+  }
+};
+/* harmony default export */ __webpack_exports__["default"] = ({
+  namespaced: true,
+  state: state,
+  getters: getters,
+  actions: actions,
+  mutations: mutations
+});
+
+/***/ }),
+
+/***/ "./resources/js/store/modules/LoggedUser.js":
+/*!**************************************************!*\
+  !*** ./resources/js/store/modules/LoggedUser.js ***!
+  \**************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+var state = {
+  User: {
+    name: null,
+    username: null,
+    role: null
+  },
+  isLoggedIn: false
+};
+var mutations = {
+  setLoggedUser: function setLoggedUser(state, source) {
+    state.User.name = source.name;
+    state.User.username = source.username;
+    state.User.role = source.role;
+    state.isLoggedIn = true;
+  },
+  loggedOut: function loggedOut(state) {
+    state.isLoggedIn = false;
+  }
+};
+var getters = {
+  name: function name(state) {
+    return state.User.name;
+  },
+  role: function role(state) {
+    return state.User.role;
+  },
+  username: function username(state) {
+    return state.User.username;
+  }
+};
+/* harmony default export */ __webpack_exports__["default"] = ({
+  namespaced: true,
+  state: state,
+  mutations: mutations,
+  getters: getters
+});
+
+/***/ }),
+
+/***/ "./resources/js/store/modules/MotorCustomer.js":
+/*!*****************************************************!*\
+  !*** ./resources/js/store/modules/MotorCustomer.js ***!
+  \*****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _service_MotorCustomer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../service/MotorCustomer */ "./resources/js/service/MotorCustomer.js");
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+
+var state = {
+  motorcustomers: [],
+  motorcustomer: {
+    id_motorcycle: '',
+    plate_number: '',
+    id_motorcycle_type: '',
+    id_customer: ''
+  },
+  loading: true,
+  error: null
+};
+var mutations = {
+  setSource: function setSource(state, payload) {
+    state.motorcustomers = payload;
+    state.loading = false;
+    state.error = null;
+  },
+  setFailedAction: function setFailedAction(state, payload) {
+    state.loading = false;
+    state.error = payload.error;
+  }
+};
+var getters = {
+  error: function error(state) {
+    return state.error;
+  },
+  loading: function loading(state) {
+    return state.loading;
+  },
+  motorcustomer: function motorcustomer(state) {
+    return state.motorcustomer;
+  }
+};
+var actions = {
+  get: function () {
+    var _get = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(context) {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              _context.prev = 0;
+              _context.t0 = context;
+              _context.next = 4;
+              return _service_MotorCustomer__WEBPACK_IMPORTED_MODULE_1__["default"].get();
+
+            case 4:
+              _context.t1 = _context.sent;
+
+              _context.t0.commit.call(_context.t0, 'setSource', _context.t1);
+
+              _context.next = 11;
+              break;
+
+            case 8:
+              _context.prev = 8;
+              _context.t2 = _context["catch"](0);
+              context.commit('setFailedAction', _context.t2);
+
+            case 11:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee, null, [[0, 8]]);
+    }));
+
+    function get(_x) {
+      return _get.apply(this, arguments);
+    }
+
+    return get;
+  }(),
+  store: function () {
+    var _store = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(context, payload) {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+        while (1) {
+          switch (_context2.prev = _context2.next) {
+            case 0:
+              _context2.prev = 0;
+              _context2.next = 3;
+              return _service_MotorCustomer__WEBPACK_IMPORTED_MODULE_1__["default"].store(payload);
+
+            case 3:
+              _context2.next = 8;
+              break;
+
+            case 5:
+              _context2.prev = 5;
+              _context2.t0 = _context2["catch"](0);
+              context.commit('setFailedStore', _context2.t0);
+
+            case 8:
+            case "end":
+              return _context2.stop();
+          }
+        }
+      }, _callee2, null, [[0, 5]]);
+    }));
+
+    function store(_x2, _x3) {
+      return _store.apply(this, arguments);
+    }
+
+    return store;
+  }(),
+  edit: function () {
+    var _edit = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3(context, id) {
+      var res;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
+        while (1) {
+          switch (_context3.prev = _context3.next) {
+            case 0:
+              _context3.prev = 0;
+              _context3.next = 3;
+              return _service_MotorCustomer__WEBPACK_IMPORTED_MODULE_1__["default"].find(id);
+
+            case 3:
+              res = _context3.sent;
+              _context3.next = 9;
+              break;
+
+            case 6:
+              _context3.prev = 6;
+              _context3.t0 = _context3["catch"](0);
+              context.commit('setFailedAction', _context3.t0);
+
+            case 9:
+            case "end":
+              return _context3.stop();
+          }
+        }
+      }, _callee3, null, [[0, 6]]);
+    }));
+
+    function edit(_x4, _x5) {
+      return _edit.apply(this, arguments);
+    }
+
+    return edit;
+  }(),
+  update: function () {
+    var _update = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4(context, payload) {
+      var data;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee4$(_context4) {
+        while (1) {
+          switch (_context4.prev = _context4.next) {
+            case 0:
+              _context4.prev = 0;
+              data = {
+                plate_number: payload.plate_number,
+                id_motorcycle_type: payload.id_motorcycle_type,
+                id_customer: payload.id_customer
+              };
+              _context4.next = 4;
+              return _service_MotorCustomer__WEBPACK_IMPORTED_MODULE_1__["default"].update(payload.id_motorcycle, data);
+
+            case 4:
+              _context4.next = 9;
+              break;
+
+            case 6:
+              _context4.prev = 6;
+              _context4.t0 = _context4["catch"](0);
+              context.commit('setFailedAction', _context4.t0);
+
+            case 9:
+            case "end":
+              return _context4.stop();
+          }
+        }
+      }, _callee4, null, [[0, 6]]);
+    }));
+
+    function update(_x6, _x7) {
+      return _update.apply(this, arguments);
+    }
+
+    return update;
+  }(),
+  delete: function () {
+    var _delete2 = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee5(context, id) {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee5$(_context5) {
+        while (1) {
+          switch (_context5.prev = _context5.next) {
+            case 0:
+              _context5.prev = 0;
+              _context5.next = 3;
+              return _service_MotorCustomer__WEBPACK_IMPORTED_MODULE_1__["default"].delete(id);
+
+            case 3:
+              _context5.next = 8;
+              break;
+
+            case 5:
+              _context5.prev = 5;
+              _context5.t0 = _context5["catch"](0);
+              context.commit('setFailedAction', _context5.t0);
+
+            case 8:
+            case "end":
+              return _context5.stop();
+          }
+        }
+      }, _callee5, null, [[0, 5]]);
+    }));
+
+    function _delete(_x8, _x9) {
+      return _delete2.apply(this, arguments);
+    }
+
+    return _delete;
+  }(),
+  resetForm: function resetForm(context) {
+    context.commit('setMotorCustomerForm', {});
+  }
+};
+/* harmony default export */ __webpack_exports__["default"] = ({
+  namespaced: true,
+  state: state,
+  getters: getters,
+  actions: actions,
+  mutations: mutations
+});
+
+/***/ }),
+
+/***/ "./resources/js/store/modules/Role.js":
+/*!********************************************!*\
+  !*** ./resources/js/store/modules/Role.js ***!
+  \********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _service_Role__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../service/Role */ "./resources/js/service/Role.js");
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+
+var state = {
+  roles: [],
+  role: {
+    id_role: '',
+    role_name: ''
+  },
+  loading: false,
+  error: false
+};
+var mutations = {
+  setSource: function setSource(state, payload) {
+    state.roles = payload;
+    state.loading = false;
+    state.error = null;
+  },
+  setFailedAction: function setFailedAction(state, payload) {
+    state.loading = false;
+    state.error = payload.error;
+  },
+  setRoleForm: function setRoleForm(state, payload) {
+    state.role.role_name = payload.role_name;
+  }
+};
+var getters = {
+  error: function error(state) {
+    return state.error;
+  },
+  loading: function loading(state) {
+    return state.loading;
+  },
+  roles: function roles(state) {
+    return state.role;
+  }
+};
+var actions = {
+  get: function () {
+    var _get = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(context) {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              _context.prev = 0;
+              _context.t0 = context;
+              _context.next = 4;
+              return _service_Role__WEBPACK_IMPORTED_MODULE_1__["default"].get();
+
+            case 4:
+              _context.t1 = _context.sent;
+
+              _context.t0.commit.call(_context.t0, 'setSource', _context.t1);
+
+              _context.next = 11;
+              break;
+
+            case 8:
+              _context.prev = 8;
+              _context.t2 = _context["catch"](0);
+              context.commit('setFailedAction', _context.t2);
+
+            case 11:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee, null, [[0, 8]]);
+    }));
+
+    function get(_x) {
+      return _get.apply(this, arguments);
+    }
+
+    return get;
+  }()
+};
+/* harmony default export */ __webpack_exports__["default"] = ({
+  namespaced: true,
+  state: state,
+  mutations: mutations,
+  actions: actions,
+  getters: getters
+});
+
+/***/ }),
+
+/***/ "./resources/js/store/modules/Sales.js":
+/*!*********************************************!*\
+  !*** ./resources/js/store/modules/Sales.js ***!
+  \*********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _service_Sales__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../service/Sales */ "./resources/js/service/Sales.js");
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+
+var state = {
+  manySales: [],
+  sales: {
+    id_sales: '',
+    name_sales: '',
+    phone_number_sales: '',
+    address_sales: ''
+  },
+  loading: true,
+  error: null
+};
+var mutations = {
+  setSource: function setSource(state, payload) {
+    state.manySales = payload;
+    state.loading = false;
+    state.error = null;
+  },
+  setFailedAction: function setFailedAction(state, payload) {
+    state.loading = false;
+    state.error = payload.error;
+  }
+};
+var getters = {
+  error: function error(state) {
+    return state.error;
+  },
+  loading: function loading(state) {
+    return state.loading;
+  },
+  sales: function sales(state) {
+    return state.sales;
+  }
+};
+var actions = {
+  get: function () {
+    var _get = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(context) {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              _context.prev = 0;
+              _context.t0 = context;
+              _context.next = 4;
+              return _service_Sales__WEBPACK_IMPORTED_MODULE_1__["default"].get();
+
+            case 4:
+              _context.t1 = _context.sent;
+
+              _context.t0.commit.call(_context.t0, 'setSource', _context.t1);
+
+              _context.next = 11;
+              break;
+
+            case 8:
+              _context.prev = 8;
+              _context.t2 = _context["catch"](0);
+              context.commit('setFailedAction', _context.t2);
+
+            case 11:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee, null, [[0, 8]]);
+    }));
+
+    function get(_x) {
+      return _get.apply(this, arguments);
+    }
+
+    return get;
+  }(),
+  store: function () {
+    var _store = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(context, payload) {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+        while (1) {
+          switch (_context2.prev = _context2.next) {
+            case 0:
+              _context2.prev = 0;
+              _context2.next = 3;
+              return _service_Sales__WEBPACK_IMPORTED_MODULE_1__["default"].store(payload);
+
+            case 3:
+              _context2.next = 8;
+              break;
+
+            case 5:
+              _context2.prev = 5;
+              _context2.t0 = _context2["catch"](0);
+              context.commit('setFailedStore', _context2.t0);
+
+            case 8:
+            case "end":
+              return _context2.stop();
+          }
+        }
+      }, _callee2, null, [[0, 5]]);
+    }));
+
+    function store(_x2, _x3) {
+      return _store.apply(this, arguments);
+    }
+
+    return store;
+  }(),
+  edit: function () {
+    var _edit = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3(context, id) {
+      var res;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
+        while (1) {
+          switch (_context3.prev = _context3.next) {
+            case 0:
+              _context3.prev = 0;
+              _context3.next = 3;
+              return _service_Sales__WEBPACK_IMPORTED_MODULE_1__["default"].find(id);
+
+            case 3:
+              res = _context3.sent;
+              _context3.next = 9;
+              break;
+
+            case 6:
+              _context3.prev = 6;
+              _context3.t0 = _context3["catch"](0);
+              context.commit('setFailedAction', _context3.t0);
+
+            case 9:
+            case "end":
+              return _context3.stop();
+          }
+        }
+      }, _callee3, null, [[0, 6]]);
+    }));
+
+    function edit(_x4, _x5) {
+      return _edit.apply(this, arguments);
+    }
+
+    return edit;
+  }(),
+  update: function () {
+    var _update = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4(context, payload) {
+      var data;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee4$(_context4) {
+        while (1) {
+          switch (_context4.prev = _context4.next) {
+            case 0:
+              _context4.prev = 0;
+              data = {
+                name_sales: payload.name_sales,
+                phone_number_sales: payload.phone_number_sales,
+                id_supplier: payload.id_supplier
+              };
+              _context4.next = 4;
+              return _service_Sales__WEBPACK_IMPORTED_MODULE_1__["default"].update(payload.id_sales, data);
+
+            case 4:
+              _context4.next = 9;
+              break;
+
+            case 6:
+              _context4.prev = 6;
+              _context4.t0 = _context4["catch"](0);
+              context.commit('setFailedAction', _context4.t0);
+
+            case 9:
+            case "end":
+              return _context4.stop();
+          }
+        }
+      }, _callee4, null, [[0, 6]]);
+    }));
+
+    function update(_x6, _x7) {
+      return _update.apply(this, arguments);
+    }
+
+    return update;
+  }(),
+  delete: function () {
+    var _delete2 = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee5(context, id) {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee5$(_context5) {
+        while (1) {
+          switch (_context5.prev = _context5.next) {
+            case 0:
+              _context5.prev = 0;
+              _context5.next = 3;
+              return _service_Sales__WEBPACK_IMPORTED_MODULE_1__["default"].delete(id);
+
+            case 3:
+              _context5.next = 8;
+              break;
+
+            case 5:
+              _context5.prev = 5;
+              _context5.t0 = _context5["catch"](0);
+              context.commit('setFailedAction', _context5.t0);
+
+            case 8:
+            case "end":
+              return _context5.stop();
+          }
+        }
+      }, _callee5, null, [[0, 5]]);
+    }));
+
+    function _delete(_x8, _x9) {
+      return _delete2.apply(this, arguments);
+    }
+
+    return _delete;
+  }(),
+  resetForm: function resetForm(context) {
+    context.commit('setEmployeeForm', {});
+  }
+};
+/* harmony default export */ __webpack_exports__["default"] = ({
+  namespaced: true,
+  state: state,
+  getters: getters,
+  actions: actions,
+  mutations: mutations
+});
+
+/***/ }),
+
+/***/ "./resources/js/store/modules/Service.js":
+/*!***********************************************!*\
+  !*** ./resources/js/store/modules/Service.js ***!
+  \***********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _service_Service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../service/Service */ "./resources/js/service/Service.js");
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+
+var state = {
+  services: [],
+  service: {
+    id_service: '',
+    name_service: '',
+    price_service: ''
+  },
+  loading: true,
+  error: null
+};
+var mutations = {
+  setSource: function setSource(state, payload) {
+    state.services = payload;
+    state.loading = false;
+    state.error = null;
+  },
+  setFailedAction: function setFailedAction(state, payload) {
+    state.loading = false;
+    state.error = payload.error;
+  }
+};
+var getters = {
+  error: function error(state) {
+    return state.error;
+  },
+  loading: function loading(state) {
+    return state.loading;
+  },
+  service: function service(state) {
+    return state.service;
+  }
+};
+var actions = {
+  get: function () {
+    var _get = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(context) {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              _context.prev = 0;
+              _context.t0 = context;
+              _context.next = 4;
+              return _service_Service__WEBPACK_IMPORTED_MODULE_1__["default"].get();
+
+            case 4:
+              _context.t1 = _context.sent;
+
+              _context.t0.commit.call(_context.t0, 'setSource', _context.t1);
+
+              _context.next = 11;
+              break;
+
+            case 8:
+              _context.prev = 8;
+              _context.t2 = _context["catch"](0);
+              context.commit('setFailedAction', _context.t2);
+
+            case 11:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee, null, [[0, 8]]);
+    }));
+
+    function get(_x) {
+      return _get.apply(this, arguments);
+    }
+
+    return get;
+  }(),
+  store: function () {
+    var _store = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(context, payload) {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+        while (1) {
+          switch (_context2.prev = _context2.next) {
+            case 0:
+              _context2.prev = 0;
+              _context2.next = 3;
+              return _service_Service__WEBPACK_IMPORTED_MODULE_1__["default"].store(payload);
+
+            case 3:
+              _context2.next = 8;
+              break;
+
+            case 5:
+              _context2.prev = 5;
+              _context2.t0 = _context2["catch"](0);
+              context.commit('setFailedStore', _context2.t0);
+
+            case 8:
+            case "end":
+              return _context2.stop();
+          }
+        }
+      }, _callee2, null, [[0, 5]]);
+    }));
+
+    function store(_x2, _x3) {
+      return _store.apply(this, arguments);
+    }
+
+    return store;
+  }(),
+  edit: function () {
+    var _edit = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3(context, id) {
+      var res;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
+        while (1) {
+          switch (_context3.prev = _context3.next) {
+            case 0:
+              _context3.prev = 0;
+              _context3.next = 3;
+              return _service_Service__WEBPACK_IMPORTED_MODULE_1__["default"].find(id);
+
+            case 3:
+              res = _context3.sent;
+              _context3.next = 9;
+              break;
+
+            case 6:
+              _context3.prev = 6;
+              _context3.t0 = _context3["catch"](0);
+              context.commit('setFailedAction', _context3.t0);
+
+            case 9:
+            case "end":
+              return _context3.stop();
+          }
+        }
+      }, _callee3, null, [[0, 6]]);
+    }));
+
+    function edit(_x4, _x5) {
+      return _edit.apply(this, arguments);
+    }
+
+    return edit;
+  }(),
+  update: function () {
+    var _update = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4(context, payload) {
+      var data;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee4$(_context4) {
+        while (1) {
+          switch (_context4.prev = _context4.next) {
+            case 0:
+              _context4.prev = 0;
+              data = {
+                name_service: payload.name_service,
+                price_service: payload.price_service
+              };
+              _context4.next = 4;
+              return _service_Service__WEBPACK_IMPORTED_MODULE_1__["default"].update(payload.id_service, data);
+
+            case 4:
+              _context4.next = 9;
+              break;
+
+            case 6:
+              _context4.prev = 6;
+              _context4.t0 = _context4["catch"](0);
+              context.commit('setFailedAction', _context4.t0);
+
+            case 9:
+            case "end":
+              return _context4.stop();
+          }
+        }
+      }, _callee4, null, [[0, 6]]);
+    }));
+
+    function update(_x6, _x7) {
+      return _update.apply(this, arguments);
+    }
+
+    return update;
+  }(),
+  delete: function () {
+    var _delete2 = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee5(context, id) {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee5$(_context5) {
+        while (1) {
+          switch (_context5.prev = _context5.next) {
+            case 0:
+              _context5.prev = 0;
+              _context5.next = 3;
+              return _service_Service__WEBPACK_IMPORTED_MODULE_1__["default"].delete(id);
+
+            case 3:
+              _context5.next = 8;
+              break;
+
+            case 5:
+              _context5.prev = 5;
+              _context5.t0 = _context5["catch"](0);
+              context.commit('setFailedAction', _context5.t0);
+
+            case 8:
+            case "end":
+              return _context5.stop();
+          }
+        }
+      }, _callee5, null, [[0, 5]]);
+    }));
+
+    function _delete(_x8, _x9) {
+      return _delete2.apply(this, arguments);
+    }
+
+    return _delete;
+  }(),
+  resetForm: function resetForm(context) {
+    context.commit('setserviceForm', {});
+  }
+};
+/* harmony default export */ __webpack_exports__["default"] = ({
+  namespaced: true,
+  state: state,
+  getters: getters,
+  actions: actions,
+  mutations: mutations
+});
+
+/***/ }),
+
+/***/ "./resources/js/store/modules/Sparepart.js":
+/*!*************************************************!*\
+  !*** ./resources/js/store/modules/Sparepart.js ***!
+  \*************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _service_Sparepart__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../service/Sparepart */ "./resources/js/service/Sparepart.js");
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+
+var state = {
+  spareparts: [],
+  sparepart: {
+    id_sparepart: '',
+    name_sparepart: '',
+    brand_sparepart: '',
+    stock_sparepart: '',
+    minimal_stock_sparepart: '',
+    buy_price: '',
+    sell_price: '',
+    placement: '',
+    image_sparepart: '',
+    id_sparepart_type: ''
+  },
+  loading: true,
+  error: null
+};
+var mutations = {
+  setSource: function setSource(state, payload) {
+    state.spareparts = payload;
+    state.loading = false;
+    state.error = null;
+  },
+  setFailedAction: function setFailedAction(state, payload) {
+    state.loading = false;
+    state.error = payload.error;
+  }
+};
+var getters = {
+  error: function error(state) {
+    return state.error;
+  },
+  loading: function loading(state) {
+    return state.loading;
+  },
+  sparepart: function sparepart(state) {
+    return state.sparepart;
+  }
+};
+var actions = {
+  get: function () {
+    var _get = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(context) {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              _context.prev = 0;
+              _context.t0 = context;
+              _context.next = 4;
+              return _service_Sparepart__WEBPACK_IMPORTED_MODULE_1__["default"].get();
+
+            case 4:
+              _context.t1 = _context.sent;
+
+              _context.t0.commit.call(_context.t0, 'setSource', _context.t1);
+
+              _context.next = 11;
+              break;
+
+            case 8:
+              _context.prev = 8;
+              _context.t2 = _context["catch"](0);
+              context.commit('setFailedAction', _context.t2);
+
+            case 11:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee, null, [[0, 8]]);
+    }));
+
+    function get(_x) {
+      return _get.apply(this, arguments);
+    }
+
+    return get;
+  }(),
+  store: function () {
+    var _store = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(context, payload) {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+        while (1) {
+          switch (_context2.prev = _context2.next) {
+            case 0:
+              _context2.prev = 0;
+              _context2.next = 3;
+              return _service_Sparepart__WEBPACK_IMPORTED_MODULE_1__["default"].store(payload);
+
+            case 3:
+              _context2.next = 8;
+              break;
+
+            case 5:
+              _context2.prev = 5;
+              _context2.t0 = _context2["catch"](0);
+              context.commit('setFailedStore', _context2.t0);
+
+            case 8:
+            case "end":
+              return _context2.stop();
+          }
+        }
+      }, _callee2, null, [[0, 5]]);
+    }));
+
+    function store(_x2, _x3) {
+      return _store.apply(this, arguments);
+    }
+
+    return store;
+  }(),
+  edit: function () {
+    var _edit = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3(context, id) {
+      var res;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
+        while (1) {
+          switch (_context3.prev = _context3.next) {
+            case 0:
+              _context3.prev = 0;
+              _context3.next = 3;
+              return _service_Sparepart__WEBPACK_IMPORTED_MODULE_1__["default"].find(id);
+
+            case 3:
+              res = _context3.sent;
+              _context3.next = 9;
+              break;
+
+            case 6:
+              _context3.prev = 6;
+              _context3.t0 = _context3["catch"](0);
+              context.commit('setFailedAction', _context3.t0);
+
+            case 9:
+            case "end":
+              return _context3.stop();
+          }
+        }
+      }, _callee3, null, [[0, 6]]);
+    }));
+
+    function edit(_x4, _x5) {
+      return _edit.apply(this, arguments);
+    }
+
+    return edit;
+  }(),
+  update: function () {
+    var _update = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4(context, payload) {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee4$(_context4) {
+        while (1) {
+          switch (_context4.prev = _context4.next) {
+            case 0:
+              _context4.prev = 0;
+              _context4.next = 3;
+              return _service_Sparepart__WEBPACK_IMPORTED_MODULE_1__["default"].update(payload.id_sparepart, payload);
+
+            case 3:
+              _context4.next = 8;
+              break;
+
+            case 5:
+              _context4.prev = 5;
+              _context4.t0 = _context4["catch"](0);
+              context.commit('setFailedAction', _context4.t0);
+
+            case 8:
+            case "end":
+              return _context4.stop();
+          }
+        }
+      }, _callee4, null, [[0, 5]]);
+    }));
+
+    function update(_x6, _x7) {
+      return _update.apply(this, arguments);
+    }
+
+    return update;
+  }(),
+  delete: function () {
+    var _delete2 = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee5(context, id) {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee5$(_context5) {
+        while (1) {
+          switch (_context5.prev = _context5.next) {
+            case 0:
+              _context5.prev = 0;
+              _context5.next = 3;
+              return _service_Sparepart__WEBPACK_IMPORTED_MODULE_1__["default"].delete(id);
+
+            case 3:
+              _context5.next = 8;
+              break;
+
+            case 5:
+              _context5.prev = 5;
+              _context5.t0 = _context5["catch"](0);
+              context.commit('setFailedAction', _context5.t0);
+
+            case 8:
+            case "end":
+              return _context5.stop();
+          }
+        }
+      }, _callee5, null, [[0, 5]]);
+    }));
+
+    function _delete(_x8, _x9) {
+      return _delete2.apply(this, arguments);
+    }
+
+    return _delete;
+  }(),
+  updateimage: function () {
+    var _updateimage = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee6(context, payload) {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee6$(_context6) {
+        while (1) {
+          switch (_context6.prev = _context6.next) {
+            case 0:
+              _context6.prev = 0;
+              _context6.next = 3;
+              return _service_Sparepart__WEBPACK_IMPORTED_MODULE_1__["default"].updateimage(payload);
+
+            case 3:
+              _context6.next = 8;
+              break;
+
+            case 5:
+              _context6.prev = 5;
+              _context6.t0 = _context6["catch"](0);
+              context.commit('setFailedStore', _context6.t0);
+
+            case 8:
+            case "end":
+              return _context6.stop();
+          }
+        }
+      }, _callee6, null, [[0, 5]]);
+    }));
+
+    function updateimage(_x10, _x11) {
+      return _updateimage.apply(this, arguments);
+    }
+
+    return updateimage;
+  }(),
+  resetForm: function resetForm(context) {
+    context.commit('setsparepartForm', {});
+  }
+};
+/* harmony default export */ __webpack_exports__["default"] = ({
+  namespaced: true,
+  state: state,
+  getters: getters,
+  actions: actions,
+  mutations: mutations
+});
+
+/***/ }),
+
+/***/ "./resources/js/store/modules/Supplier.js":
+/*!************************************************!*\
+  !*** ./resources/js/store/modules/Supplier.js ***!
+  \************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _service_Supplier__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../service/Supplier */ "./resources/js/service/Supplier.js");
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+
+var state = {
+  suppliers: [],
+  supplier: {
+    id_supplier: '',
+    name_supplier: '',
+    phone_number_supplier: '',
+    address_supplier: ''
+  },
+  loading: true,
+  error: null
+};
+var mutations = {
+  setSource: function setSource(state, payload) {
+    state.suppliers = payload;
+    state.loading = false;
+    state.error = null;
+  },
+  setFailedAction: function setFailedAction(state, payload) {
+    state.loading = false;
+    state.error = payload.error;
+  }
+};
+var getters = {
+  error: function error(state) {
+    return state.error;
+  },
+  loading: function loading(state) {
+    return state.loading;
+  },
+  supplier: function supplier(state) {
+    return state.supplier;
+  }
+};
+var actions = {
+  get: function () {
+    var _get = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(context) {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              _context.prev = 0;
+              _context.t0 = context;
+              _context.next = 4;
+              return _service_Supplier__WEBPACK_IMPORTED_MODULE_1__["default"].get();
+
+            case 4:
+              _context.t1 = _context.sent;
+
+              _context.t0.commit.call(_context.t0, 'setSource', _context.t1);
+
+              _context.next = 11;
+              break;
+
+            case 8:
+              _context.prev = 8;
+              _context.t2 = _context["catch"](0);
+              context.commit('setFailedAction', _context.t2);
+
+            case 11:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee, null, [[0, 8]]);
+    }));
+
+    function get(_x) {
+      return _get.apply(this, arguments);
+    }
+
+    return get;
+  }(),
+  store: function () {
+    var _store = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(context, payload) {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+        while (1) {
+          switch (_context2.prev = _context2.next) {
+            case 0:
+              _context2.prev = 0;
+              _context2.next = 3;
+              return _service_Supplier__WEBPACK_IMPORTED_MODULE_1__["default"].store(payload);
+
+            case 3:
+              _context2.next = 8;
+              break;
+
+            case 5:
+              _context2.prev = 5;
+              _context2.t0 = _context2["catch"](0);
+              context.commit('setFailedStore', _context2.t0);
+
+            case 8:
+            case "end":
+              return _context2.stop();
+          }
+        }
+      }, _callee2, null, [[0, 5]]);
+    }));
+
+    function store(_x2, _x3) {
+      return _store.apply(this, arguments);
+    }
+
+    return store;
+  }(),
+  edit: function () {
+    var _edit = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3(context, id) {
+      var res;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
+        while (1) {
+          switch (_context3.prev = _context3.next) {
+            case 0:
+              _context3.prev = 0;
+              _context3.next = 3;
+              return _service_Supplier__WEBPACK_IMPORTED_MODULE_1__["default"].find(id);
+
+            case 3:
+              res = _context3.sent;
+              _context3.next = 9;
+              break;
+
+            case 6:
+              _context3.prev = 6;
+              _context3.t0 = _context3["catch"](0);
+              context.commit('setFailedAction', _context3.t0);
+
+            case 9:
+            case "end":
+              return _context3.stop();
+          }
+        }
+      }, _callee3, null, [[0, 6]]);
+    }));
+
+    function edit(_x4, _x5) {
+      return _edit.apply(this, arguments);
+    }
+
+    return edit;
+  }(),
+  update: function () {
+    var _update = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4(context, payload) {
+      var data;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee4$(_context4) {
+        while (1) {
+          switch (_context4.prev = _context4.next) {
+            case 0:
+              _context4.prev = 0;
+              data = {
+                name_supplier: payload.name_supplier,
+                phone_number_supplier: payload.phone_number_supplier,
+                address_supplier: payload.address_supplier
+              };
+              _context4.next = 4;
+              return _service_Supplier__WEBPACK_IMPORTED_MODULE_1__["default"].update(payload.id_supplier, data);
+
+            case 4:
+              _context4.next = 9;
+              break;
+
+            case 6:
+              _context4.prev = 6;
+              _context4.t0 = _context4["catch"](0);
+              context.commit('setFailedAction', _context4.t0);
+
+            case 9:
+            case "end":
+              return _context4.stop();
+          }
+        }
+      }, _callee4, null, [[0, 6]]);
+    }));
+
+    function update(_x6, _x7) {
+      return _update.apply(this, arguments);
+    }
+
+    return update;
+  }(),
+  delete: function () {
+    var _delete2 = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee5(context, id) {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee5$(_context5) {
+        while (1) {
+          switch (_context5.prev = _context5.next) {
+            case 0:
+              _context5.prev = 0;
+              _context5.next = 3;
+              return _service_Supplier__WEBPACK_IMPORTED_MODULE_1__["default"].delete(id);
+
+            case 3:
+              _context5.next = 8;
+              break;
+
+            case 5:
+              _context5.prev = 5;
+              _context5.t0 = _context5["catch"](0);
+              context.commit('setFailedAction', _context5.t0);
+
+            case 8:
+            case "end":
+              return _context5.stop();
+          }
+        }
+      }, _callee5, null, [[0, 5]]);
+    }));
+
+    function _delete(_x8, _x9) {
+      return _delete2.apply(this, arguments);
+    }
+
+    return _delete;
+  }(),
+  resetForm: function resetForm(context) {
+    context.commit('setEmployeeForm', {});
+  }
+};
+/* harmony default export */ __webpack_exports__["default"] = ({
+  namespaced: true,
+  state: state,
+  getters: getters,
+  actions: actions,
+  mutations: mutations
+});
+
+/***/ }),
+
+/***/ "./resources/js/store/modules/User.js":
+/*!********************************************!*\
+  !*** ./resources/js/store/modules/User.js ***!
+  \********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _service_User__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../service/User */ "./resources/js/service/User.js");
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+
+var state = {
+  users: [],
+  user: {
+    username: '',
+    role: '',
+    name: ''
+  },
+  loading: true,
+  error: null
+};
+var mutations = {
+  setSource: function setSource(state, payload) {
+    state.users = payload;
+    state.loading = false;
+    state.error = null;
+  },
+  setFailedAction: function setFailedAction(state, payload) {
+    state.loading = false;
+    state.error = payload.error;
+  },
+  setUserForm: function setUserForm(state, payload) {
+    state.user.username = payload.username;
+  }
+};
+var getters = {
+  error: function error(state) {
+    return state.error;
+  },
+  loading: function loading(state) {
+    return state.loading;
+  },
+  user: function user(state) {
+    return state.user;
+  }
+};
+var actions = {
+  get: function () {
+    var _get = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(context) {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              _context.prev = 0;
+              _context.t0 = context;
+              _context.next = 4;
+              return _service_User__WEBPACK_IMPORTED_MODULE_1__["default"].get();
+
+            case 4:
+              _context.t1 = _context.sent;
+
+              _context.t0.commit.call(_context.t0, 'setSource', _context.t1);
+
+              _context.next = 11;
+              break;
+
+            case 8:
+              _context.prev = 8;
+              _context.t2 = _context["catch"](0);
+              context.commit('setFailedAction', _context.t2);
+
+            case 11:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee, null, [[0, 8]]);
+    }));
+
+    function get(_x) {
+      return _get.apply(this, arguments);
+    }
+
+    return get;
+  }(),
+  store: function () {
+    var _store = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(context, payload) {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+        while (1) {
+          switch (_context2.prev = _context2.next) {
+            case 0:
+              _context2.prev = 0;
+              _context2.next = 3;
+              return _service_User__WEBPACK_IMPORTED_MODULE_1__["default"].store(payload);
+
+            case 3:
+              _context2.next = 8;
+              break;
+
+            case 5:
+              _context2.prev = 5;
+              _context2.t0 = _context2["catch"](0);
+              context.commit('setFailedStore', _context2.t0);
+
+            case 8:
+            case "end":
+              return _context2.stop();
+          }
+        }
+      }, _callee2, null, [[0, 5]]);
+    }));
+
+    function store(_x2, _x3) {
+      return _store.apply(this, arguments);
+    }
+
+    return store;
+  }(),
+  edit: function () {
+    var _edit = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3(context, id) {
+      var res;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
+        while (1) {
+          switch (_context3.prev = _context3.next) {
+            case 0:
+              _context3.prev = 0;
+              _context3.next = 3;
+              return _service_User__WEBPACK_IMPORTED_MODULE_1__["default"].find(id);
+
+            case 3:
+              res = _context3.sent;
+              context.commit('setUserForm', res);
+              _context3.next = 10;
+              break;
+
+            case 7:
+              _context3.prev = 7;
+              _context3.t0 = _context3["catch"](0);
+              context.commit('setFailedAction', _context3.t0);
+
+            case 10:
+            case "end":
+              return _context3.stop();
+          }
+        }
+      }, _callee3, null, [[0, 7]]);
+    }));
+
+    function edit(_x4, _x5) {
+      return _edit.apply(this, arguments);
+    }
+
+    return edit;
+  }(),
+  update: function () {
+    var _update = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4(context, payload) {
+      var data;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee4$(_context4) {
+        while (1) {
+          switch (_context4.prev = _context4.next) {
+            case 0:
+              _context4.prev = 0;
+              data = {
+                username: payload.username,
+                password: payload.password
+              };
+              _context4.next = 4;
+              return _service_User__WEBPACK_IMPORTED_MODULE_1__["default"].update(payload.id_user, data);
+
+            case 4:
+              _context4.next = 9;
+              break;
+
+            case 6:
+              _context4.prev = 6;
+              _context4.t0 = _context4["catch"](0);
+              context.commit('setFailedAction', _context4.t0);
+
+            case 9:
+            case "end":
+              return _context4.stop();
+          }
+        }
+      }, _callee4, null, [[0, 6]]);
+    }));
+
+    function update(_x6, _x7) {
+      return _update.apply(this, arguments);
+    }
+
+    return update;
+  }(),
+  delete: function () {
+    var _delete2 = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee5(context, id) {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee5$(_context5) {
+        while (1) {
+          switch (_context5.prev = _context5.next) {
+            case 0:
+              _context5.prev = 0;
+              _context5.next = 3;
+              return _service_User__WEBPACK_IMPORTED_MODULE_1__["default"].delete(id);
+
+            case 3:
+              _context5.next = 8;
+              break;
+
+            case 5:
+              _context5.prev = 5;
+              _context5.t0 = _context5["catch"](0);
+              context.commit('setFailedAction', _context5.t0);
+
+            case 8:
+            case "end":
+              return _context5.stop();
+          }
+        }
+      }, _callee5, null, [[0, 5]]);
+    }));
+
+    function _delete(_x8, _x9) {
+      return _delete2.apply(this, arguments);
+    }
+
+    return _delete;
+  }(),
+  resetForm: function resetForm(context) {
+    context.commit('setUserForm', {});
+  }
+};
+/* harmony default export */ __webpack_exports__["default"] = ({
+  namespaced: true,
+  state: state,
+  getters: getters,
+  actions: actions,
+  mutations: mutations
+});
+
+/***/ }),
+
+/***/ "./resources/js/store/modules/index.js":
+/*!*********************************************!*\
+  !*** ./resources/js/store/modules/index.js ***!
+  \*********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _User__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./User */ "./resources/js/store/modules/User.js");
+/* harmony import */ var _Branch__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Branch */ "./resources/js/store/modules/Branch.js");
+/* harmony import */ var _Role__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Role */ "./resources/js/store/modules/Role.js");
+/* harmony import */ var _Employee__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Employee */ "./resources/js/store/modules/Employee.js");
+/* harmony import */ var _Service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Service */ "./resources/js/store/modules/Service.js");
+/* harmony import */ var _Sparepart__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Sparepart */ "./resources/js/store/modules/Sparepart.js");
+/* harmony import */ var _Supplier__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./Supplier */ "./resources/js/store/modules/Supplier.js");
+/* harmony import */ var _Sales__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./Sales */ "./resources/js/store/modules/Sales.js");
+/* harmony import */ var _LoggedUser__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./LoggedUser */ "./resources/js/store/modules/LoggedUser.js");
+/* harmony import */ var _Customer__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./Customer */ "./resources/js/store/modules/Customer.js");
+/* harmony import */ var _MotorCustomer__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./MotorCustomer */ "./resources/js/store/modules/MotorCustomer.js");
+// import LoggedUser from './LoggedUser'
+
+
+
+
+
+
+
+
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  User: _User__WEBPACK_IMPORTED_MODULE_0__["default"],
+  Branch: _Branch__WEBPACK_IMPORTED_MODULE_1__["default"],
+  Role: _Role__WEBPACK_IMPORTED_MODULE_2__["default"],
+  Employee: _Employee__WEBPACK_IMPORTED_MODULE_3__["default"],
+  Service: _Service__WEBPACK_IMPORTED_MODULE_4__["default"],
+  Sparepart: _Sparepart__WEBPACK_IMPORTED_MODULE_5__["default"],
+  Supplier: _Supplier__WEBPACK_IMPORTED_MODULE_6__["default"],
+  Sales: _Sales__WEBPACK_IMPORTED_MODULE_7__["default"],
+  LoggedUser: _LoggedUser__WEBPACK_IMPORTED_MODULE_8__["default"],
+  Customer: _Customer__WEBPACK_IMPORTED_MODULE_9__["default"],
+  MotorCustomer: _MotorCustomer__WEBPACK_IMPORTED_MODULE_10__["default"]
+});
 
 /***/ }),
 
