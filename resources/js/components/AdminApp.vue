@@ -18,21 +18,14 @@
       <v-card>
         <v-card-title class="headline"
           primary-title>
-          Settings
+          Pengaturan Akun
         </v-card-title>
 
         <v-card-text>
-          Set Up System User
+          Ubah Password 
           <v-form>
             <v-container>
               <v-layout row wrap>
-
-                <v-flex xs12 xs6 md11>
-                  <v-text-field
-                    v-model="userEmail"
-                    label="User Email"
-                    hint="Set user email"/>
-                </v-flex>
 
                 <v-flex xs12 xs6 md1 />
 
@@ -41,10 +34,10 @@
                     v-model="password"
                     :append-icon="showPassword ? 'visibility_off' : 'visibility'"
                     :type="showPassword ? 'text' : 'password'"
-                    label="New Password"
-                    hint="Please choose a complex one.."
-                    :error="error"
-                    @click:append="showPassword = !showPassword" />
+                    label="Password Baru"
+                    @input="$v.password.$touch()"
+                    @blur="$v.password.$touch()"
+                    :error-messages="passwordErrors" />
                 </v-flex>
 
                 <v-flex xs12 sm6 md1 />
@@ -54,20 +47,13 @@
                     v-model="passwordConfirm"
                     :append-icon="showPasswordConfirm ? 'visibility_off' : 'visibility'"
                     :type="showPasswordConfirm ? 'text' : 'password'"
-                    label="Confirm New Password"
-                    hint="and confirm it."
-                    :error="error"
-                    @click:append="showPasswordConfirm = !showPasswordConfirm" />
+                    label="Konfirmasi Password Baru"
+                    @input="$v.passwordConfirm.$touch()"
+                    @blur="$v.passwordConfirm.$touch()"
+                    :error-messages="confirmpasswordErrors" />
                 </v-flex>
 
                 <v-flex xs12 sm6 md1 />
-
-                <v-flex xs12 xs6 md11>
-                  <v-switch
-                    label="Email Notification"
-                    color="success"
-                    v-model="switchEmailNotification" />
-                </v-flex>
 
                 <v-flex xs12 xs6 md1 />
 
@@ -83,7 +69,8 @@
           <v-btn
             color="primary"
             flat
-            @click="setUpSettings">
+            :disabled="$v.passwordConfirm.$invalid"
+            @click="savepassword">
             Save Changes
           </v-btn>
         </v-card-actions>
@@ -329,17 +316,27 @@
   <v-content>
     <router-view/>
   </v-content>
-  
+  <!-- Alert -->
+  <v-snackbar right bottom :color="alert.type"  value="true" v-if="alert.type">
+    <v-icon>{{alert.icon}}</v-icon>{{alert.message}}
+  </v-snackbar>
 </div>
 </v-app>
 </template>
 
 
 <script>
+import Controller from '../httpController'
 import { mapGetters } from 'vuex'
 import Auth from '../service/Auth'
+import { required, minLength, numeric,sameAs } from 'vuelidate/lib/validators'
 
 export default {
+  validations: {
+      password: { required, minLength: minLength(8)},
+      passwordConfirm: { required, minLength: minLength(8), sameAsPassword: sameAs('password')},
+  },
+  
   props: {
     toggle: {
         type: Boolean,
@@ -356,14 +353,32 @@ export default {
   mounted(){
     // console.log('Mounted '+this.role)
   },
-
+  watch: {
+    dialogSettings (val) {
+      val || this.close()
+    },
+  },
   computed: {
       ...mapGetters({
+        id: 'LoggedUser/id',
         name: 'LoggedUser/name',
         username: 'LoggedUser/username',
         role: 'LoggedUser/role'
       }),
-
+       passwordErrors () {
+        const errors = []
+        if (!this.$v.password.$dirty) return errors
+        !this.$v.password.minLength && errors.push('Minimal 8 karakter') 
+        !this.$v.password.required && errors.push('Password diperlukan')
+        return errors
+      },
+      confirmpasswordErrors () {
+        const errors = []
+        if (!this.$v.passwordConfirm.$dirty) return errors 
+        !this.$v.passwordConfirm.required && errors.push('Konfirmasi diperlukan')
+        !this.$v.passwordConfirm.sameAsPassword && errors.push('Password harus sama')
+        return errors
+      },
       isLoginPage() {
         return this.$route.meta.page === 'login'
       },
@@ -504,6 +519,11 @@ export default {
       //   ['Settings', 'settings']
       // ],
       drawer: null,
+      alert:{
+        type: null,
+        message: null,
+        icon: null,
+      }
     }
   },
 
@@ -512,6 +532,21 @@ export default {
       const vm = this;
 
       vm.$emit('toggleNavigationBar');
+    },
+    async savepassword(){
+      try {
+        const data ={
+          newPassword: this.password,
+
+        }
+        console.log
+        await Controller.changepassword(data, this.id)
+        this.close()
+        this.showAlert('success','Berhasil Ubah Password')
+      } catch (err) {
+        console.log(err)
+        this.showAlert('error','Gagal Ubah Password')
+      }
     },
 
     setUpSettings() {
@@ -542,6 +577,38 @@ export default {
 
       vm.dialogSettings = false;
     },
+    close () {
+      this.dialogSettings = false
+
+      setTimeout(() => {
+        this.password=''
+        this.passwordConfirm=''
+        this.$v.$reset()
+      }, 300)
+    },
+    showAlert (type,alert_message) {
+
+        if(type == 'success'){
+          this.alert.icon = 'fas fa-check-circle'
+        }
+        else if(type == 'error'){
+          this.alert.icon = 'fas fa-exclamation-circle'
+        }
+
+        this.alert.type = type
+        this.alert.message = alert_message
+        
+        let timer = this.showAlert.timer
+        if (timer) {
+          clearTimeout(timer)
+        }
+        this.showAlert.timer = setTimeout(() => {
+            this.alert.type = null
+            this.alert.icon = null
+            this.alert.message = null
+        }, 3000)
+        
+      },
     logoutHandler() {
         Auth.logout()
         this.$router.push({ name: 'Login' })

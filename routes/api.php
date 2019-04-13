@@ -20,6 +20,7 @@ use Illuminate\Http\Request;
 Route::resource ('user','UserController');
 Route::patch    ('user/changepassword/{id}' ,'UserController@changePassword');
 Route::post('/authenticate', 'SessionController@authenticate');
+Route::post('/mobileauthenticate', 'SessionController@mobileauthenticate');
 Route::get('/session', 'SessionController@validateSession');
 
 

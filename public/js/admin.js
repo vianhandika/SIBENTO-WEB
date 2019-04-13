@@ -6557,8 +6557,19 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
-/* harmony import */ var _service_Auth__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../service/Auth */ "./resources/js/service/Auth.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _httpController__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../httpController */ "./resources/js/httpController.js");
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var _service_Auth__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../service/Auth */ "./resources/js/service/Auth.js");
+/* harmony import */ var vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vuelidate/lib/validators */ "./node_modules/vuelidate/lib/validators/index.js");
+/* harmony import */ var vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_4__);
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
@@ -6890,19 +6901,22 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+
+
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+  validations: {
+    password: {
+      required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_4__["required"],
+      minLength: Object(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_4__["minLength"])(8)
+    },
+    passwordConfirm: {
+      required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_4__["required"],
+      minLength: Object(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_4__["minLength"])(8),
+      sameAsPassword: Object(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_4__["sameAs"])('password')
+    }
+  },
   props: {
     toggle: {
       type: Boolean,
@@ -6916,11 +6930,31 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   },
   mounted: function mounted() {// console.log('Mounted '+this.role)
   },
-  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])({
+  watch: {
+    dialogSettings: function dialogSettings(val) {
+      val || this.close();
+    }
+  },
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapGetters"])({
+    id: 'LoggedUser/id',
     name: 'LoggedUser/name',
     username: 'LoggedUser/username',
     role: 'LoggedUser/role'
   }), {
+    passwordErrors: function passwordErrors() {
+      var errors = [];
+      if (!this.$v.password.$dirty) return errors;
+      !this.$v.password.minLength && errors.push('Minimal 8 karakter');
+      !this.$v.password.required && errors.push('Password diperlukan');
+      return errors;
+    },
+    confirmpasswordErrors: function confirmpasswordErrors() {
+      var errors = [];
+      if (!this.$v.passwordConfirm.$dirty) return errors;
+      !this.$v.passwordConfirm.required && errors.push('Konfirmasi diperlukan');
+      !this.$v.passwordConfirm.sameAsPassword && errors.push('Password harus sama');
+      return errors;
+    },
     isLoginPage: function isLoginPage() {
       return this.$route.meta.page === 'login';
     },
@@ -7097,7 +7131,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       //   ['Management', 'people_outline'],
       //   ['Settings', 'settings']
       // ],
-      drawer: null
+      drawer: null,
+      alert: {
+        type: null,
+        message: null,
+        icon: null
+      }
     };
   },
   methods: {
@@ -7105,6 +7144,49 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       var vm = this;
       vm.$emit('toggleNavigationBar');
     },
+    savepassword: function () {
+      var _savepassword = _asyncToGenerator(
+      /*#__PURE__*/
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+        var data;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.prev = 0;
+                data = {
+                  newPassword: this.password
+                };
+                console.log;
+                _context.next = 5;
+                return _httpController__WEBPACK_IMPORTED_MODULE_1__["default"].changepassword(data, this.id);
+
+              case 5:
+                this.close();
+                this.showAlert('success', 'Berhasil Ubah Password');
+                _context.next = 13;
+                break;
+
+              case 9:
+                _context.prev = 9;
+                _context.t0 = _context["catch"](0);
+                console.log(_context.t0);
+                this.showAlert('error', 'Gagal Ubah Password');
+
+              case 13:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, this, [[0, 9]]);
+      }));
+
+      function savepassword() {
+        return _savepassword.apply(this, arguments);
+      }
+
+      return savepassword;
+    }(),
     setUpSettings: function setUpSettings() {
       var vm = this;
 
@@ -7127,8 +7209,42 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       vm.showResult = true;
       vm.dialogSettings = false;
     },
+    close: function close() {
+      var _this2 = this;
+
+      this.dialogSettings = false;
+      setTimeout(function () {
+        _this2.password = '';
+        _this2.passwordConfirm = '';
+
+        _this2.$v.$reset();
+      }, 300);
+    },
+    showAlert: function showAlert(type, alert_message) {
+      var _this3 = this;
+
+      if (type == 'success') {
+        this.alert.icon = 'fas fa-check-circle';
+      } else if (type == 'error') {
+        this.alert.icon = 'fas fa-exclamation-circle';
+      }
+
+      this.alert.type = type;
+      this.alert.message = alert_message;
+      var timer = this.showAlert.timer;
+
+      if (timer) {
+        clearTimeout(timer);
+      }
+
+      this.showAlert.timer = setTimeout(function () {
+        _this3.alert.type = null;
+        _this3.alert.icon = null;
+        _this3.alert.message = null;
+      }, 3000);
+    },
     logoutHandler: function logoutHandler() {
-      _service_Auth__WEBPACK_IMPORTED_MODULE_1__["default"].logout();
+      _service_Auth__WEBPACK_IMPORTED_MODULE_3__["default"].logout();
       this.$router.push({
         name: 'Login'
       });
@@ -14252,14 +14368,14 @@ var render = function() {
                             staticClass: "headline",
                             attrs: { "primary-title": "" }
                           },
-                          [_vm._v("\r\n          Settings\r\n        ")]
+                          [_vm._v("\r\n          Pengaturan Akun\r\n        ")]
                         ),
                         _vm._v(" "),
                         _c(
                           "v-card-text",
                           [
                             _vm._v(
-                              "\r\n          Set Up System User\r\n          "
+                              "\r\n          Ubah Password \r\n          "
                             ),
                             _c(
                               "v-form",
@@ -14271,33 +14387,6 @@ var render = function() {
                                       "v-layout",
                                       { attrs: { row: "", wrap: "" } },
                                       [
-                                        _c(
-                                          "v-flex",
-                                          {
-                                            attrs: {
-                                              xs12: "",
-                                              xs6: "",
-                                              md11: ""
-                                            }
-                                          },
-                                          [
-                                            _c("v-text-field", {
-                                              attrs: {
-                                                label: "User Email",
-                                                hint: "Set user email"
-                                              },
-                                              model: {
-                                                value: _vm.userEmail,
-                                                callback: function($$v) {
-                                                  _vm.userEmail = $$v
-                                                },
-                                                expression: "userEmail"
-                                              }
-                                            })
-                                          ],
-                                          1
-                                        ),
-                                        _vm._v(" "),
                                         _c("v-flex", {
                                           attrs: { xs12: "", xs6: "", md1: "" }
                                         }),
@@ -14320,16 +14409,16 @@ var render = function() {
                                                 type: _vm.showPassword
                                                   ? "text"
                                                   : "password",
-                                                label: "New Password",
-                                                hint:
-                                                  "Please choose a complex one..",
-                                                error: _vm.error
+                                                label: "Password Baru",
+                                                "error-messages":
+                                                  _vm.passwordErrors
                                               },
                                               on: {
-                                                "click:append": function(
-                                                  $event
-                                                ) {
-                                                  _vm.showPassword = !_vm.showPassword
+                                                input: function($event) {
+                                                  return _vm.$v.password.$touch()
+                                                },
+                                                blur: function($event) {
+                                                  return _vm.$v.password.$touch()
                                                 }
                                               },
                                               model: {
@@ -14366,15 +14455,17 @@ var render = function() {
                                                 type: _vm.showPasswordConfirm
                                                   ? "text"
                                                   : "password",
-                                                label: "Confirm New Password",
-                                                hint: "and confirm it.",
-                                                error: _vm.error
+                                                label:
+                                                  "Konfirmasi Password Baru",
+                                                "error-messages":
+                                                  _vm.confirmpasswordErrors
                                               },
                                               on: {
-                                                "click:append": function(
-                                                  $event
-                                                ) {
-                                                  _vm.showPasswordConfirm = !_vm.showPasswordConfirm
+                                                input: function($event) {
+                                                  return _vm.$v.passwordConfirm.$touch()
+                                                },
+                                                blur: function($event) {
+                                                  return _vm.$v.passwordConfirm.$touch()
                                                 }
                                               },
                                               model: {
@@ -14392,35 +14483,6 @@ var render = function() {
                                         _c("v-flex", {
                                           attrs: { xs12: "", sm6: "", md1: "" }
                                         }),
-                                        _vm._v(" "),
-                                        _c(
-                                          "v-flex",
-                                          {
-                                            attrs: {
-                                              xs12: "",
-                                              xs6: "",
-                                              md11: ""
-                                            }
-                                          },
-                                          [
-                                            _c("v-switch", {
-                                              attrs: {
-                                                label: "Email Notification",
-                                                color: "success"
-                                              },
-                                              model: {
-                                                value:
-                                                  _vm.switchEmailNotification,
-                                                callback: function($$v) {
-                                                  _vm.switchEmailNotification = $$v
-                                                },
-                                                expression:
-                                                  "switchEmailNotification"
-                                              }
-                                            })
-                                          ],
-                                          1
-                                        ),
                                         _vm._v(" "),
                                         _c("v-flex", {
                                           attrs: { xs12: "", xs6: "", md1: "" }
@@ -14448,8 +14510,12 @@ var render = function() {
                             _c(
                               "v-btn",
                               {
-                                attrs: { color: "primary", flat: "" },
-                                on: { click: _vm.setUpSettings }
+                                attrs: {
+                                  color: "primary",
+                                  flat: "",
+                                  disabled: _vm.$v.passwordConfirm.$invalid
+                                },
+                                on: { click: _vm.savepassword }
                               },
                               [
                                 _vm._v(
@@ -14813,7 +14879,26 @@ var render = function() {
             )
           : _vm._e(),
         _vm._v(" "),
-        _c("v-content", [_c("router-view")], 1)
+        _c("v-content", [_c("router-view")], 1),
+        _vm._v(" "),
+        _vm.alert.type
+          ? _c(
+              "v-snackbar",
+              {
+                attrs: {
+                  right: "",
+                  bottom: "",
+                  color: _vm.alert.type,
+                  value: "true"
+                }
+              },
+              [
+                _c("v-icon", [_vm._v(_vm._s(_vm.alert.icon))]),
+                _vm._v(_vm._s(_vm.alert.message) + "\r\n  ")
+              ],
+              1
+            )
+          : _vm._e()
       ],
       1
     )
@@ -59982,6 +60067,20 @@ __webpack_require__.r(__webpack_exports__);
 
       _http__WEBPACK_IMPORTED_MODULE_0__["default"].get('/api/motorbrand', successCallback, errorCallback);
     });
+  },
+  changepassword: function changepassword(payload, id) {
+    return new Promise(function (resolve, reject) {
+      var successCallback = function successCallback(res) {
+        var data = res.data;
+        resolve(data);
+      };
+
+      var errorCallback = function errorCallback(err) {
+        reject(err);
+      };
+
+      _http__WEBPACK_IMPORTED_MODULE_0__["default"].patch('/api/user/changepassword/' + id, payload, successCallback, errorCallback);
+    });
   }
 });
 
@@ -62974,6 +63073,7 @@ var actions = {
 __webpack_require__.r(__webpack_exports__);
 var state = {
   User: {
+    id: null,
     name: null,
     username: null,
     role: null
@@ -62982,6 +63082,7 @@ var state = {
 };
 var mutations = {
   setLoggedUser: function setLoggedUser(state, source) {
+    state.User.id = source.id;
     state.User.name = source.name;
     state.User.username = source.username;
     state.User.role = source.role;
@@ -62992,6 +63093,9 @@ var mutations = {
   }
 };
 var getters = {
+  id: function id(state) {
+    return state.User.id;
+  },
   name: function name(state) {
     return state.User.name;
   },

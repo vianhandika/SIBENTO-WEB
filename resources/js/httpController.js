@@ -183,7 +183,24 @@ export default {
 
             Http.get('/api/motorbrand', successCallback, errorCallback)
         })
-    }
+    },
+    changepassword(payload,id) {
+        return new Promise((resolve, reject) => {
+
+            const successCallback = (res) => {
+                const data = res.data
+                resolve(data)
+
+            }
+
+            const errorCallback = (err) => {
+                reject(err)
+    
+            }
+
+            Http.patch('/api/user/changepassword/'+id, payload, successCallback, errorCallback)
+        })
+    },
 
 
     
