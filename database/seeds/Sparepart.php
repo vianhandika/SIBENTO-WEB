@@ -14,7 +14,7 @@ class Sparepart extends Seeder
     {
         DB::table('spareparts')->insert([
             [
-                'id_sparepart' => '1111-ASTRA-101',
+                'id_sparepart' => '1111-AST-101',
                 'name_sparepart'      => 'Ban Belakang',
                 'brand_sparepart' => 'Astra',
                 'stock_sparepart' => 10,
@@ -28,7 +28,7 @@ class Sparepart extends Seeder
                 'updated_at' => Carbon::now(),
             ],
             [
-                'id_sparepart' => '1111-ASTRA-102',
+                'id_sparepart' => '1111-AST-102',
                 'name_sparepart'      => 'Busi',
                 'brand_sparepart' => 'Astra',
                 'stock_sparepartock' => 10,
@@ -42,7 +42,7 @@ class Sparepart extends Seeder
                 'updated_at' => Carbon::now(),
             ],
             [
-                'id_sparepart' => '1111-ASTRA-103',
+                'id_sparepart' => '1111-AST-103',
                 'name_sparepart'      => 'Stang Seker',
                 'brand_sparepart' => 'Astra',
                 'stock_sparepartock' => 10,

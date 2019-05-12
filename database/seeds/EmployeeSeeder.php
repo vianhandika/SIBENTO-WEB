@@ -14,6 +14,17 @@ class EmployeeSeeder extends Seeder
     {
         DB::table('employees')->insert([
             [
+                'name_employee'      => 'Admin',
+                'salary'      => 1000000,
+                'phone_number'      => '082245504410',
+                'address' => 'Sleman',
+                'id_user' => 1,
+                'id_branch' => 1,
+                'id_role' => 1,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ],
+            [
                 'name_employee'      => 'Vian Handika',
                 'salary'      => 1000000,
                 'phone_number'      => '082245504410',

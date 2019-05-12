@@ -41,6 +41,7 @@ class EmployeeController extends RestController
      */
     public function store(Request $request)
     {
+        //return $request;
         try {
             $createdUser = User::create([
                 'username'      => $request->username, //Need edited

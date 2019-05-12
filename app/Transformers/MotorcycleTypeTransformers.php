@@ -23,6 +23,7 @@ class MotorcycleTypeTransformers extends TransformerAbstract
         return [
             'id'            => $type->id_motorcycle_type,
             'name'          => $type->name_motorcycle_type,
+            'id_brand'      => $type->motorcyclebrand->id_motorcycle_brand,
             'brand'         => $motorcyclebrand,
 
         ];

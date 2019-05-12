@@ -30,6 +30,18 @@ class Employee extends Model
     {
         return $this->belongsTo('App\Branch','id_branch','id_branch');
     }
+    
+    public function transaction(){
+        return $this->belongsToMany('App\Transaction','employee_onduties','id_employee','id_transaction');
+    }
+
+    public function detail_transaction_service(){
+        return $this->hasMany('App\DetailTransactionService','id_employee');
+    }
+
+    public function detail_transaction_sparepart(){
+        return $this->hasMany('App\DetailTransactionSparepart','id_employee');
+    }
 
 
 }

@@ -419,10 +419,11 @@
               address : this.editedItem.address,
               role : this.dropdown_role.find(obj => obj.name  == this.editedItem.role).id,
               salary : this.editedItem.salary,
-              branch : this.dropdown_branch.find(obj => obj.name  == this.editedItem.branch).id
-
+              branch : this.dropdown_branch.find(obj => obj.name  == this.editedItem.branch).id,
+              username : this.createUsername(this.editedItem.name)
             }
-            this.storeEmployee(this.data)
+            console.log(data)
+            this.storeEmployee(data)
             this.employeeData.push(this.editedItem)
             this.getEmployee()
             this.close()

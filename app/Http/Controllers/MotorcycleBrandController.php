@@ -40,7 +40,20 @@ class MotorcycleBrandController extends RestController
      */
     public function store(Request $request)
     {
-        //
+        try {
+
+            $created = MotorcycleBrand::create([
+                'name_motorcycle_brand'    => $request->name_motorcycle_brand,
+                
+            ]);
+
+            $response = $this->generateItem($created);
+            return $this->sendResponse($response, 201);            
+
+        } catch (\Exception $e) {
+            return $this->sendIseResponse($e->getMessage());
+            // return response()->json(['Failed To Register'=>'Failed'], 400);
+        }
     }
 
     /**
@@ -51,7 +64,14 @@ class MotorcycleBrandController extends RestController
      */
     public function show($id)
     {
-        //
+        try{
+            $motorbrand=MotorcycleBrand::find($id);
+            $response = $this->generateItem($motorbrand);
+            return $this->sendResponse($response, 201);
+
+        } catch (\Exception $e) {
+            return $this->sendIseResponse($e->getMessage());
+        }
     }
 
     /**
@@ -74,7 +94,17 @@ class MotorcycleBrandController extends RestController
      */
     public function update(Request $request, $id)
     {
-        //
+        try{
+
+            $event = MotorcycleBrand::find($id)->update($request->All());
+            $data = MotorcycleBrand::find($id);
+            $response = $this->generateItem($data);
+            return $this->sendResponse($response, 201);
+
+
+        }catch (\Exception $e) {
+            return $this->sendIseResponse($e->getMessage());
+        }
     }
 
     /**
@@ -85,6 +115,13 @@ class MotorcycleBrandController extends RestController
      */
     public function destroy($id)
     {
-        //
+        try {
+            $motorbrand=MotorcycleBrand::find($id);
+            $motorbrand->delete();
+            return response()->json('Success',201);
+
+        } catch (\Exception $e) {
+            return $this->sendIseResponse($e->getMessage());
+        }
     }
 }

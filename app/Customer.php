@@ -17,4 +17,8 @@ class Customer extends Model
     {
         return $this->hasMany('App\MotorcycleCustomer','id_customer');
     }
+
+    public function transaction(){
+        return $this->hasMany('App\Transaction','id_customer');
+    }
 }

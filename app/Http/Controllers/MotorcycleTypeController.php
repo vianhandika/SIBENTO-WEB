@@ -39,7 +39,20 @@ class MotorcycleTypeController extends RestController
      */
     public function store(Request $request)
     {
-        //
+        try {
+
+            $created = MotorcycleType::create([
+                'name_motorcycle_type'    => $request->name_motorcycle_type,
+                'id_motorcycle_brand'    => $request->id_motorcycle_brand,
+            ]);
+
+            $response = $this->generateItem($created);
+            return $this->sendResponse($response, 201);            
+
+        } catch (\Exception $e) {
+            return $this->sendIseResponse($e->getMessage());
+            // return response()->json(['Failed To Register'=>'Failed'], 400);
+        }
     }
 
     /**
@@ -50,7 +63,14 @@ class MotorcycleTypeController extends RestController
      */
     public function show($id)
     {
-        //
+        try{
+            $type=MotorcycleType::find($id);
+            $response = $this->generateItem($type);
+            return $this->sendResponse($response, 201);
+
+        } catch (\Exception $e) {
+            return $this->sendIseResponse($e->getMessage());
+        }
     }
 
     /**
@@ -73,7 +93,17 @@ class MotorcycleTypeController extends RestController
      */
     public function update(Request $request, $id)
     {
-        //
+        try{
+
+            $event = MotorcycleType::find($id)->update($request->All());
+            $data = MotorcycleType::find($id);
+            $response = $this->generateItem($data);
+            return $this->sendResponse($response, 201);
+
+
+        }catch (\Exception $e) {
+            return $this->sendIseResponse($e->getMessage());
+        }
     }
 
     /**
@@ -84,6 +114,13 @@ class MotorcycleTypeController extends RestController
      */
     public function destroy($id)
     {
-        //
+        try {
+            $type=MotorcycleType::find($id);
+            $type->delete();
+            return response()->json('Success',201);
+
+        } catch (\Exception $e) {
+            return $this->sendIseResponse($e->getMessage());
+        }
     }
 }

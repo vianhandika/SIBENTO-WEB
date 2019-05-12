@@ -25,3 +25,7 @@ Route::get('/admin/{any}', function () {
 Route::get('/panel/login', function () {
     return view('admin');
 });
+
+Route::get('/{any}',function(){
+    return view('index');
+})->where('any','[\/\w\.-]*');

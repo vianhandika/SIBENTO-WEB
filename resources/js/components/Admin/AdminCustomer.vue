@@ -698,6 +698,7 @@
         this.editedItem = Object.assign({}, item)
         this.dialog = true
       },
+      
       motorDelete (item) {
         this.editedItem = item
         this.deletemotorcycle()
@@ -708,7 +709,6 @@
         this.selectedMotor = item
         this.editedIndex = this.motorCustomer.indexOf(item)
         
-
       },
       motorEditClose(){
         this.editedMotor = Object.assign({},this.defaultdMotor)

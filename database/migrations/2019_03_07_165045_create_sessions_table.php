@@ -17,10 +17,9 @@ class CreateSessionsTable extends Migration
             $table->increments('id_session');
             $table->string('encrypt_username');
             $table->string('encrypt_password');
-            $table->timestamp('generated_at')->nullable();
-            $table->timestamp('lastused_at')->nullable();
             $table->integer('id_user')->unsigned();
             $table->foreign('id_user')->references('id_user')->on('users')->onUpdate('cascade')->onDelete('cascade');
+            $table->timestamps();    
         });
     }
 

@@ -19,11 +19,13 @@ class CreateDetailTransactionServicesTable extends Migration
             $table->double('price_transaction_service');
             $table->double('subtotal_transaction_service');
             $table->string('id_transaction',30);
-            $table->foreign('id_transaction')->references('id_transaction')->on('transactions')->onUpdate('cascade');
+            $table->foreign('id_transaction')->references('id_transaction')->on('transactions')->onUpdate('cascade')->onDelete('cascade');
             $table->integer('id_service')->unsigned();
             $table->foreign('id_service')->references('id_service')->on('services')->onUpdate('cascade')->onDelete('cascade');
-            $table->integer('id_mechanic_onduty')->unsigned();
-            $table->foreign('id_mechanic_onduty')->references('id_mechanic_onduty')->on('mechanic_onduties')->onUpdate('cascade')->onDelete('cascade');
+            $table->integer('id_employee')->unsigned();
+            $table->foreign('id_employee')->references('id_employee')->on('employees')->onUpdate('cascade')->onDelete('cascade');
+            $table->integer('id_motorcycle')->unsigned();
+            $table->foreign('id_motorcycle')->references('id_motorcycle')->on('motorcycle_customers')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
         });
     }

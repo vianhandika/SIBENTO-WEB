@@ -3,7 +3,7 @@ import http from './Http'
 export default {
   async get () {
     try {
-      const res = await http.get('/api/employee')
+      const res = await http.get(`/api/employee`)
       
       return res.data.data
     } catch (err) {
@@ -13,7 +13,7 @@ export default {
 
   async store (payload) {
     try {
-      await http.post('/api/employee', payload)
+      await http.post(`/api/employee`, payload)
     } catch (err) {
       throw new Error(err)
     }

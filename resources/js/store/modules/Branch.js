@@ -45,44 +45,44 @@ const actions = {
     }
   },
 
-//   async store(context, payload) {
-//     try {
-//       await branchService.store(payload)
-//     } catch (err) {
-//       context.commit('setFailedStore', err)
-//     }
-//   },
+  async store(context, payload) {
+    try {
+      await branchService.store(payload)
+    } catch (err) {
+      context.commit('setFailedStore', err)
+    }
+  },
 
-//   async edit(context, id) {
-//     try {
-//       const res = await branchService.find(id)
-//       context.commit('setBranchForm', res)
-//     } catch (err) {
-//       context.commit('setFailedAction', err)
-//     }
-//   },
+  async edit(context, id) {
+    try {
+      const res = await branchService.find(id)
+      context.commit('setBranchForm', res)
+    } catch (err) {
+      context.commit('setFailedAction', err)
+    }
+  },
 
-//   async update(context, payload) {
-//     try {
-//       const data = {
-//         branch_name: payload.branch_name,
-//         branch_address: payload.branch_address,
-//         branch_phone_number: payload.branch_phone_number
-//       }
+  async update(context, payload) {
+    try {
+      const data = {
+        branch_name: payload.branch_name,
+        branch_address: payload.branch_address,
+        branch_phone_number: payload.branch_phone_number
+      }
 
-//       await branchService.update(payload.id_branch, data)
-//     } catch (err) {
-//       context.commit('setFailedAction', err)
-//     }
-//   },
+      await branchService.update(payload.id_branch, data)
+    } catch (err) {
+      context.commit('setFailedAction', err)
+    }
+  },
 
-//   async delete (context, id) {
-//     try {
-//       await branchService.delete(id)
-//     } catch (err) {
-//       context.commit('setFailedAction', err)
-//     }
-//   },
+  async delete (context, id) {
+    try {
+      await branchService.delete(id)
+    } catch (err) {
+      context.commit('setFailedAction', err)
+    }
+  },
 
   resetForm(context) {
     context.commit('setBranchForm', {})

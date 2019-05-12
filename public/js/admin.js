@@ -1766,6 +1766,496 @@ module.exports = {
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Admin/AdminBranch.vue?vue&type=script&lang=js&":
+/*!****************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Admin/AdminBranch.vue?vue&type=script&lang=js& ***!
+  \****************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _httpController__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../httpController */ "./resources/js/httpController.js");
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var _service_Branch__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../service/Branch */ "./resources/js/service/Branch.js");
+/* harmony import */ var vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vuelidate/lib/validators */ "./node_modules/vuelidate/lib/validators/index.js");
+/* harmony import */ var vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_4__);
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  validations: {
+    editedItem: {
+      name: {
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_4__["required"],
+        maxLength: Object(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_4__["maxLength"])(25)
+      },
+      address: {
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_4__["required"],
+        maxLength: Object(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_4__["maxLength"])(100)
+      }
+    }
+  },
+  data: function data() {
+    return {
+      dialog: false,
+      delDialog: false,
+      search: '',
+      i: 0,
+      headers: [{
+        text: 'No',
+        align: 'left',
+        sortable: false
+      }, {
+        text: 'Nama Cabang',
+        align: 'center',
+        value: 'name'
+      }, {
+        text: 'Alamat',
+        align: 'center',
+        value: 'address'
+      }, {
+        text: 'Actions',
+        align: 'center',
+        value: 'name',
+        sortable: false
+      }],
+      branchData: [],
+      editedIndex: -1,
+      editedItem: {
+        id: '',
+        name: '',
+        address: ''
+      },
+      defaultItem: {
+        id: '',
+        name: '',
+        address: ''
+      },
+      alert: {
+        type: null,
+        message: null,
+        icon: null // elapse: null
+
+      }
+    };
+  },
+  computed: _objectSpread({
+    formTitle: function formTitle() {
+      return this.editedIndex === -1 ? 'Tambah Cabang' : 'Edit Cabang';
+    }
+  }, Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapState"])({
+    loading: function loading(state) {
+      return state.Branch.loading;
+    },
+    error: function error(state) {
+      return state.Branch.error;
+    },
+    branches: function branches(state) {
+      return state.Branch.branches;
+    }
+  }), {
+    initbranch: function initbranch() {
+      this.branchData = this.branches;
+      return this.branchData;
+    },
+    //VALIDATION ERROR
+    nameErrors: function nameErrors() {
+      var errors = [];
+      if (!this.$v.editedItem.name.$dirty) return errors;
+      !this.$v.editedItem.name.maxLength && errors.push('Nama Cabang tidak boleh melebihi 25 karakter');
+      !this.$v.editedItem.name.required && errors.push('Nama Cabang diperlukan.');
+      return errors;
+    },
+    addressErrors: function addressErrors() {
+      var errors = [];
+      if (!this.$v.editedItem.address.$dirty) return errors;
+      !this.$v.editedItem.address.maxLength && errors.push('Alamat tidak boleh melebihi 100 karakter');
+      !this.$v.editedItem.address.required && errors.push('Alamat diperlukan.');
+      return errors;
+    }
+  }),
+  watch: {
+    dialog: function dialog(val) {
+      val || this.close();
+    },
+    delDialog: function delDialog(val) {
+      val || this.close();
+    }
+  },
+  created: function created() {},
+  mounted: function mounted() {
+    this.getBranch();
+  },
+  methods: _objectSpread({
+    initialize: function initialize() {}
+  }, Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapActions"])({
+    getBranch: 'Branch/get',
+    storeBranch: 'Branch/store',
+    deleteBranch: 'Branch/delete',
+    updateBranch: 'Branch/update'
+  }), {
+    addbranch: function () {
+      var _addbranch = _asyncToGenerator(
+      /*#__PURE__*/
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+        var data;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.prev = 0;
+                data = {
+                  name_branch: this.editedItem.name,
+                  address_branch: this.editedItem.address
+                };
+                _context.next = 4;
+                return this.storeBranch(data);
+
+              case 4:
+                this.branchData.push(this.editedItem);
+                this.getBranch();
+                this.close();
+                this.showAlert('success', 'Sukses Menambahkan Cabang');
+                _context.next = 14;
+                break;
+
+              case 10:
+                _context.prev = 10;
+                _context.t0 = _context["catch"](0);
+                console.log(_context.t0);
+                this.showAlert('error', 'Gagal Menambahkan Cabang');
+
+              case 14:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, this, [[0, 10]]);
+      }));
+
+      function addbranch() {
+        return _addbranch.apply(this, arguments);
+      }
+
+      return addbranch;
+    }(),
+    updatebranch: function () {
+      var _updatebranch = _asyncToGenerator(
+      /*#__PURE__*/
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
+        var data;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                _context2.prev = 0;
+                data = {
+                  id: this.branchData[this.editedIndex].id,
+                  name_branch: this.editedItem.name,
+                  address_branch: this.editedItem.address
+                };
+                console.log(data);
+                _context2.next = 5;
+                return this.updateBranch(data);
+
+              case 5:
+                Object.assign(this.branchData[this.editedIndex], this.editedItem);
+                this.getBranch();
+                this.close();
+                this.showAlert('success', 'Sukses Mengubah Cabang');
+                _context2.next = 15;
+                break;
+
+              case 11:
+                _context2.prev = 11;
+                _context2.t0 = _context2["catch"](0);
+                console.log(_context2.t0);
+                this.showAlert('error', 'Gagal Mengubah Cabang');
+
+              case 15:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2, this, [[0, 11]]);
+      }));
+
+      function updatebranch() {
+        return _updatebranch.apply(this, arguments);
+      }
+
+      return updatebranch;
+    }(),
+    deletebranch: function () {
+      var _deletebranch = _asyncToGenerator(
+      /*#__PURE__*/
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3() {
+        var id;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
+          while (1) {
+            switch (_context3.prev = _context3.next) {
+              case 0:
+                _context3.prev = 0;
+                id = this.branchData[this.editedIndex].id;
+                _context3.next = 4;
+                return this.deleteBranch(id);
+
+              case 4:
+                this.getBranch();
+                this.close();
+                this.showAlert('success', 'Sukses Menghapus Cabang');
+                _context3.next = 13;
+                break;
+
+              case 9:
+                _context3.prev = 9;
+                _context3.t0 = _context3["catch"](0);
+                console.log(_context3.t0);
+                this.showAlert('error', 'Gagal Menghapus Cabang');
+
+              case 13:
+              case "end":
+                return _context3.stop();
+            }
+          }
+        }, _callee3, this, [[0, 9]]);
+      }));
+
+      function deletebranch() {
+        return _deletebranch.apply(this, arguments);
+      }
+
+      return deletebranch;
+    }(),
+    editItem: function editItem(item) {
+      this.editedIndex = this.branchData.indexOf(item);
+      this.editedItem = Object.assign({}, item);
+      this.dialog = true;
+    },
+    deleteItem: function deleteItem(item) {
+      this.delDialog = true;
+      this.editedIndex = this.branchData.indexOf(item);
+    },
+    close: function close() {
+      var _this = this;
+
+      this.dialog = false;
+      this.delDialog = false;
+      setTimeout(function () {
+        _this.editedItem = Object.assign({}, _this.defaultItem);
+        _this.editedIndex = -1;
+
+        _this.$v.$reset();
+      }, 300);
+    },
+    save: function save() {
+      if (this.editedIndex > -1) {
+        Object.assign(this.branchData[this.editedIndex], this.editedItem);
+      } else {
+        this.branchData.push(this.editedItem);
+      }
+
+      this.close();
+    },
+    showAlert: function showAlert(type, alert_message) {
+      var _this2 = this;
+
+      if (type == 'success') {
+        this.alert.icon = 'fas fa-check-circle';
+      } else if (type == 'error') {
+        this.alert.icon = 'fas fa-exclamation-circle';
+      }
+
+      this.alert.type = type;
+      this.alert.message = alert_message;
+      var timer = this.showAlert.timer;
+
+      if (timer) {
+        clearTimeout(timer);
+      }
+
+      this.showAlert.timer = setTimeout(function () {
+        _this2.alert.type = null;
+        _this2.alert.icon = null;
+        _this2.alert.message = null;
+      }, 3000);
+    }
+  })
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Admin/AdminCustomer.vue?vue&type=script&lang=js&":
 /*!******************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Admin/AdminCustomer.vue?vue&type=script&lang=js& ***!
@@ -3400,9 +3890,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                     salary: this.editedItem.salary,
                     branch: this.dropdown_branch.find(function (obj) {
                       return obj.name == _this.editedItem.branch;
-                    }).id
+                    }).id,
+                    username: this.createUsername(this.editedItem.name)
                   };
-                  this.storeEmployee(this.data);
+                  console.log(data);
+                  this.storeEmployee(data);
                   this.employeeData.push(this.editedItem);
                   this.getEmployee();
                   this.close();
@@ -3584,6 +4076,3079 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         _this4.alert.type = null;
         _this4.alert.icon = null;
         _this4.alert.message = null;
+      }, 3000);
+    }
+  })
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Admin/AdminMotorBrand.vue?vue&type=script&lang=js&":
+/*!********************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Admin/AdminMotorBrand.vue?vue&type=script&lang=js& ***!
+  \********************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _httpController__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../httpController */ "./resources/js/httpController.js");
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var _service_MotorBrand__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../service/MotorBrand */ "./resources/js/service/MotorBrand.js");
+/* harmony import */ var vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vuelidate/lib/validators */ "./node_modules/vuelidate/lib/validators/index.js");
+/* harmony import */ var vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_4__);
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  validations: {
+    editedItem: {
+      name: {
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_4__["required"],
+        maxLength: Object(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_4__["maxLength"])(25)
+      }
+    }
+  },
+  data: function data() {
+    return {
+      dialog: false,
+      delDialog: false,
+      typeDialog: false,
+      search: '',
+      i: 0,
+      headers: [{
+        text: 'No',
+        align: 'left',
+        sortable: false
+      }, {
+        text: 'Nama Merk',
+        align: 'center',
+        value: 'name'
+      }, {
+        text: 'Tipe Motor',
+        align: 'center',
+        sortable: false
+      }, {
+        text: 'Actions',
+        align: 'center',
+        value: 'name',
+        sortable: false
+      }],
+      motortypeheaders: [{
+        text: 'Tipe Motor',
+        align: 'left',
+        value: 'name_motorcycle_type'
+      }],
+      motorbrandData: [],
+      typeMotorBrand: [],
+      editedIndex: -1,
+      editedItem: {
+        id: '',
+        name: ''
+      },
+      defaultItem: {
+        id: '',
+        name: ''
+      },
+      alert: {
+        type: null,
+        message: null,
+        icon: null // elapse: null
+
+      }
+    };
+  },
+  computed: _objectSpread({
+    formTitle: function formTitle() {
+      return this.editedIndex === -1 ? 'Tambah Merk' : 'Edit Merk';
+    }
+  }, Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapState"])({
+    loading: function loading(state) {
+      return state.MotorBrand.loading;
+    },
+    error: function error(state) {
+      return state.MotorBrand.error;
+    },
+    motorbrands: function motorbrands(state) {
+      return state.MotorBrand.motorbrands;
+    }
+  }), {
+    initmotorbrand: function initmotorbrand() {
+      this.motorbrandData = this.motorbrands;
+      return this.motorbrandData;
+    },
+    //VALIDATION ERROR
+    nameErrors: function nameErrors() {
+      var errors = [];
+      if (!this.$v.editedItem.name.$dirty) return errors;
+      !this.$v.editedItem.name.maxLength && errors.push('Nama Merk tidak boleh melebihi 25 karakter');
+      !this.$v.editedItem.name.required && errors.push('Nama Merk diperlukan.');
+      return errors;
+    }
+  }),
+  watch: {
+    dialog: function dialog(val) {
+      val || this.close();
+    },
+    delDialog: function delDialog(val) {
+      val || this.close();
+    }
+  },
+  created: function created() {},
+  mounted: function mounted() {
+    this.getMotorBrand();
+  },
+  methods: _objectSpread({
+    initialize: function initialize() {}
+  }, Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapActions"])({
+    getMotorBrand: 'MotorBrand/get',
+    storeMotorBrand: 'MotorBrand/store',
+    deleteMotorBrand: 'MotorBrand/delete',
+    updateMotorBrand: 'MotorBrand/update'
+  }), {
+    addmotorbrand: function () {
+      var _addmotorbrand = _asyncToGenerator(
+      /*#__PURE__*/
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+        var data;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.prev = 0;
+                data = {
+                  name_motorcycle_brand: this.editedItem.name
+                };
+                _context.next = 4;
+                return this.storeMotorBrand(data);
+
+              case 4:
+                this.motorbrandData.push(this.editedItem);
+                this.getMotorBrand();
+                this.close();
+                this.showAlert('success', 'Sukses Menambahkan Merk');
+                _context.next = 14;
+                break;
+
+              case 10:
+                _context.prev = 10;
+                _context.t0 = _context["catch"](0);
+                console.log(_context.t0);
+                this.showAlert('error', 'Gagal Menambahkan Merk');
+
+              case 14:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, this, [[0, 10]]);
+      }));
+
+      function addmotorbrand() {
+        return _addmotorbrand.apply(this, arguments);
+      }
+
+      return addmotorbrand;
+    }(),
+    updatemotorbrand: function () {
+      var _updatemotorbrand = _asyncToGenerator(
+      /*#__PURE__*/
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
+        var data;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                _context2.prev = 0;
+                data = {
+                  id_motorcycle_brand: this.motorbrandData[this.editedIndex].id,
+                  name_motorcycle_brand: this.editedItem.name
+                };
+                console.log(data);
+                _context2.next = 5;
+                return this.updateMotorBrand(data);
+
+              case 5:
+                Object.assign(this.motorbrandData[this.editedIndex], this.editedItem);
+                this.getMotorBrand();
+                this.close();
+                this.showAlert('success', 'Sukses Mengubah Merk');
+                _context2.next = 15;
+                break;
+
+              case 11:
+                _context2.prev = 11;
+                _context2.t0 = _context2["catch"](0);
+                console.log(_context2.t0);
+                this.showAlert('error', 'Gagal Mengubah Merk');
+
+              case 15:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2, this, [[0, 11]]);
+      }));
+
+      function updatemotorbrand() {
+        return _updatemotorbrand.apply(this, arguments);
+      }
+
+      return updatemotorbrand;
+    }(),
+    deletemotorbrand: function () {
+      var _deletemotorbrand = _asyncToGenerator(
+      /*#__PURE__*/
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3() {
+        var id;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
+          while (1) {
+            switch (_context3.prev = _context3.next) {
+              case 0:
+                _context3.prev = 0;
+                id = this.motorbrandData[this.editedIndex].id;
+                _context3.next = 4;
+                return this.deleteMotorBrand(id);
+
+              case 4:
+                this.getMotorBrand();
+                this.close();
+                this.showAlert('success', 'Sukses Menghapus Merk');
+                _context3.next = 13;
+                break;
+
+              case 9:
+                _context3.prev = 9;
+                _context3.t0 = _context3["catch"](0);
+                console.log(_context3.t0);
+                this.showAlert('error', 'Gagal Menghapus Merk');
+
+              case 13:
+              case "end":
+                return _context3.stop();
+            }
+          }
+        }, _callee3, this, [[0, 9]]);
+      }));
+
+      function deletemotorbrand() {
+        return _deletemotorbrand.apply(this, arguments);
+      }
+
+      return deletemotorbrand;
+    }(),
+    editItem: function editItem(item) {
+      this.editedIndex = this.motorbrandData.indexOf(item);
+      this.editedItem = Object.assign({}, item);
+      this.dialog = true;
+    },
+    deleteItem: function deleteItem(item) {
+      this.delDialog = true;
+      this.editedIndex = this.motorbrandData.indexOf(item);
+    },
+    showMotorType: function showMotorType(item) {
+      this.typeDialog = true;
+      this.editedIndex = this.motorbrandData.indexOf(item);
+      this.typeMotorBrand = this.motorbrandData[this.editedIndex].typelist;
+    },
+    close: function close() {
+      var _this = this;
+
+      this.dialog = false;
+      this.delDialog = false;
+      setTimeout(function () {
+        _this.editedItem = Object.assign({}, _this.defaultItem);
+        _this.editedIndex = -1;
+
+        _this.$v.$reset();
+      }, 300);
+    },
+    save: function save() {
+      if (this.editedIndex > -1) {
+        Object.assign(this.motorbrandData[this.editedIndex], this.editedItem);
+      } else {
+        this.motorbrandData.push(this.editedItem);
+      }
+
+      this.close();
+    },
+    showAlert: function showAlert(type, alert_message) {
+      var _this2 = this;
+
+      if (type == 'success') {
+        this.alert.icon = 'fas fa-check-circle';
+      } else if (type == 'error') {
+        this.alert.icon = 'fas fa-exclamation-circle';
+      }
+
+      this.alert.type = type;
+      this.alert.message = alert_message;
+      var timer = this.showAlert.timer;
+
+      if (timer) {
+        clearTimeout(timer);
+      }
+
+      this.showAlert.timer = setTimeout(function () {
+        _this2.alert.type = null;
+        _this2.alert.icon = null;
+        _this2.alert.message = null;
+      }, 3000);
+    }
+  })
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Admin/AdminMotorType.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Admin/AdminMotorType.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _httpController__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../httpController */ "./resources/js/httpController.js");
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var _service_MotorType__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../service/MotorType */ "./resources/js/service/MotorType.js");
+/* harmony import */ var vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vuelidate/lib/validators */ "./node_modules/vuelidate/lib/validators/index.js");
+/* harmony import */ var vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_4__);
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  validations: {
+    editedItem: {
+      name: {
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_4__["required"],
+        maxLength: Object(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_4__["maxLength"])(25)
+      },
+      brand: {
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_4__["required"]
+      }
+    }
+  },
+  data: function data() {
+    return {
+      dialog: false,
+      delDialog: false,
+      search: '',
+      i: 0,
+      headers: [{
+        text: 'No',
+        align: 'left',
+        sortable: false
+      }, {
+        text: 'Nama Tipe',
+        align: 'center',
+        value: 'name'
+      }, {
+        text: 'Merk',
+        align: 'center',
+        value: 'name'
+      }, {
+        text: 'Actions',
+        align: 'center',
+        value: 'name',
+        sortable: false
+      }],
+      motortypeheaders: [{
+        text: 'Tipe Motor',
+        align: 'left',
+        value: 'name_motorcycle_type'
+      }],
+      motortypeData: [],
+      typeMotorType: [],
+      editedIndex: -1,
+      editedItem: {
+        id: '',
+        name: '',
+        brand: ''
+      },
+      defaultItem: {
+        id: '',
+        name: '',
+        brand: ''
+      },
+      alert: {
+        type: null,
+        message: null,
+        icon: null // elapse: null
+
+      }
+    };
+  },
+  computed: _objectSpread({
+    formTitle: function formTitle() {
+      return this.editedIndex === -1 ? 'Tambah Tipe' : 'Edit Tipe';
+    }
+  }, Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapState"])({
+    loading: function loading(state) {
+      return state.MotorType.loading;
+    },
+    error: function error(state) {
+      return state.MotorType.error;
+    },
+    motortypes: function motortypes(state) {
+      return state.MotorType.motortypes;
+    },
+    motorbrands: function motorbrands(state) {
+      return state.MotorBrand.motorbrands;
+    }
+  }), {
+    initmotortype: function initmotortype() {
+      this.motortypeData = this.motortypes;
+      return this.motortypeData;
+    },
+    //VALIDATION ERROR
+    nameErrors: function nameErrors() {
+      var errors = [];
+      if (!this.$v.editedItem.name.$dirty) return errors;
+      !this.$v.editedItem.name.maxLength && errors.push('Nama Tipe tidak boleh melebihi 25 karakter');
+      !this.$v.editedItem.name.required && errors.push('Nama Tipe diperlukan.');
+      return errors;
+    },
+    brandErrors: function brandErrors() {
+      var errors = [];
+      if (!this.$v.editedItem.brand.$dirty) return errors;
+      !this.$v.editedItem.brand.required && errors.push('Merk diperlukan.');
+      return errors;
+    }
+  }),
+  watch: {
+    dialog: function dialog(val) {
+      val || this.close();
+    },
+    delDialog: function delDialog(val) {
+      val || this.close();
+    }
+  },
+  created: function created() {
+    this.getMotorType();
+    this.getMotorBrand();
+  },
+  mounted: function mounted() {},
+  methods: _objectSpread({
+    initialize: function initialize() {}
+  }, Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapActions"])({
+    getMotorType: 'MotorType/get',
+    getMotorBrand: 'MotorBrand/get',
+    storeMotorType: 'MotorType/store',
+    deleteMotorType: 'MotorType/delete',
+    updateMotorType: 'MotorType/update'
+  }), {
+    addmotortype: function () {
+      var _addmotortype = _asyncToGenerator(
+      /*#__PURE__*/
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+        var data;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.prev = 0;
+                data = {
+                  name_motorcycle_type: this.editedItem.name,
+                  id_motorcycle_brand: this.editedItem.brand
+                };
+                _context.next = 4;
+                return this.storeMotorType(data);
+
+              case 4:
+                this.motortypeData.push(this.editedItem);
+                _context.next = 7;
+                return this.getMotorType();
+
+              case 7:
+                this.close();
+                this.showAlert('success', 'Sukses Menambahkan Tipe');
+                _context.next = 15;
+                break;
+
+              case 11:
+                _context.prev = 11;
+                _context.t0 = _context["catch"](0);
+                console.log(_context.t0);
+                this.showAlert('error', 'Gagal Menambahkan Tipe');
+
+              case 15:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, this, [[0, 11]]);
+      }));
+
+      function addmotortype() {
+        return _addmotortype.apply(this, arguments);
+      }
+
+      return addmotortype;
+    }(),
+    updatemotortype: function () {
+      var _updatemotortype = _asyncToGenerator(
+      /*#__PURE__*/
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
+        var data;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                _context2.prev = 0;
+                data = {
+                  id_motorcycle_type: this.motortypeData[this.editedIndex].id,
+                  name_motorcycle_type: this.editedItem.name,
+                  id_motorcycle_brand: this.editedItem.brand
+                };
+                console.log(data);
+                _context2.next = 5;
+                return this.updateMotorType(data);
+
+              case 5:
+                Object.assign(this.motortypeData[this.editedIndex], this.editedItem);
+                _context2.next = 8;
+                return this.getMotorType();
+
+              case 8:
+                this.close();
+                this.showAlert('success', 'Sukses Mengubah Tipe');
+                _context2.next = 16;
+                break;
+
+              case 12:
+                _context2.prev = 12;
+                _context2.t0 = _context2["catch"](0);
+                console.log(_context2.t0);
+                this.showAlert('error', 'Gagal Mengubah Tipe');
+
+              case 16:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2, this, [[0, 12]]);
+      }));
+
+      function updatemotortype() {
+        return _updatemotortype.apply(this, arguments);
+      }
+
+      return updatemotortype;
+    }(),
+    deletemotortype: function () {
+      var _deletemotortype = _asyncToGenerator(
+      /*#__PURE__*/
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3() {
+        var id;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
+          while (1) {
+            switch (_context3.prev = _context3.next) {
+              case 0:
+                _context3.prev = 0;
+                id = this.motortypeData[this.editedIndex].id;
+                _context3.next = 4;
+                return this.deleteMotorType(id);
+
+              case 4:
+                this.getMotorType();
+                this.close();
+                this.showAlert('success', 'Sukses Menghapus Tipe');
+                _context3.next = 13;
+                break;
+
+              case 9:
+                _context3.prev = 9;
+                _context3.t0 = _context3["catch"](0);
+                console.log(_context3.t0);
+                this.showAlert('error', 'Gagal Menghapus Tipe');
+
+              case 13:
+              case "end":
+                return _context3.stop();
+            }
+          }
+        }, _callee3, this, [[0, 9]]);
+      }));
+
+      function deletemotortype() {
+        return _deletemotortype.apply(this, arguments);
+      }
+
+      return deletemotortype;
+    }(),
+    editItem: function editItem(item) {
+      this.editedIndex = this.motortypeData.indexOf(item); // this.editedItem = Object.assign({}, item)
+
+      this.editedItem.id = item.id;
+      this.editedItem.name = item.name;
+      this.editedItem.brand = item.brand.id;
+      this.dialog = true;
+    },
+    deleteItem: function deleteItem(item) {
+      this.delDialog = true;
+      this.editedIndex = this.motortypeData.indexOf(item);
+    },
+    close: function close() {
+      var _this = this;
+
+      this.dialog = false;
+      this.delDialog = false;
+      setTimeout(function () {
+        _this.editedItem = Object.assign({}, _this.defaultItem);
+        _this.editedIndex = -1;
+
+        _this.$v.$reset();
+      }, 300);
+    },
+    save: function save() {
+      if (this.editedIndex > -1) {
+        Object.assign(this.motortypeData[this.editedIndex], this.editedItem);
+      } else {
+        this.motortypeData.push(this.editedItem);
+      }
+
+      this.close();
+    },
+    showAlert: function showAlert(type, alert_message) {
+      var _this2 = this;
+
+      if (type == 'success') {
+        this.alert.icon = 'fas fa-check-circle';
+      } else if (type == 'error') {
+        this.alert.icon = 'fas fa-exclamation-circle';
+      }
+
+      this.alert.type = type;
+      this.alert.message = alert_message;
+      var timer = this.showAlert.timer;
+
+      if (timer) {
+        clearTimeout(timer);
+      }
+
+      this.showAlert.timer = setTimeout(function () {
+        _this2.alert.type = null;
+        _this2.alert.icon = null;
+        _this2.alert.message = null;
+      }, 3000);
+    }
+  })
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Admin/AdminPayment.vue?vue&type=script&lang=js&":
+/*!*****************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Admin/AdminPayment.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _httpController__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../httpController */ "./resources/js/httpController.js");
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var _service_Transaction__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../service/Transaction */ "./resources/js/service/Transaction.js");
+/* harmony import */ var _service_Employee__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../service/Employee */ "./resources/js/service/Employee.js");
+/* harmony import */ var _service_Sparepart__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../service/Sparepart */ "./resources/js/service/Sparepart.js");
+/* harmony import */ var _service_Service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../service/Service */ "./resources/js/service/Service.js");
+/* harmony import */ var _service_MotorCustomer__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../service/MotorCustomer */ "./resources/js/service/MotorCustomer.js");
+/* harmony import */ var _service_Customer__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../service/Customer */ "./resources/js/service/Customer.js");
+/* harmony import */ var _service_MotorBrand__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../service/MotorBrand */ "./resources/js/service/MotorBrand.js");
+/* harmony import */ var _service_MotorType__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../service/MotorType */ "./resources/js/service/MotorType.js");
+/* harmony import */ var vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! vuelidate/lib/validators */ "./node_modules/vuelidate/lib/validators/index.js");
+/* harmony import */ var vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_11__);
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+
+
+
+
+
+
+
+
+
+
+function payErrors() {
+  if (this.bayar >= this.editedItem.total_transaction - this.editedItem.discount_transaction) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  validations: {
+    editedItem: {
+      discount_transaction: {
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_11__["required"],
+        numeric: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_11__["numeric"]
+      }
+    },
+    bayar: {
+      required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_11__["required"],
+      numeric: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_11__["numeric"],
+      payErrors: payErrors
+    }
+  },
+  data: function data() {
+    return {
+      dialog: false,
+      delDialog: false,
+      dateDialog: false,
+      verifMode: false,
+      detailMode: false,
+      addmotor: false,
+      // sparepartDialog:false,
+      search: '',
+      i: 0,
+      headers: [{
+        text: 'Id Transaksi',
+        align: 'center',
+        value: 'id_transaction'
+      }, {
+        text: 'Tanggal',
+        align: 'center',
+        value: 'date_transaction'
+      }, {
+        text: 'Pelanggan',
+        align: 'center',
+        value: 'name_customer'
+      }, {
+        text: 'Tipe Transaksi',
+        align: 'center',
+        value: 'type_transaction'
+      }, {
+        text: 'Status',
+        align: 'center',
+        value: 'status_process'
+      }, {
+        text: 'Total',
+        align: 'center',
+        value: 'total_transaction'
+      }, {
+        text: 'Bayar',
+        align: 'center',
+        sortable: false
+      }, {
+        text: 'Actions',
+        align: 'center',
+        sortable: false
+      }],
+      dropdown_status: [{
+        id: "Unprocessed",
+        text: 'Unprocessed'
+      }, {
+        id: "On Process",
+        text: 'On Process'
+      }, {
+        id: "Finish",
+        text: 'Finish'
+      }],
+      dropdown_tipe: [{
+        id: "Sparepart",
+        text: 'Sparepart'
+      }, {
+        id: "Sparepart dan Service",
+        text: 'Sparepart dan Service'
+      }, {
+        id: "Service",
+        text: 'Service'
+      }],
+      serviceheaders: [{
+        text: 'Jasa Service',
+        align: 'left',
+        value: 'service_name'
+      }, {
+        text: 'Motor Pelanggan',
+        align: 'center',
+        value: 'plate_number',
+        sortable: false
+      }, {
+        text: 'Montir',
+        align: 'center',
+        value: 'mechanic_name',
+        sortable: false
+      }, {
+        text: 'Harga',
+        align: 'center',
+        value: 'price_transaction_service',
+        sortable: false
+      }],
+      sparepartheaders: [{
+        text: 'Merk',
+        align: 'left',
+        value: 'brand_sparepart',
+        sortable: false
+      }, {
+        text: 'Sparepart',
+        align: 'center',
+        value: 'name_sparepart'
+      }, {
+        text: 'Harga Satuan',
+        align: 'center',
+        value: 'price_transaction_sparepart',
+        sortable: false
+      }, {
+        text: 'Jumlah',
+        align: 'center',
+        value: 'amount_transaction_sparepart',
+        sortable: false
+      }, {
+        text: 'Motor Pelanggan',
+        align: 'center',
+        value: 'amount_transaction_sparepart',
+        sortable: false
+      }, {
+        text: 'Montir',
+        align: 'center',
+        value: 'mechanic_name',
+        sortable: false
+      }, {
+        text: 'Subtotal',
+        align: 'center',
+        value: 'subtotal_transaction_sparepart',
+        sortable: false
+      }],
+      dropdown_sales: [],
+      dropdown_sparepart: [],
+      transactionData: [],
+      //CUSTOMER VAR==============
+      newCustomer: false,
+      customerData: [],
+      editedCustomer: {
+        name: '',
+        phone_number: '',
+        address: ''
+      },
+      //==========================
+      editedIndex: -1,
+      total: 0,
+      selectedTransaction: {
+        name: '',
+        phone_number: '',
+        address: ''
+      },
+      editedItem: {
+        date_transaction: '',
+        status_process: 'Unprocessed',
+        type_transaction: '',
+        discount_transaction: '',
+        total_transaction: '',
+        id_customer: '',
+        name_customer: '',
+        sparepart: {
+          data: []
+        },
+        service: {
+          data: []
+        },
+        employee: {
+          data: []
+        }
+      },
+      defaultItem: {
+        date_transaction: '',
+        status_process: 'Unprocessed',
+        type_transaction: '',
+        discount_transaction: '',
+        total_transaction: '',
+        id_customer: '',
+        name_customer: '',
+        sparepart: {
+          data: []
+        },
+        service: {
+          data: []
+        },
+        employee: {
+          data: []
+        }
+      },
+      employee: [],
+      discount: '',
+      bayar: 0,
+      kembalian: 0,
+      alert: {
+        type: null,
+        message: null,
+        icon: null // elapse: null
+
+      }
+    };
+  },
+  computed: _objectSpread({
+    formTitle: function formTitle() {
+      if (this.detailMode == true) {
+        return 'Detail Transaksi';
+      } else {
+        return 'Proses Pembayaran';
+      } // return this.editedIndex === -1 ? 'Tambah Transaksi Penjualan' : 'Edit Transaksi Penjualan'
+
+    }
+  }, Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapState"])({
+    loading: function loading(state) {
+      return state.Transaction.loading;
+    },
+    error: function error(state) {
+      return state.Transaction.error;
+    },
+    transactions: function transactions(state) {
+      return state.Transaction.transactions;
+    },
+    employees: function employees(state) {
+      return state.Employee.employees;
+    },
+    services: function services(state) {
+      return state.Service.services;
+    },
+    spareparts: function spareparts(state) {
+      return state.Sparepart.spareparts;
+    },
+    customers: function customers(state) {
+      return state.Customer.customers;
+    },
+    motorcustomers: function motorcustomers(state) {
+      return state.MotorCustomer.motorcustomers;
+    },
+    motorbrands: function motorbrands(state) {
+      return state.MotorBrand.motorbrands;
+    },
+    motortypes: function motortypes(state) {
+      return state.MotorType.motortypes;
+    }
+  }), Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapGetters"])({
+    id: 'LoggedUser/id',
+    name: 'LoggedUser/name',
+    username: 'LoggedUser/username',
+    role: 'LoggedUser/role'
+  }), {
+    inittransaction: function inittransaction() {
+      this.transactionData = this.transactions;
+      return this.transactionData;
+    },
+    initcustomer: function initcustomer() {
+      this.customerData = this.customers;
+      return this.customerData;
+    },
+    setcustomer: function setcustomer() {
+      var _this = this;
+
+      if (this.editedItem.id_customer != '') {
+        this.editedCustomer = this.customers.find(function (obj) {
+          return obj.id == _this.editedItem.id_customer;
+        });
+        this.editedItem.employee.data[0] = {
+          id_employee: this.id
+        };
+      }
+
+      return this.editedCustomer;
+    },
+    //VALIDATION ERROR
+    discountErrors: function discountErrors() {
+      var errors = [];
+      if (!this.$v.editedItem.discount_transaction.$dirty) return errors;
+      !this.$v.editedItem.discount_transaction.required && errors.push('Diskon diperlukan.');
+      !this.$v.editedItem.discount_transaction.numeric && errors.push('Diskon harus numerik.');
+      return errors;
+    },
+    paidErrors: function paidErrors() {
+      var errors = [];
+      if (!this.$v.bayar.$dirty) return errors;
+      !this.$v.bayar.required && errors.push('Uang diperlukan.');
+      !this.$v.bayar.numeric && errors.push('Uang harus numerik.');
+      !this.$v.bayar.payErrors && errors.push('Uang kurang.');
+      return errors;
+    }
+  }),
+  watch: {
+    dialog: function dialog(val) {
+      val || this.close();
+    },
+    delDialog: function delDialog(val) {
+      val || this.close();
+    }
+  },
+  created: function created() {// this.loaddata ()
+    // this.showAlert('error','Failed Update Transaction');
+    //  console.log(this.dropdown_role);
+    // this.topayload()
+  },
+  mounted: function mounted() {
+    this.getTransaction();
+    this.getSparepart();
+    this.getService();
+    this.getCustomer();
+    this.getEmployee();
+    this.getMotorCustomer();
+    this.getMotorBrand();
+    this.getMotorType(); // this.initialize()
+  },
+  methods: _objectSpread({
+    initialize: function initialize() {}
+  }, Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapActions"])({
+    getTransaction: 'Transaction/get',
+    storeTransaction: 'Transaction/store',
+    updateTransaction: 'Transaction/update',
+    deleteTransaction: 'Transaction/delete',
+    paymentTransaction: 'Transaction/payment',
+    getEmployee: 'Employee/get',
+    getSparepart: 'Sparepart/get',
+    getService: 'Service/get',
+    getCustomer: 'Customer/get',
+    storeCustomer: 'Customer/store',
+    deleteCustomer: 'Customer/delete',
+    updateCustomer: 'Customer/update',
+    getMotorCustomer: 'MotorCustomer/get',
+    storeMotorcycle: 'MotorCustomer/store',
+    updateMotorcycle: 'MotorCustomer/update',
+    deleteMotorcycle: 'MotorCustomer/delete',
+    getMotorBrand: 'MotorBrand/get',
+    getMotorType: 'MotorType/get'
+  }), {
+    countCharge: function countCharge() {
+      if (this.bayar >= this.editedItem.total_transaction - this.editedItem.discount_transaction) {
+        this.kembalian = this.bayar - (this.editedItem.total_transaction - this.editedItem.discount_transaction);
+      }
+    },
+    payment: function () {
+      var _payment = _asyncToGenerator(
+      /*#__PURE__*/
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+        var _this2 = this;
+
+        var data;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.prev = 0;
+                this.employee[0] = {
+                  id_employee: this.id
+                };
+                data = {
+                  id_transaction: this.editedItem.id_transaction,
+                  discount_transaction: this.editedItem.discount_transaction,
+                  total_transaction: this.editedItem.total_transaction,
+                  employee: this.employee
+                };
+                console.log(data);
+                _context.next = 6;
+                return this.paymentTransaction(data);
+
+              case 6:
+                this.transactionData.push(this.editedItem);
+                _context.next = 9;
+                return this.getTransaction();
+
+              case 9:
+                this.editedItem = Object.assign({}, this.transactions.find(function (obj) {
+                  return obj.id_transaction == _this2.editedItem.id_transaction;
+                }));
+                this.employee = [];
+                this.discount = 0;
+                this.bayar = 0;
+                this.kembalian = 0;
+                this.close();
+                this.showAlert('success', 'Berhasil Tambah Transaksi');
+                _context.next = 22;
+                break;
+
+              case 18:
+                _context.prev = 18;
+                _context.t0 = _context["catch"](0);
+                console.log(_context.t0);
+                this.showAlert('error', 'Gagal Tambah Transaksi');
+
+              case 22:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, this, [[0, 18]]);
+      }));
+
+      function payment() {
+        return _payment.apply(this, arguments);
+      }
+
+      return payment;
+    }(),
+    //MAIN MODAL AND TABLE====================
+    detailItem: function detailItem(item) {
+      this.detailMode = true;
+      this.editedIndex = this.transactions.indexOf(item);
+      this.editedItem = Object.assign({}, item);
+      this.dialog = true;
+    },
+    payItem: function payItem(item) {
+      this.editedIndex = this.transactions.indexOf(item);
+      this.editedItem = Object.assign({}, item);
+      this.dialog = true;
+    },
+    close: function close() {
+      var _this3 = this;
+
+      this.dialog = false;
+      this.delDialog = false; // this.sparepartDialog = false
+
+      setTimeout(function () {
+        _this3.editedItem = Object.assign({}, _this3.defaultItem);
+        _this3.editedSparepart = Object.assign({}, _this3.defaultSparepart);
+        _this3.selectedSparepart = Object.assign({}, _this3.defaultSparepart);
+        _this3.editedIndex = -1;
+        _this3.sparepartIndex = -1;
+        _this3.addsparepart = false;
+        _this3.verifMode = false;
+        _this3.detailMode = false;
+
+        _this3.$v.$reset();
+      }, 300);
+    },
+    //========================================
+    showAlert: function showAlert(type, alert_message) {
+      var _this4 = this;
+
+      if (type == 'success') {
+        this.alert.icon = 'fas fa-check-circle';
+      } else if (type == 'error') {
+        this.alert.icon = 'fas fa-exclamation-circle';
+      }
+
+      this.alert.type = type;
+      this.alert.message = alert_message;
+      var timer = this.showAlert.timer;
+
+      if (timer) {
+        clearTimeout(timer);
+      }
+
+      this.showAlert.timer = setTimeout(function () {
+        _this4.alert.type = null;
+        _this4.alert.icon = null;
+        _this4.alert.message = null;
+      }, 3000);
+    }
+  })
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Admin/AdminProcurement.vue?vue&type=script&lang=js&":
+/*!*********************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Admin/AdminProcurement.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _httpController__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../httpController */ "./resources/js/httpController.js");
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var _service_Procurement__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../service/Procurement */ "./resources/js/service/Procurement.js");
+/* harmony import */ var _service_Sparepart__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../service/Sparepart */ "./resources/js/service/Sparepart.js");
+/* harmony import */ var _service_Supplier__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../service/Supplier */ "./resources/js/service/Supplier.js");
+/* harmony import */ var vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! vuelidate/lib/validators */ "./node_modules/vuelidate/lib/validators/index.js");
+/* harmony import */ var vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_6__);
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+
+
+
+
+function sparepartSameErrors() {
+  var i = 0;
+
+  for (var sparepart in this.editedItem.detail.data) {
+    if (this.sparepartIndex != -1) {
+      if (this.editedItem.detail.data[i].id_sparepart == this.editedSparepart.id_sparepart && this.editedItem.detail.data[i].id_sparepart != this.editedItem.detail.data[this.sparepartIndex].id_sparepart) {
+        return false;
+      }
+    } else if (this.editedItem.detail.data[i].id_sparepart == this.editedSparepart.id_sparepart) {
+      return false;
+    }
+
+    i++;
+  }
+
+  return true;
+}
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  validations: {
+    editedItem: {
+      date_procurement: {
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_6__["required"]
+      },
+      status_procurement: {
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_6__["required"]
+      },
+      id_sales: {
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_6__["required"]
+      },
+      id_supplier: {
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_6__["required"]
+      }
+    },
+    editedSparepart: {
+      id_sparepart: {
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_6__["required"],
+        sparepartSameErrors: sparepartSameErrors
+      },
+      amount: {
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_6__["required"],
+        numeric: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_6__["numeric"]
+      },
+      price: {
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_6__["required"],
+        numeric: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_6__["numeric"]
+      }
+    }
+  },
+  data: function data() {
+    return {
+      dialog: false,
+      delDialog: false,
+      dateDialog: false,
+      addsparepart: false,
+      verifMode: false,
+      detailMode: false,
+      // sparepartDialog:false,
+      search: '',
+      i: 0,
+      headers: [{
+        text: 'No',
+        align: 'left',
+        sortable: false
+      }, {
+        text: 'Tanggal',
+        align: 'left',
+        value: 'date_procurement'
+      }, {
+        text: 'Supplier',
+        align: 'center',
+        value: 'name_supplier'
+      }, {
+        text: 'Status',
+        align: 'center',
+        value: 'status_procurement'
+      }, {
+        text: 'Verifikasi',
+        align: 'center',
+        sortable: false
+      }, {
+        text: 'Actions',
+        align: 'center',
+        sortable: false
+      }],
+      sparepartheaders: [{
+        text: 'No',
+        align: 'left',
+        sortable: false
+      }, {
+        text: 'Sparepart',
+        align: 'left',
+        value: 'name_sparepart',
+        sortable: false
+      }, {
+        text: 'Jumlah',
+        align: 'center',
+        value: 'amount',
+        sortable: false
+      }, {
+        text: 'Harga Beli',
+        align: 'center',
+        value: 'price',
+        sortable: false
+      }, {
+        text: 'Actions',
+        align: 'center',
+        sortable: false
+      }],
+      dropdown_status: [{
+        id: "Unprocessed",
+        text: 'Unprocessed'
+      }, {
+        id: "On Process",
+        text: 'On Process'
+      }, {
+        id: "Finish",
+        text: 'Finish'
+      }],
+      dropdown_supplier: [],
+      dropdown_sales: [],
+      dropdown_sparepart: [],
+      procurementData: [],
+      editedIndex: -1,
+      sparepartIndex: -1,
+      total: 0,
+      selectedProcurement: {
+        name: '',
+        phone_number: '',
+        address: ''
+      },
+      editedItem: {
+        date_procurement: '',
+        status_procurement: 'Unprocessed',
+        id_sales: '',
+        id_supplier: '',
+        detail: {
+          data: []
+        }
+      },
+      defaultItem: {
+        date_procurement: '',
+        status_procurement: 'Unprocessed',
+        id_sales: '',
+        id_supplier: '',
+        detail: {
+          data: []
+        }
+      },
+      editedSparepart: {
+        id_sparepart: '',
+        name_sparepart: '',
+        amount: '',
+        price: '',
+        subtotal: ''
+      },
+      selectedSparepart: {
+        id_sparepart: '',
+        name_sparepart: '',
+        amount: '',
+        price: '',
+        subtotal: ''
+      },
+      defaultSparepart: {
+        id_sparepart: '',
+        name_sparepart: '',
+        amount: '',
+        price: '',
+        subtotal: ''
+      },
+      alert: {
+        type: null,
+        message: null,
+        icon: null // elapse: null
+
+      }
+    };
+  },
+  computed: _objectSpread({
+    formTitle: function formTitle() {
+      if (this.verifMode == true) {
+        return 'Verifikasi Pengadaan Sparepart';
+      } else if (this.editedIndex == -1) {
+        return 'Tambah Pengadaan Sparepart';
+      } else {
+        return 'Edit Pengadaan Sparepart';
+      } // return this.editedIndex === -1 ? 'Tambah Pengadaan Sparepart' : 'Edit Pengadaan Sparepart'
+
+    }
+  }, Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapState"])({
+    loading: function loading(state) {
+      return state.Procurement.loading;
+    },
+    error: function error(state) {
+      return state.Procurement.error;
+    },
+    procurements: function procurements(state) {
+      return state.Procurement.procurements;
+    },
+    suppliers: function suppliers(state) {
+      return state.Supplier.suppliers;
+    },
+    manySales: function manySales(state) {
+      return state.Sales.manySales;
+    },
+    spareparts: function spareparts(state) {
+      return state.Sparepart.spareparts;
+    }
+  }), {
+    countTotal: function countTotal() {
+      this.total = 0;
+
+      for (var data in this.editedItem.detail.data) {
+        this.total += this.editedItem.detail.data[this.i].subtotal;
+        this.i++;
+      }
+
+      this.i = 0; // this.total = this.editedItem.detail.data.stream().mapToInt(obj => obj.subtotal).sum();
+      // this.total = this.editedItem.detail.id_supplier
+
+      return 'Rp. ' + this.total;
+    },
+    initprocurement: function initprocurement() {
+      this.procurementData = this.procurements;
+      return this.procurementData;
+    },
+    initsupplier: function initsupplier() {
+      this.dropdown_supplier = this.suppliers;
+      return this.dropdown_supplier;
+    },
+    initsales: function initsales() {
+      var _this = this;
+
+      if (this.editedItem.id_supplier != "") {
+        this.dropdown_sales = this.manySales.filter(function (obj) {
+          return obj.supplier.id == _this.editedItem.id_supplier;
+        });
+        return this.dropdown_sales;
+      }
+    },
+    initsparepart: function initsparepart() {
+      // this.dropdown_sparepart = this.spareparts
+      this.dropdown_sparepart = this.spareparts.map(function (obj) {
+        return {
+          id: obj.id,
+          name: obj.name + ' ' + obj.brand
+        };
+      });
+      return this.dropdown_sparepart;
+    },
+    //VALIDATION ERROR
+    dateErrors: function dateErrors() {
+      var errors = [];
+      if (!this.$v.editedItem.date_procurement.$dirty) return errors;
+      !this.$v.editedItem.date_procurement.required && errors.push('Tanggal diperlukan.');
+      return errors;
+    },
+    statusErrors: function statusErrors() {
+      var errors = [];
+      if (!this.$v.editedItem.status_procurement.$dirty) return errors;
+      !this.$v.editedItem.status_procurement.required && errors.push('Status diperlukan.');
+      return errors;
+    },
+    supplierErrors: function supplierErrors() {
+      var errors = [];
+      if (!this.$v.editedItem.id_supplier.$dirty) return errors;
+      !this.$v.editedItem.id_supplier.required && errors.push('Supplier diperlukan.');
+      return errors;
+    },
+    salesErrors: function salesErrors() {
+      var errors = [];
+      if (!this.$v.editedItem.id_sales.$dirty) return errors;
+      !this.$v.editedItem.id_sales.required && errors.push('Sales diperlukan.');
+      return errors;
+    },
+    sparepartErrors: function sparepartErrors() {
+      var errors = [];
+      if (!this.$v.editedSparepart.id_sparepart.$dirty) return errors;
+      !this.$v.editedSparepart.id_sparepart.required && errors.push('Sparepart diperlukan.');
+      !this.$v.editedSparepart.id_sparepart.sparepartSameErrors && errors.push('Sparepart Tidak Boleh Sama.');
+      return errors;
+    },
+    amountErrors: function amountErrors() {
+      var errors = [];
+      if (!this.$v.editedSparepart.amount.$dirty) return errors;
+      !this.$v.editedSparepart.amount.required && errors.push('Jumlah diperlukan.');
+      !this.$v.editedSparepart.amount.numeric && errors.push('Jumlah harus numerik.');
+      !this.$v.editedSparepart.amount != 0 && errors.push('Jumlah harus lebih dari 0.');
+      return errors;
+    },
+    priceErrors: function priceErrors() {
+      var errors = [];
+      if (!this.$v.editedSparepart.price.$dirty) return errors;
+      !this.$v.editedSparepart.price.required && errors.push('Harga diperlukan.');
+      !this.$v.editedSparepart.price.numeric && errors.push('Harga harus numerik.');
+      return errors;
+    }
+  }),
+  watch: {
+    dialog: function dialog(val) {
+      val || this.close();
+    },
+    delDialog: function delDialog(val) {
+      val || this.close();
+    }
+  },
+  created: function created() {// this.loaddata ()
+    // this.showAlert('error','Failed Update Procurement');
+    //  console.log(this.dropdown_role);
+    // this.topayload()
+  },
+  mounted: function mounted() {
+    this.getProcurement();
+    this.getSupplier();
+    this.getSales();
+    this.getSparepart(); // this.initialize()
+  },
+  methods: _objectSpread({
+    initialize: function initialize() {}
+  }, Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapActions"])({
+    getProcurement: 'Procurement/get',
+    getSupplier: 'Supplier/get',
+    getSales: 'Sales/get',
+    getSparepart: 'Sparepart/get',
+    storeProcurement: 'Procurement/store',
+    deleteProcurement: 'Procurement/delete',
+    updateProcurement: 'Procurement/update',
+    verifySparepart: 'Sparepart/sparepartverify'
+  }), {
+    filtertype: function filtertype(brand) {
+      var _this2 = this;
+
+      this.dropdown_type = this.dropdown_type.filter(function (obj) {
+        return obj.brand.name === _this2.editedSparepart.brand;
+      });
+      return this.dropdown_type;
+    },
+    addprocurement: function () {
+      var _addprocurement = _asyncToGenerator(
+      /*#__PURE__*/
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+        var detailPayload, data;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.prev = 0;
+                detailPayload = this.editedItem.detail.data.map(function (obj) {
+                  return {
+                    price_detail_procurement: obj.price,
+                    subtotal_detail_procurement: obj.subtotal,
+                    amount_detail_procurement: obj.amount,
+                    id_sparepart: obj.id_sparepart
+                  };
+                }); // console.log(detailPayload)
+
+                data = {
+                  date_procurement: this.editedItem.date_procurement,
+                  status_procurement: this.editedItem.status_procurement,
+                  id_sales: this.editedItem.id_sales,
+                  id_supplier: this.editedItem.id_supplier,
+                  detail: detailPayload
+                };
+                console.log(data);
+                _context.next = 6;
+                return this.storeProcurement(data);
+
+              case 6:
+                this.procurementData.push(this.editedItem);
+                _context.next = 9;
+                return this.getProcurement();
+
+              case 9:
+                this.close();
+                this.showAlert('success', 'Berhasil Tambah Pengadaan');
+                _context.next = 17;
+                break;
+
+              case 13:
+                _context.prev = 13;
+                _context.t0 = _context["catch"](0);
+                console.log(_context.t0);
+                this.showAlert('error', 'Gagal Tambah Pengadaan');
+
+              case 17:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, this, [[0, 13]]);
+      }));
+
+      function addprocurement() {
+        return _addprocurement.apply(this, arguments);
+      }
+
+      return addprocurement;
+    }(),
+    verifyprocurement: function () {
+      var _verifyprocurement = _asyncToGenerator(
+      /*#__PURE__*/
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
+        var date, detailPayload, data, dataverify;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                _context2.prev = 0;
+                date = this.editedItem.date_procurement.split(' ');
+                detailPayload = this.editedItem.detail.data.map(function (obj) {
+                  return {
+                    price_detail_procurement: obj.price,
+                    subtotal_detail_procurement: obj.subtotal,
+                    amount_detail_procurement: obj.amount,
+                    id_sparepart: obj.id_sparepart
+                  };
+                }); // console.log(detailPayload)
+
+                console.log(date[0]);
+                data = {
+                  id_procurement: this.editedItem.id_procurement,
+                  date_procurement: date[0],
+                  status_procurement: 'Finish',
+                  id_sales: this.editedItem.id_sales,
+                  id_supplier: this.editedItem.id_supplier,
+                  detail: detailPayload
+                };
+                dataverify = {
+                  spareparts: this.editedItem.detail.data
+                };
+                _context2.next = 8;
+                return this.updateProcurement(data);
+
+              case 8:
+                _context2.next = 10;
+                return this.verifySparepart(dataverify);
+
+              case 10:
+                _context2.next = 12;
+                return this.getProcurement();
+
+              case 12:
+                this.close();
+                this.showAlert('success', 'Success Update Procurement');
+                _context2.next = 20;
+                break;
+
+              case 16:
+                _context2.prev = 16;
+                _context2.t0 = _context2["catch"](0);
+                console.log(_context2.t0);
+                this.showAlert('error', 'Failed Update Procurement');
+
+              case 20:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2, this, [[0, 16]]);
+      }));
+
+      function verifyprocurement() {
+        return _verifyprocurement.apply(this, arguments);
+      }
+
+      return verifyprocurement;
+    }(),
+    updateprocurement: function () {
+      var _updateprocurement = _asyncToGenerator(
+      /*#__PURE__*/
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3() {
+        var date, detailPayload, data;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
+          while (1) {
+            switch (_context3.prev = _context3.next) {
+              case 0:
+                _context3.prev = 0;
+                date = this.editedItem.date_procurement.split(' ');
+                detailPayload = this.editedItem.detail.data.map(function (obj) {
+                  return {
+                    price_detail_procurement: obj.price,
+                    subtotal_detail_procurement: obj.subtotal,
+                    amount_detail_procurement: obj.amount,
+                    id_sparepart: obj.id_sparepart
+                  };
+                }); // console.log(detailPayload)
+
+                console.log(date[0]);
+                data = {
+                  id_procurement: this.editedItem.id_procurement,
+                  date_procurement: date[0],
+                  status_procurement: this.editedItem.status_procurement,
+                  id_sales: this.editedItem.id_sales,
+                  id_supplier: this.editedItem.id_supplier,
+                  detail: detailPayload
+                };
+                _context3.next = 7;
+                return this.updateProcurement(data);
+
+              case 7:
+                _context3.next = 9;
+                return this.getProcurement();
+
+              case 9:
+                this.close();
+                this.showAlert('success', 'Success Update Procurement');
+                _context3.next = 17;
+                break;
+
+              case 13:
+                _context3.prev = 13;
+                _context3.t0 = _context3["catch"](0);
+                console.log(_context3.t0);
+                this.showAlert('error', 'Failed Update Procurement');
+
+              case 17:
+              case "end":
+                return _context3.stop();
+            }
+          }
+        }, _callee3, this, [[0, 13]]);
+      }));
+
+      function updateprocurement() {
+        return _updateprocurement.apply(this, arguments);
+      }
+
+      return updateprocurement;
+    }(),
+    deleteprocurement: function () {
+      var _deleteprocurement = _asyncToGenerator(
+      /*#__PURE__*/
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4() {
+        var id_procurement;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee4$(_context4) {
+          while (1) {
+            switch (_context4.prev = _context4.next) {
+              case 0:
+                _context4.prev = 0;
+                id_procurement = this.procurementData[this.editedIndex].id_procurement;
+                _context4.next = 4;
+                return this.deleteProcurement(id_procurement);
+
+              case 4:
+                _context4.next = 6;
+                return this.getProcurement();
+
+              case 6:
+                this.close();
+                this.showAlert('success', 'Success Delete Procurement');
+                _context4.next = 14;
+                break;
+
+              case 10:
+                _context4.prev = 10;
+                _context4.t0 = _context4["catch"](0);
+                console.log(_context4.t0);
+                this.showAlert('error', 'Failed Delete Procurement');
+
+              case 14:
+              case "end":
+                return _context4.stop();
+            }
+          }
+        }, _callee4, this, [[0, 10]]);
+      }));
+
+      function deleteprocurement() {
+        return _deleteprocurement.apply(this, arguments);
+      }
+
+      return deleteprocurement;
+    }(),
+    getSparepartObj: function getSparepartObj() {
+      var _this3 = this;
+
+      this.editedSparepart.price = this.spareparts.find(function (obj) {
+        return obj.id == _this3.editedSparepart.id_sparepart;
+      }).sell_price;
+      this.editedSparepart.name_sparepart = this.spareparts.find(function (obj) {
+        return obj.id == _this3.editedSparepart.id_sparepart;
+      }).name;
+    },
+    editItem: function editItem(item) {
+      this.editedIndex = this.procurements.indexOf(item);
+      this.editedItem = Object.assign({}, item);
+      this.dialog = true;
+    },
+    verifyItem: function verifyItem(item) {
+      this.verifMode = true;
+      this.editedIndex = this.procurements.indexOf(item);
+      this.editedItem = Object.assign({}, item);
+      this.dialog = true;
+    },
+    detailItem: function detailItem(item) {
+      this.detailMode = true;
+      this.editedIndex = this.procurements.indexOf(item);
+      this.editedItem = Object.assign({}, item);
+      this.dialog = true;
+    },
+    sparepartDelete: function sparepartDelete(item) {
+      this.editedItem.detail.data = this.editedItem.detail.data.filter(function (obj) {
+        return obj.id_sparepart != item.id_sparepart;
+      });
+    },
+    sparepartEdit: function sparepartEdit(item) {
+      this.editedSparepart = Object.assign({}, item);
+      this.selectedSparepart = item;
+      this.sparepartIndex = this.editedItem.detail.data.indexOf(item);
+      this.addsparepart = false;
+    },
+    sparepartDone: function sparepartDone() {
+      this.editedSparepart.subtotal = this.editedSparepart.price * this.editedSparepart.amount;
+      this.editedItem.detail.data.splice(this.sparepartIndex, 1, this.editedSparepart);
+      this.selectedSparepart = Object.assign({}, this.defaultSparepart);
+      this.editedSparepart = Object.assign({}, this.defaultSparepart);
+      this.addsparepart = false;
+      this.sparepartIndex = -1;
+    },
+    sparepartEditClose: function sparepartEditClose() {
+      this.editedSparepart = Object.assign({}, this.defaultdSparepart);
+      this.selectedSparepart = Object.assign({}, this.defaultdSparepart);
+      this.sparepartIndex = -1;
+    },
+    sparepartAdd: function sparepartAdd() {
+      var _this4 = this;
+
+      this.editedSparepart.name_sparepart = this.spareparts.find(function (obj) {
+        return obj.id == _this4.editedSparepart.id_sparepart;
+      }).name;
+      this.editedSparepart.subtotal = this.editedSparepart.amount * this.editedSparepart.price;
+      this.editedItem.detail.data.push(this.editedSparepart);
+      this.editedSparepart = Object.assign({}, this.defaultSparepart);
+      this.selectedSparepart = Object.assign({}, this.defaultSparepart);
+      this.sparepartIndex = -1;
+      this.addsparepart = false;
+      this.$v.$reset();
+    },
+    sparepartAddClose: function sparepartAddClose() {
+      this.editedSparepart = Object.assign({}, this.defaultdSparepart);
+      this.selectedSparepart = Object.assign({}, this.defaultdSparepart);
+      this.sparepartIndex = -1;
+      this.addsparepart = false;
+    },
+    deleteItem: function deleteItem(item) {
+      // console.log(item)
+      this.delDialog = true;
+      this.editedIndex = this.procurementData.indexOf(item); // console.log(this.editedIndex)
+    },
+    close: function close() {
+      var _this5 = this;
+
+      this.dialog = false;
+      this.delDialog = false; // this.sparepartDialog = false
+
+      setTimeout(function () {
+        _this5.editedItem = Object.assign({}, _this5.defaultItem);
+        _this5.editedSparepart = Object.assign({}, _this5.defaultSparepart);
+        _this5.selectedSparepart = Object.assign({}, _this5.defaultSparepart);
+        _this5.editedIndex = -1;
+        _this5.sparepartIndex = -1;
+        _this5.addsparepart = false;
+        _this5.verifMode = false;
+        _this5.detailMode = false;
+
+        _this5.$v.$reset();
+      }, 300);
+    },
+    save: function save() {
+      if (this.editedIndex > -1) {
+        Object.assign(this.procurementData[this.editedIndex], this.editedItem);
+      } else {
+        this.procurementData.push(this.editedItem);
+      }
+
+      this.close();
+    },
+    showSparepart: function showSparepart(item) {
+      this.sparepartDialog = true;
+      this.selectedProcurement = item; // this.sparepartProcurement = this.sparepartData.filter(obj => obj.procurement.id == item.id);
+
+      this.sparepartProcurement = item.sparepart.data;
+    },
+    showAlert: function showAlert(type, alert_message) {
+      var _this6 = this;
+
+      if (type == 'success') {
+        this.alert.icon = 'fas fa-check-circle';
+      } else if (type == 'error') {
+        this.alert.icon = 'fas fa-exclamation-circle';
+      }
+
+      this.alert.type = type;
+      this.alert.message = alert_message;
+      var timer = this.showAlert.timer;
+
+      if (timer) {
+        clearTimeout(timer);
+      }
+
+      this.showAlert.timer = setTimeout(function () {
+        _this6.alert.type = null;
+        _this6.alert.icon = null;
+        _this6.alert.message = null;
       }, 3000);
     }
   })
@@ -4646,8 +8211,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _httpController__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../httpController */ "./resources/js/httpController.js");
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
 /* harmony import */ var _service_Sparepart__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../service/Sparepart */ "./resources/js/service/Sparepart.js");
-/* harmony import */ var vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vuelidate/lib/validators */ "./node_modules/vuelidate/lib/validators/index.js");
-/* harmony import */ var vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _service_MotorType__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../service/MotorType */ "./resources/js/service/MotorType.js");
+/* harmony import */ var vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! vuelidate/lib/validators */ "./node_modules/vuelidate/lib/validators/index.js");
+/* harmony import */ var vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_5__);
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -4971,6 +8537,46 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 
 
 
@@ -4979,47 +8585,47 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   validations: {
     editedItem: {
       id: {
-        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_4__["required"],
-        maxLength: Object(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_4__["maxLength"])(13),
-        minLength: Object(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_4__["minLength"])(10)
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_5__["required"],
+        maxLength: Object(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_5__["maxLength"])(13),
+        minLength: Object(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_5__["minLength"])(10)
       },
       name: {
-        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_4__["required"],
-        maxLength: Object(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_4__["maxLength"])(25)
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_5__["required"],
+        maxLength: Object(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_5__["maxLength"])(25)
       },
       brand: {
-        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_4__["required"],
-        maxLength: Object(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_4__["maxLength"])(25)
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_5__["required"],
+        maxLength: Object(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_5__["maxLength"])(25)
       },
       type: {
-        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_4__["required"]
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_5__["required"]
       },
       stock: {
-        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_4__["required"],
-        numeric: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_4__["numeric"]
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_5__["required"],
+        numeric: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_5__["numeric"]
       },
       min_stock: {
-        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_4__["required"],
-        numeric: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_4__["numeric"]
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_5__["required"],
+        numeric: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_5__["numeric"]
       },
       buy_price: {
-        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_4__["required"],
-        numeric: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_4__["numeric"]
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_5__["required"],
+        numeric: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_5__["numeric"]
       },
       sell_price: {
-        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_4__["required"],
-        numeric: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_4__["numeric"]
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_5__["required"],
+        numeric: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_5__["numeric"]
       },
       // placement: { required, maxLength: maxLength(12),minLength: minLength(9) },
       placement_position: {
-        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_4__["required"]
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_5__["required"]
       },
       placement_place: {
-        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_4__["required"]
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_5__["required"]
       },
       placement_number: {
-        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_4__["required"],
-        numeric: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_4__["numeric"] // image: { required, maxLength: maxLength(25)},
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_5__["required"],
+        numeric: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_5__["numeric"] // image: { required, maxLength: maxLength(25)},
 
       }
     }
@@ -5028,6 +8634,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     return {
       dialog: false,
       delDialog: false,
+      compatibilityDialog: false,
       search: '',
       i: 0,
       headers: [{
@@ -5055,6 +8662,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         text: 'Stok',
         align: 'center',
         value: 'stock'
+      }, {
+        text: 'Kecocokan',
+        align: 'center',
+        sortable: false
       }, {
         text: 'Actions',
         align: 'center',
@@ -5089,6 +8700,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       imageName: '',
       defaultImg: 'http://localhost:8000/images/sparepart/default.png',
       sparepartData: [],
+      compatibility: [],
       editedIndex: -1,
       editedItem: {
         id: '',
@@ -5141,6 +8753,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     },
     spareparts: function spareparts(state) {
       return state.Sparepart.spareparts;
+    },
+    motortypes: function motortypes(state) {
+      return state.MotorType.motortypes;
     }
   }), {
     initsparepart: function initsparepart() {
@@ -5242,12 +8857,16 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     },
     delDialog: function delDialog(val) {
       val || this.close();
+    },
+    compatibilityDialog: function compatibilityDialog(val) {
+      val || this.close();
     }
   },
   created: function created() {},
   mounted: function mounted() {
     this.getSparepart();
     this.getSparepartType();
+    this.getMotorType();
   },
   methods: _objectSpread({
     initialize: function initialize() {},
@@ -5289,6 +8908,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     }()
   }, Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapActions"])({
     getSparepart: 'Sparepart/get',
+    getMotorType: 'MotorType/get',
     storeSparepart: 'Sparepart/store',
     deleteSparepart: 'Sparepart/delete',
     updateSparepart: 'Sparepart/update',
@@ -5336,7 +8956,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                 data.append('id_sparepart', this.editedItem.id);
                 data.append('name_sparepart', this.editedItem.name);
                 data.append('brand_sparepart', this.editedItem.brand);
-                data.append('id_sparepart_type', this.type.find(function (obj) {
+                data.append('id_sparepart_type', this.dropdown_type.find(function (obj) {
                   return obj.name == _this2.editedItem.type;
                 }).id);
                 data.append('stock_sparepart', this.editedItem.stock);
@@ -5366,24 +8986,27 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
               case 14:
                 this.sparepartData.push(this.editedItem);
-                this.getSparepart();
+                _context2.next = 17;
+                return this.getSparepart();
+
+              case 17:
                 this.close();
                 this.showAlert('success', 'Success Add Sparepart');
-                _context2.next = 24;
+                _context2.next = 25;
                 break;
 
-              case 20:
-                _context2.prev = 20;
+              case 21:
+                _context2.prev = 21;
                 _context2.t0 = _context2["catch"](0);
                 console.log(_context2.t0);
                 this.showAlert('error', 'Failed Add Sparepart');
 
-              case 24:
+              case 25:
               case "end":
                 return _context2.stop();
             }
           }
-        }, _callee2, this, [[0, 20]]);
+        }, _callee2, this, [[0, 21]]);
       }));
 
       function addsparepart() {
@@ -5409,7 +9032,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                   id_sparepart: this.editedItem.id,
                   name_sparepart: this.editedItem.name,
                   brand_sparepart: this.editedItem.brand,
-                  id_sparepart_type: this.type.find(function (obj) {
+                  id_sparepart_type: this.dropdown_type.find(function (obj) {
                     return obj.name == _this3.editedItem.type;
                   }).id,
                   stock_sparepart: this.editedItem.stock,
@@ -5484,24 +9107,27 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
               case 29:
                 Object.assign(this.sparepartData[this.editedIndex], this.editedItem);
-                this.getSparepart();
+                _context3.next = 32;
+                return this.getSparepart();
+
+              case 32:
                 this.close();
                 this.showAlert('success', 'Success Update Sparepart');
-                _context3.next = 39;
+                _context3.next = 40;
                 break;
 
-              case 35:
-                _context3.prev = 35;
+              case 36:
+                _context3.prev = 36;
                 _context3.t1 = _context3["catch"](0);
                 console.log(_context3.t1);
                 this.showAlert('error', 'Failed Update Sparepart');
 
-              case 39:
+              case 40:
               case "end":
                 return _context3.stop();
             }
           }
-        }, _callee3, this, [[0, 35], [11, 15, 19, 27], [20,, 22, 26]]);
+        }, _callee3, this, [[0, 36], [11, 15, 19, 27], [20,, 22, 26]]);
       }));
 
       function updatesparepart() {
@@ -5525,24 +9151,27 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                 return this.deleteSparepart(id_sparepart);
 
               case 4:
-                this.getSparepart();
+                _context4.next = 6;
+                return this.getSparepart();
+
+              case 6:
                 this.close();
                 this.showAlert('success', 'Success Delete Sparepart');
-                _context4.next = 13;
+                _context4.next = 14;
                 break;
 
-              case 9:
-                _context4.prev = 9;
+              case 10:
+                _context4.prev = 10;
                 _context4.t0 = _context4["catch"](0);
                 console.log(_context4.t0);
                 this.showAlert('error', 'Failed Delete Sparepart');
 
-              case 13:
+              case 14:
               case "end":
                 return _context4.stop();
             }
           }
-        }, _callee4, this, [[0, 9]]);
+        }, _callee4, this, [[0, 10]]);
       }));
 
       function deletesparepart() {
@@ -5550,6 +9179,54 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       }
 
       return deletesparepart;
+    }(),
+    updatecompatibility: function () {
+      var _updatecompatibility = _asyncToGenerator(
+      /*#__PURE__*/
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee5() {
+        var id_sparepart, data;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee5$(_context5) {
+          while (1) {
+            switch (_context5.prev = _context5.next) {
+              case 0:
+                _context5.prev = 0;
+                id_sparepart = this.sparepartData[this.editedIndex].id;
+                data = {
+                  motorcycle_types: this.compatibility.toString() //console.log(this.compatibility)
+
+                };
+                _context5.next = 5;
+                return _httpController__WEBPACK_IMPORTED_MODULE_1__["default"].updatecompatibility(data, id_sparepart);
+
+              case 5:
+                _context5.next = 7;
+                return this.getSparepart();
+
+              case 7:
+                this.close();
+                this.showAlert('success', 'Berhasil Mengubah Kecocokan');
+                _context5.next = 15;
+                break;
+
+              case 11:
+                _context5.prev = 11;
+                _context5.t0 = _context5["catch"](0);
+                console.log(_context5.t0);
+                this.showAlert('error', 'Gagal Mengubah Kecocokan');
+
+              case 15:
+              case "end":
+                return _context5.stop();
+            }
+          }
+        }, _callee5, this, [[0, 11]]);
+      }));
+
+      function updatecompatibility() {
+        return _updatecompatibility.apply(this, arguments);
+      }
+
+      return updatecompatibility;
     }(),
     editItem: function editItem(item) {
       this.editedIndex = this.sparepartData.indexOf(item);
@@ -5562,11 +9239,24 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       // confirm('Are you sure you want to delete this item?') && this.sparepartData.splice(this.editedIndex, 1)
       // confirm('Are you sure you want to delete this item?') && this.deleteService()
     },
+    showCompatibility: function showCompatibility(item) {
+      this.compatibilityDialog = true;
+      this.editedIndex = this.sparepartData.indexOf(item); // console.log(item)
+      // console.log(item.compatibility.data)
+
+      for (var obj in item.compatibility.data) {
+        // console.log(obj)
+        this.compatibility.push(item.compatibility.data[obj].id);
+      } // this.compatibility = item.compatibility.data
+
+    },
     close: function close() {
       var _this4 = this;
 
       this.dialog = false;
       this.delDialog = false;
+      this.compatibilityDialog = false;
+      this.compatibility = [];
       setTimeout(function () {
         _this4.editedItem = Object.assign({}, _this4.defaultItem);
         _this4.editedIndex = -1;
@@ -6204,6 +9894,2244 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         _this2.alert.type = null;
         _this2.alert.icon = null;
         _this2.alert.message = null;
+      }, 3000);
+    }
+  })
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Admin/AdminTransaction.vue?vue&type=script&lang=js&":
+/*!*********************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Admin/AdminTransaction.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _httpController__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../httpController */ "./resources/js/httpController.js");
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var _service_Transaction__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../service/Transaction */ "./resources/js/service/Transaction.js");
+/* harmony import */ var _service_Employee__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../service/Employee */ "./resources/js/service/Employee.js");
+/* harmony import */ var _service_Sparepart__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../service/Sparepart */ "./resources/js/service/Sparepart.js");
+/* harmony import */ var _service_Service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../service/Service */ "./resources/js/service/Service.js");
+/* harmony import */ var _service_MotorCustomer__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../service/MotorCustomer */ "./resources/js/service/MotorCustomer.js");
+/* harmony import */ var _service_Customer__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../service/Customer */ "./resources/js/service/Customer.js");
+/* harmony import */ var _service_MotorBrand__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../service/MotorBrand */ "./resources/js/service/MotorBrand.js");
+/* harmony import */ var _service_MotorType__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../service/MotorType */ "./resources/js/service/MotorType.js");
+/* harmony import */ var vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! vuelidate/lib/validators */ "./node_modules/vuelidate/lib/validators/index.js");
+/* harmony import */ var vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_11__);
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+
+
+
+
+
+
+
+
+
+
+function sparepartSameErrors() {
+  var i = 0;
+
+  for (var sparepart in this.editedItem.detail.data) {
+    if (this.editedItem.detail.data[i].id_sparepart == this.editedSparepart.id_sparepart) {
+      return false;
+    }
+
+    i++;
+  }
+
+  return true;
+}
+
+function phoneNumberSameErrors() {
+  var i = 0;
+
+  for (var customer in this.customers) {
+    if (this.editedCustomer.id == '') {
+      if (this.customers[i].phone_number == this.editedCustomer.phone_number) {
+        return false;
+      }
+    }
+
+    i++;
+  }
+
+  return true;
+}
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  validations: {
+    //    editedItem: {
+    //     date_transaction: { required },
+    //     status_process: { required },
+    //     id_sales: { required },
+    //     id_supplier: { required },
+    //    },
+    editedCustomer: {
+      name: {
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_11__["required"],
+        maxLength: Object(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_11__["maxLength"])(25)
+      },
+      phone_number: {
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_11__["required"],
+        numeric: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_11__["numeric"],
+        phoneNumberSameErrors: phoneNumberSameErrors,
+        maxLength: Object(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_11__["maxLength"])(12)
+      },
+      address: {
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_11__["required"],
+        maxLength: Object(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_11__["maxLength"])(100)
+      }
+    }
+  },
+  data: function data() {
+    var _ref;
+
+    return _ref = {
+      dialog: false,
+      delDialog: false,
+      dateDialog: false,
+      verifMode: false,
+      detailMode: false,
+      addmotor: false,
+      // sparepartDialog:false,
+      search: '',
+      i: 0,
+      //HEADER TABLE====================== 
+      headers: [{
+        text: 'No',
+        align: 'left',
+        sortable: false
+      }, {
+        text: 'Id Transaksi',
+        align: 'center',
+        value: 'id_transaction'
+      }, {
+        text: 'Tanggal',
+        align: 'center',
+        value: 'date_transaction'
+      }, {
+        text: 'Pelanggan',
+        align: 'center',
+        value: 'name_customer'
+      }, {
+        text: 'Status',
+        align: 'center',
+        value: 'status_process'
+      }, {
+        text: 'Actions',
+        align: 'center',
+        sortable: false
+      }],
+      motorheaders: [{
+        text: 'Nomor Plat',
+        align: 'left',
+        value: 'plate'
+      }, {
+        text: 'Brand',
+        align: 'center',
+        value: 'brand',
+        sortable: false
+      }, {
+        text: 'Tipe',
+        align: 'center',
+        value: 'tipe',
+        sortable: false
+      }, {
+        text: 'Actions',
+        align: 'center',
+        sortable: false
+      }],
+      // sparepartheaders: [
+      //   { text: 'No', align: 'left',sortable: false },
+      //   { text: 'Sparepart', align: 'left', value: 'name_sparepart',sortable: false },
+      //   { text: 'Jumlah', align: 'center', value: 'amount', sortable: false  },
+      //   { text: 'Harga Beli', align: 'center', value: 'price', sortable: false  },
+      //   { text: 'Actions', align: 'center', sortable: false }
+      // ],
+      dropdown_status: [{
+        id: "Unprocessed",
+        text: 'Unprocessed'
+      }, {
+        id: "On Process",
+        text: 'On Process'
+      }, {
+        id: "Finish",
+        text: 'Finish'
+      }],
+      dropdown_tipe: [{
+        id: "Sparepart",
+        text: 'Sparepart'
+      }, {
+        id: "Sparepart dan Service",
+        text: 'Sparepart dan Service'
+      }, {
+        id: "Service",
+        text: 'Service'
+      }],
+      serviceheaders: [{
+        text: 'Jasa Service',
+        align: 'left',
+        value: 'service_name'
+      }, {
+        text: 'Motor Pelanggan',
+        align: 'center',
+        value: 'plate_number',
+        sortable: false
+      }, {
+        text: 'Montir',
+        align: 'center',
+        value: 'mechanic_name',
+        sortable: false
+      }, {
+        text: 'Harga',
+        align: 'center',
+        value: 'price_transaction_service',
+        sortable: false
+      }, {
+        text: 'Actions',
+        align: 'center',
+        sortable: false
+      }],
+      sparepartheaders: [{
+        text: 'Merk',
+        align: 'left',
+        value: 'brand_sparepart',
+        sortable: false
+      }, {
+        text: 'Sparepart',
+        align: 'center',
+        value: 'name_sparepart'
+      }, {
+        text: 'Harga Satuan',
+        align: 'center',
+        value: 'price_transaction_sparepart',
+        sortable: false
+      }, {
+        text: 'Jumlah',
+        align: 'center',
+        value: 'amount_transaction_sparepart',
+        sortable: false
+      }, {
+        text: 'Motor Pelanggan',
+        align: 'center',
+        value: 'amount_transaction_sparepart',
+        sortable: false
+      }, {
+        text: 'Montir',
+        align: 'center',
+        value: 'mechanic_name',
+        sortable: false
+      }, {
+        text: 'Subtotal',
+        align: 'center',
+        value: 'subtotal_transaction_sparepart',
+        sortable: false
+      }, {
+        text: 'Actions',
+        align: 'center',
+        sortable: false
+      }],
+      //==================================
+      dropdown_sales: [],
+      dropdown_sparepart: [],
+      transactionData: [],
+      //CUSTOMER VAR==============
+      newCustomer: false,
+      customerData: [],
+      editedCustomer: {
+        id: '',
+        name: '',
+        phone_number: '',
+        address: '',
+        motorcycle: []
+      },
+      defaultCustomer: {
+        id: '',
+        name: '',
+        phone_number: '',
+        address: '',
+        motorcycle: []
+      },
+      //==========================
+      //SPAREPART VAR=================
+      addsparepart: false
+    }, _defineProperty(_ref, "dropdown_sparepart", []), _defineProperty(_ref, "sparepartData", []), _defineProperty(_ref, "sparepartIndex", -1), _defineProperty(_ref, "selectedSparepart", {
+      id_detail_sparepart: '',
+      amount_transaction_sparepart: '',
+      price_transaction_sparepart: '',
+      subtotal_transaction_sparepart: '',
+      plate_number: '',
+      id_employee: '',
+      mechanic_name: '',
+      id_sparepart: '',
+      id_motorcycle: '',
+      name_sparepart: '',
+      brand_sparepart: '',
+      id_transaction: ''
+    }), _defineProperty(_ref, "editedSparepart", {
+      id_detail_sparepart: '',
+      amount_transaction_sparepart: '',
+      price_transaction_sparepart: '',
+      subtotal_transaction_sparepart: '',
+      plate_number: '',
+      id_employee: '',
+      mechanic_name: '',
+      id_sparepart: '',
+      id_motorcycle: '',
+      name_sparepart: '',
+      brand_sparepart: '',
+      id_transaction: ''
+    }), _defineProperty(_ref, "addedSparepart", {
+      id_detail_sparepart: '',
+      amount_transaction_sparepart: '',
+      price_transaction_sparepart: '',
+      subtotal_transaction_sparepart: '',
+      plate_number: '',
+      id_employee: '',
+      mechanic_name: '',
+      id_sparepart: '',
+      id_motorcycle: '',
+      name_sparepart: '',
+      brand_sparepart: '',
+      id_transaction: ''
+    }), _defineProperty(_ref, "defaultSparepart", {
+      id_detail_sparepart: '',
+      amount_transaction_sparepart: '',
+      price_transaction_sparepart: '',
+      subtotal_transaction_sparepart: '',
+      plate_number: '',
+      id_employee: '',
+      mechanic_name: '',
+      id_sparepart: '',
+      id_motorcycle: '',
+      name_sparepart: '',
+      brand_sparepart: '',
+      id_transaction: ''
+    }), _defineProperty(_ref, "addservice", false), _defineProperty(_ref, "dropdown_motorcustomer", []), _defineProperty(_ref, "dropdown_service", []), _defineProperty(_ref, "dropdown_mechanic", []), _defineProperty(_ref, "mechanicData", []), _defineProperty(_ref, "serviceData", []), _defineProperty(_ref, "serviceIndex", -1), _defineProperty(_ref, "selectedService", {
+      id_detail_service: '',
+      amount_transaction_service: '',
+      price_transaction_service: '',
+      subtotal_transaction_service: '',
+      plate_number: '',
+      id_employee: '',
+      mechanic_name: '',
+      id_service: '',
+      id_motorcycle: '',
+      service_name: '',
+      id_transaction: ''
+    }), _defineProperty(_ref, "editedService", {
+      id_detail_service: '',
+      amount_transaction_service: '',
+      price_transaction_service: '',
+      subtotal_transaction_service: '',
+      plate_number: '',
+      id_employee: '',
+      mechanic_name: '',
+      id_service: '',
+      id_motorcycle: '',
+      service_name: '',
+      id_transaction: ''
+    }), _defineProperty(_ref, "addedService", {
+      id_detail_service: '',
+      amount_transaction_service: '',
+      price_transaction_service: '',
+      subtotal_transaction_service: '',
+      plate_number: '',
+      id_employee: '',
+      mechanic_name: '',
+      id_service: '',
+      id_motorcycle: '',
+      service_name: '',
+      id_transaction: ''
+    }), _defineProperty(_ref, "defaultService", {
+      id_detail_service: '',
+      amount_transaction_service: '',
+      price_transaction_service: '',
+      subtotal_transaction_service: '',
+      plate_number: '',
+      id_employee: '',
+      mechanic_name: '',
+      id_service: '',
+      id_motorcycle: '',
+      service_name: '',
+      id_transaction: ''
+    }), _defineProperty(_ref, "dropdown_motorbrand", []), _defineProperty(_ref, "dropdown_motortype", []), _defineProperty(_ref, "motorCustomer", []), _defineProperty(_ref, "motorIndex", -1), _defineProperty(_ref, "selectedMotor", {
+      id: '',
+      plate: '',
+      brand: '',
+      type: ''
+    }), _defineProperty(_ref, "editedMotor", {
+      id: '',
+      plate: '',
+      brand: '',
+      type: ''
+    }), _defineProperty(_ref, "addedMotor", {
+      id: '',
+      plate: '',
+      brand: '',
+      type: ''
+    }), _defineProperty(_ref, "defaultdMotor", {
+      id: '',
+      plate: '',
+      brand: '',
+      type: ''
+    }), _defineProperty(_ref, "editedIndex", -1), _defineProperty(_ref, "total", 0), _defineProperty(_ref, "selectedTransaction", {
+      name: '',
+      phone_number: '',
+      address: ''
+    }), _defineProperty(_ref, "editedItem", {
+      date_transaction: '',
+      status_process: 'Unprocessed',
+      type_transaction: '',
+      discount_transaction: '',
+      total_transaction: '',
+      id_customer: '',
+      name_customer: '',
+      sparepart: {
+        data: []
+      },
+      service: {
+        data: []
+      },
+      employee: {
+        data: []
+      }
+    }), _defineProperty(_ref, "defaultItem", {
+      date_transaction: '',
+      status_process: 'Unprocessed',
+      type_transaction: '',
+      discount_transaction: '',
+      total_transaction: '',
+      id_customer: '',
+      name_customer: '',
+      sparepart: {
+        data: []
+      },
+      service: {
+        data: []
+      },
+      employee: {
+        data: []
+      }
+    }), _defineProperty(_ref, "alert", {
+      type: null,
+      message: null,
+      icon: null // elapse: null
+
+    }), _ref;
+  },
+  computed: _objectSpread({
+    formTitle: function formTitle() {
+      if (this.detailMode == true) {
+        return 'Detail Transaksi Penjualan';
+      } else if (this.editedIndex == -1) {
+        return 'Tambah Transaksi Penjualan';
+      } else {
+        return 'Edit Transaksi Penjualan';
+      } // return this.editedIndex === -1 ? 'Tambah Transaksi Penjualan' : 'Edit Transaksi Penjualan'
+
+    }
+  }, Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapState"])({
+    loading: function loading(state) {
+      return state.Transaction.loading;
+    },
+    error: function error(state) {
+      return state.Transaction.error;
+    },
+    transactions: function transactions(state) {
+      return state.Transaction.transactions;
+    },
+    employees: function employees(state) {
+      return state.Employee.employees;
+    },
+    services: function services(state) {
+      return state.Service.services;
+    },
+    spareparts: function spareparts(state) {
+      return state.Sparepart.spareparts;
+    },
+    customers: function customers(state) {
+      return state.Customer.customers;
+    },
+    motorcustomers: function motorcustomers(state) {
+      return state.MotorCustomer.motorcustomers;
+    },
+    motorbrands: function motorbrands(state) {
+      return state.MotorBrand.motorbrands;
+    },
+    motortypes: function motortypes(state) {
+      return state.MotorType.motortypes;
+    }
+  }), Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapGetters"])({
+    id: 'LoggedUser/id',
+    name: 'LoggedUser/name',
+    username: 'LoggedUser/username',
+    role: 'LoggedUser/role'
+  }), {
+    countTotal: function countTotal() {
+      this.total = 0;
+
+      for (var data in this.editedItem.sparepart.data) {
+        this.total += this.editedItem.sparepart.data[this.i].subtotal_transaction_sparepart;
+        this.i++;
+      }
+
+      this.i = 0;
+
+      for (var _data in this.editedItem.service.data) {
+        this.total += this.editedItem.service.data[this.i].subtotal_transaction_service;
+        this.i++;
+      }
+
+      this.i = 0;
+      this.editedItem.total_transaction = this.total; // this.total = this.editedItem.detail.data.stream().mapToInt(obj => obj.subtotal).sum();
+      // this.total = this.editedItem.detail.id_supplier
+
+      return 'Rp. ' + this.total;
+    },
+    //INIT===============================
+    inittransaction: function inittransaction() {
+      this.transactionData = this.transactions;
+      return this.transactionData;
+    },
+    initmotorcustomer: function initmotorcustomer() {
+      var _this = this;
+
+      this.motorCustomer = this.motorcustomers.filter(function (obj) {
+        return obj.customer.id == _this.editedItem.id_customer;
+      });
+      return this.motorCustomer;
+    },
+    initmotorbrand: function initmotorbrand() {
+      this.dropdown_motorbrand = this.motorbrands;
+      return this.dropdown_motorbrand;
+    },
+    initmotortype: function initmotortype() {
+      var _this2 = this;
+
+      this.dropdown_motortype = this.motortypes.filter(function (obj) {
+        return obj.brand.name === _this2.editedMotor.brand;
+      });
+      return this.dropdown_motortype;
+    },
+    initcustomer: function initcustomer() {
+      this.customerData = this.customers;
+      return this.customerData;
+    },
+    initservice: function initservice() {
+      this.serviceData = this.services;
+      return this.serviceData;
+    },
+    initmechanic: function initmechanic() {
+      this.mechanicData = this.employees.filter(function (obj) {
+        return obj.role == 'Mechanic';
+      });
+      return this.mechanicData;
+    },
+    setcustomer: function setcustomer() {
+      var _this3 = this;
+
+      if (this.editedItem.id_customer != '') {
+        this.editedCustomer = this.customers.find(function (obj) {
+          return obj.id == _this3.editedItem.id_customer;
+        });
+        this.editedItem.employee.data[0] = {
+          id_employee: this.id
+        };
+      }
+
+      return this.editedCustomer;
+    },
+    initsparepart: function initsparepart() {
+      // this.dropdown_sparepart = this.spareparts
+      this.dropdown_sparepart = this.spareparts.map(function (obj) {
+        return {
+          id: obj.id,
+          name: obj.name + ' ' + obj.brand
+        };
+      });
+      return this.dropdown_sparepart;
+    },
+    //
+    //VALIDATION ERROR
+    nameErrors: function nameErrors() {
+      var errors = [];
+      if (!this.$v.editedCustomer.name.$dirty) return errors;
+      !this.$v.editedCustomer.name.required && errors.push('Nama Diperlukan.');
+      !this.$v.editedCustomer.name.maxLength && errors.push('Nama tidak lebih dari 25 karakter. ');
+      return errors;
+    },
+    phoneErrors: function phoneErrors() {
+      var errors = [];
+      if (!this.$v.editedCustomer.phone_number.$dirty) return errors;
+      !this.$v.editedCustomer.phone_number.maxLength && errors.push('Nomor telepon tidak lebih dari 12 karakter.');
+      !this.$v.editedCustomer.phone_number.numeric && errors.push('Nomor telepon harus numerik.');
+      !this.$v.editedCustomer.phone_number.required && errors.push('Nomor telepon diperlukan.');
+      !this.$v.editedCustomer.phone_number.phoneNumberSameErrors && errors.push('Nomor telepon telah terdaftar.');
+      return errors;
+    },
+    addressErrors: function addressErrors() {
+      var errors = [];
+      if (!this.$v.editedCustomer.address.$dirty) return errors;
+      !this.$v.editedCustomer.address.maxLength && errors.push('Alamat tidak lebih dari 100 karakter.');
+      !this.$v.editedCustomer.address.required && errors.push('Alamat diperlukan.');
+      return errors;
+    }
+  }),
+  watch: {
+    dialog: function dialog(val) {
+      val || this.close();
+    },
+    delDialog: function delDialog(val) {
+      val || this.close();
+    }
+  },
+  created: function created() {// this.loaddata ()
+    // this.showAlert('error','Failed Update Transaction');
+    //  console.log(this.dropdown_role);
+    // this.topayload()
+  },
+  mounted: function mounted() {
+    this.getTransaction();
+    this.getSparepart();
+    this.getService();
+    this.getCustomer();
+    this.getEmployee();
+    this.getMotorCustomer();
+    this.getMotorBrand();
+    this.getMotorType(); // this.initialize()
+  },
+  methods: _objectSpread({
+    initialize: function initialize() {}
+  }, Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapActions"])({
+    getTransaction: 'Transaction/get',
+    storeTransaction: 'Transaction/store',
+    updateTransaction: 'Transaction/update',
+    deleteTransaction: 'Transaction/delete',
+    getEmployee: 'Employee/get',
+    getSparepart: 'Sparepart/get',
+    getService: 'Service/get',
+    getCustomer: 'Customer/get',
+    storeCustomer: 'Customer/store',
+    deleteCustomer: 'Customer/delete',
+    updateCustomer: 'Customer/update',
+    getMotorCustomer: 'MotorCustomer/get',
+    storeMotorcycle: 'MotorCustomer/store',
+    updateMotorcycle: 'MotorCustomer/update',
+    deleteMotorcycle: 'MotorCustomer/delete',
+    getMotorBrand: 'MotorBrand/get',
+    getMotorType: 'MotorType/get'
+  }), {
+    //   setcustomer(){
+    //     this.editedCustomer = this.customers.find(obj=>obj.id == this.editedItem.id_customer);
+    //     this.editedItem.employee.data[0] = {
+    //       id_employee : this.id
+    //     }
+    //     return this.editedCustomer
+    //   },
+    filtertype: function filtertype(brand) {
+      var _this4 = this;
+
+      this.dropdown_type = this.dropdown_type.filter(function (obj) {
+        return obj.brand.name === _this4.editedSparepart.brand;
+      });
+      return this.dropdown_type;
+    },
+    //TRANSACTION====================
+    addtransaction: function () {
+      var _addtransaction = _asyncToGenerator(
+      /*#__PURE__*/
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+        var data;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.prev = 0;
+                // console.log(detailPayload)
+                data = {
+                  status_process: this.editedItem.status_process,
+                  type_transaction: this.editedItem.type_transaction,
+                  total_transaction: this.editedItem.total_transaction,
+                  id_customer: this.editedItem.id_customer,
+                  sparepart: this.editedItem.sparepart.data,
+                  service: this.editedItem.service.data,
+                  employee: this.editedItem.employee.data
+                };
+                console.log(data);
+                _context.next = 5;
+                return this.storeTransaction(data);
+
+              case 5:
+                this.transactionData.push(this.editedItem);
+                _context.next = 8;
+                return this.getTransaction();
+
+              case 8:
+                this.close();
+                this.showAlert('success', 'Berhasil Tambah Transaksi');
+                _context.next = 16;
+                break;
+
+              case 12:
+                _context.prev = 12;
+                _context.t0 = _context["catch"](0);
+                console.log(_context.t0);
+                this.showAlert('error', 'Gagal Tambah Transaksi');
+
+              case 16:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, this, [[0, 12]]);
+      }));
+
+      function addtransaction() {
+        return _addtransaction.apply(this, arguments);
+      }
+
+      return addtransaction;
+    }(),
+    updatetransaction: function () {
+      var _updatetransaction = _asyncToGenerator(
+      /*#__PURE__*/
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
+        var data;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                _context2.prev = 0;
+                data = {
+                  id_transaction: this.editedItem.id_transaction,
+                  status_process: this.editedItem.status_process,
+                  type_transaction: this.editedItem.type_transaction,
+                  total_transaction: this.editedItem.total_transaction,
+                  id_customer: this.editedItem.id_customer,
+                  sparepart: this.editedItem.sparepart.data,
+                  service: this.editedItem.service.data,
+                  employee: this.editedItem.employee.data
+                };
+                _context2.next = 4;
+                return this.updateTransaction(data);
+
+              case 4:
+                _context2.next = 6;
+                return this.getTransaction();
+
+              case 6:
+                this.close();
+                this.showAlert('success', 'Success Update Transaction');
+                _context2.next = 14;
+                break;
+
+              case 10:
+                _context2.prev = 10;
+                _context2.t0 = _context2["catch"](0);
+                console.log(_context2.t0);
+                this.showAlert('error', 'Failed Update Transaction');
+
+              case 14:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2, this, [[0, 10]]);
+      }));
+
+      function updatetransaction() {
+        return _updatetransaction.apply(this, arguments);
+      }
+
+      return updatetransaction;
+    }(),
+    deletetransaction: function () {
+      var _deletetransaction = _asyncToGenerator(
+      /*#__PURE__*/
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3() {
+        var id_transaction;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
+          while (1) {
+            switch (_context3.prev = _context3.next) {
+              case 0:
+                _context3.prev = 0;
+                id_transaction = this.transactionData[this.editedIndex].id_transaction; // console.log(id_transaction)
+
+                _context3.next = 4;
+                return this.deleteTransaction(id_transaction);
+
+              case 4:
+                _context3.next = 6;
+                return this.getTransaction();
+
+              case 6:
+                this.close();
+                this.showAlert('success', 'Success Delete Transaction');
+                _context3.next = 14;
+                break;
+
+              case 10:
+                _context3.prev = 10;
+                _context3.t0 = _context3["catch"](0);
+                console.log(_context3.t0);
+                this.showAlert('error', 'Failed Delete Transaction');
+
+              case 14:
+              case "end":
+                return _context3.stop();
+            }
+          }
+        }, _callee3, this, [[0, 10]]);
+      }));
+
+      function deletetransaction() {
+        return _deletetransaction.apply(this, arguments);
+      }
+
+      return deletetransaction;
+    }(),
+    //========================================
+    //MAIN MODAL AND TABLE====================
+    editItem: function editItem(item) {
+      this.editedIndex = this.transactions.indexOf(item);
+      this.editedItem = Object.assign({}, item);
+      this.dialog = true;
+    },
+    verifyItem: function verifyItem(item) {
+      this.verifMode = true;
+      this.editedIndex = this.transactions.indexOf(item);
+      this.editedItem = Object.assign({}, item);
+      this.dialog = true;
+    },
+    detailItem: function detailItem(item) {
+      this.detailMode = true;
+      this.editedIndex = this.transactions.indexOf(item);
+      this.editedItem = Object.assign({}, item);
+      this.dialog = true;
+    },
+    deleteItem: function deleteItem(item) {
+      console.log(item);
+      this.delDialog = true;
+      this.editedIndex = this.transactionData.indexOf(item);
+      console.log(this.editedIndex);
+    },
+    close: function close() {
+      var _this5 = this;
+
+      this.dialog = false;
+      this.delDialog = false; // this.sparepartDialog = false
+
+      setTimeout(function () {
+        _this5.editedItem = Object.assign({}, _this5.defaultItem);
+        _this5.editedSparepart = Object.assign({}, _this5.defaultSparepart);
+        _this5.selectedSparepart = Object.assign({}, _this5.defaultSparepart);
+        _this5.editedCustomer = Object.assign({}, _this5.defaultCustomer);
+        _this5.editedIndex = -1;
+        _this5.sparepartIndex = -1;
+        _this5.addsparepart = false;
+        _this5.newCustomer = false;
+        _this5.verifMode = false;
+        _this5.detailMode = false;
+
+        _this5.$v.$reset();
+      }, 300);
+    },
+    //========================================
+    //SERVICE=================================
+    serviceDelete: function serviceDelete(item) {
+      // this.editedItem = item
+      // this.deletesparepart()
+      this.editedItem.service.data = this.editedItem.service.data.filter(function (obj) {
+        return obj.id_detail_service != item.id_detail_service;
+      });
+    },
+    serviceEdit: function serviceEdit(item) {
+      this.addservice = false;
+      this.editedService = item;
+      this.selectedService = item;
+      console.log(item);
+      this.serviceIndex = this.editedItem.service.data.indexOf(item);
+    },
+    serviceDone: function serviceDone() {
+      var _this6 = this;
+
+      this.addservice = false;
+      this.editedService.amount_transaction_service = 1;
+      this.editedService.price_transaction_service = this.services.find(function (obj) {
+        return obj.id_service == _this6.editedService.id_service;
+      }).price_service;
+      this.editedService.subtotal_transaction_service = this.editedService.amount_transaction_service * this.editedService.price_transaction_service;
+      this.editedService.service_name = this.services.find(function (obj) {
+        return obj.id_service == _this6.editedService.id_service;
+      }).name_service;
+      this.editedService.plate_number = this.motorcustomers.find(function (obj) {
+        return obj.id == _this6.editedService.id_motorcycle;
+      }).plate;
+      this.editedService.mechanic_name = this.employees.find(function (obj) {
+        return obj.id == _this6.editedService.id_employee;
+      }).name;
+      this.editedItem.service.data[this.serviceIndex] = this.editedService; // this.countTotal()
+
+      this.selectedService = this.defaultService;
+      this.editedService = this.defaultService;
+      this.serviceIndex = -1;
+    },
+    serviceEditClose: function serviceEditClose() {
+      this.editedService = Object.assign({}, this.defaultService);
+      this.selectedService = Object.assign({}, this.defaultService); // this.editedSparepart = Object.assign({},this.defaultService)
+
+      this.serviceIndex = -1;
+    },
+    serviceAdd: function serviceAdd() {
+      var _this7 = this;
+
+      this.addservice = false;
+      this.editedService.amount_transaction_service = 1;
+      this.editedService.price_transaction_service = this.services.find(function (obj) {
+        return obj.id_service == _this7.editedService.id_service;
+      }).price_service;
+      this.editedService.subtotal_transaction_service = this.editedService.amount_transaction_service * this.editedService.price_transaction_service;
+      this.editedService.service_name = this.services.find(function (obj) {
+        return obj.id_service == _this7.editedService.id_service;
+      }).name_service;
+      this.editedService.plate_number = this.motorcustomers.find(function (obj) {
+        return obj.id == _this7.editedService.id_motorcycle;
+      }).plate;
+      this.editedService.mechanic_name = this.employees.find(function (obj) {
+        return obj.id == _this7.editedService.id_employee;
+      }).name;
+      this.editedItem.service.data.push(this.editedService); // this.countTotal()
+
+      this.editedService = Object.assign({}, this.defaultService);
+      this.selectedService = Object.assign({}, this.defaultService); // for(let data in this.editedItem.detail.data)
+      // {
+      //   this.total += this.editedItem.detail.data[this.i].subtotal
+      //   this.i++
+      // }
+      // this.i = 0
+      // this.total = this.editedItem.detail.data.mapToInt(obj => obj.subtotal).sum();
+
+      this.serviceIndex = -1;
+    },
+    serviceAddClose: function serviceAddClose() {
+      this.addservice = false;
+      this.editedService = Object.assign({}, this.defaultService);
+      this.selectedService = Object.assign({}, this.defaultService);
+      this.serviceIndex = -1;
+    },
+    //========================================
+    //SPAREPART=================================
+    sparepartDelete: function sparepartDelete(item) {
+      // this.editedItem = item
+      // this.deletesparepart()
+      this.editedItem.sparepart.data = this.editedItem.sparepart.data.filter(function (obj) {
+        return obj.id_detail_sparepart != item.id_detail_sparepart;
+      });
+    },
+    sparepartEdit: function sparepartEdit(item) {
+      this.addsparepart = false;
+      this.editedSparepart = item;
+      this.selectedSparepart = item;
+      console.log(item);
+      this.sparepartIndex = this.editedItem.sparepart.data.indexOf(item);
+    },
+    sparepartDone: function sparepartDone() {
+      var _this8 = this;
+
+      this.addsparepart = false; // this.editedSparepart.amount_transaction_sparepart = 1
+
+      this.editedSparepart.price_transaction_sparepart = this.spareparts.find(function (obj) {
+        return obj.id == _this8.editedSparepart.id_sparepart;
+      }).sell_price;
+      this.editedSparepart.subtotal_transaction_sparepart = this.editedSparepart.amount_transaction_sparepart * this.editedSparepart.price_transaction_sparepart;
+      this.editedSparepart.name_sparepart = this.spareparts.find(function (obj) {
+        return obj.id == _this8.editedSparepart.id_sparepart;
+      }).name;
+      this.editedSparepart.plate_number = this.motorcustomers.find(function (obj) {
+        return obj.id == _this8.editedSparepart.id_motorcycle;
+      }).plate;
+      this.editedSparepart.mechanic_name = this.employees.find(function (obj) {
+        return obj.id == _this8.editedSparepart.id_employee;
+      }).name;
+      this.editedSparepart.brand_sparepart = this.spareparts.find(function (obj) {
+        return obj.id == _this8.editedSparepart.id_sparepart;
+      }).brand;
+      this.editedItem.sparepart.data[this.sparepartIndex] = this.editedSparepart; // this.countTotal()
+
+      this.selectedSparepart = this.defaultSparepart;
+      this.editedSparepart = this.defaultSparepart;
+      this.sparepartIndex = -1;
+    },
+    sparepartEditClose: function sparepartEditClose() {
+      this.editedSparepart = Object.assign({}, this.defaultSparepart);
+      this.selectedSparepart = Object.assign({}, this.defaultSparepart); // this.editedSparepart = Object.assign({},this.defaultSparepart)
+
+      this.sparepartIndex = -1;
+    },
+    sparepartAdd: function sparepartAdd() {
+      var _this9 = this;
+
+      this.addsparepart = false; // this.editedSparepart.amount_transaction_sparepart = 1
+
+      this.editedSparepart.price_transaction_sparepart = this.spareparts.find(function (obj) {
+        return obj.id == _this9.editedSparepart.id_sparepart;
+      }).sell_price;
+      this.editedSparepart.subtotal_transaction_sparepart = this.editedSparepart.amount_transaction_sparepart * this.editedSparepart.price_transaction_sparepart;
+      this.editedSparepart.name_sparepart = this.spareparts.find(function (obj) {
+        return obj.id == _this9.editedSparepart.id_sparepart;
+      }).name;
+      this.editedSparepart.plate_number = this.motorcustomers.find(function (obj) {
+        return obj.id == _this9.editedSparepart.id_motorcycle;
+      }).plate;
+      this.editedSparepart.mechanic_name = this.employees.find(function (obj) {
+        return obj.id == _this9.editedSparepart.id_employee;
+      }).name;
+      this.editedSparepart.brand_sparepart = this.spareparts.find(function (obj) {
+        return obj.id == _this9.editedSparepart.id_sparepart;
+      }).brand;
+      this.editedItem.sparepart.data.push(this.editedSparepart); // this.countTotal()
+
+      this.editedSparepart = Object.assign({}, this.defaultSparepart);
+      this.selectedSparepart = Object.assign({}, this.defaultSparepart); // for(let data in this.editedItem.detail.data)
+      // {
+      //   this.total += this.editedItem.detail.data[this.i].subtotal
+      //   this.i++
+      // }
+      // this.i = 0
+      // this.total = this.editedItem.detail.data.mapToInt(obj => obj.subtotal).sum();
+
+      this.sparepartIndex = -1;
+    },
+    sparepartAddClose: function sparepartAddClose() {
+      this.addsparepart = false;
+      this.editedSparepart = Object.assign({}, this.defaultSparepart);
+      this.selectedSparepart = Object.assign({}, this.defaultSparepart);
+      this.sparepartIndex = -1;
+    },
+    //========================================
+    //CUSTOMER==========================
+    customerHandler: function customerHandler() {
+      // if(this.newCustomer==true){
+      // console.log("Masuk")
+      this.editedItem.id_customer = "";
+      this.editedCustomer = Object.assign({}, this.defaultCustomer);
+      this.$v.$reset(); // }       
+    },
+    addcustomer: function () {
+      var _addcustomer = _asyncToGenerator(
+      /*#__PURE__*/
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4() {
+        var _this10 = this;
+
+        var data;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee4$(_context4) {
+          while (1) {
+            switch (_context4.prev = _context4.next) {
+              case 0:
+                _context4.prev = 0;
+                data = {
+                  name_customer: this.editedCustomer.name,
+                  address_customer: this.editedCustomer.address,
+                  phone_number_customer: this.editedCustomer.phone_number // console.log(data)
+
+                };
+                _context4.next = 4;
+                return this.storeCustomer(data);
+
+              case 4:
+                _context4.next = 6;
+                return this.getCustomer();
+
+              case 6:
+                // console.log(this.customers)
+                this.editedCustomer = this.customers.find(function (obj) {
+                  return obj.phone_number == _this10.editedCustomer.phone_number;
+                });
+                this.editedItem.id_customer = this.editedCustomer.id;
+                this.editedItem.name = this.editedCustomer.name;
+                this.showAlert('success', 'Success Add Customer');
+                _context4.next = 16;
+                break;
+
+              case 12:
+                _context4.prev = 12;
+                _context4.t0 = _context4["catch"](0);
+                console.log(_context4.t0);
+                this.showAlert('error', 'Failed Add Customer');
+
+              case 16:
+              case "end":
+                return _context4.stop();
+            }
+          }
+        }, _callee4, this, [[0, 12]]);
+      }));
+
+      function addcustomer() {
+        return _addcustomer.apply(this, arguments);
+      }
+
+      return addcustomer;
+    }(),
+    //========================================
+    //MOTOR CUSTOMER==========================
+    addmotorcycle: function () {
+      var _addmotorcycle = _asyncToGenerator(
+      /*#__PURE__*/
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee5() {
+        var _this11 = this;
+
+        var data;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee5$(_context5) {
+          while (1) {
+            switch (_context5.prev = _context5.next) {
+              case 0:
+                _context5.prev = 0;
+                // console.log(this.editedMotor)
+                data = {
+                  plate_number: this.editedMotor.plate,
+                  id_motorcycle_type: this.motortypes.find(function (obj) {
+                    return obj.name == _this11.editedMotor.type;
+                  }).id,
+                  id_customer: this.editedCustomer.id // console.log(data)
+
+                };
+                _context5.next = 4;
+                return this.storeMotorcycle(data);
+
+              case 4:
+                _context5.next = 6;
+                return this.getCustomer();
+
+              case 6:
+                _context5.next = 8;
+                return this.getMotorCustomer();
+
+              case 8:
+                // this.editedCustomer.motorcycle.push(data)
+                // this.editedCustomer = this.customers.find(obj=>obj.phone_number == this.editedCustomer.phone_number)
+                this.motorAddClose();
+                this.showAlert('success', 'Berhasil Menambahkan Motor');
+                _context5.next = 16;
+                break;
+
+              case 12:
+                _context5.prev = 12;
+                _context5.t0 = _context5["catch"](0);
+                console.log(_context5.t0);
+                this.showAlert('error', 'Gagal Menambahkan Motor');
+
+              case 16:
+              case "end":
+                return _context5.stop();
+            }
+          }
+        }, _callee5, this, [[0, 12]]);
+      }));
+
+      function addmotorcycle() {
+        return _addmotorcycle.apply(this, arguments);
+      }
+
+      return addmotorcycle;
+    }(),
+    deletemotorcycle: function () {
+      var _deletemotorcycle = _asyncToGenerator(
+      /*#__PURE__*/
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee6() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee6$(_context6) {
+          while (1) {
+            switch (_context6.prev = _context6.next) {
+              case 0:
+                _context6.prev = 0;
+                _context6.next = 3;
+                return this.deleteMotorcycle(this.editedMotor.id);
+
+              case 3:
+                _context6.next = 5;
+                return this.getCustomer();
+
+              case 5:
+                _context6.next = 7;
+                return this.getMotorCustomer();
+
+              case 7:
+                // this.editedMotor = Object.assign({},this.defaultdMotor)
+                this.showAlert('success', 'Berhasil Menghapus Motor');
+                _context6.next = 14;
+                break;
+
+              case 10:
+                _context6.prev = 10;
+                _context6.t0 = _context6["catch"](0);
+                console.log(_context6.t0);
+                this.showAlert('error', 'Gagal Menghapus Motor');
+
+              case 14:
+              case "end":
+                return _context6.stop();
+            }
+          }
+        }, _callee6, this, [[0, 10]]);
+      }));
+
+      function deletemotorcycle() {
+        return _deletemotorcycle.apply(this, arguments);
+      }
+
+      return deletemotorcycle;
+    }(),
+    updatemotorcycle: function () {
+      var _updatemotorcycle = _asyncToGenerator(
+      /*#__PURE__*/
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee7() {
+        var _this12 = this;
+
+        var data;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee7$(_context7) {
+          while (1) {
+            switch (_context7.prev = _context7.next) {
+              case 0:
+                _context7.prev = 0;
+                data = {
+                  id_motorcycle: this.selectedMotor.id,
+                  plate_number: this.editedMotor.plate,
+                  id_motorcycle_type: this.motortypes.find(function (obj) {
+                    return obj.name == _this12.editedMotor.type;
+                  }).id,
+                  id_customer: this.editedCustomer.id // console.log(data)
+
+                };
+                _context7.next = 4;
+                return this.updateMotorcycle(data);
+
+              case 4:
+                _context7.next = 6;
+                return this.getCustomer();
+
+              case 6:
+                _context7.next = 8;
+                return this.getMotorCustomer();
+
+              case 8:
+                this.motorEditClose();
+                this.showAlert('success', 'Success Update Customer');
+                _context7.next = 16;
+                break;
+
+              case 12:
+                _context7.prev = 12;
+                _context7.t0 = _context7["catch"](0);
+                console.log(_context7.t0);
+                this.showAlert('error', 'Failed Update Customer');
+
+              case 16:
+              case "end":
+                return _context7.stop();
+            }
+          }
+        }, _callee7, this, [[0, 12]]);
+      }));
+
+      function updatemotorcycle() {
+        return _updatemotorcycle.apply(this, arguments);
+      }
+
+      return updatemotorcycle;
+    }(),
+    motorDelete: function motorDelete(item) {
+      this.editedMotor = item;
+      this.deletemotorcycle();
+    },
+    motorEdit: function motorEdit(item) {
+      this.addmotor = false;
+      this.editedMotor = item;
+      this.selectedMotor = item;
+      this.motorIndex = this.motorCustomer.indexOf(item);
+    },
+    motorEditClose: function motorEditClose() {
+      this.editedMotor = Object.assign({}, this.defaultdMotor);
+      this.selectedMotor = Object.assign({}, this.defaultdMotor);
+      this.motorIndex = -1;
+    },
+    motorAdd: function motorAdd() {
+      this.addmotor = true;
+      this.editedMotor = Object.assign({}, this.defaultdMotor);
+      this.selectedMotor = Object.assign({}, this.defaultdMotor);
+      this.motorIndex = -1;
+    },
+    motorAddClose: function motorAddClose() {
+      this.addmotor = false;
+      this.editedMotor = Object.assign({}, this.defaultdMotor);
+      this.selectedMotor = Object.assign({}, this.defaultdMotor);
+      this.motorIndex = -1;
+    },
+    //========================================
+    save: function save() {
+      if (this.editedIndex > -1) {
+        Object.assign(this.transactionData[this.editedIndex], this.editedItem);
+      } else {
+        this.transactionData.push(this.editedItem);
+      }
+
+      this.close();
+    },
+    showSparepart: function showSparepart(item) {
+      this.sparepartDialog = true;
+      this.selectedTransaction = item; // this.sparepartTransaction = this.sparepartData.filter(obj => obj.transaction.id == item.id);
+
+      this.sparepartTransaction = item.sparepart.data;
+    },
+    showAlert: function showAlert(type, alert_message) {
+      var _this13 = this;
+
+      if (type == 'success') {
+        this.alert.icon = 'fas fa-check-circle';
+      } else if (type == 'error') {
+        this.alert.icon = 'fas fa-exclamation-circle';
+      }
+
+      this.alert.type = type;
+      this.alert.message = alert_message;
+      var timer = this.showAlert.timer;
+
+      if (timer) {
+        clearTimeout(timer);
+      }
+
+      this.showAlert.timer = setTimeout(function () {
+        _this13.alert.type = null;
+        _this13.alert.icon = null;
+        _this13.alert.message = null;
       }, 3000);
     }
   })
@@ -7013,6 +12941,42 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                 icon: 'fas fa-users',
                 text: 'Pelanggan',
                 name: 'Pelanggan'
+              }, {
+                id: 9,
+                route: 'AdminBranch',
+                icon: 'fas fa-building',
+                text: 'Cabang',
+                name: 'Cabang'
+              }, {
+                id: 10,
+                route: 'AdminMotorBrand',
+                icon: 'fas fa-motorcycle',
+                text: 'Merk Motor',
+                name: 'Merk Motor'
+              }, {
+                id: 11,
+                route: 'AdminMotorType',
+                icon: 'fas fa-motorcycle',
+                text: 'Tipe Motor',
+                name: 'Tipe Motor'
+              }, {
+                id: 12,
+                route: 'AdminProcurement',
+                icon: 'fas fa-truck-loading',
+                text: 'Pengadaan Sparepart',
+                name: 'Pengadaan Sparepart'
+              }, {
+                id: 13,
+                route: 'AdminTransaction',
+                icon: 'fas fa-search-dollar',
+                text: 'Transaksi Penjualan',
+                name: 'Transaksi Penjualan'
+              }, {
+                id: 14,
+                route: 'AdminPayment',
+                icon: 'fas fa-search-dollar',
+                text: 'Pembayaran',
+                name: 'Pembayaran'
               }]
             };
             break;
@@ -7257,6 +13221,582 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       });
     }
   }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Customer/CustomerIndex.vue?vue&type=script&lang=js&":
+/*!*********************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Customer/CustomerIndex.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _httpController__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../httpController */ "./resources/js/httpController.js");
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var _service_Transaction__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../service/Transaction */ "./resources/js/service/Transaction.js");
+/* harmony import */ var _service_Employee__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../service/Employee */ "./resources/js/service/Employee.js");
+/* harmony import */ var _service_Sparepart__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../service/Sparepart */ "./resources/js/service/Sparepart.js");
+/* harmony import */ var _service_Service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../service/Service */ "./resources/js/service/Service.js");
+/* harmony import */ var _service_MotorCustomer__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../service/MotorCustomer */ "./resources/js/service/MotorCustomer.js");
+/* harmony import */ var _service_Customer__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../service/Customer */ "./resources/js/service/Customer.js");
+/* harmony import */ var _service_MotorBrand__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../service/MotorBrand */ "./resources/js/service/MotorBrand.js");
+/* harmony import */ var _service_MotorType__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../service/MotorType */ "./resources/js/service/MotorType.js");
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+
+
+
+
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    var _ref;
+
+    return _ref = {
+      headers: [{
+        text: 'Id Transaksi',
+        align: 'center',
+        value: 'id_transaction'
+      }, {
+        text: 'Tanggal',
+        align: 'center',
+        value: 'date_transaction'
+      }, {
+        text: 'Pelanggan',
+        align: 'center',
+        value: 'name_customer'
+      }, {
+        text: 'Status',
+        align: 'center',
+        value: 'status_process'
+      }, {
+        text: 'Actions',
+        align: 'center',
+        sortable: false
+      }],
+      transactionData: [],
+      search: {
+        platenumber: '',
+        handphone: '',
+        totaltransaksi: ''
+      },
+      customer: {
+        id: '-',
+        name: '-',
+        phone_number: '-',
+        address: '-',
+        motorcycle: []
+      }
+    }, _defineProperty(_ref, "search", ''), _defineProperty(_ref, "datacount", 0), _defineProperty(_ref, "page", 0), _defineProperty(_ref, "start", 0), _defineProperty(_ref, "end", 0), _defineProperty(_ref, "pagination", {}), _defineProperty(_ref, "alert", {
+      type: null,
+      message: null,
+      icon: null
+    }), _ref;
+  },
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapState"])({
+    loading: function loading(state) {
+      return state.Transaction.loading;
+    },
+    error: function error(state) {
+      return state.Transaction.error;
+    },
+    transactions: function transactions(state) {
+      return state.Transaction.transactions;
+    },
+    employees: function employees(state) {
+      return state.Employee.employees;
+    },
+    services: function services(state) {
+      return state.Service.services;
+    },
+    spareparts: function spareparts(state) {
+      return state.Sparepart.spareparts;
+    },
+    customers: function customers(state) {
+      return state.Customer.customers;
+    },
+    motorcustomers: function motorcustomers(state) {
+      return state.MotorCustomer.motorcustomers;
+    },
+    motorbrands: function motorbrands(state) {
+      return state.MotorBrand.motorbrands;
+    },
+    motortypes: function motortypes(state) {
+      return state.MotorType.motortypes;
+    }
+  }), {
+    // filters: function(){
+    //     if(this.spareparts.length) {
+    //         // console.log(this.spareparts.length)
+    //         return this.spareparts.filter((sparepart, index) => {
+    //             if(this.search != null) return sparepart.name.toLowerCase().includes(this.search.toLowerCase());
+    //             if(index >= this.start && index < this.end) return true;
+    //         });
+    //     }
+    // },
+    pages: function pages() {
+      return this.pagination.rowsPerPage ? Math.ceil(this.spareparts.length / this.pagination.rowsPerPage) : 0;
+    },
+    //INIT===============================
+    inittransaction: function inittransaction() {
+      this.transactionData = this.transactions;
+      return this.transactionData;
+    }
+  }),
+  mounted: function mounted() {
+    this.getTransaction();
+    this.getSparepart();
+    this.getService();
+    this.getCustomer();
+    this.getEmployee();
+    this.getMotorCustomer();
+    this.getMotorBrand();
+    this.getMotorType();
+    this.setdatacount();
+  },
+  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapActions"])({
+    getTransaction: 'Transaction/get',
+    storeTransaction: 'Transaction/store',
+    updateTransaction: 'Transaction/update',
+    deleteTransaction: 'Transaction/delete',
+    getEmployee: 'Employee/get',
+    getSparepart: 'Sparepart/get',
+    getService: 'Service/get',
+    getCustomer: 'Customer/get',
+    storeCustomer: 'Customer/store',
+    deleteCustomer: 'Customer/delete',
+    updateCustomer: 'Customer/update',
+    getMotorCustomer: 'MotorCustomer/get',
+    storeMotorcycle: 'MotorCustomer/store',
+    updateMotorcycle: 'MotorCustomer/update',
+    deleteMotorcycle: 'MotorCustomer/delete',
+    getMotorBrand: 'MotorBrand/get',
+    getMotorType: 'MotorType/get'
+  }), {
+    setdatacount: function setdatacount() {
+      this.datacount = this.spareparts.length;
+    },
+    pageChange: function pageChange(page, start, end) {
+      this.page = page;
+      this.start = start;
+      this.end = end;
+    },
+    findCustomer: function findCustomer() {
+      var _this = this;
+
+      // this.customer = this.customers.find(obj=>obj.phone_number)
+      var i = 0,
+          j = 0;
+
+      for (var data in this.customers) {
+        if (this.customers[i].motorcycle.data != null) {
+          // console.log(this.customers[i])
+          for (var motor in this.customers[i].motorcycle.data) {
+            if (this.customers[i].motorcycle.data[j].plate == this.search.platenumber && this.customers[i].motorcycle.data[j].customer.phone_number == this.search.handphone) {
+              this.customer = this.customers[i];
+            }
+
+            j++;
+          }
+
+          j = 0;
+        }
+
+        i++;
+      }
+
+      i = 0;
+
+      if (this.customer.id != '-') {
+        // console.log("masuk1")
+        this.transactionData = this.transactions.filter(function (obj) {
+          return obj.id_customer == _this.customer.id;
+        });
+        this.search.totaltransaksi = this.transactionData.length;
+        console.log(this.search.totaltransaksi);
+      } else {
+        // console.log("masuk")
+        this.showAlert('error', 'Data Tidak Ditemukan !');
+      }
+    },
+    showAlert: function showAlert(type, alert_message) {
+      var _this2 = this;
+
+      if (type == 'success') {
+        this.alert.icon = 'fas fa-check-circle';
+      } else if (type == 'error') {
+        this.alert.icon = 'fas fa-exclamation-circle';
+      }
+
+      this.alert.type = type;
+      this.alert.message = alert_message;
+      var timer = this.showAlert.timer;
+
+      if (timer) {
+        clearTimeout(timer);
+      }
+
+      this.showAlert.timer = setTimeout(function () {
+        _this2.alert.type = null;
+        _this2.alert.icon = null;
+        _this2.alert.message = null;
+      }, 3000);
+    }
+  })
 });
 
 /***/ }),
@@ -9945,6 +16485,454 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;var _typeof="fun
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Admin/AdminBranch.vue?vue&type=template&id=28d4d8d4&":
+/*!********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Admin/AdminBranch.vue?vue&type=template&id=28d4d8d4& ***!
+  \********************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    [
+      _c(
+        "v-toolbar",
+        { attrs: { flat: "", color: "white" } },
+        [
+          _c("v-toolbar-title", [_vm._v("MANAJEMEN CABANG")]),
+          _vm._v(" "),
+          _c("v-divider", {
+            staticClass: "mx-2",
+            attrs: { inset: "", vertical: "" }
+          }),
+          _vm._v(" "),
+          _c(
+            "v-dialog",
+            {
+              attrs: { "max-width": "500px" },
+              scopedSlots: _vm._u([
+                {
+                  key: "activator",
+                  fn: function(ref) {
+                    var on = ref.on
+                    return [
+                      _c(
+                        "v-btn",
+                        _vm._g(
+                          {
+                            staticClass: "mb-2",
+                            attrs: { color: "primary", dark: "" }
+                          },
+                          on
+                        ),
+                        [_vm._v("Tambah")]
+                      )
+                    ]
+                  }
+                }
+              ]),
+              model: {
+                value: _vm.dialog,
+                callback: function($$v) {
+                  _vm.dialog = $$v
+                },
+                expression: "dialog"
+              }
+            },
+            [
+              _vm._v(" "),
+              _c(
+                "v-card",
+                [
+                  _c("v-card-title", [
+                    _c("span", { staticClass: "headline" }, [
+                      _vm._v(_vm._s(_vm.formTitle))
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "v-card-text",
+                    [
+                      _c(
+                        "v-container",
+                        { attrs: { "grid-list-md": "" } },
+                        [
+                          _c(
+                            "v-layout",
+                            { attrs: { wrap: "" } },
+                            [
+                              _c(
+                                "v-flex",
+                                { attrs: { xs12: "" } },
+                                [
+                                  _c("v-text-field", {
+                                    attrs: {
+                                      label: "Nama Cabang",
+                                      counter: 25,
+                                      "error-messages": _vm.nameErrors,
+                                      required: "",
+                                      "prepend-inner-icon": "fas fa-building"
+                                    },
+                                    on: {
+                                      input: function($event) {
+                                        return _vm.$v.editedItem.name.$touch()
+                                      },
+                                      blur: function($event) {
+                                        return _vm.$v.editedItem.name.$touch()
+                                      }
+                                    },
+                                    model: {
+                                      value: _vm.editedItem.name,
+                                      callback: function($$v) {
+                                        _vm.$set(_vm.editedItem, "name", $$v)
+                                      },
+                                      expression: "editedItem.name"
+                                    }
+                                  })
+                                ],
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "v-flex",
+                                { attrs: { xs12: "", sm6: "", md8: "" } },
+                                [
+                                  _c("v-text-field", {
+                                    attrs: {
+                                      label: "Alamat",
+                                      counter: 100,
+                                      "error-messages": _vm.addressErrors,
+                                      required: "",
+                                      "prepend-inner-icon":
+                                        "fas fa-map-marker-alt"
+                                    },
+                                    on: {
+                                      input: function($event) {
+                                        return _vm.$v.editedItem.address.$touch()
+                                      },
+                                      blur: function($event) {
+                                        return _vm.$v.editedItem.address.$touch()
+                                      }
+                                    },
+                                    model: {
+                                      value: _vm.editedItem.address,
+                                      callback: function($$v) {
+                                        _vm.$set(_vm.editedItem, "address", $$v)
+                                      },
+                                      expression: "editedItem.address"
+                                    }
+                                  })
+                                ],
+                                1
+                              )
+                            ],
+                            1
+                          )
+                        ],
+                        1
+                      )
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "v-card-actions",
+                    [
+                      _c("v-spacer"),
+                      _vm._v(" "),
+                      _c(
+                        "v-btn",
+                        {
+                          attrs: { color: "blue darken-1", flat: "" },
+                          on: { click: _vm.close }
+                        },
+                        [_vm._v("Batal")]
+                      ),
+                      _vm._v(" "),
+                      _vm.editedIndex != -1
+                        ? _c(
+                            "v-btn",
+                            {
+                              attrs: { color: "blue darken-1", flat: "" },
+                              on: {
+                                click: function($event) {
+                                  return _vm.updatebranch()
+                                }
+                              }
+                            },
+                            [_vm._v("Simpan")]
+                          )
+                        : _c(
+                            "v-btn",
+                            {
+                              attrs: {
+                                color: "blue darken-1",
+                                disabled: _vm.$v.editedItem.$invalid,
+                                flat: ""
+                              },
+                              on: {
+                                click: function($event) {
+                                  return _vm.addbranch()
+                                }
+                              }
+                            },
+                            [_vm._v("Tambah")]
+                          )
+                    ],
+                    1
+                  )
+                ],
+                1
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "v-dialog",
+            {
+              attrs: { "max-width": "500px" },
+              model: {
+                value: _vm.delDialog,
+                callback: function($$v) {
+                  _vm.delDialog = $$v
+                },
+                expression: "delDialog"
+              }
+            },
+            [
+              _c(
+                "v-card",
+                [
+                  _c("v-card-title", [
+                    _c("span", { staticClass: "headline" }, [
+                      _vm._v("Hapus Cabang")
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("v-card-text", [
+                    _c("h3", { staticClass: "text-sm-center" }, [
+                      _vm._v("Apakah Anda yakin akan menghapus data ini ?")
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "v-card-actions",
+                    [
+                      _c("v-spacer"),
+                      _vm._v(" "),
+                      _c(
+                        "v-btn",
+                        {
+                          attrs: { color: "blue darken-1", flat: "" },
+                          on: {
+                            click: function($event) {
+                              return _vm.deletebranch()
+                            }
+                          }
+                        },
+                        [_vm._v("Ya")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "v-btn",
+                        {
+                          attrs: { color: "blue darken-1", flat: "" },
+                          on: { click: _vm.close }
+                        },
+                        [_vm._v("Tidak")]
+                      ),
+                      _vm._v(" "),
+                      _c("v-spacer")
+                    ],
+                    1
+                  )
+                ],
+                1
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c("v-spacer"),
+          _vm._v(" "),
+          _c(
+            "v-flex",
+            { attrs: { xs4: "", sm4: "", md4: "" } },
+            [
+              _c("v-text-field", {
+                attrs: {
+                  "append-icon": "search",
+                  label: "Cari",
+                  "single-line": "",
+                  "hide-details": ""
+                },
+                model: {
+                  value: _vm.search,
+                  callback: function($$v) {
+                    _vm.search = $$v
+                  },
+                  expression: "search"
+                }
+              })
+            ],
+            1
+          )
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _vm.loading || _vm.error
+        ? _c(
+            "VCardText",
+            { staticClass: "text-xs-center" },
+            [
+              _vm.error
+                ? _c(
+                    "VAlert",
+                    { attrs: { type: "error", dismissible: "", value: true } },
+                    [
+                      _vm._v(
+                        "\n          " +
+                          _vm._s(_vm.error.message) +
+                          "\n        "
+                      )
+                    ]
+                  )
+                : _vm._e(),
+              _vm._v(" "),
+              _c("VProgressCircular", {
+                staticClass: "loading-section",
+                attrs: { size: 45, indeterminate: "" }
+              })
+            ],
+            1
+          )
+        : _vm._e(),
+      _vm._v(" "),
+      _c(
+        "v-data-table",
+        {
+          staticClass: "elevation-1",
+          attrs: {
+            headers: _vm.headers,
+            items: _vm.initbranch,
+            search: _vm.search
+          },
+          scopedSlots: _vm._u([
+            {
+              key: "items",
+              fn: function(props) {
+                return [
+                  _c("td", [_vm._v(_vm._s(props.index + 1))]),
+                  _vm._v(" "),
+                  _c("td", { staticClass: "text-xs-left" }, [
+                    _vm._v(_vm._s(props.item.name))
+                  ]),
+                  _vm._v(" "),
+                  _c("td", { staticClass: "text-xs-left" }, [
+                    _vm._v(_vm._s(props.item.address))
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "td",
+                    { staticClass: "justify-center layout px-0" },
+                    [
+                      _c(
+                        "v-icon",
+                        {
+                          staticClass: "mr-2",
+                          attrs: { small: "" },
+                          on: {
+                            click: function($event) {
+                              return _vm.editItem(props.item)
+                            }
+                          }
+                        },
+                        [_vm._v("\n              edit\n          ")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "v-icon",
+                        {
+                          attrs: { small: "" },
+                          on: {
+                            click: function($event) {
+                              return _vm.deleteItem(props.item)
+                            }
+                          }
+                        },
+                        [_vm._v("\n              delete\n          ")]
+                      )
+                    ],
+                    1
+                  )
+                ]
+              }
+            }
+          ])
+        },
+        [
+          _vm._v(" "),
+          _c("v-alert", {
+            attrs: { value: true, color: "error", icon: "warning" },
+            scopedSlots: _vm._u([
+              {
+                key: "no-results",
+                fn: function() {
+                  return [
+                    _vm._v(
+                      '\n          Pencarian untuk "' +
+                        _vm._s(_vm.search) +
+                        '" tidak ditemukan.\n      '
+                    )
+                  ]
+                },
+                proxy: true
+              }
+            ])
+          })
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _vm.alert.type
+        ? _c(
+            "v-snackbar",
+            {
+              attrs: {
+                right: "",
+                bottom: "",
+                color: _vm.alert.type,
+                value: "true"
+              }
+            },
+            [
+              _c("v-icon", [_vm._v(_vm._s(_vm.alert.icon))]),
+              _vm._v(_vm._s(_vm.alert.message) + "\n    ")
+            ],
+            1
+          )
+        : _vm._e()
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Admin/AdminCustomer.vue?vue&type=template&id=0e32c8d2&":
 /*!**********************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Admin/AdminCustomer.vue?vue&type=template&id=0e32c8d2& ***!
@@ -11658,6 +18646,3469 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Admin/AdminMotorBrand.vue?vue&type=template&id=67dd67f4&":
+/*!************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Admin/AdminMotorBrand.vue?vue&type=template&id=67dd67f4& ***!
+  \************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    [
+      _c(
+        "v-toolbar",
+        { attrs: { flat: "", color: "white" } },
+        [
+          _c("v-toolbar-title", [_vm._v("MANAJEMEN MERK MOTOR")]),
+          _vm._v(" "),
+          _c("v-divider", {
+            staticClass: "mx-2",
+            attrs: { inset: "", vertical: "" }
+          }),
+          _vm._v(" "),
+          _c(
+            "v-dialog",
+            {
+              attrs: { "max-width": "500px" },
+              scopedSlots: _vm._u([
+                {
+                  key: "activator",
+                  fn: function(ref) {
+                    var on = ref.on
+                    return [
+                      _c(
+                        "v-btn",
+                        _vm._g(
+                          {
+                            staticClass: "mb-2",
+                            attrs: { color: "primary", dark: "" }
+                          },
+                          on
+                        ),
+                        [_vm._v("Tambah")]
+                      )
+                    ]
+                  }
+                }
+              ]),
+              model: {
+                value: _vm.dialog,
+                callback: function($$v) {
+                  _vm.dialog = $$v
+                },
+                expression: "dialog"
+              }
+            },
+            [
+              _vm._v(" "),
+              _c(
+                "v-card",
+                [
+                  _c("v-card-title", [
+                    _c("span", { staticClass: "headline" }, [
+                      _vm._v(_vm._s(_vm.formTitle))
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "v-card-text",
+                    [
+                      _c(
+                        "v-container",
+                        { attrs: { "grid-list-md": "" } },
+                        [
+                          _c(
+                            "v-layout",
+                            { attrs: { wrap: "" } },
+                            [
+                              _c(
+                                "v-flex",
+                                { attrs: { xs12: "" } },
+                                [
+                                  _c("v-text-field", {
+                                    attrs: {
+                                      label: "Nama Merk",
+                                      counter: 25,
+                                      "error-messages": _vm.nameErrors,
+                                      required: "",
+                                      "prepend-inner-icon": "fas fa-motorcycle"
+                                    },
+                                    on: {
+                                      input: function($event) {
+                                        return _vm.$v.editedItem.name.$touch()
+                                      },
+                                      blur: function($event) {
+                                        return _vm.$v.editedItem.name.$touch()
+                                      }
+                                    },
+                                    model: {
+                                      value: _vm.editedItem.name,
+                                      callback: function($$v) {
+                                        _vm.$set(_vm.editedItem, "name", $$v)
+                                      },
+                                      expression: "editedItem.name"
+                                    }
+                                  })
+                                ],
+                                1
+                              )
+                            ],
+                            1
+                          )
+                        ],
+                        1
+                      )
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "v-card-actions",
+                    [
+                      _c("v-spacer"),
+                      _vm._v(" "),
+                      _c(
+                        "v-btn",
+                        {
+                          attrs: { color: "blue darken-1", flat: "" },
+                          on: { click: _vm.close }
+                        },
+                        [_vm._v("Batal")]
+                      ),
+                      _vm._v(" "),
+                      _vm.editedIndex != -1
+                        ? _c(
+                            "v-btn",
+                            {
+                              attrs: { color: "blue darken-1", flat: "" },
+                              on: {
+                                click: function($event) {
+                                  return _vm.updatemotorbrand()
+                                }
+                              }
+                            },
+                            [_vm._v("Simpan")]
+                          )
+                        : _c(
+                            "v-btn",
+                            {
+                              attrs: {
+                                color: "blue darken-1",
+                                disabled: _vm.$v.editedItem.$invalid,
+                                flat: ""
+                              },
+                              on: {
+                                click: function($event) {
+                                  return _vm.addmotorbrand()
+                                }
+                              }
+                            },
+                            [_vm._v("Tambah")]
+                          )
+                    ],
+                    1
+                  )
+                ],
+                1
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "v-dialog",
+            {
+              attrs: { "max-width": "500px" },
+              model: {
+                value: _vm.delDialog,
+                callback: function($$v) {
+                  _vm.delDialog = $$v
+                },
+                expression: "delDialog"
+              }
+            },
+            [
+              _c(
+                "v-card",
+                [
+                  _c("v-card-title", [
+                    _c("span", { staticClass: "headline" }, [
+                      _vm._v("Hapus Merk")
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("v-card-text", [
+                    _c("h3", { staticClass: "text-sm-center" }, [
+                      _vm._v("Apakah Anda yakin akan menghapus data ini ?")
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "v-card-actions",
+                    [
+                      _c("v-spacer"),
+                      _vm._v(" "),
+                      _c(
+                        "v-btn",
+                        {
+                          attrs: { color: "blue darken-1", flat: "" },
+                          on: {
+                            click: function($event) {
+                              return _vm.deletemotorbrand()
+                            }
+                          }
+                        },
+                        [_vm._v("Ya")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "v-btn",
+                        {
+                          attrs: { color: "blue darken-1", flat: "" },
+                          on: { click: _vm.close }
+                        },
+                        [_vm._v("Tidak")]
+                      ),
+                      _vm._v(" "),
+                      _c("v-spacer")
+                    ],
+                    1
+                  )
+                ],
+                1
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "v-dialog",
+            {
+              attrs: { "max-width": "500px" },
+              model: {
+                value: _vm.typeDialog,
+                callback: function($$v) {
+                  _vm.typeDialog = $$v
+                },
+                expression: "typeDialog"
+              }
+            },
+            [
+              _c(
+                "v-card",
+                [
+                  _c("v-card-title", [
+                    _c("span", { staticClass: "headline" }, [
+                      _vm._v("List Tipe Motor")
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "v-card-text",
+                    [
+                      _c(
+                        "v-container",
+                        { attrs: { "grid-list-md": "" } },
+                        [
+                          _c(
+                            "v-layout",
+                            { attrs: { wrap: "" } },
+                            [
+                              _c("v-data-table", {
+                                attrs: {
+                                  headers: _vm.motortypeheaders,
+                                  items: this.typeMotorBrand
+                                },
+                                scopedSlots: _vm._u([
+                                  {
+                                    key: "items",
+                                    fn: function(props) {
+                                      return [
+                                        _c("td", [
+                                          _vm._v(
+                                            _vm._s(
+                                              props.item.name_motorcycle_type
+                                            )
+                                          )
+                                        ])
+                                      ]
+                                    }
+                                  }
+                                ])
+                              })
+                            ],
+                            1
+                          )
+                        ],
+                        1
+                      )
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "v-card-actions",
+                    [
+                      _c("v-spacer"),
+                      _vm._v(" "),
+                      _c(
+                        "v-btn",
+                        {
+                          attrs: { color: "blue darken-1", flat: "" },
+                          on: { click: _vm.close }
+                        },
+                        [_vm._v("Keluar")]
+                      )
+                    ],
+                    1
+                  )
+                ],
+                1
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c("v-spacer"),
+          _vm._v(" "),
+          _c(
+            "v-flex",
+            { attrs: { xs4: "", sm4: "", md4: "" } },
+            [
+              _c("v-text-field", {
+                attrs: {
+                  "append-icon": "search",
+                  label: "Cari",
+                  "single-line": "",
+                  "hide-details": ""
+                },
+                model: {
+                  value: _vm.search,
+                  callback: function($$v) {
+                    _vm.search = $$v
+                  },
+                  expression: "search"
+                }
+              })
+            ],
+            1
+          )
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _vm.loading || _vm.error
+        ? _c(
+            "VCardText",
+            { staticClass: "text-xs-center" },
+            [
+              _vm.error
+                ? _c(
+                    "VAlert",
+                    { attrs: { type: "error", dismissible: "", value: true } },
+                    [
+                      _vm._v(
+                        "\n          " +
+                          _vm._s(_vm.error.message) +
+                          "\n        "
+                      )
+                    ]
+                  )
+                : _vm._e(),
+              _vm._v(" "),
+              _c("VProgressCircular", {
+                staticClass: "loading-section",
+                attrs: { size: 45, indeterminate: "" }
+              })
+            ],
+            1
+          )
+        : _vm._e(),
+      _vm._v(" "),
+      _c(
+        "v-data-table",
+        {
+          staticClass: "elevation-1",
+          attrs: {
+            headers: _vm.headers,
+            items: _vm.initmotorbrand,
+            search: _vm.search
+          },
+          scopedSlots: _vm._u([
+            {
+              key: "items",
+              fn: function(props) {
+                return [
+                  _c("td", [_vm._v(_vm._s(props.index + 1))]),
+                  _vm._v(" "),
+                  _c("td", { staticClass: "text-xs-left" }, [
+                    _vm._v(_vm._s(props.item.name))
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "td",
+                    { staticClass: "text-xs-center" },
+                    [
+                      _c(
+                        "v-btn",
+                        {
+                          staticStyle: { "text-transform": "none !important" },
+                          attrs: {
+                            depressed: "",
+                            small: "",
+                            color: "grey",
+                            dark: ""
+                          },
+                          on: {
+                            click: function($event) {
+                              return _vm.showMotorType(props.item)
+                            }
+                          }
+                        },
+                        [_vm._v("\n                Lihat Tipe\n              ")]
+                      )
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "td",
+                    { staticClass: "justify-center layout px-0" },
+                    [
+                      _c(
+                        "v-icon",
+                        {
+                          staticClass: "mr-2",
+                          attrs: { small: "" },
+                          on: {
+                            click: function($event) {
+                              return _vm.editItem(props.item)
+                            }
+                          }
+                        },
+                        [_vm._v("\n              edit\n          ")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "v-icon",
+                        {
+                          attrs: { small: "" },
+                          on: {
+                            click: function($event) {
+                              return _vm.deleteItem(props.item)
+                            }
+                          }
+                        },
+                        [_vm._v("\n              delete\n          ")]
+                      )
+                    ],
+                    1
+                  )
+                ]
+              }
+            }
+          ])
+        },
+        [
+          _vm._v(" "),
+          _c("v-alert", {
+            attrs: { value: true, color: "error", icon: "warning" },
+            scopedSlots: _vm._u([
+              {
+                key: "no-results",
+                fn: function() {
+                  return [
+                    _vm._v(
+                      '\n          Pencarian untuk "' +
+                        _vm._s(_vm.search) +
+                        '" tidak ditemukan.\n      '
+                    )
+                  ]
+                },
+                proxy: true
+              }
+            ])
+          })
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _vm.alert.type
+        ? _c(
+            "v-snackbar",
+            {
+              attrs: {
+                right: "",
+                bottom: "",
+                color: _vm.alert.type,
+                value: "true"
+              }
+            },
+            [
+              _c("v-icon", [_vm._v(_vm._s(_vm.alert.icon))]),
+              _vm._v(_vm._s(_vm.alert.message) + "\n    ")
+            ],
+            1
+          )
+        : _vm._e()
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Admin/AdminMotorType.vue?vue&type=template&id=63d9628b&":
+/*!***********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Admin/AdminMotorType.vue?vue&type=template&id=63d9628b& ***!
+  \***********************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    [
+      _c(
+        "v-toolbar",
+        { attrs: { flat: "", color: "white" } },
+        [
+          _c("v-toolbar-title", [_vm._v("MANAJEMEN MERK MOTOR")]),
+          _vm._v(" "),
+          _c("v-divider", {
+            staticClass: "mx-2",
+            attrs: { inset: "", vertical: "" }
+          }),
+          _vm._v(" "),
+          _c(
+            "v-dialog",
+            {
+              attrs: { "max-width": "500px" },
+              scopedSlots: _vm._u([
+                {
+                  key: "activator",
+                  fn: function(ref) {
+                    var on = ref.on
+                    return [
+                      _c(
+                        "v-btn",
+                        _vm._g(
+                          {
+                            staticClass: "mb-2",
+                            attrs: { color: "primary", dark: "" }
+                          },
+                          on
+                        ),
+                        [_vm._v("Tambah")]
+                      )
+                    ]
+                  }
+                }
+              ]),
+              model: {
+                value: _vm.dialog,
+                callback: function($$v) {
+                  _vm.dialog = $$v
+                },
+                expression: "dialog"
+              }
+            },
+            [
+              _vm._v(" "),
+              _c(
+                "v-card",
+                [
+                  _c("v-card-title", [
+                    _c("span", { staticClass: "headline" }, [
+                      _vm._v(_vm._s(_vm.formTitle))
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "v-card-text",
+                    [
+                      _c(
+                        "v-container",
+                        { attrs: { "grid-list-md": "" } },
+                        [
+                          _c(
+                            "v-layout",
+                            { attrs: { wrap: "" } },
+                            [
+                              _c(
+                                "v-flex",
+                                { attrs: { xs12: "" } },
+                                [
+                                  _c("v-text-field", {
+                                    attrs: {
+                                      label: "Nama Tipe",
+                                      counter: 25,
+                                      "error-messages": _vm.nameErrors,
+                                      required: "",
+                                      "prepend-inner-icon": "fas fa-motorcycle"
+                                    },
+                                    on: {
+                                      input: function($event) {
+                                        return _vm.$v.editedItem.name.$touch()
+                                      },
+                                      blur: function($event) {
+                                        return _vm.$v.editedItem.name.$touch()
+                                      }
+                                    },
+                                    model: {
+                                      value: _vm.editedItem.name,
+                                      callback: function($$v) {
+                                        _vm.$set(_vm.editedItem, "name", $$v)
+                                      },
+                                      expression: "editedItem.name"
+                                    }
+                                  })
+                                ],
+                                1
+                              )
+                            ],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "v-layout",
+                            { attrs: { wrap: "" } },
+                            [
+                              _c(
+                                "v-flex",
+                                { attrs: { xs12: "" } },
+                                [
+                                  _c("v-select", {
+                                    attrs: {
+                                      items: _vm.motorbrands,
+                                      "error-messages": _vm.brandErrors,
+                                      "item-text": "name",
+                                      "item-value": "id",
+                                      label: "Merk Motor",
+                                      required: "",
+                                      "prepend-inner-icon": "fas fa-motorcycle"
+                                    },
+                                    on: {
+                                      change: function($event) {
+                                        return _vm.$v.editedItem.brand.$touch()
+                                      },
+                                      blur: function($event) {
+                                        return _vm.$v.editedItem.brand.$touch()
+                                      }
+                                    },
+                                    model: {
+                                      value: _vm.editedItem.brand,
+                                      callback: function($$v) {
+                                        _vm.$set(_vm.editedItem, "brand", $$v)
+                                      },
+                                      expression: "editedItem.brand"
+                                    }
+                                  })
+                                ],
+                                1
+                              )
+                            ],
+                            1
+                          )
+                        ],
+                        1
+                      )
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "v-card-actions",
+                    [
+                      _c("v-spacer"),
+                      _vm._v(" "),
+                      _c(
+                        "v-btn",
+                        {
+                          attrs: { color: "blue darken-1", flat: "" },
+                          on: { click: _vm.close }
+                        },
+                        [_vm._v("Batal")]
+                      ),
+                      _vm._v(" "),
+                      _vm.editedIndex != -1
+                        ? _c(
+                            "v-btn",
+                            {
+                              attrs: { color: "blue darken-1", flat: "" },
+                              on: {
+                                click: function($event) {
+                                  return _vm.updatemotortype()
+                                }
+                              }
+                            },
+                            [_vm._v("Simpan")]
+                          )
+                        : _c(
+                            "v-btn",
+                            {
+                              attrs: {
+                                color: "blue darken-1",
+                                disabled: _vm.$v.editedItem.$invalid,
+                                flat: ""
+                              },
+                              on: {
+                                click: function($event) {
+                                  return _vm.addmotortype()
+                                }
+                              }
+                            },
+                            [_vm._v("Tambah")]
+                          )
+                    ],
+                    1
+                  )
+                ],
+                1
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "v-dialog",
+            {
+              attrs: { "max-width": "500px" },
+              model: {
+                value: _vm.delDialog,
+                callback: function($$v) {
+                  _vm.delDialog = $$v
+                },
+                expression: "delDialog"
+              }
+            },
+            [
+              _c(
+                "v-card",
+                [
+                  _c("v-card-title", [
+                    _c("span", { staticClass: "headline" }, [
+                      _vm._v("Hapus Type")
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("v-card-text", [
+                    _c("h3", { staticClass: "text-sm-center" }, [
+                      _vm._v("Apakah Anda yakin akan menghapus data ini ?")
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "v-card-actions",
+                    [
+                      _c("v-spacer"),
+                      _vm._v(" "),
+                      _c(
+                        "v-btn",
+                        {
+                          attrs: { color: "blue darken-1", flat: "" },
+                          on: {
+                            click: function($event) {
+                              return _vm.deletemotortype()
+                            }
+                          }
+                        },
+                        [_vm._v("Ya")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "v-btn",
+                        {
+                          attrs: { color: "blue darken-1", flat: "" },
+                          on: { click: _vm.close }
+                        },
+                        [_vm._v("Tidak")]
+                      ),
+                      _vm._v(" "),
+                      _c("v-spacer")
+                    ],
+                    1
+                  )
+                ],
+                1
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c("v-spacer"),
+          _vm._v(" "),
+          _c(
+            "v-flex",
+            { attrs: { xs4: "", sm4: "", md4: "" } },
+            [
+              _c("v-text-field", {
+                attrs: {
+                  "append-icon": "search",
+                  label: "Cari",
+                  "single-line": "",
+                  "hide-details": ""
+                },
+                model: {
+                  value: _vm.search,
+                  callback: function($$v) {
+                    _vm.search = $$v
+                  },
+                  expression: "search"
+                }
+              })
+            ],
+            1
+          )
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _vm.loading || _vm.error
+        ? _c(
+            "VCardText",
+            { staticClass: "text-xs-center" },
+            [
+              _vm.error
+                ? _c(
+                    "VAlert",
+                    { attrs: { type: "error", dismissible: "", value: true } },
+                    [
+                      _vm._v(
+                        "\n          " +
+                          _vm._s(_vm.error.message) +
+                          "\n        "
+                      )
+                    ]
+                  )
+                : _vm._e(),
+              _vm._v(" "),
+              _c("VProgressCircular", {
+                staticClass: "loading-section",
+                attrs: { size: 45, indeterminate: "" }
+              })
+            ],
+            1
+          )
+        : _vm._e(),
+      _vm._v(" "),
+      _c(
+        "v-data-table",
+        {
+          staticClass: "elevation-1",
+          attrs: {
+            headers: _vm.headers,
+            items: _vm.initmotortype,
+            search: _vm.search
+          },
+          scopedSlots: _vm._u([
+            {
+              key: "items",
+              fn: function(props) {
+                return [
+                  _c("td", [_vm._v(_vm._s(props.index + 1))]),
+                  _vm._v(" "),
+                  _c("td", { staticClass: "text-xs-left" }, [
+                    _vm._v(_vm._s(props.item.name))
+                  ]),
+                  _vm._v(" "),
+                  _c("td", { staticClass: "text-xs-left" }, [
+                    _vm._v(_vm._s(props.item.brand.name))
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "td",
+                    { staticClass: "justify-center layout px-0" },
+                    [
+                      _c(
+                        "v-icon",
+                        {
+                          staticClass: "mr-2",
+                          attrs: { small: "" },
+                          on: {
+                            click: function($event) {
+                              return _vm.editItem(props.item)
+                            }
+                          }
+                        },
+                        [_vm._v("\n              edit\n          ")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "v-icon",
+                        {
+                          attrs: { small: "" },
+                          on: {
+                            click: function($event) {
+                              return _vm.deleteItem(props.item)
+                            }
+                          }
+                        },
+                        [_vm._v("\n              delete\n          ")]
+                      )
+                    ],
+                    1
+                  )
+                ]
+              }
+            }
+          ])
+        },
+        [
+          _vm._v(" "),
+          _c("v-alert", {
+            attrs: { value: true, color: "error", icon: "warning" },
+            scopedSlots: _vm._u([
+              {
+                key: "no-results",
+                fn: function() {
+                  return [
+                    _vm._v(
+                      '\n          Pencarian untuk "' +
+                        _vm._s(_vm.search) +
+                        '" tidak ditemukan.\n      '
+                    )
+                  ]
+                },
+                proxy: true
+              }
+            ])
+          })
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _vm.alert.type
+        ? _c(
+            "v-snackbar",
+            {
+              attrs: {
+                right: "",
+                bottom: "",
+                color: _vm.alert.type,
+                value: "true"
+              }
+            },
+            [
+              _c("v-icon", [_vm._v(_vm._s(_vm.alert.icon))]),
+              _vm._v(_vm._s(_vm.alert.message) + "\n    ")
+            ],
+            1
+          )
+        : _vm._e()
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Admin/AdminPayment.vue?vue&type=template&id=690aa0c2&":
+/*!*********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Admin/AdminPayment.vue?vue&type=template&id=690aa0c2& ***!
+  \*********************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    [
+      _c(
+        "v-toolbar",
+        { attrs: { flat: "", color: "white" } },
+        [
+          _c("v-toolbar-title", [_vm._v("PEMBAYARAN")]),
+          _vm._v(" "),
+          _c("v-divider", {
+            staticClass: "mx-2",
+            attrs: { inset: "", vertical: "" }
+          }),
+          _vm._v(" "),
+          _c(
+            "v-dialog",
+            {
+              attrs: {
+                fullscreen: "",
+                "hide-overlay": "",
+                transition: "dialog-bottom-transition",
+                "max-width": "1200px"
+              },
+              model: {
+                value: _vm.dialog,
+                callback: function($$v) {
+                  _vm.dialog = $$v
+                },
+                expression: "dialog"
+              }
+            },
+            [
+              _c(
+                "v-card",
+                [
+                  _c(
+                    "v-toolbar",
+                    { attrs: { dark: "", color: _vm.$root.themeColor } },
+                    [
+                      _c(
+                        "v-btn",
+                        {
+                          attrs: { icon: "", dark: "" },
+                          on: {
+                            click: function($event) {
+                              _vm.dialog = false
+                            }
+                          }
+                        },
+                        [_c("v-icon", [_vm._v("close")])],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c("v-toolbar-title", [_vm._v(_vm._s(_vm.formTitle))]),
+                      _vm._v(" "),
+                      _c("v-spacer"),
+                      _vm._v(" "),
+                      _c("v-toolbar-items", [
+                        _c(
+                          "div",
+                          {
+                            staticClass: "text-xs-center subheading mt-3 mr-5"
+                          },
+                          [
+                            _vm._v(
+                              "\n                      Status Pembayaran: " +
+                                _vm._s(_vm.editedItem.status_paid) +
+                                "\n                    "
+                            )
+                          ]
+                        )
+                      ])
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("br"),
+                  _vm._v(" "),
+                  _c("hr"),
+                  _vm._v(" "),
+                  _c(
+                    "v-layout",
+                    { attrs: { row: "", wrap: "" } },
+                    [
+                      _c(
+                        "v-card",
+                        { attrs: { width: "100%", "ml-5": "", "mr-5": "" } },
+                        [
+                          _c(
+                            "v-layout",
+                            { attrs: { row: "", wrap: "" } },
+                            [
+                              _c(
+                                "v-flex",
+                                { attrs: { sm3: "", "pr-3": "", "pl-5": "" } },
+                                [
+                                  _c(
+                                    "v-card",
+                                    { attrs: { height: "100%" } },
+                                    [
+                                      _c(
+                                        "v-card-title",
+                                        {
+                                          staticClass:
+                                            "grey lighten-2 theme--light justify-center"
+                                        },
+                                        [
+                                          _c(
+                                            "span",
+                                            { staticClass: "headline" },
+                                            [_vm._v("Data Pelanggan")]
+                                          )
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "v-card-text",
+                                        [
+                                          _c(
+                                            "v-container",
+                                            { attrs: { "grid-list-md": "" } },
+                                            [
+                                              _vm.setcustomer
+                                                ? _c(
+                                                    "v-layout",
+                                                    { attrs: { wrap: "" } },
+                                                    [
+                                                      _c(
+                                                        "v-flex",
+                                                        { attrs: { xs12: "" } },
+                                                        [
+                                                          _c("v-select", {
+                                                            attrs: {
+                                                              items:
+                                                                _vm.initcustomer,
+                                                              "item-text":
+                                                                "name",
+                                                              "item-value":
+                                                                "id",
+                                                              label:
+                                                                "Nama Pelanggan",
+                                                              disabled: "",
+                                                              required: "",
+                                                              "prepend-inner-icon":
+                                                                "fa fa-user"
+                                                            },
+                                                            model: {
+                                                              value:
+                                                                _vm.editedItem
+                                                                  .id_customer,
+                                                              callback: function(
+                                                                $$v
+                                                              ) {
+                                                                _vm.$set(
+                                                                  _vm.editedItem,
+                                                                  "id_customer",
+                                                                  $$v
+                                                                )
+                                                              },
+                                                              expression:
+                                                                "editedItem.id_customer"
+                                                            }
+                                                          })
+                                                        ],
+                                                        1
+                                                      ),
+                                                      _vm._v(" "),
+                                                      _c(
+                                                        "v-flex",
+                                                        { attrs: { xs12: "" } },
+                                                        [
+                                                          _c("v-text-field", {
+                                                            attrs: {
+                                                              label:
+                                                                "Nomor Telepon",
+                                                              counter: 12,
+                                                              disabled: "",
+                                                              required: "",
+                                                              "prepend-inner-icon":
+                                                                "fa fa-phone"
+                                                            },
+                                                            model: {
+                                                              value:
+                                                                _vm
+                                                                  .editedCustomer
+                                                                  .phone_number,
+                                                              callback: function(
+                                                                $$v
+                                                              ) {
+                                                                _vm.$set(
+                                                                  _vm.editedCustomer,
+                                                                  "phone_number",
+                                                                  $$v
+                                                                )
+                                                              },
+                                                              expression:
+                                                                "editedCustomer.phone_number"
+                                                            }
+                                                          })
+                                                        ],
+                                                        1
+                                                      ),
+                                                      _vm._v(" "),
+                                                      _c(
+                                                        "v-flex",
+                                                        { attrs: { xs12: "" } },
+                                                        [
+                                                          _c("v-text-field", {
+                                                            attrs: {
+                                                              label: "Alamat",
+                                                              counter: 100,
+                                                              disabled: "",
+                                                              required: "",
+                                                              "prepend-inner-icon":
+                                                                "fas fa-map-marker-alt"
+                                                            },
+                                                            model: {
+                                                              value:
+                                                                _vm
+                                                                  .editedCustomer
+                                                                  .address,
+                                                              callback: function(
+                                                                $$v
+                                                              ) {
+                                                                _vm.$set(
+                                                                  _vm.editedCustomer,
+                                                                  "address",
+                                                                  $$v
+                                                                )
+                                                              },
+                                                              expression:
+                                                                "editedCustomer.address"
+                                                            }
+                                                          })
+                                                        ],
+                                                        1
+                                                      )
+                                                    ],
+                                                    1
+                                                  )
+                                                : _vm._e()
+                                            ],
+                                            1
+                                          )
+                                        ],
+                                        1
+                                      )
+                                    ],
+                                    1
+                                  )
+                                ],
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "v-flex",
+                                { attrs: { sm3: "", "pr-3": "" } },
+                                [
+                                  _c(
+                                    "v-card",
+                                    { attrs: { height: "100%" } },
+                                    [
+                                      _c(
+                                        "v-card-title",
+                                        {
+                                          staticClass:
+                                            "grey lighten-2 theme--light justify-center"
+                                        },
+                                        [
+                                          _c(
+                                            "span",
+                                            { staticClass: "headline" },
+                                            [_vm._v("Jenis Transaksi")]
+                                          )
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "v-card-text",
+                                        [
+                                          _c(
+                                            "v-container",
+                                            { attrs: { "grid-list-md": "" } },
+                                            [
+                                              _c(
+                                                "v-layout",
+                                                { attrs: { wrap: "" } },
+                                                [
+                                                  _c(
+                                                    "v-flex",
+                                                    [
+                                                      _c("v-select", {
+                                                        attrs: {
+                                                          items:
+                                                            _vm.dropdown_tipe,
+                                                          "item-text": "text",
+                                                          "item-value": "id",
+                                                          label: "Transaksi",
+                                                          required: "",
+                                                          disabled: "",
+                                                          "prepend-inner-icon":
+                                                            "fas fa-flag"
+                                                        },
+                                                        model: {
+                                                          value:
+                                                            _vm.editedItem
+                                                              .type_transaction,
+                                                          callback: function(
+                                                            $$v
+                                                          ) {
+                                                            _vm.$set(
+                                                              _vm.editedItem,
+                                                              "type_transaction",
+                                                              $$v
+                                                            )
+                                                          },
+                                                          expression:
+                                                            "editedItem.type_transaction"
+                                                        }
+                                                      })
+                                                    ],
+                                                    1
+                                                  )
+                                                ],
+                                                1
+                                              )
+                                            ],
+                                            1
+                                          )
+                                        ],
+                                        1
+                                      ),
+                                      _vm._v(" "),
+                                      _c("hr"),
+                                      _vm._v(" "),
+                                      _c(
+                                        "v-card-title",
+                                        {
+                                          staticClass:
+                                            "grey lighten-2 theme--light justify-center"
+                                        },
+                                        [
+                                          _c(
+                                            "span",
+                                            { staticClass: "headline" },
+                                            [_vm._v("Status Transaksi")]
+                                          )
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "v-card-text",
+                                        [
+                                          _c(
+                                            "v-container",
+                                            { attrs: { "grid-list-md": "" } },
+                                            [
+                                              _c(
+                                                "v-layout",
+                                                { attrs: { wrap: "" } },
+                                                [
+                                                  _c(
+                                                    "v-flex",
+                                                    [
+                                                      _c("v-select", {
+                                                        attrs: {
+                                                          items:
+                                                            _vm.dropdown_status,
+                                                          "item-text": "text",
+                                                          "item-value": "text",
+                                                          label: "Status",
+                                                          required: "",
+                                                          disabled: "",
+                                                          "prepend-inner-icon":
+                                                            "fas fa-flag"
+                                                        },
+                                                        model: {
+                                                          value:
+                                                            _vm.editedItem
+                                                              .status_process,
+                                                          callback: function(
+                                                            $$v
+                                                          ) {
+                                                            _vm.$set(
+                                                              _vm.editedItem,
+                                                              "status_process",
+                                                              $$v
+                                                            )
+                                                          },
+                                                          expression:
+                                                            "editedItem.status_process"
+                                                        }
+                                                      })
+                                                    ],
+                                                    1
+                                                  )
+                                                ],
+                                                1
+                                              )
+                                            ],
+                                            1
+                                          )
+                                        ],
+                                        1
+                                      )
+                                    ],
+                                    1
+                                  )
+                                ],
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "v-flex",
+                                { attrs: { sm6: "", "pr-5": "" } },
+                                [
+                                  _c(
+                                    "v-card",
+                                    {
+                                      attrs: { height: "100%", width: "100%" }
+                                    },
+                                    [
+                                      _c(
+                                        "v-card-title",
+                                        {
+                                          staticClass:
+                                            "green lighten-2 theme--light justify-center"
+                                        },
+                                        [
+                                          _c(
+                                            "span",
+                                            {
+                                              staticClass:
+                                                "headline font-weight-bold"
+                                            },
+                                            [_vm._v("Pembayaran")]
+                                          )
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "v-card-text",
+                                        [
+                                          _c(
+                                            "v-container",
+                                            { attrs: { "grid-list-md": "" } },
+                                            [
+                                              _c(
+                                                "v-layout",
+                                                { attrs: { wrap: "" } },
+                                                [
+                                                  _c(
+                                                    "v-flex",
+                                                    { attrs: { sm12: "" } },
+                                                    [
+                                                      _c(
+                                                        "div",
+                                                        {
+                                                          staticClass:
+                                                            "text-xs-center subheading font-weight-bold"
+                                                        },
+                                                        [
+                                                          _vm._v(
+                                                            "\n                                Kode Transaksi\n                              "
+                                                          )
+                                                        ]
+                                                      ),
+                                                      _vm._v(" "),
+                                                      _c(
+                                                        "div",
+                                                        {
+                                                          staticClass:
+                                                            "text-xs-center headline"
+                                                        },
+                                                        [
+                                                          _vm._v(
+                                                            "\n                                " +
+                                                              _vm._s(
+                                                                _vm.editedItem
+                                                                  .id_transaction
+                                                              ) +
+                                                              "\n                              "
+                                                          )
+                                                        ]
+                                                      ),
+                                                      _vm._v(" "),
+                                                      _c(
+                                                        "div",
+                                                        {
+                                                          staticClass:
+                                                            "text-xs-center subheading font-weight-bold mt-2"
+                                                        },
+                                                        [
+                                                          _vm._v(
+                                                            "\n                                Total Transaksi\n                              "
+                                                          )
+                                                        ]
+                                                      ),
+                                                      _vm._v(" "),
+                                                      _c(
+                                                        "div",
+                                                        {
+                                                          staticClass:
+                                                            "text-xs-center headline"
+                                                        },
+                                                        [
+                                                          _vm._v(
+                                                            "\n                                Rp. " +
+                                                              _vm._s(
+                                                                _vm.editedItem
+                                                                  .total_transaction
+                                                              ) +
+                                                              "\n                              "
+                                                          )
+                                                        ]
+                                                      )
+                                                    ]
+                                                  ),
+                                                  _vm._v(" "),
+                                                  _c(
+                                                    "v-flex",
+                                                    { attrs: { sm6: "" } },
+                                                    [
+                                                      _c("v-text-field", {
+                                                        attrs: {
+                                                          "prepend-inner-icon":
+                                                            "fas fa-coins",
+                                                          label: "Diskon",
+                                                          disabled:
+                                                            _vm.editedItem
+                                                              .status_paid ==
+                                                            "Paid",
+                                                          "error-messages":
+                                                            _vm.discountErrors
+                                                        },
+                                                        on: {
+                                                          input: function(
+                                                            $event
+                                                          ) {
+                                                            _vm.$v.editedItem.discount_transaction.$touch(),
+                                                              _vm.countCharge()
+                                                          },
+                                                          blur: function(
+                                                            $event
+                                                          ) {
+                                                            return _vm.$v.editedItem.discount_transaction.$touch()
+                                                          }
+                                                        },
+                                                        model: {
+                                                          value:
+                                                            _vm.editedItem
+                                                              .discount_transaction,
+                                                          callback: function(
+                                                            $$v
+                                                          ) {
+                                                            _vm.$set(
+                                                              _vm.editedItem,
+                                                              "discount_transaction",
+                                                              $$v
+                                                            )
+                                                          },
+                                                          expression:
+                                                            "editedItem.discount_transaction"
+                                                        }
+                                                      })
+                                                    ],
+                                                    1
+                                                  ),
+                                                  _vm._v(" "),
+                                                  _c(
+                                                    "v-flex",
+                                                    { attrs: { sm6: "" } },
+                                                    [
+                                                      _vm.editedItem
+                                                        .status_paid != "Paid"
+                                                        ? _c("v-text-field", {
+                                                            attrs: {
+                                                              "prepend-inner-icon":
+                                                                "fas fa-coins",
+                                                              label: "Bayar",
+                                                              "error-messages":
+                                                                _vm.paidErrors
+                                                            },
+                                                            on: {
+                                                              input: function(
+                                                                $event
+                                                              ) {
+                                                                _vm.$v.bayar.$touch(),
+                                                                  _vm.countCharge()
+                                                              },
+                                                              blur: function(
+                                                                $event
+                                                              ) {
+                                                                return _vm.$v.bayar.$touch()
+                                                              }
+                                                            },
+                                                            model: {
+                                                              value: _vm.bayar,
+                                                              callback: function(
+                                                                $$v
+                                                              ) {
+                                                                _vm.bayar = $$v
+                                                              },
+                                                              expression:
+                                                                "bayar"
+                                                            }
+                                                          })
+                                                        : _vm._e()
+                                                    ],
+                                                    1
+                                                  ),
+                                                  _vm._v(" "),
+                                                  _c(
+                                                    "v-flex",
+                                                    { attrs: { sm6: "" } },
+                                                    [
+                                                      _vm.editedItem
+                                                        .status_paid != "Paid"
+                                                        ? _c("v-text-field", {
+                                                            attrs: {
+                                                              "prepend-inner-icon":
+                                                                "fas fa-coins",
+                                                              label:
+                                                                "Kembalian",
+                                                              disabled: ""
+                                                            },
+                                                            model: {
+                                                              value:
+                                                                _vm.kembalian,
+                                                              callback: function(
+                                                                $$v
+                                                              ) {
+                                                                _vm.kembalian = $$v
+                                                              },
+                                                              expression:
+                                                                "kembalian"
+                                                            }
+                                                          })
+                                                        : _vm._e()
+                                                    ],
+                                                    1
+                                                  ),
+                                                  _vm._v(" "),
+                                                  _c(
+                                                    "v-flex",
+                                                    { attrs: { sm6: "" } },
+                                                    [
+                                                      _vm.editedItem
+                                                        .status_paid != "Paid"
+                                                        ? _c(
+                                                            "v-btn",
+                                                            {
+                                                              staticClass:
+                                                                "mt-4",
+                                                              staticStyle: {
+                                                                "text-transform":
+                                                                  "none !important"
+                                                              },
+                                                              attrs: {
+                                                                small: "",
+                                                                block: "",
+                                                                color:
+                                                                  "primary",
+                                                                disabled:
+                                                                  _vm.$v
+                                                                    .editedItem
+                                                                    .$invalid ||
+                                                                  _vm.$v.bayar
+                                                                    .$invalid
+                                                              },
+                                                              on: {
+                                                                click: function(
+                                                                  $event
+                                                                ) {
+                                                                  return _vm.payment()
+                                                                }
+                                                              }
+                                                            },
+                                                            [
+                                                              _vm._v(
+                                                                "\n                                    PROSES DAN CETAK NOTA\n                                "
+                                                              )
+                                                            ]
+                                                          )
+                                                        : _vm._e()
+                                                    ],
+                                                    1
+                                                  )
+                                                ],
+                                                1
+                                              )
+                                            ],
+                                            1
+                                          )
+                                        ],
+                                        1
+                                      )
+                                    ],
+                                    1
+                                  )
+                                ],
+                                1
+                              )
+                            ],
+                            1
+                          )
+                        ],
+                        1
+                      )
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _vm.editedItem.type_transaction == "Sparepart" ||
+                  _vm.editedItem.type_transaction == "Sparepart dan Service"
+                    ? _c(
+                        "v-layout",
+                        { attrs: { row: "", wrap: "" } },
+                        [
+                          _c("br"),
+                          _vm._v(" "),
+                          _c("hr"),
+                          _vm._v(" "),
+                          _c(
+                            "v-flex",
+                            { attrs: { sm12: "", "ml-5": "", "mr-5": "" } },
+                            [
+                              _c(
+                                "v-card",
+                                [
+                                  _c(
+                                    "v-card-title",
+                                    {
+                                      staticClass:
+                                        "grey lighten-2 theme--light justify-center"
+                                    },
+                                    [
+                                      _c("span", { staticClass: "headline" }, [
+                                        _vm._v("Sparepart")
+                                      ])
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "v-card-text",
+                                    [
+                                      _c("v-data-table", {
+                                        attrs: {
+                                          headers: _vm.sparepartheaders,
+                                          "rows-per-page-items": [3],
+                                          items: _vm.editedItem.sparepart.data
+                                        },
+                                        scopedSlots: _vm._u(
+                                          [
+                                            {
+                                              key: "items",
+                                              fn: function(props) {
+                                                return [
+                                                  _c("td", [
+                                                    _vm._v(
+                                                      _vm._s(
+                                                        props.item
+                                                          .brand_sparepart
+                                                      )
+                                                    )
+                                                  ]),
+                                                  _vm._v(" "),
+                                                  _c(
+                                                    "td",
+                                                    {
+                                                      staticClass:
+                                                        "text-xs-center"
+                                                    },
+                                                    [
+                                                      _vm._v(
+                                                        _vm._s(
+                                                          props.item
+                                                            .name_sparepart
+                                                        )
+                                                      )
+                                                    ]
+                                                  ),
+                                                  _vm._v(" "),
+                                                  _c(
+                                                    "td",
+                                                    {
+                                                      staticClass:
+                                                        "text-xs-center"
+                                                    },
+                                                    [
+                                                      _vm._v(
+                                                        _vm._s(
+                                                          props.item
+                                                            .price_transaction_sparepart
+                                                        )
+                                                      )
+                                                    ]
+                                                  ),
+                                                  _vm._v(" "),
+                                                  _c(
+                                                    "td",
+                                                    {
+                                                      staticClass:
+                                                        "text-xs-center"
+                                                    },
+                                                    [
+                                                      _vm._v(
+                                                        _vm._s(
+                                                          props.item
+                                                            .amount_transaction_sparepart
+                                                        )
+                                                      )
+                                                    ]
+                                                  ),
+                                                  _vm._v(" "),
+                                                  _c(
+                                                    "td",
+                                                    {
+                                                      staticClass:
+                                                        "text-xs-center"
+                                                    },
+                                                    [
+                                                      _vm._v(
+                                                        _vm._s(
+                                                          props.item
+                                                            .plate_number
+                                                        )
+                                                      )
+                                                    ]
+                                                  ),
+                                                  _vm._v(" "),
+                                                  _c(
+                                                    "td",
+                                                    {
+                                                      staticClass:
+                                                        "text-xs-center"
+                                                    },
+                                                    [
+                                                      _vm._v(
+                                                        _vm._s(
+                                                          props.item
+                                                            .mechanic_name
+                                                        )
+                                                      )
+                                                    ]
+                                                  ),
+                                                  _vm._v(" "),
+                                                  _c(
+                                                    "td",
+                                                    {
+                                                      staticClass:
+                                                        "text-xs-center"
+                                                    },
+                                                    [
+                                                      _vm._v(
+                                                        _vm._s(
+                                                          props.item
+                                                            .subtotal_transaction_sparepart
+                                                        )
+                                                      )
+                                                    ]
+                                                  )
+                                                ]
+                                              }
+                                            }
+                                          ],
+                                          null,
+                                          false,
+                                          1512530011
+                                        )
+                                      })
+                                    ],
+                                    1
+                                  )
+                                ],
+                                1
+                              )
+                            ],
+                            1
+                          )
+                        ],
+                        1
+                      )
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _vm.editedItem.type_transaction == "Service" ||
+                  _vm.editedItem.type_transaction == "Sparepart dan Service"
+                    ? _c(
+                        "v-layout",
+                        { attrs: { row: "", wrap: "" } },
+                        [
+                          _c("br"),
+                          _vm._v(" "),
+                          _c("hr"),
+                          _vm._v(" "),
+                          _c(
+                            "v-flex",
+                            { attrs: { sm12: "", "ml-5": "", "mr-5": "" } },
+                            [
+                              _c(
+                                "v-card",
+                                [
+                                  _c(
+                                    "v-card-title",
+                                    {
+                                      staticClass:
+                                        "grey lighten-2 theme--light justify-center"
+                                    },
+                                    [
+                                      _c("span", { staticClass: "headline" }, [
+                                        _vm._v("Jasa Service")
+                                      ])
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "v-card-text",
+                                    [
+                                      _c("v-data-table", {
+                                        attrs: {
+                                          headers: _vm.serviceheaders,
+                                          "rows-per-page-items": [3],
+                                          items: _vm.editedItem.service.data
+                                        },
+                                        scopedSlots: _vm._u(
+                                          [
+                                            {
+                                              key: "items",
+                                              fn: function(props) {
+                                                return [
+                                                  _c("td", [
+                                                    _vm._v(
+                                                      _vm._s(
+                                                        props.item.service_name
+                                                      )
+                                                    )
+                                                  ]),
+                                                  _vm._v(" "),
+                                                  _c(
+                                                    "td",
+                                                    {
+                                                      staticClass:
+                                                        "text-xs-center"
+                                                    },
+                                                    [
+                                                      _vm._v(
+                                                        _vm._s(
+                                                          props.item
+                                                            .plate_number
+                                                        )
+                                                      )
+                                                    ]
+                                                  ),
+                                                  _vm._v(" "),
+                                                  _c(
+                                                    "td",
+                                                    {
+                                                      staticClass:
+                                                        "text-xs-center"
+                                                    },
+                                                    [
+                                                      _vm._v(
+                                                        _vm._s(
+                                                          props.item
+                                                            .mechanic_name
+                                                        )
+                                                      )
+                                                    ]
+                                                  ),
+                                                  _vm._v(" "),
+                                                  _c(
+                                                    "td",
+                                                    {
+                                                      staticClass:
+                                                        "text-xs-center"
+                                                    },
+                                                    [
+                                                      _vm._v(
+                                                        _vm._s(
+                                                          props.item
+                                                            .price_transaction_service
+                                                        )
+                                                      )
+                                                    ]
+                                                  )
+                                                ]
+                                              }
+                                            }
+                                          ],
+                                          null,
+                                          false,
+                                          3213339421
+                                        )
+                                      })
+                                    ],
+                                    1
+                                  )
+                                ],
+                                1
+                              )
+                            ],
+                            1
+                          )
+                        ],
+                        1
+                      )
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _c("br"),
+                  _vm._v(" "),
+                  _c("hr")
+                ],
+                1
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c("v-spacer"),
+          _vm._v(" "),
+          _c(
+            "v-flex",
+            { attrs: { xs4: "", sm4: "", md4: "" } },
+            [
+              _c("v-text-field", {
+                attrs: {
+                  "append-icon": "search",
+                  label: "Cari",
+                  "single-line": "",
+                  "hide-details": ""
+                },
+                model: {
+                  value: _vm.search,
+                  callback: function($$v) {
+                    _vm.search = $$v
+                  },
+                  expression: "search"
+                }
+              })
+            ],
+            1
+          )
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _vm.loading || _vm.error
+        ? _c(
+            "VCardText",
+            { staticClass: "text-xs-center" },
+            [
+              _vm.error
+                ? _c(
+                    "VAlert",
+                    { attrs: { type: "error", dismissible: "", value: true } },
+                    [
+                      _vm._v(
+                        "\n          " +
+                          _vm._s(_vm.error.message) +
+                          "\n        "
+                      )
+                    ]
+                  )
+                : _vm._e(),
+              _vm._v(" "),
+              _c("VProgressCircular", {
+                staticClass: "loading-section",
+                attrs: { size: 45, indeterminate: "" }
+              })
+            ],
+            1
+          )
+        : _vm._e(),
+      _vm._v(" "),
+      _vm.inittransaction
+        ? _c(
+            "v-data-table",
+            {
+              staticClass: "elevation-1",
+              attrs: {
+                headers: _vm.headers,
+                items: _vm.inittransaction,
+                search: _vm.search
+              },
+              scopedSlots: _vm._u(
+                [
+                  {
+                    key: "items",
+                    fn: function(props) {
+                      return [
+                        _c("td", [_vm._v(_vm._s(props.item.id_transaction))]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-xs-center" }, [
+                          _vm._v(_vm._s(props.item.date_transaction))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-xs-center" }, [
+                          _vm._v(_vm._s(props.item.name_customer))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-xs-center" }, [
+                          _vm._v(_vm._s(props.item.type_transaction))
+                        ]),
+                        _vm._v(" "),
+                        _c(
+                          "td",
+                          { staticClass: "text-xs-center" },
+                          [
+                            props.item.status_paid == "Unpaid"
+                              ? _c(
+                                  "v-chip",
+                                  {
+                                    attrs: {
+                                      light: "",
+                                      color: "orange",
+                                      "text-color": "white"
+                                    }
+                                  },
+                                  [_vm._v(" " + _vm._s(props.item.status_paid))]
+                                )
+                              : _c(
+                                  "v-chip",
+                                  {
+                                    attrs: {
+                                      light: "",
+                                      color: "green",
+                                      "text-color": "white"
+                                    }
+                                  },
+                                  [_vm._v(" " + _vm._s(props.item.status_paid))]
+                                )
+                          ],
+                          1
+                        ),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-xs-center" }, [
+                          _vm._v("Rp. " + _vm._s(props.item.total_transaction))
+                        ]),
+                        _vm._v(" "),
+                        _c(
+                          "td",
+                          { staticClass: "text-xs-center" },
+                          [
+                            props.item.status_paid == "Paid"
+                              ? _c(
+                                  "v-btn",
+                                  {
+                                    staticStyle: {
+                                      "text-transform": "none !important"
+                                    },
+                                    attrs: {
+                                      depressed: "",
+                                      small: "",
+                                      color: "success",
+                                      dark: ""
+                                    },
+                                    on: {
+                                      click: function($event) {
+                                        return _vm.detailItem(props.item)
+                                      }
+                                    }
+                                  },
+                                  [
+                                    _vm._v(
+                                      "\n                Detail\n              "
+                                    )
+                                  ]
+                                )
+                              : _c(
+                                  "v-btn",
+                                  {
+                                    staticStyle: {
+                                      "text-transform": "none !important"
+                                    },
+                                    attrs: {
+                                      depressed: "",
+                                      small: "",
+                                      color: "primary",
+                                      dark: ""
+                                    },
+                                    on: {
+                                      click: function($event) {
+                                        return _vm.payItem(props.item)
+                                      }
+                                    }
+                                  },
+                                  [
+                                    _vm._v(
+                                      "\n                Bayar\n              "
+                                    )
+                                  ]
+                                )
+                          ],
+                          1
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "td",
+                          { staticClass: "justify-center layout px-0" },
+                          [
+                            _c("v-icon", { attrs: { small: "" } }, [
+                              _vm._v("\n              print\n          ")
+                            ])
+                          ],
+                          1
+                        )
+                      ]
+                    }
+                  }
+                ],
+                null,
+                false,
+                26536144
+              )
+            },
+            [
+              _vm._v(" "),
+              _c("v-alert", {
+                attrs: { value: true, color: "error", icon: "warning" },
+                scopedSlots: _vm._u(
+                  [
+                    {
+                      key: "no-results",
+                      fn: function() {
+                        return [
+                          _vm._v(
+                            '\n          Pencarian untuk "' +
+                              _vm._s(_vm.search) +
+                              '" tidak ditemukan.\n      '
+                          )
+                        ]
+                      },
+                      proxy: true
+                    }
+                  ],
+                  null,
+                  false,
+                  1552886665
+                )
+              })
+            ],
+            1
+          )
+        : _vm._e(),
+      _vm._v(" "),
+      _vm.alert.type
+        ? _c(
+            "v-snackbar",
+            {
+              attrs: {
+                right: "",
+                bottom: "",
+                color: _vm.alert.type,
+                value: "true"
+              }
+            },
+            [
+              _c("v-icon", [_vm._v(_vm._s(_vm.alert.icon))]),
+              _vm._v(_vm._s(_vm.alert.message) + "\n    ")
+            ],
+            1
+          )
+        : _vm._e()
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Admin/AdminProcurement.vue?vue&type=template&id=feca6328&":
+/*!*************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Admin/AdminProcurement.vue?vue&type=template&id=feca6328& ***!
+  \*************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    [
+      _c(
+        "v-toolbar",
+        { attrs: { flat: "", color: "white" } },
+        [
+          _c("v-toolbar-title", [_vm._v("MANAJEMEN PENGADAAN SPAREPART")]),
+          _vm._v(" "),
+          _c("v-divider", {
+            staticClass: "mx-2",
+            attrs: { inset: "", vertical: "" }
+          }),
+          _vm._v(" "),
+          _c(
+            "v-dialog",
+            {
+              attrs: { "max-width": "800px" },
+              scopedSlots: _vm._u([
+                {
+                  key: "activator",
+                  fn: function(ref) {
+                    var on = ref.on
+                    return [
+                      _c(
+                        "v-btn",
+                        _vm._g(
+                          {
+                            staticClass: "mb-2",
+                            attrs: { color: "primary", dark: "" }
+                          },
+                          on
+                        ),
+                        [_vm._v("Tambah")]
+                      )
+                    ]
+                  }
+                }
+              ]),
+              model: {
+                value: _vm.dialog,
+                callback: function($$v) {
+                  _vm.dialog = $$v
+                },
+                expression: "dialog"
+              }
+            },
+            [
+              _vm._v(" "),
+              _c(
+                "v-card",
+                [
+                  _c("v-card-title", { staticClass: "theme--light" }, [
+                    _c("span", { staticClass: "headline" }, [
+                      _vm._v(_vm._s(_vm.formTitle))
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "v-card-text",
+                    [
+                      _c(
+                        "v-container",
+                        { attrs: { "grid-list-md": "" } },
+                        [
+                          _c(
+                            "v-layout",
+                            { attrs: { wrap: "" } },
+                            [
+                              _c(
+                                "v-flex",
+                                { attrs: { xs12: "", md6: "", sm6: "" } },
+                                [
+                                  _c(
+                                    "v-menu",
+                                    {
+                                      attrs: {
+                                        "close-on-content-click": false,
+                                        "nudge-right": 40,
+                                        lazy: "",
+                                        transition: "scale-transition",
+                                        "offset-y": "",
+                                        "full-width": "",
+                                        disabled: _vm.detailMode == true,
+                                        "min-width": "290px"
+                                      },
+                                      scopedSlots: _vm._u([
+                                        {
+                                          key: "activator",
+                                          fn: function(ref) {
+                                            var on = ref.on
+                                            return [
+                                              _c(
+                                                "v-text-field",
+                                                _vm._g(
+                                                  {
+                                                    attrs: {
+                                                      label: "Tanggal",
+                                                      "prepend-inner-icon":
+                                                        "event",
+                                                      required: "",
+                                                      "error-messages":
+                                                        _vm.dateErrors,
+                                                      readonly: ""
+                                                    },
+                                                    on: {
+                                                      change: function($event) {
+                                                        return _vm.$v.editedItem.date_procurement.$touch()
+                                                      },
+                                                      blur: function($event) {
+                                                        return _vm.$v.editedItem.date_procurement.$touch()
+                                                      }
+                                                    },
+                                                    model: {
+                                                      value:
+                                                        _vm.editedItem
+                                                          .date_procurement,
+                                                      callback: function($$v) {
+                                                        _vm.$set(
+                                                          _vm.editedItem,
+                                                          "date_procurement",
+                                                          $$v
+                                                        )
+                                                      },
+                                                      expression:
+                                                        "editedItem.date_procurement"
+                                                    }
+                                                  },
+                                                  on
+                                                )
+                                              )
+                                            ]
+                                          }
+                                        }
+                                      ]),
+                                      model: {
+                                        value: _vm.dateDialog,
+                                        callback: function($$v) {
+                                          _vm.dateDialog = $$v
+                                        },
+                                        expression: "dateDialog"
+                                      }
+                                    },
+                                    [
+                                      _vm._v(" "),
+                                      _c("v-date-picker", {
+                                        on: {
+                                          input: function($event) {
+                                            _vm.dateDialog = false
+                                          }
+                                        },
+                                        model: {
+                                          value:
+                                            _vm.editedItem.date_procurement,
+                                          callback: function($$v) {
+                                            _vm.$set(
+                                              _vm.editedItem,
+                                              "date_procurement",
+                                              $$v
+                                            )
+                                          },
+                                          expression:
+                                            "editedItem.date_procurement"
+                                        }
+                                      })
+                                    ],
+                                    1
+                                  )
+                                ],
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "v-flex",
+                                { attrs: { xs12: "", sm6: "", md6: "" } },
+                                [
+                                  _c("v-select", {
+                                    attrs: {
+                                      items: _vm.dropdown_status,
+                                      "error-messages": _vm.statusErrors,
+                                      "item-text": "text",
+                                      "item-value": "id",
+                                      label: "Status",
+                                      required: "",
+                                      disabled: _vm.detailMode == true,
+                                      "prepend-inner-icon": "fas fa-flag"
+                                    },
+                                    on: {
+                                      change: function($event) {
+                                        return _vm.$v.editedItem.status_procurement.$touch()
+                                      },
+                                      blur: function($event) {
+                                        return _vm.$v.editedItem.status_procurement.$touch()
+                                      }
+                                    },
+                                    model: {
+                                      value: _vm.editedItem.status_procurement,
+                                      callback: function($$v) {
+                                        _vm.$set(
+                                          _vm.editedItem,
+                                          "status_procurement",
+                                          $$v
+                                        )
+                                      },
+                                      expression:
+                                        "editedItem.status_procurement"
+                                    }
+                                  })
+                                ],
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "v-flex",
+                                { attrs: { xs12: "", sm6: "", md6: "" } },
+                                [
+                                  _c("v-select", {
+                                    attrs: {
+                                      items: _vm.initsupplier,
+                                      "error-messages": _vm.supplierErrors,
+                                      "item-text": "name",
+                                      "item-value": "id",
+                                      label: "Supplier",
+                                      required: "",
+                                      disabled: _vm.detailMode == true,
+                                      "prepend-inner-icon": "fas fa-truck"
+                                    },
+                                    on: {
+                                      change: function($event) {
+                                        return _vm.$v.editedItem.id_supplier.$touch()
+                                      },
+                                      blur: function($event) {
+                                        return _vm.$v.editedItem.id_supplier.$touch()
+                                      }
+                                    },
+                                    model: {
+                                      value: _vm.editedItem.id_supplier,
+                                      callback: function($$v) {
+                                        _vm.$set(
+                                          _vm.editedItem,
+                                          "id_supplier",
+                                          $$v
+                                        )
+                                      },
+                                      expression: "editedItem.id_supplier"
+                                    }
+                                  })
+                                ],
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "v-flex",
+                                { attrs: { xs12: "", sm6: "", md6: "" } },
+                                [
+                                  _c("v-select", {
+                                    attrs: {
+                                      items: _vm.initsales,
+                                      "error-messages": _vm.salesErrors,
+                                      "item-text": "name",
+                                      "item-value": "id",
+                                      label: "Sales",
+                                      required: "",
+                                      disabled: _vm.detailMode == true,
+                                      "prepend-inner-icon": "fas fa-user-tie"
+                                    },
+                                    on: {
+                                      change: function($event) {
+                                        return _vm.$v.editedItem.id_sales.$touch()
+                                      },
+                                      blur: function($event) {
+                                        return _vm.$v.editedItem.id_sales.$touch()
+                                      }
+                                    },
+                                    model: {
+                                      value: _vm.editedItem.id_sales,
+                                      callback: function($$v) {
+                                        _vm.$set(
+                                          _vm.editedItem,
+                                          "id_sales",
+                                          $$v
+                                        )
+                                      },
+                                      expression: "editedItem.id_sales"
+                                    }
+                                  })
+                                ],
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "v-flex",
+                                { attrs: { xs12: "", sm6: "", md6: "" } },
+                                [
+                                  _c("v-text-field", {
+                                    attrs: {
+                                      label: "Total Harga",
+                                      disabled: "",
+                                      required: "",
+                                      "prepend-inner-icon": "fas fa-coins"
+                                    },
+                                    model: {
+                                      value: _vm.countTotal,
+                                      callback: function($$v) {
+                                        _vm.countTotal = $$v
+                                      },
+                                      expression: "countTotal"
+                                    }
+                                  })
+                                ],
+                                1
+                              )
+                            ],
+                            1
+                          )
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c("v-data-table", {
+                        attrs: {
+                          headers: _vm.sparepartheaders,
+                          items: _vm.editedItem.detail.data
+                        },
+                        scopedSlots: _vm._u([
+                          {
+                            key: "items",
+                            fn: function(props) {
+                              return [
+                                _c("td", [_vm._v(_vm._s(props.index + 1))]),
+                                _vm._v(" "),
+                                _vm.editedItem.detail.data[
+                                  _vm.sparepartIndex
+                                ] != props.item || _vm.addsparepart
+                                  ? _c("td", [
+                                      _vm._v(_vm._s(props.item.name_sparepart))
+                                    ])
+                                  : _c(
+                                      "td",
+                                      [
+                                        _c("v-select", {
+                                          attrs: {
+                                            items: _vm.initsparepart,
+                                            "item-text": "name",
+                                            "item-value": "id",
+                                            label: "Sparepart",
+                                            "error-messages":
+                                              _vm.sparepartErrors,
+                                            required: ""
+                                          },
+                                          on: {
+                                            change: function($event) {
+                                              _vm.$v.editedSparepart.id_sparepart.$touch(),
+                                                _vm.getSparepartObj()
+                                            },
+                                            blur: function($event) {
+                                              return _vm.$v.editedSparepart.id_sparepart.$touch()
+                                            }
+                                          },
+                                          model: {
+                                            value:
+                                              _vm.editedSparepart.id_sparepart,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                _vm.editedSparepart,
+                                                "id_sparepart",
+                                                $$v
+                                              )
+                                            },
+                                            expression:
+                                              "editedSparepart.id_sparepart"
+                                          }
+                                        })
+                                      ],
+                                      1
+                                    ),
+                                _vm._v(" "),
+                                _vm.editedItem.detail.data[
+                                  _vm.sparepartIndex
+                                ] != props.item || _vm.addsparepart
+                                  ? _c(
+                                      "td",
+                                      { staticClass: "text-xs-center" },
+                                      [_vm._v(_vm._s(props.item.amount))]
+                                    )
+                                  : _c(
+                                      "td",
+                                      [
+                                        _c("v-text-field", {
+                                          attrs: {
+                                            label: "Jumlah",
+                                            "error-messages": _vm.amountErrors,
+                                            required: ""
+                                          },
+                                          on: {
+                                            change: function($event) {
+                                              return _vm.$v.editedSparepart.amount.$touch()
+                                            },
+                                            blur: function($event) {
+                                              return _vm.$v.editedSparepart.amount.$touch()
+                                            }
+                                          },
+                                          model: {
+                                            value: _vm.editedSparepart.amount,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                _vm.editedSparepart,
+                                                "amount",
+                                                $$v
+                                              )
+                                            },
+                                            expression: "editedSparepart.amount"
+                                          }
+                                        })
+                                      ],
+                                      1
+                                    ),
+                                _vm._v(" "),
+                                _vm.editedItem.detail.data[
+                                  _vm.sparepartIndex
+                                ] != props.item || _vm.addsparepart
+                                  ? _c(
+                                      "td",
+                                      { staticClass: "text-xs-center" },
+                                      [
+                                        _vm._v(
+                                          "Rp. " + _vm._s(props.item.price)
+                                        )
+                                      ]
+                                    )
+                                  : _c(
+                                      "td",
+                                      [
+                                        _c("v-text-field", {
+                                          attrs: {
+                                            label: "Harga Beli",
+                                            "error-messages": _vm.priceErrors,
+                                            required: ""
+                                          },
+                                          on: {
+                                            change: function($event) {
+                                              return _vm.$v.editedSparepart.price.$touch()
+                                            },
+                                            blur: function($event) {
+                                              return _vm.$v.editedSparepart.price.$touch()
+                                            }
+                                          },
+                                          model: {
+                                            value: _vm.editedSparepart.price,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                _vm.editedSparepart,
+                                                "price",
+                                                $$v
+                                              )
+                                            },
+                                            expression: "editedSparepart.price"
+                                          }
+                                        })
+                                      ],
+                                      1
+                                    ),
+                                _vm._v(" "),
+                                _c(
+                                  "td",
+                                  { staticClass: "justify-center layout px-0" },
+                                  [
+                                    _vm.editedItem.detail.data[
+                                      _vm.sparepartIndex
+                                    ] != props.item || _vm.addsparepart
+                                      ? _c(
+                                          "v-icon",
+                                          {
+                                            staticClass: "mr-2",
+                                            attrs: {
+                                              small: "",
+                                              disabled: _vm.detailMode == true
+                                            },
+                                            on: {
+                                              click: function($event) {
+                                                return _vm.sparepartEdit(
+                                                  props.item
+                                                )
+                                              }
+                                            }
+                                          },
+                                          [
+                                            _vm._v(
+                                              "\n                      edit\n                  "
+                                            )
+                                          ]
+                                        )
+                                      : _c(
+                                          "v-icon",
+                                          {
+                                            staticClass: "mr-2",
+                                            attrs: {
+                                              small: "",
+                                              disabled:
+                                                _vm.$v.editedSparepart.$invalid
+                                            },
+                                            on: {
+                                              click: function($event) {
+                                                return _vm.sparepartDone()
+                                              }
+                                            }
+                                          },
+                                          [
+                                            _vm._v(
+                                              "\n                      done\n                  "
+                                            )
+                                          ]
+                                        ),
+                                    _vm._v(" "),
+                                    _vm.editedItem.detail.data[
+                                      _vm.sparepartIndex
+                                    ] != props.item || _vm.addsparepart
+                                      ? _c(
+                                          "v-icon",
+                                          {
+                                            attrs: {
+                                              small: "",
+                                              disabled: _vm.detailMode == true
+                                            },
+                                            on: {
+                                              click: function($event) {
+                                                return _vm.sparepartDelete(
+                                                  props.item
+                                                )
+                                              }
+                                            }
+                                          },
+                                          [
+                                            _vm._v(
+                                              "\n                      delete\n                  "
+                                            )
+                                          ]
+                                        )
+                                      : _c(
+                                          "v-icon",
+                                          {
+                                            staticClass: "mr-2",
+                                            attrs: { small: "" },
+                                            on: {
+                                              click: function($event) {
+                                                return _vm.sparepartEditClose()
+                                              }
+                                            }
+                                          },
+                                          [
+                                            _vm._v(
+                                              "\n                      close\n                  "
+                                            )
+                                          ]
+                                        )
+                                  ],
+                                  1
+                                )
+                              ]
+                            }
+                          },
+                          {
+                            key: "footer",
+                            fn: function() {
+                              return [
+                                _c("td", {
+                                  attrs: {
+                                    colspan: _vm.sparepartheaders[0].length
+                                  }
+                                }),
+                                _vm._v(" "),
+                                _c(
+                                  "td",
+                                  {
+                                    attrs: {
+                                      colspan: _vm.sparepartheaders[1].length
+                                    }
+                                  },
+                                  [
+                                    _vm.addsparepart
+                                      ? _c("v-select", {
+                                          attrs: {
+                                            items: _vm.initsparepart,
+                                            "item-text": "name",
+                                            "item-value": "id",
+                                            label: "Sparepart",
+                                            "error-messages":
+                                              _vm.sparepartErrors,
+                                            required: ""
+                                          },
+                                          on: {
+                                            change: function($event) {
+                                              _vm.$v.editedSparepart.id_sparepart.$touch(),
+                                                _vm.getSparepartObj()
+                                            },
+                                            blur: function($event) {
+                                              return _vm.$v.editedSparepart.id_sparepart.$touch()
+                                            }
+                                          },
+                                          model: {
+                                            value:
+                                              _vm.editedSparepart.id_sparepart,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                _vm.editedSparepart,
+                                                "id_sparepart",
+                                                $$v
+                                              )
+                                            },
+                                            expression:
+                                              "editedSparepart.id_sparepart"
+                                          }
+                                        })
+                                      : _vm._e()
+                                  ],
+                                  1
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "td",
+                                  {
+                                    attrs: {
+                                      colspan: _vm.sparepartheaders[2].length
+                                    }
+                                  },
+                                  [
+                                    _vm.addsparepart
+                                      ? _c("v-text-field", {
+                                          attrs: {
+                                            label: "Jumlah",
+                                            "error-messages": _vm.amountErrors,
+                                            required: ""
+                                          },
+                                          on: {
+                                            change: function($event) {
+                                              return _vm.$v.editedSparepart.amount.$touch()
+                                            },
+                                            blur: function($event) {
+                                              return _vm.$v.editedSparepart.amount.$touch()
+                                            }
+                                          },
+                                          model: {
+                                            value: _vm.editedSparepart.amount,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                _vm.editedSparepart,
+                                                "amount",
+                                                $$v
+                                              )
+                                            },
+                                            expression: "editedSparepart.amount"
+                                          }
+                                        })
+                                      : _vm._e()
+                                  ],
+                                  1
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "td",
+                                  {
+                                    attrs: {
+                                      colspan: _vm.sparepartheaders[3].length
+                                    }
+                                  },
+                                  [
+                                    _vm.addsparepart
+                                      ? _c("v-text-field", {
+                                          attrs: {
+                                            label: "Harga Beli",
+                                            "error-messages": _vm.priceErrors,
+                                            required: ""
+                                          },
+                                          on: {
+                                            change: function($event) {
+                                              return _vm.$v.editedSparepart.price.$touch()
+                                            },
+                                            blur: function($event) {
+                                              return _vm.$v.editedSparepart.price.$touch()
+                                            }
+                                          },
+                                          model: {
+                                            value: _vm.editedSparepart.price,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                _vm.editedSparepart,
+                                                "price",
+                                                $$v
+                                              )
+                                            },
+                                            expression: "editedSparepart.price"
+                                          }
+                                        })
+                                      : _vm._e()
+                                  ],
+                                  1
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "td",
+                                  {
+                                    staticClass: "justify-center layout px-0",
+                                    attrs: {
+                                      colspan: _vm.sparepartheaders[4].length
+                                    }
+                                  },
+                                  [
+                                    !_vm.addsparepart
+                                      ? _c(
+                                          "v-icon",
+                                          {
+                                            staticClass: "mr-2",
+                                            attrs: {
+                                              small: "",
+                                              disabled: _vm.detailMode == true
+                                            },
+                                            on: {
+                                              click: function($event) {
+                                                _vm.addsparepart = true
+                                              }
+                                            }
+                                          },
+                                          [
+                                            _vm._v(
+                                              "\n                        add\n                    "
+                                            )
+                                          ]
+                                        )
+                                      : _vm._e(),
+                                    _vm._v(" "),
+                                    _vm.addsparepart
+                                      ? _c(
+                                          "v-icon",
+                                          {
+                                            staticClass: "mr-2",
+                                            attrs: {
+                                              small: "",
+                                              disabled:
+                                                _vm.$v.editedSparepart.$invalid
+                                            },
+                                            on: {
+                                              click: function($event) {
+                                                return _vm.sparepartAdd()
+                                              }
+                                            }
+                                          },
+                                          [
+                                            _vm._v(
+                                              "\n                        done\n                    "
+                                            )
+                                          ]
+                                        )
+                                      : _vm._e(),
+                                    _vm._v(" "),
+                                    _vm.addsparepart
+                                      ? _c(
+                                          "v-icon",
+                                          {
+                                            staticClass: "mr-2",
+                                            attrs: { small: "" },
+                                            on: {
+                                              click: function($event) {
+                                                return _vm.sparepartAddClose()
+                                              }
+                                            }
+                                          },
+                                          [
+                                            _vm._v(
+                                              "\n                        close\n                    "
+                                            )
+                                          ]
+                                        )
+                                      : _vm._e()
+                                  ],
+                                  1
+                                )
+                              ]
+                            },
+                            proxy: true
+                          }
+                        ])
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "v-card-actions",
+                    [
+                      _c("v-spacer"),
+                      _vm._v(" "),
+                      _c(
+                        "v-btn",
+                        {
+                          attrs: { color: "blue darken-1", flat: "" },
+                          on: {
+                            click: function($event) {
+                              return _vm.close()
+                            }
+                          }
+                        },
+                        [_vm._v("Batal")]
+                      ),
+                      _vm._v(" "),
+                      _vm.verifMode == true && _vm.detailMode == false
+                        ? _c(
+                            "v-btn",
+                            {
+                              attrs: { color: "blue darken-1", flat: "" },
+                              on: { click: _vm.verifyprocurement }
+                            },
+                            [_vm._v("Verifikasi")]
+                          )
+                        : _vm.editedIndex != -1 && _vm.detailMode == false
+                        ? _c(
+                            "v-btn",
+                            {
+                              attrs: { color: "blue darken-1", flat: "" },
+                              on: { click: _vm.updateprocurement }
+                            },
+                            [_vm._v("Simpan")]
+                          )
+                        : _vm.editedIndex == -1 && _vm.detailMode == false
+                        ? _c(
+                            "v-btn",
+                            {
+                              attrs: {
+                                color: "blue darken-1",
+                                disabled: _vm.$v.editedItem.$invalid,
+                                flat: ""
+                              },
+                              on: { click: _vm.addprocurement }
+                            },
+                            [_vm._v("Tambah")]
+                          )
+                        : _vm._e()
+                    ],
+                    1
+                  )
+                ],
+                1
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "v-dialog",
+            {
+              attrs: { "max-width": "500px" },
+              model: {
+                value: _vm.delDialog,
+                callback: function($$v) {
+                  _vm.delDialog = $$v
+                },
+                expression: "delDialog"
+              }
+            },
+            [
+              _c(
+                "v-card",
+                [
+                  _c("v-card-title", [
+                    _c("span", { staticClass: "headline" }, [
+                      _vm._v("Hapus Pengadaan Sparepart")
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("v-card-text", [
+                    _c("h3", { staticClass: "text-sm-center" }, [
+                      _vm._v("Apakah Anda yakin akan menghapus data ini ?")
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "v-card-actions",
+                    [
+                      _c("v-spacer"),
+                      _vm._v(" "),
+                      _c(
+                        "v-btn",
+                        {
+                          attrs: { color: "blue darken-1", flat: "" },
+                          on: {
+                            click: function($event) {
+                              return _vm.deleteprocurement()
+                            }
+                          }
+                        },
+                        [_vm._v("Ya")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "v-btn",
+                        {
+                          attrs: { color: "blue darken-1", flat: "" },
+                          on: {
+                            click: function($event) {
+                              return _vm.close()
+                            }
+                          }
+                        },
+                        [_vm._v("Tidak")]
+                      ),
+                      _vm._v(" "),
+                      _c("v-spacer")
+                    ],
+                    1
+                  )
+                ],
+                1
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c("v-spacer"),
+          _vm._v(" "),
+          _c(
+            "v-flex",
+            { attrs: { xs4: "", sm4: "", md4: "" } },
+            [
+              _c("v-text-field", {
+                attrs: {
+                  "append-icon": "search",
+                  label: "Cari",
+                  "single-line": "",
+                  "hide-details": ""
+                },
+                model: {
+                  value: _vm.search,
+                  callback: function($$v) {
+                    _vm.search = $$v
+                  },
+                  expression: "search"
+                }
+              })
+            ],
+            1
+          )
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _vm.loading || _vm.error
+        ? _c(
+            "VCardText",
+            { staticClass: "text-xs-center" },
+            [
+              _vm.error
+                ? _c(
+                    "VAlert",
+                    { attrs: { type: "error", dismissible: "", value: true } },
+                    [
+                      _vm._v(
+                        "\n          " +
+                          _vm._s(_vm.error.message) +
+                          "\n        "
+                      )
+                    ]
+                  )
+                : _vm._e(),
+              _vm._v(" "),
+              _c("VProgressCircular", {
+                staticClass: "loading-section",
+                attrs: { size: 45, indeterminate: "" }
+              })
+            ],
+            1
+          )
+        : _vm._e(),
+      _vm._v(" "),
+      _vm.initprocurement
+        ? _c(
+            "v-data-table",
+            {
+              staticClass: "elevation-1",
+              attrs: {
+                headers: _vm.headers,
+                items: _vm.initprocurement,
+                search: _vm.search
+              },
+              scopedSlots: _vm._u(
+                [
+                  {
+                    key: "items",
+                    fn: function(props) {
+                      return [
+                        _c("td", [_vm._v(_vm._s(props.index + 1))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(props.item.date_procurement))]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-xs-center" }, [
+                          _vm._v(_vm._s(props.item.name_supplier))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-xs-center" }, [
+                          _vm._v(_vm._s(props.item.status_procurement))
+                        ]),
+                        _vm._v(" "),
+                        _c(
+                          "td",
+                          { staticClass: "text-xs-center" },
+                          [
+                            props.item.status_procurement == "Finish"
+                              ? _c(
+                                  "v-btn",
+                                  {
+                                    staticStyle: {
+                                      "text-transform": "none !important"
+                                    },
+                                    attrs: {
+                                      depressed: "",
+                                      small: "",
+                                      color: "success",
+                                      dark: ""
+                                    },
+                                    on: {
+                                      click: function($event) {
+                                        return _vm.detailItem(props.item)
+                                      }
+                                    }
+                                  },
+                                  [
+                                    _vm._v(
+                                      "\n                Detail\n              "
+                                    )
+                                  ]
+                                )
+                              : _c(
+                                  "v-btn",
+                                  {
+                                    staticStyle: {
+                                      "text-transform": "none !important"
+                                    },
+                                    attrs: {
+                                      depressed: "",
+                                      small: "",
+                                      color: "primary",
+                                      dark: ""
+                                    },
+                                    on: {
+                                      click: function($event) {
+                                        return _vm.verifyItem(props.item)
+                                      }
+                                    }
+                                  },
+                                  [
+                                    _vm._v(
+                                      "\n                Verif\n              "
+                                    )
+                                  ]
+                                )
+                          ],
+                          1
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "td",
+                          { staticClass: "justify-center layout px-0" },
+                          [
+                            _c(
+                              "v-icon",
+                              {
+                                staticClass: "mr-2",
+                                attrs: {
+                                  small: "",
+                                  disabled:
+                                    props.item.status_procurement == "Finish" ||
+                                    props.item.status_procurement ==
+                                      "On Process"
+                                },
+                                on: {
+                                  click: function($event) {
+                                    return _vm.editItem(props.item)
+                                  }
+                                }
+                              },
+                              [_vm._v("\n              edit\n          ")]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "v-icon",
+                              {
+                                staticClass: "mr-2",
+                                attrs: { small: "" },
+                                on: {
+                                  click: function($event) {
+                                    return _vm.deleteItem(props.item)
+                                  }
+                                }
+                              },
+                              [_vm._v("\n              delete\n          ")]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "v-icon",
+                              {
+                                attrs: { small: "" },
+                                on: {
+                                  click: function($event) {
+                                    return _vm.deleteItem(props.item)
+                                  }
+                                }
+                              },
+                              [_vm._v("\n              print\n          ")]
+                            )
+                          ],
+                          1
+                        )
+                      ]
+                    }
+                  }
+                ],
+                null,
+                false,
+                2561179671
+              )
+            },
+            [
+              _vm._v(" "),
+              _c("v-alert", {
+                attrs: { value: true, color: "error", icon: "warning" },
+                scopedSlots: _vm._u(
+                  [
+                    {
+                      key: "no-results",
+                      fn: function() {
+                        return [
+                          _vm._v(
+                            '\n          Pencarian untuk "' +
+                              _vm._s(_vm.search) +
+                              '" tidak ditemukan.\n      '
+                          )
+                        ]
+                      },
+                      proxy: true
+                    }
+                  ],
+                  null,
+                  false,
+                  1552886665
+                )
+              })
+            ],
+            1
+          )
+        : _vm._e(),
+      _vm._v(" "),
+      _vm.alert.type
+        ? _c(
+            "v-snackbar",
+            {
+              attrs: {
+                right: "",
+                bottom: "",
+                color: _vm.alert.type,
+                value: "true"
+              }
+            },
+            [
+              _c("v-icon", [_vm._v(_vm._s(_vm.alert.icon))]),
+              _vm._v(_vm._s(_vm.alert.message) + "\n    ")
+            ],
+            1
+          )
+        : _vm._e()
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Admin/AdminSales.vue?vue&type=template&id=52a98470&":
 /*!*******************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Admin/AdminSales.vue?vue&type=template&id=52a98470& ***!
@@ -13259,6 +23710,108 @@ var render = function() {
             1
           ),
           _vm._v(" "),
+          _c(
+            "v-dialog",
+            {
+              attrs: { "max-width": "1000px" },
+              model: {
+                value: _vm.compatibilityDialog,
+                callback: function($$v) {
+                  _vm.compatibilityDialog = $$v
+                },
+                expression: "compatibilityDialog"
+              }
+            },
+            [
+              _c(
+                "v-card",
+                [
+                  _c("v-card-title", [
+                    _c("span", { staticClass: "headline" }, [
+                      _vm._v("Kecocokan Motor")
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "v-card-text",
+                    [
+                      _c(
+                        "v-container",
+                        { attrs: { "grid-list-md": "" } },
+                        [
+                          _c(
+                            "v-layout",
+                            { attrs: { wrap: "" } },
+                            _vm._l(_vm.motortypes, function(tipe) {
+                              return _c(
+                                "v-flex",
+                                {
+                                  key: tipe.id,
+                                  attrs: { xs12: "", sm3: "", md3: "" }
+                                },
+                                [
+                                  _c("v-checkbox", {
+                                    attrs: {
+                                      label: tipe.brand.name + " " + tipe.name,
+                                      value: tipe.id
+                                    },
+                                    model: {
+                                      value: _vm.compatibility,
+                                      callback: function($$v) {
+                                        _vm.compatibility = $$v
+                                      },
+                                      expression: "compatibility"
+                                    }
+                                  })
+                                ],
+                                1
+                              )
+                            }),
+                            1
+                          )
+                        ],
+                        1
+                      )
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "v-card-actions",
+                    [
+                      _c("v-spacer"),
+                      _vm._v(" "),
+                      _c(
+                        "v-btn",
+                        {
+                          attrs: { color: "blue darken-1", flat: "" },
+                          on: { click: _vm.close }
+                        },
+                        [_vm._v("Batal")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "v-btn",
+                        {
+                          attrs: { color: "blue darken-1", flat: "" },
+                          on: {
+                            click: function($event) {
+                              return _vm.updatecompatibility()
+                            }
+                          }
+                        },
+                        [_vm._v("Simpan")]
+                      )
+                    ],
+                    1
+                  )
+                ],
+                1
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
           _c("v-spacer"),
           _vm._v(" "),
           _c(
@@ -13350,6 +23903,32 @@ var render = function() {
                   _c("td", { staticClass: "text-xs-left" }, [
                     _vm._v(_vm._s(props.item.stock))
                   ]),
+                  _vm._v(" "),
+                  _c(
+                    "td",
+                    { staticClass: "text-xs-center" },
+                    [
+                      _c(
+                        "v-btn",
+                        {
+                          staticStyle: { "text-transform": "none !important" },
+                          attrs: {
+                            depressed: "",
+                            small: "",
+                            color: "grey",
+                            dark: ""
+                          },
+                          on: {
+                            click: function($event) {
+                              return _vm.showCompatibility(props.item)
+                            }
+                          }
+                        },
+                        [_vm._v("\n                Lihat\n              ")]
+                      )
+                    ],
+                    1
+                  ),
                   _vm._v(" "),
                   _c(
                     "td",
@@ -14016,6 +24595,2952 @@ var render = function() {
         ],
         1
       ),
+      _vm._v(" "),
+      _vm.alert.type
+        ? _c(
+            "v-snackbar",
+            {
+              attrs: {
+                right: "",
+                bottom: "",
+                color: _vm.alert.type,
+                value: "true"
+              }
+            },
+            [
+              _c("v-icon", [_vm._v(_vm._s(_vm.alert.icon))]),
+              _vm._v(_vm._s(_vm.alert.message) + "\n    ")
+            ],
+            1
+          )
+        : _vm._e()
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Admin/AdminTransaction.vue?vue&type=template&id=526ee39a&":
+/*!*************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Admin/AdminTransaction.vue?vue&type=template&id=526ee39a& ***!
+  \*************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    [
+      _c(
+        "v-toolbar",
+        { attrs: { flat: "", color: "white" } },
+        [
+          _c("v-toolbar-title", [_vm._v("MANAJEMEN TRANSAKSI PENJUALAN")]),
+          _vm._v(" "),
+          _c("v-divider", {
+            staticClass: "mx-2",
+            attrs: { inset: "", vertical: "" }
+          }),
+          _vm._v(" "),
+          _c(
+            "v-dialog",
+            {
+              attrs: {
+                fullscreen: "",
+                "hide-overlay": "",
+                transition: "dialog-bottom-transition",
+                "max-width": "1200px"
+              },
+              scopedSlots: _vm._u([
+                {
+                  key: "activator",
+                  fn: function(ref) {
+                    var on = ref.on
+                    return [
+                      _c(
+                        "v-btn",
+                        _vm._g(
+                          {
+                            staticClass: "mb-2",
+                            attrs: { color: "primary", dark: "" }
+                          },
+                          on
+                        ),
+                        [_vm._v("Tambah")]
+                      )
+                    ]
+                  }
+                }
+              ]),
+              model: {
+                value: _vm.dialog,
+                callback: function($$v) {
+                  _vm.dialog = $$v
+                },
+                expression: "dialog"
+              }
+            },
+            [
+              _vm._v(" "),
+              _c(
+                "v-card",
+                [
+                  _c(
+                    "v-toolbar",
+                    { attrs: { dark: "", color: _vm.$root.themeColor } },
+                    [
+                      _c(
+                        "v-btn",
+                        {
+                          attrs: { icon: "", dark: "" },
+                          on: {
+                            click: function($event) {
+                              _vm.dialog = false
+                            }
+                          }
+                        },
+                        [_c("v-icon", [_vm._v("close")])],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c("v-toolbar-title", [_vm._v(_vm._s(_vm.formTitle))]),
+                      _vm._v(" "),
+                      _c("v-spacer"),
+                      _vm._v(" "),
+                      _vm.detailMode != true
+                        ? _c(
+                            "v-toolbar-items",
+                            [
+                              _vm.editedIndex != -1
+                                ? _c(
+                                    "v-btn",
+                                    {
+                                      attrs: { dark: "", flat: "" },
+                                      on: {
+                                        click: function($event) {
+                                          return _vm.updatetransaction()
+                                        }
+                                      }
+                                    },
+                                    [_vm._v("Simpan")]
+                                  )
+                                : _c(
+                                    "v-btn",
+                                    {
+                                      attrs: { dark: "", flat: "" },
+                                      on: {
+                                        click: function($event) {
+                                          return _vm.addtransaction()
+                                        }
+                                      }
+                                    },
+                                    [_vm._v("Tambah")]
+                                  )
+                            ],
+                            1
+                          )
+                        : _vm._e()
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("br"),
+                  _vm._v(" "),
+                  _c("hr"),
+                  _vm._v(" "),
+                  _c(
+                    "v-layout",
+                    { attrs: { row: "", wrap: "" } },
+                    [
+                      _c(
+                        "v-card",
+                        { attrs: { width: "100%" } },
+                        [
+                          _c(
+                            "v-layout",
+                            { attrs: { row: "", wrap: "" } },
+                            [
+                              _c(
+                                "v-flex",
+                                { attrs: { sm3: "" } },
+                                [
+                                  _c(
+                                    "v-card",
+                                    { attrs: { height: "100%" } },
+                                    [
+                                      _c(
+                                        "v-card-title",
+                                        {
+                                          staticClass:
+                                            "theme--light justify-center"
+                                        },
+                                        [
+                                          _c(
+                                            "span",
+                                            { staticClass: "headline" },
+                                            [_vm._v("Data Pelanggan")]
+                                          )
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "v-card-text",
+                                        [
+                                          _c(
+                                            "v-container",
+                                            { attrs: { "grid-list-md": "" } },
+                                            [
+                                              _vm.setcustomer
+                                                ? _c(
+                                                    "v-layout",
+                                                    { attrs: { wrap: "" } },
+                                                    [
+                                                      _vm.editedIndex == -1
+                                                        ? _c(
+                                                            "v-flex",
+                                                            {
+                                                              attrs: { xs6: "" }
+                                                            },
+                                                            [
+                                                              _c("v-checkbox", {
+                                                                attrs: {
+                                                                  label:
+                                                                    "Pelanggan Baru"
+                                                                },
+                                                                on: {
+                                                                  change: function(
+                                                                    $event
+                                                                  ) {
+                                                                    return _vm.customerHandler()
+                                                                  }
+                                                                },
+                                                                model: {
+                                                                  value:
+                                                                    _vm.newCustomer,
+                                                                  callback: function(
+                                                                    $$v
+                                                                  ) {
+                                                                    _vm.newCustomer = $$v
+                                                                  },
+                                                                  expression:
+                                                                    "newCustomer"
+                                                                }
+                                                              })
+                                                            ],
+                                                            1
+                                                          )
+                                                        : _vm._e(),
+                                                      _vm._v(" "),
+                                                      _vm.editedIndex == -1 &&
+                                                      _vm.newCustomer == true &&
+                                                      this.editedCustomer.id ==
+                                                        ""
+                                                        ? _c(
+                                                            "v-flex",
+                                                            {
+                                                              staticStyle: {
+                                                                "margin-top":
+                                                                  "16px"
+                                                              },
+                                                              attrs: { xs6: "" }
+                                                            },
+                                                            [
+                                                              _c(
+                                                                "v-btn",
+                                                                {
+                                                                  staticStyle: {
+                                                                    "text-transform":
+                                                                      "none !important"
+                                                                  },
+                                                                  attrs: {
+                                                                    small: "",
+                                                                    block: "",
+                                                                    color:
+                                                                      "primary",
+                                                                    disabled:
+                                                                      _vm.$v
+                                                                        .editedCustomer
+                                                                        .$invalid
+                                                                  },
+                                                                  on: {
+                                                                    click: function(
+                                                                      $event
+                                                                    ) {
+                                                                      return _vm.addcustomer()
+                                                                    }
+                                                                  }
+                                                                },
+                                                                [
+                                                                  _vm._v(
+                                                                    "\n                                    Daftar\n                                "
+                                                                  )
+                                                                ]
+                                                              )
+                                                            ],
+                                                            1
+                                                          )
+                                                        : _vm._e(),
+                                                      _vm._v(" "),
+                                                      _c(
+                                                        "v-flex",
+                                                        { attrs: { xs12: "" } },
+                                                        [
+                                                          this.newCustomer ==
+                                                          false
+                                                            ? _c("v-select", {
+                                                                attrs: {
+                                                                  items:
+                                                                    _vm.initcustomer,
+                                                                  "item-text":
+                                                                    "name",
+                                                                  "item-value":
+                                                                    "id",
+                                                                  label:
+                                                                    "Nama Pelanggan",
+                                                                  required: "",
+                                                                  "prepend-inner-icon":
+                                                                    "fa fa-user"
+                                                                },
+                                                                model: {
+                                                                  value:
+                                                                    _vm
+                                                                      .editedItem
+                                                                      .id_customer,
+                                                                  callback: function(
+                                                                    $$v
+                                                                  ) {
+                                                                    _vm.$set(
+                                                                      _vm.editedItem,
+                                                                      "id_customer",
+                                                                      $$v
+                                                                    )
+                                                                  },
+                                                                  expression:
+                                                                    "editedItem.id_customer"
+                                                                }
+                                                              })
+                                                            : this
+                                                                .newCustomer ==
+                                                              true
+                                                            ? _c(
+                                                                "v-text-field",
+                                                                {
+                                                                  attrs: {
+                                                                    label:
+                                                                      "Nama",
+                                                                    counter: 25,
+                                                                    "error-messages":
+                                                                      _vm.nameErrors,
+                                                                    required:
+                                                                      "",
+                                                                    "prepend-inner-icon":
+                                                                      "fa fa-user"
+                                                                  },
+                                                                  on: {
+                                                                    input: function(
+                                                                      $event
+                                                                    ) {
+                                                                      return _vm.$v.editedCustomer.name.$touch()
+                                                                    },
+                                                                    blur: function(
+                                                                      $event
+                                                                    ) {
+                                                                      return _vm.$v.editedCustomer.name.$touch()
+                                                                    }
+                                                                  },
+                                                                  model: {
+                                                                    value:
+                                                                      _vm
+                                                                        .editedCustomer
+                                                                        .name,
+                                                                    callback: function(
+                                                                      $$v
+                                                                    ) {
+                                                                      _vm.$set(
+                                                                        _vm.editedCustomer,
+                                                                        "name",
+                                                                        $$v
+                                                                      )
+                                                                    },
+                                                                    expression:
+                                                                      "editedCustomer.name"
+                                                                  }
+                                                                }
+                                                              )
+                                                            : _vm._e()
+                                                        ],
+                                                        1
+                                                      ),
+                                                      _vm._v(" "),
+                                                      _c(
+                                                        "v-flex",
+                                                        { attrs: { xs12: "" } },
+                                                        [
+                                                          _c("v-text-field", {
+                                                            attrs: {
+                                                              label:
+                                                                "Nomor Telepon",
+                                                              counter: 12,
+                                                              disabled:
+                                                                _vm.newCustomer ==
+                                                                false,
+                                                              "error-messages":
+                                                                _vm.phoneErrors,
+                                                              required: "",
+                                                              "prepend-inner-icon":
+                                                                "fa fa-phone"
+                                                            },
+                                                            on: {
+                                                              input: function(
+                                                                $event
+                                                              ) {
+                                                                return _vm.$v.editedCustomer.phone_number.$touch()
+                                                              },
+                                                              blur: function(
+                                                                $event
+                                                              ) {
+                                                                return _vm.$v.editedCustomer.phone_number.$touch()
+                                                              }
+                                                            },
+                                                            model: {
+                                                              value:
+                                                                _vm
+                                                                  .editedCustomer
+                                                                  .phone_number,
+                                                              callback: function(
+                                                                $$v
+                                                              ) {
+                                                                _vm.$set(
+                                                                  _vm.editedCustomer,
+                                                                  "phone_number",
+                                                                  $$v
+                                                                )
+                                                              },
+                                                              expression:
+                                                                "editedCustomer.phone_number"
+                                                            }
+                                                          })
+                                                        ],
+                                                        1
+                                                      ),
+                                                      _vm._v(" "),
+                                                      _c(
+                                                        "v-flex",
+                                                        { attrs: { xs12: "" } },
+                                                        [
+                                                          _c("v-text-field", {
+                                                            attrs: {
+                                                              label: "Alamat",
+                                                              counter: 100,
+                                                              disabled:
+                                                                _vm.newCustomer ==
+                                                                false,
+                                                              "error-messages":
+                                                                _vm.addressErrors,
+                                                              required: "",
+                                                              "prepend-inner-icon":
+                                                                "fas fa-map-marker-alt"
+                                                            },
+                                                            on: {
+                                                              input: function(
+                                                                $event
+                                                              ) {
+                                                                return _vm.$v.editedCustomer.address.$touch()
+                                                              },
+                                                              blur: function(
+                                                                $event
+                                                              ) {
+                                                                return _vm.$v.editedCustomer.address.$touch()
+                                                              }
+                                                            },
+                                                            model: {
+                                                              value:
+                                                                _vm
+                                                                  .editedCustomer
+                                                                  .address,
+                                                              callback: function(
+                                                                $$v
+                                                              ) {
+                                                                _vm.$set(
+                                                                  _vm.editedCustomer,
+                                                                  "address",
+                                                                  $$v
+                                                                )
+                                                              },
+                                                              expression:
+                                                                "editedCustomer.address"
+                                                            }
+                                                          })
+                                                        ],
+                                                        1
+                                                      )
+                                                    ],
+                                                    1
+                                                  )
+                                                : _vm._e()
+                                            ],
+                                            1
+                                          )
+                                        ],
+                                        1
+                                      )
+                                    ],
+                                    1
+                                  )
+                                ],
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "v-flex",
+                                { attrs: { sm6: "" } },
+                                [
+                                  _c(
+                                    "v-card",
+                                    { attrs: { height: "100%" } },
+                                    [
+                                      _c(
+                                        "v-card-title",
+                                        {
+                                          staticClass:
+                                            "theme--light justify-center"
+                                        },
+                                        [
+                                          _c(
+                                            "span",
+                                            { staticClass: "headline" },
+                                            [_vm._v("Motor Pelanggan")]
+                                          )
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "v-card-text",
+                                        [
+                                          _c("v-data-table", {
+                                            attrs: {
+                                              headers: _vm.motorheaders,
+                                              "rows-per-page-items": [3],
+                                              items: _vm.initmotorcustomer
+                                            },
+                                            scopedSlots: _vm._u([
+                                              {
+                                                key: "items",
+                                                fn: function(props) {
+                                                  return [
+                                                    _vm.selectedMotor.id !=
+                                                      props.item.id ||
+                                                    _vm.addmotor ||
+                                                    props.item.id == ""
+                                                      ? _c("td", [
+                                                          _vm._v(
+                                                            _vm._s(
+                                                              props.item.plate
+                                                            )
+                                                          )
+                                                        ])
+                                                      : _c(
+                                                          "td",
+                                                          [
+                                                            _c("v-text-field", {
+                                                              attrs: {
+                                                                label:
+                                                                  "Nomor Plat",
+                                                                "single-line":
+                                                                  "",
+                                                                counter: "",
+                                                                required: ""
+                                                              },
+                                                              model: {
+                                                                value:
+                                                                  _vm
+                                                                    .editedMotor
+                                                                    .plate,
+                                                                callback: function(
+                                                                  $$v
+                                                                ) {
+                                                                  _vm.$set(
+                                                                    _vm.editedMotor,
+                                                                    "plate",
+                                                                    $$v
+                                                                  )
+                                                                },
+                                                                expression:
+                                                                  "editedMotor.plate"
+                                                              }
+                                                            })
+                                                          ],
+                                                          1
+                                                        ),
+                                                    _vm._v(" "),
+                                                    _vm.selectedMotor.id !=
+                                                      props.item.id ||
+                                                    _vm.addmotor
+                                                      ? _c(
+                                                          "td",
+                                                          {
+                                                            staticClass:
+                                                              "text-xs-center"
+                                                          },
+                                                          [
+                                                            _vm._v(
+                                                              _vm._s(
+                                                                props.item.brand
+                                                              )
+                                                            )
+                                                          ]
+                                                        )
+                                                      : _c(
+                                                          "td",
+                                                          [
+                                                            _c("v-select", {
+                                                              attrs: {
+                                                                items:
+                                                                  _vm.initmotorbrand,
+                                                                "item-text":
+                                                                  "name",
+                                                                "item-value":
+                                                                  "name",
+                                                                label: "Brand",
+                                                                required: ""
+                                                              },
+                                                              model: {
+                                                                value:
+                                                                  _vm
+                                                                    .editedMotor
+                                                                    .brand,
+                                                                callback: function(
+                                                                  $$v
+                                                                ) {
+                                                                  _vm.$set(
+                                                                    _vm.editedMotor,
+                                                                    "brand",
+                                                                    $$v
+                                                                  )
+                                                                },
+                                                                expression:
+                                                                  "editedMotor.brand"
+                                                              }
+                                                            })
+                                                          ],
+                                                          1
+                                                        ),
+                                                    _vm._v(" "),
+                                                    _vm.selectedMotor.id !=
+                                                      props.item.id ||
+                                                    _vm.addmotor
+                                                      ? _c(
+                                                          "td",
+                                                          {
+                                                            staticClass:
+                                                              "text-xs-center"
+                                                          },
+                                                          [
+                                                            _vm._v(
+                                                              _vm._s(
+                                                                props.item.type
+                                                              )
+                                                            )
+                                                          ]
+                                                        )
+                                                      : _c(
+                                                          "td",
+                                                          [
+                                                            _c("v-select", {
+                                                              attrs: {
+                                                                items:
+                                                                  _vm.initmotortype,
+                                                                "item-text":
+                                                                  "name",
+                                                                "item-value":
+                                                                  "name",
+                                                                label: "Tipe",
+                                                                required: ""
+                                                              },
+                                                              model: {
+                                                                value:
+                                                                  _vm
+                                                                    .editedMotor
+                                                                    .type,
+                                                                callback: function(
+                                                                  $$v
+                                                                ) {
+                                                                  _vm.$set(
+                                                                    _vm.editedMotor,
+                                                                    "type",
+                                                                    $$v
+                                                                  )
+                                                                },
+                                                                expression:
+                                                                  "editedMotor.type"
+                                                              }
+                                                            })
+                                                          ],
+                                                          1
+                                                        ),
+                                                    _vm._v(" "),
+                                                    _c(
+                                                      "td",
+                                                      {
+                                                        staticClass:
+                                                          "justify-center layout px-0"
+                                                      },
+                                                      [
+                                                        _vm.selectedMotor.id !=
+                                                          props.item.id ||
+                                                        _vm.addmotor
+                                                          ? _c(
+                                                              "v-icon",
+                                                              {
+                                                                staticClass:
+                                                                  "mr-2",
+                                                                attrs: {
+                                                                  small: ""
+                                                                },
+                                                                on: {
+                                                                  click: function(
+                                                                    $event
+                                                                  ) {
+                                                                    return _vm.motorEdit(
+                                                                      props.item
+                                                                    )
+                                                                  }
+                                                                }
+                                                              },
+                                                              [
+                                                                _vm._v(
+                                                                  "\n                                    edit\n                                "
+                                                                )
+                                                              ]
+                                                            )
+                                                          : _c(
+                                                              "v-icon",
+                                                              {
+                                                                staticClass:
+                                                                  "mr-2",
+                                                                attrs: {
+                                                                  small: ""
+                                                                },
+                                                                on: {
+                                                                  click: function(
+                                                                    $event
+                                                                  ) {
+                                                                    return _vm.updatemotorcycle()
+                                                                  }
+                                                                }
+                                                              },
+                                                              [
+                                                                _vm._v(
+                                                                  "\n                                    done\n                                "
+                                                                )
+                                                              ]
+                                                            ),
+                                                        _vm._v(" "),
+                                                        _vm.selectedMotor.id !=
+                                                          props.item.id ||
+                                                        _vm.addmotor
+                                                          ? _c(
+                                                              "v-icon",
+                                                              {
+                                                                attrs: {
+                                                                  small: ""
+                                                                },
+                                                                on: {
+                                                                  click: function(
+                                                                    $event
+                                                                  ) {
+                                                                    return _vm.motorDelete(
+                                                                      props.item
+                                                                    )
+                                                                  }
+                                                                }
+                                                              },
+                                                              [
+                                                                _vm._v(
+                                                                  "\n                                    delete\n                                "
+                                                                )
+                                                              ]
+                                                            )
+                                                          : _c(
+                                                              "v-icon",
+                                                              {
+                                                                staticClass:
+                                                                  "mr-2",
+                                                                attrs: {
+                                                                  small: ""
+                                                                },
+                                                                on: {
+                                                                  click: function(
+                                                                    $event
+                                                                  ) {
+                                                                    return _vm.motorEditClose()
+                                                                  }
+                                                                }
+                                                              },
+                                                              [
+                                                                _vm._v(
+                                                                  "\n                                    close\n                                "
+                                                                )
+                                                              ]
+                                                            )
+                                                      ],
+                                                      1
+                                                    )
+                                                  ]
+                                                }
+                                              },
+                                              {
+                                                key: "footer",
+                                                fn: function() {
+                                                  return [
+                                                    _c(
+                                                      "td",
+                                                      {
+                                                        attrs: {
+                                                          colspan:
+                                                            _vm.motorheaders
+                                                              .length - 1
+                                                        }
+                                                      },
+                                                      [
+                                                        _c(
+                                                          "v-form",
+                                                          {
+                                                            staticClass: "mt-2",
+                                                            attrs: {
+                                                              "pr-2": ""
+                                                            }
+                                                          },
+                                                          [
+                                                            _c(
+                                                              "v-layout",
+                                                              [
+                                                                _vm.addmotor
+                                                                  ? _c(
+                                                                      "v-flex",
+                                                                      {
+                                                                        attrs: {
+                                                                          sm4:
+                                                                            "",
+                                                                          "pr-2":
+                                                                            ""
+                                                                        }
+                                                                      },
+                                                                      [
+                                                                        _vm.addmotor
+                                                                          ? _c(
+                                                                              "v-text-field",
+                                                                              {
+                                                                                attrs: {
+                                                                                  label:
+                                                                                    "Nomor Plat",
+                                                                                  "single-line":
+                                                                                    "",
+                                                                                  counter:
+                                                                                    "",
+                                                                                  required:
+                                                                                    ""
+                                                                                },
+                                                                                model: {
+                                                                                  value:
+                                                                                    _vm
+                                                                                      .editedMotor
+                                                                                      .plate,
+                                                                                  callback: function(
+                                                                                    $$v
+                                                                                  ) {
+                                                                                    _vm.$set(
+                                                                                      _vm.editedMotor,
+                                                                                      "plate",
+                                                                                      $$v
+                                                                                    )
+                                                                                  },
+                                                                                  expression:
+                                                                                    "editedMotor.plate"
+                                                                                }
+                                                                              }
+                                                                            )
+                                                                          : _vm._e()
+                                                                      ],
+                                                                      1
+                                                                    )
+                                                                  : _vm._e(),
+                                                                _vm._v(" "),
+                                                                _vm.addmotor
+                                                                  ? _c(
+                                                                      "v-flex",
+                                                                      {
+                                                                        attrs: {
+                                                                          sm4:
+                                                                            "",
+                                                                          "pr-2":
+                                                                            ""
+                                                                        }
+                                                                      },
+                                                                      [
+                                                                        _vm.addmotor
+                                                                          ? _c(
+                                                                              "v-select",
+                                                                              {
+                                                                                attrs: {
+                                                                                  items:
+                                                                                    _vm.initmotorbrand,
+                                                                                  "item-text":
+                                                                                    "name",
+                                                                                  "item-value":
+                                                                                    "name",
+                                                                                  label:
+                                                                                    "Brand",
+                                                                                  required:
+                                                                                    ""
+                                                                                },
+                                                                                model: {
+                                                                                  value:
+                                                                                    _vm
+                                                                                      .editedMotor
+                                                                                      .brand,
+                                                                                  callback: function(
+                                                                                    $$v
+                                                                                  ) {
+                                                                                    _vm.$set(
+                                                                                      _vm.editedMotor,
+                                                                                      "brand",
+                                                                                      $$v
+                                                                                    )
+                                                                                  },
+                                                                                  expression:
+                                                                                    "editedMotor.brand"
+                                                                                }
+                                                                              }
+                                                                            )
+                                                                          : _vm._e()
+                                                                      ],
+                                                                      1
+                                                                    )
+                                                                  : _vm._e(),
+                                                                _vm._v(" "),
+                                                                _vm.addmotor
+                                                                  ? _c(
+                                                                      "v-flex",
+                                                                      {
+                                                                        attrs: {
+                                                                          sm4:
+                                                                            "",
+                                                                          "pr-2":
+                                                                            ""
+                                                                        }
+                                                                      },
+                                                                      [
+                                                                        _vm.addmotor
+                                                                          ? _c(
+                                                                              "v-select",
+                                                                              {
+                                                                                attrs: {
+                                                                                  items:
+                                                                                    _vm.initmotortype,
+                                                                                  "item-text":
+                                                                                    "name",
+                                                                                  "item-value":
+                                                                                    "name",
+                                                                                  label:
+                                                                                    "Tipe",
+                                                                                  required:
+                                                                                    ""
+                                                                                },
+                                                                                model: {
+                                                                                  value:
+                                                                                    _vm
+                                                                                      .editedMotor
+                                                                                      .type,
+                                                                                  callback: function(
+                                                                                    $$v
+                                                                                  ) {
+                                                                                    _vm.$set(
+                                                                                      _vm.editedMotor,
+                                                                                      "type",
+                                                                                      $$v
+                                                                                    )
+                                                                                  },
+                                                                                  expression:
+                                                                                    "editedMotor.type"
+                                                                                }
+                                                                              }
+                                                                            )
+                                                                          : _vm._e()
+                                                                      ],
+                                                                      1
+                                                                    )
+                                                                  : _vm._e()
+                                                              ],
+                                                              1
+                                                            )
+                                                          ],
+                                                          1
+                                                        )
+                                                      ],
+                                                      1
+                                                    ),
+                                                    _vm._v(" "),
+                                                    _c(
+                                                      "td",
+                                                      {
+                                                        staticClass:
+                                                          "justify-center layout px-0",
+                                                        attrs: {
+                                                          colspan:
+                                                            _vm.motorheaders[3]
+                                                              .length
+                                                        }
+                                                      },
+                                                      [
+                                                        !_vm.addmotor &&
+                                                        _vm.editedCustomer.id !=
+                                                          ""
+                                                          ? _c(
+                                                              "v-icon",
+                                                              {
+                                                                staticClass:
+                                                                  "mr-2",
+                                                                attrs: {
+                                                                  small: ""
+                                                                },
+                                                                on: {
+                                                                  click: function(
+                                                                    $event
+                                                                  ) {
+                                                                    _vm.addmotor = true
+                                                                  }
+                                                                }
+                                                              },
+                                                              [
+                                                                _vm._v(
+                                                                  "\n                                    add\n                                "
+                                                                )
+                                                              ]
+                                                            )
+                                                          : _vm._e(),
+                                                        _vm._v(" "),
+                                                        _vm.addmotor
+                                                          ? _c(
+                                                              "v-icon",
+                                                              {
+                                                                staticClass:
+                                                                  "mr-2",
+                                                                attrs: {
+                                                                  small: ""
+                                                                },
+                                                                on: {
+                                                                  click: function(
+                                                                    $event
+                                                                  ) {
+                                                                    return _vm.addmotorcycle()
+                                                                  }
+                                                                }
+                                                              },
+                                                              [
+                                                                _vm._v(
+                                                                  "\n                                    done\n                                "
+                                                                )
+                                                              ]
+                                                            )
+                                                          : _vm._e(),
+                                                        _vm._v(" "),
+                                                        _vm.addmotor
+                                                          ? _c(
+                                                              "v-icon",
+                                                              {
+                                                                staticClass:
+                                                                  "mr-2",
+                                                                attrs: {
+                                                                  small: ""
+                                                                },
+                                                                on: {
+                                                                  click: function(
+                                                                    $event
+                                                                  ) {
+                                                                    return _vm.motorAddClose()
+                                                                  }
+                                                                }
+                                                              },
+                                                              [
+                                                                _vm._v(
+                                                                  "\n                                    close\n                                "
+                                                                )
+                                                              ]
+                                                            )
+                                                          : _vm._e()
+                                                      ],
+                                                      1
+                                                    )
+                                                  ]
+                                                },
+                                                proxy: true
+                                              }
+                                            ])
+                                          })
+                                        ],
+                                        1
+                                      ),
+                                      _vm._v(" "),
+                                      _c("br")
+                                    ],
+                                    1
+                                  )
+                                ],
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "v-flex",
+                                { attrs: { sm3: "" } },
+                                [
+                                  _c(
+                                    "v-card",
+                                    { attrs: { height: "100%" } },
+                                    [
+                                      _c(
+                                        "v-card-title",
+                                        {
+                                          staticClass:
+                                            "theme--light justify-center"
+                                        },
+                                        [
+                                          _c(
+                                            "span",
+                                            { staticClass: "headline" },
+                                            [_vm._v("Jenis Transaksi")]
+                                          )
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "v-card-text",
+                                        [
+                                          _c(
+                                            "v-container",
+                                            { attrs: { "grid-list-md": "" } },
+                                            [
+                                              _c(
+                                                "v-layout",
+                                                { attrs: { wrap: "" } },
+                                                [
+                                                  _c(
+                                                    "v-flex",
+                                                    [
+                                                      _c("v-select", {
+                                                        attrs: {
+                                                          items:
+                                                            _vm.dropdown_tipe,
+                                                          "item-text": "text",
+                                                          "item-value": "id",
+                                                          label: "Transaksi",
+                                                          required: "",
+                                                          disabled:
+                                                            _vm.detailMode ==
+                                                              true ||
+                                                            _vm.editedCustomer
+                                                              .id == "",
+                                                          "prepend-inner-icon":
+                                                            "fas fa-flag"
+                                                        },
+                                                        model: {
+                                                          value:
+                                                            _vm.editedItem
+                                                              .type_transaction,
+                                                          callback: function(
+                                                            $$v
+                                                          ) {
+                                                            _vm.$set(
+                                                              _vm.editedItem,
+                                                              "type_transaction",
+                                                              $$v
+                                                            )
+                                                          },
+                                                          expression:
+                                                            "editedItem.type_transaction"
+                                                        }
+                                                      })
+                                                    ],
+                                                    1
+                                                  )
+                                                ],
+                                                1
+                                              )
+                                            ],
+                                            1
+                                          )
+                                        ],
+                                        1
+                                      ),
+                                      _vm._v(" "),
+                                      _c("hr"),
+                                      _vm._v(" "),
+                                      _c(
+                                        "v-card-title",
+                                        {
+                                          staticClass:
+                                            "theme--light justify-center"
+                                        },
+                                        [
+                                          _c(
+                                            "span",
+                                            { staticClass: "headline" },
+                                            [_vm._v("Status Transaksi")]
+                                          )
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "v-card-text",
+                                        [
+                                          _c(
+                                            "v-container",
+                                            { attrs: { "grid-list-md": "" } },
+                                            [
+                                              _c(
+                                                "v-layout",
+                                                { attrs: { wrap: "" } },
+                                                [
+                                                  _c(
+                                                    "v-flex",
+                                                    [
+                                                      _c("v-select", {
+                                                        attrs: {
+                                                          items:
+                                                            _vm.dropdown_status,
+                                                          "item-text": "text",
+                                                          "item-value": "text",
+                                                          label: "Status",
+                                                          required: "",
+                                                          disabled:
+                                                            _vm.detailMode ==
+                                                            true,
+                                                          "prepend-inner-icon":
+                                                            "fas fa-flag"
+                                                        },
+                                                        model: {
+                                                          value:
+                                                            _vm.editedItem
+                                                              .status_process,
+                                                          callback: function(
+                                                            $$v
+                                                          ) {
+                                                            _vm.$set(
+                                                              _vm.editedItem,
+                                                              "status_process",
+                                                              $$v
+                                                            )
+                                                          },
+                                                          expression:
+                                                            "editedItem.status_process"
+                                                        }
+                                                      })
+                                                    ],
+                                                    1
+                                                  )
+                                                ],
+                                                1
+                                              )
+                                            ],
+                                            1
+                                          )
+                                        ],
+                                        1
+                                      )
+                                    ],
+                                    1
+                                  )
+                                ],
+                                1
+                              )
+                            ],
+                            1
+                          )
+                        ],
+                        1
+                      )
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _vm.editedItem.type_transaction == "Sparepart" ||
+                  _vm.editedItem.type_transaction == "Sparepart dan Service"
+                    ? _c(
+                        "v-layout",
+                        { attrs: { row: "", wrap: "" } },
+                        [
+                          _c("br"),
+                          _vm._v(" "),
+                          _c("hr"),
+                          _vm._v(" "),
+                          _c(
+                            "v-flex",
+                            { attrs: { sm12: "" } },
+                            [
+                              _c(
+                                "v-card",
+                                [
+                                  _c(
+                                    "v-card-title",
+                                    {
+                                      staticClass: "theme--light justify-center"
+                                    },
+                                    [
+                                      _c("span", { staticClass: "headline" }, [
+                                        _vm._v("Sparepart")
+                                      ])
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "v-card-text",
+                                    [
+                                      _c("v-data-table", {
+                                        attrs: {
+                                          headers: _vm.sparepartheaders,
+                                          "rows-per-page-items": [3],
+                                          items: _vm.editedItem.sparepart.data
+                                        },
+                                        scopedSlots: _vm._u(
+                                          [
+                                            {
+                                              key: "items",
+                                              fn: function(props) {
+                                                return [
+                                                  _c("td", [
+                                                    _vm._v(
+                                                      _vm._s(
+                                                        props.item
+                                                          .brand_sparepart
+                                                      )
+                                                    )
+                                                  ]),
+                                                  _vm._v(" "),
+                                                  _vm.editedItem.sparepart.data[
+                                                    _vm.sparepartIndex
+                                                  ] != props.item ||
+                                                  _vm.addsparepart
+                                                    ? _c(
+                                                        "td",
+                                                        {
+                                                          staticClass:
+                                                            "text-xs-center"
+                                                        },
+                                                        [
+                                                          _vm._v(
+                                                            _vm._s(
+                                                              props.item
+                                                                .name_sparepart
+                                                            )
+                                                          )
+                                                        ]
+                                                      )
+                                                    : _c(
+                                                        "td",
+                                                        [
+                                                          _c("v-select", {
+                                                            attrs: {
+                                                              items:
+                                                                _vm.initsparepart,
+                                                              "item-text":
+                                                                "name",
+                                                              "item-value":
+                                                                "id",
+                                                              label:
+                                                                "Sparepart",
+                                                              required: ""
+                                                            },
+                                                            model: {
+                                                              value:
+                                                                _vm
+                                                                  .editedSparepart
+                                                                  .id_sparepart,
+                                                              callback: function(
+                                                                $$v
+                                                              ) {
+                                                                _vm.$set(
+                                                                  _vm.editedSparepart,
+                                                                  "id_sparepart",
+                                                                  $$v
+                                                                )
+                                                              },
+                                                              expression:
+                                                                "editedSparepart.id_sparepart"
+                                                            }
+                                                          })
+                                                        ],
+                                                        1
+                                                      ),
+                                                  _vm._v(" "),
+                                                  _c(
+                                                    "td",
+                                                    {
+                                                      staticClass:
+                                                        "text-xs-center"
+                                                    },
+                                                    [
+                                                      _vm._v(
+                                                        _vm._s(
+                                                          props.item
+                                                            .price_transaction_sparepart
+                                                        )
+                                                      )
+                                                    ]
+                                                  ),
+                                                  _vm._v(" "),
+                                                  _vm.editedItem.sparepart.data[
+                                                    _vm.sparepartIndex
+                                                  ] != props.item ||
+                                                  _vm.addsparepart
+                                                    ? _c(
+                                                        "td",
+                                                        {
+                                                          staticClass:
+                                                            "text-xs-center"
+                                                        },
+                                                        [
+                                                          _vm._v(
+                                                            _vm._s(
+                                                              props.item
+                                                                .amount_transaction_sparepart
+                                                            )
+                                                          )
+                                                        ]
+                                                      )
+                                                    : _c(
+                                                        "td",
+                                                        [
+                                                          _c("v-text-field", {
+                                                            attrs: {
+                                                              label: "Jumlah",
+                                                              required: ""
+                                                            },
+                                                            model: {
+                                                              value:
+                                                                _vm
+                                                                  .editedSparepart
+                                                                  .amount_transaction_sparepart,
+                                                              callback: function(
+                                                                $$v
+                                                              ) {
+                                                                _vm.$set(
+                                                                  _vm.editedSparepart,
+                                                                  "amount_transaction_sparepart",
+                                                                  $$v
+                                                                )
+                                                              },
+                                                              expression:
+                                                                "editedSparepart.amount_transaction_sparepart"
+                                                            }
+                                                          })
+                                                        ],
+                                                        1
+                                                      ),
+                                                  _vm._v(" "),
+                                                  _vm.editedItem.sparepart.data[
+                                                    _vm.sparepartIndex
+                                                  ] != props.item ||
+                                                  _vm.addsparepart
+                                                    ? _c(
+                                                        "td",
+                                                        {
+                                                          staticClass:
+                                                            "text-xs-center"
+                                                        },
+                                                        [
+                                                          _vm._v(
+                                                            _vm._s(
+                                                              props.item
+                                                                .plate_number
+                                                            )
+                                                          )
+                                                        ]
+                                                      )
+                                                    : _c(
+                                                        "td",
+                                                        [
+                                                          _c("v-select", {
+                                                            attrs: {
+                                                              items:
+                                                                _vm.initmotorcustomer,
+                                                              "item-text":
+                                                                "plate",
+                                                              "item-value":
+                                                                "id",
+                                                              label: "Motor",
+                                                              required: ""
+                                                            },
+                                                            model: {
+                                                              value:
+                                                                _vm
+                                                                  .editedSparepart
+                                                                  .id_motorcycle,
+                                                              callback: function(
+                                                                $$v
+                                                              ) {
+                                                                _vm.$set(
+                                                                  _vm.editedSparepart,
+                                                                  "id_motorcycle",
+                                                                  $$v
+                                                                )
+                                                              },
+                                                              expression:
+                                                                "editedSparepart.id_motorcycle"
+                                                            }
+                                                          })
+                                                        ],
+                                                        1
+                                                      ),
+                                                  _vm._v(" "),
+                                                  _vm.editedItem.sparepart.data[
+                                                    _vm.sparepartIndex
+                                                  ] != props.item ||
+                                                  _vm.addsparepart
+                                                    ? _c(
+                                                        "td",
+                                                        {
+                                                          staticClass:
+                                                            "text-xs-center"
+                                                        },
+                                                        [
+                                                          _vm._v(
+                                                            _vm._s(
+                                                              props.item
+                                                                .mechanic_name
+                                                            )
+                                                          )
+                                                        ]
+                                                      )
+                                                    : _c(
+                                                        "td",
+                                                        [
+                                                          _c("v-select", {
+                                                            attrs: {
+                                                              items:
+                                                                _vm.initmechanic,
+                                                              "item-text":
+                                                                "name",
+                                                              "item-value":
+                                                                "id",
+                                                              label: "Montir",
+                                                              required: ""
+                                                            },
+                                                            model: {
+                                                              value:
+                                                                _vm
+                                                                  .editedSparepart
+                                                                  .id_employee,
+                                                              callback: function(
+                                                                $$v
+                                                              ) {
+                                                                _vm.$set(
+                                                                  _vm.editedSparepart,
+                                                                  "id_employee",
+                                                                  $$v
+                                                                )
+                                                              },
+                                                              expression:
+                                                                "editedSparepart.id_employee"
+                                                            }
+                                                          })
+                                                        ],
+                                                        1
+                                                      ),
+                                                  _vm._v(" "),
+                                                  _c(
+                                                    "td",
+                                                    {
+                                                      staticClass:
+                                                        "text-xs-center"
+                                                    },
+                                                    [
+                                                      _vm._v(
+                                                        _vm._s(
+                                                          props.item
+                                                            .subtotal_transaction_sparepart
+                                                        )
+                                                      )
+                                                    ]
+                                                  ),
+                                                  _vm._v(" "),
+                                                  _c(
+                                                    "td",
+                                                    {
+                                                      staticClass:
+                                                        "justify-center layout px-0"
+                                                    },
+                                                    [
+                                                      _vm.editedItem.sparepart
+                                                        .data[
+                                                        _vm.sparepartIndex
+                                                      ] != props.item ||
+                                                      _vm.addsparepart
+                                                        ? _c(
+                                                            "v-icon",
+                                                            {
+                                                              staticClass:
+                                                                "mr-2",
+                                                              attrs: {
+                                                                small: ""
+                                                              },
+                                                              on: {
+                                                                click: function(
+                                                                  $event
+                                                                ) {
+                                                                  return _vm.sparepartEdit(
+                                                                    props.item
+                                                                  )
+                                                                }
+                                                              }
+                                                            },
+                                                            [
+                                                              _vm._v(
+                                                                "\n                                        edit\n                                    "
+                                                              )
+                                                            ]
+                                                          )
+                                                        : _c(
+                                                            "v-icon",
+                                                            {
+                                                              staticClass:
+                                                                "mr-2",
+                                                              attrs: {
+                                                                small: ""
+                                                              },
+                                                              on: {
+                                                                click: function(
+                                                                  $event
+                                                                ) {
+                                                                  _vm.sparepartDone() +
+                                                                    _vm.countTotal
+                                                                }
+                                                              }
+                                                            },
+                                                            [
+                                                              _vm._v(
+                                                                "\n                                        done\n                                    "
+                                                              )
+                                                            ]
+                                                          ),
+                                                      _vm._v(" "),
+                                                      _vm.editedItem.sparepart
+                                                        .data[
+                                                        _vm.sparepartIndex
+                                                      ] != props.item ||
+                                                      _vm.addsparepart
+                                                        ? _c(
+                                                            "v-icon",
+                                                            {
+                                                              attrs: {
+                                                                small: ""
+                                                              },
+                                                              on: {
+                                                                click: function(
+                                                                  $event
+                                                                ) {
+                                                                  return _vm.sparepartDelete(
+                                                                    props.item
+                                                                  )
+                                                                }
+                                                              }
+                                                            },
+                                                            [
+                                                              _vm._v(
+                                                                "\n                                        delete\n                                    "
+                                                              )
+                                                            ]
+                                                          )
+                                                        : _c(
+                                                            "v-icon",
+                                                            {
+                                                              staticClass:
+                                                                "mr-2",
+                                                              attrs: {
+                                                                small: ""
+                                                              },
+                                                              on: {
+                                                                click: function(
+                                                                  $event
+                                                                ) {
+                                                                  return _vm.sparepartEditClose()
+                                                                }
+                                                              }
+                                                            },
+                                                            [
+                                                              _vm._v(
+                                                                "\n                                        close\n                                    "
+                                                              )
+                                                            ]
+                                                          )
+                                                    ],
+                                                    1
+                                                  )
+                                                ]
+                                              }
+                                            },
+                                            {
+                                              key: "footer",
+                                              fn: function() {
+                                                return [
+                                                  _c(
+                                                    "td",
+                                                    {
+                                                      attrs: {
+                                                        colspan:
+                                                          _vm.sparepartheaders
+                                                            .length - 1
+                                                      }
+                                                    },
+                                                    [
+                                                      _c(
+                                                        "v-form",
+                                                        {
+                                                          staticClass: "mt-2",
+                                                          attrs: { "pr-2": "" }
+                                                        },
+                                                        [
+                                                          _c(
+                                                            "v-layout",
+                                                            [
+                                                              _vm.addsparepart
+                                                                ? _c(
+                                                                    "v-flex",
+                                                                    {
+                                                                      attrs: {
+                                                                        sm3: "",
+                                                                        "pr-2":
+                                                                          ""
+                                                                      }
+                                                                    },
+                                                                    [
+                                                                      _c(
+                                                                        "v-select",
+                                                                        {
+                                                                          attrs: {
+                                                                            items:
+                                                                              _vm.initsparepart,
+                                                                            "item-text":
+                                                                              "name",
+                                                                            "item-value":
+                                                                              "id",
+                                                                            label:
+                                                                              "Sparepart",
+                                                                            required:
+                                                                              ""
+                                                                          },
+                                                                          model: {
+                                                                            value:
+                                                                              _vm
+                                                                                .editedSparepart
+                                                                                .id_sparepart,
+                                                                            callback: function(
+                                                                              $$v
+                                                                            ) {
+                                                                              _vm.$set(
+                                                                                _vm.editedSparepart,
+                                                                                "id_sparepart",
+                                                                                $$v
+                                                                              )
+                                                                            },
+                                                                            expression:
+                                                                              "editedSparepart.id_sparepart"
+                                                                          }
+                                                                        }
+                                                                      )
+                                                                    ],
+                                                                    1
+                                                                  )
+                                                                : _vm._e(),
+                                                              _vm._v(" "),
+                                                              _vm.addsparepart
+                                                                ? _c(
+                                                                    "v-flex",
+                                                                    {
+                                                                      attrs: {
+                                                                        sm3: "",
+                                                                        "pr-2":
+                                                                          ""
+                                                                      }
+                                                                    },
+                                                                    [
+                                                                      _c(
+                                                                        "v-text-field",
+                                                                        {
+                                                                          attrs: {
+                                                                            label:
+                                                                              "Jumlah",
+                                                                            required:
+                                                                              ""
+                                                                          },
+                                                                          model: {
+                                                                            value:
+                                                                              _vm
+                                                                                .editedSparepart
+                                                                                .amount_transaction_sparepart,
+                                                                            callback: function(
+                                                                              $$v
+                                                                            ) {
+                                                                              _vm.$set(
+                                                                                _vm.editedSparepart,
+                                                                                "amount_transaction_sparepart",
+                                                                                $$v
+                                                                              )
+                                                                            },
+                                                                            expression:
+                                                                              "editedSparepart.amount_transaction_sparepart"
+                                                                          }
+                                                                        }
+                                                                      )
+                                                                    ],
+                                                                    1
+                                                                  )
+                                                                : _vm._e(),
+                                                              _vm._v(" "),
+                                                              _vm.addsparepart
+                                                                ? _c(
+                                                                    "v-flex",
+                                                                    {
+                                                                      attrs: {
+                                                                        sm3: "",
+                                                                        "pr-2":
+                                                                          ""
+                                                                      }
+                                                                    },
+                                                                    [
+                                                                      _c(
+                                                                        "v-select",
+                                                                        {
+                                                                          attrs: {
+                                                                            items:
+                                                                              _vm.initmotorcustomer,
+                                                                            "item-text":
+                                                                              "plate",
+                                                                            "item-value":
+                                                                              "id",
+                                                                            label:
+                                                                              "Motor",
+                                                                            required:
+                                                                              ""
+                                                                          },
+                                                                          model: {
+                                                                            value:
+                                                                              _vm
+                                                                                .editedSparepart
+                                                                                .id_motorcycle,
+                                                                            callback: function(
+                                                                              $$v
+                                                                            ) {
+                                                                              _vm.$set(
+                                                                                _vm.editedSparepart,
+                                                                                "id_motorcycle",
+                                                                                $$v
+                                                                              )
+                                                                            },
+                                                                            expression:
+                                                                              "editedSparepart.id_motorcycle"
+                                                                          }
+                                                                        }
+                                                                      )
+                                                                    ],
+                                                                    1
+                                                                  )
+                                                                : _vm._e(),
+                                                              _vm._v(" "),
+                                                              _vm.addsparepart
+                                                                ? _c(
+                                                                    "v-flex",
+                                                                    {
+                                                                      attrs: {
+                                                                        sm3: "",
+                                                                        "pr-2":
+                                                                          ""
+                                                                      }
+                                                                    },
+                                                                    [
+                                                                      _c(
+                                                                        "v-select",
+                                                                        {
+                                                                          attrs: {
+                                                                            items:
+                                                                              _vm.initmechanic,
+                                                                            "item-text":
+                                                                              "name",
+                                                                            "item-value":
+                                                                              "id",
+                                                                            label:
+                                                                              "Montir",
+                                                                            required:
+                                                                              ""
+                                                                          },
+                                                                          model: {
+                                                                            value:
+                                                                              _vm
+                                                                                .editedSparepart
+                                                                                .id_employee,
+                                                                            callback: function(
+                                                                              $$v
+                                                                            ) {
+                                                                              _vm.$set(
+                                                                                _vm.editedSparepart,
+                                                                                "id_employee",
+                                                                                $$v
+                                                                              )
+                                                                            },
+                                                                            expression:
+                                                                              "editedSparepart.id_employee"
+                                                                          }
+                                                                        }
+                                                                      )
+                                                                    ],
+                                                                    1
+                                                                  )
+                                                                : _vm._e()
+                                                            ],
+                                                            1
+                                                          )
+                                                        ],
+                                                        1
+                                                      )
+                                                    ],
+                                                    1
+                                                  ),
+                                                  _vm._v(" "),
+                                                  _c(
+                                                    "td",
+                                                    {
+                                                      staticClass:
+                                                        "justify-center layout px-0",
+                                                      attrs: {
+                                                        colspan:
+                                                          _vm
+                                                            .sparepartheaders[7]
+                                                            .length
+                                                      }
+                                                    },
+                                                    [
+                                                      !_vm.addsparepart
+                                                        ? _c(
+                                                            "v-icon",
+                                                            {
+                                                              staticClass:
+                                                                "mr-2",
+                                                              attrs: {
+                                                                small: ""
+                                                              },
+                                                              on: {
+                                                                click: function(
+                                                                  $event
+                                                                ) {
+                                                                  _vm.addsparepart = true
+                                                                }
+                                                              }
+                                                            },
+                                                            [
+                                                              _vm._v(
+                                                                "\n                                        add\n                                    "
+                                                              )
+                                                            ]
+                                                          )
+                                                        : _vm._e(),
+                                                      _vm._v(" "),
+                                                      _vm.addsparepart
+                                                        ? _c(
+                                                            "v-icon",
+                                                            {
+                                                              staticClass:
+                                                                "mr-2",
+                                                              attrs: {
+                                                                small: ""
+                                                              },
+                                                              on: {
+                                                                click: function(
+                                                                  $event
+                                                                ) {
+                                                                  _vm.sparepartAdd() +
+                                                                    _vm.countTotal
+                                                                }
+                                                              }
+                                                            },
+                                                            [
+                                                              _vm._v(
+                                                                "\n                                        done\n                                    "
+                                                              )
+                                                            ]
+                                                          )
+                                                        : _vm._e(),
+                                                      _vm._v(" "),
+                                                      _vm.addsparepart
+                                                        ? _c(
+                                                            "v-icon",
+                                                            {
+                                                              staticClass:
+                                                                "mr-2",
+                                                              attrs: {
+                                                                small: ""
+                                                              },
+                                                              on: {
+                                                                click: function(
+                                                                  $event
+                                                                ) {
+                                                                  return _vm.sparepartAddClose()
+                                                                }
+                                                              }
+                                                            },
+                                                            [
+                                                              _vm._v(
+                                                                "\n                                        close\n                                    "
+                                                              )
+                                                            ]
+                                                          )
+                                                        : _vm._e()
+                                                    ],
+                                                    1
+                                                  )
+                                                ]
+                                              },
+                                              proxy: true
+                                            }
+                                          ],
+                                          null,
+                                          false,
+                                          574902964
+                                        )
+                                      })
+                                    ],
+                                    1
+                                  )
+                                ],
+                                1
+                              )
+                            ],
+                            1
+                          )
+                        ],
+                        1
+                      )
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _vm.editedItem.type_transaction == "Service" ||
+                  _vm.editedItem.type_transaction == "Sparepart dan Service"
+                    ? _c(
+                        "v-layout",
+                        { attrs: { row: "", wrap: "" } },
+                        [
+                          _c("br"),
+                          _vm._v(" "),
+                          _c("hr"),
+                          _vm._v(" "),
+                          _c(
+                            "v-flex",
+                            { attrs: { sm12: "" } },
+                            [
+                              _c(
+                                "v-card",
+                                [
+                                  _c(
+                                    "v-card-title",
+                                    {
+                                      staticClass: "theme--light justify-center"
+                                    },
+                                    [
+                                      _c("span", { staticClass: "headline" }, [
+                                        _vm._v("Jasa Service")
+                                      ])
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "v-card-text",
+                                    [
+                                      _c("v-data-table", {
+                                        attrs: {
+                                          headers: _vm.serviceheaders,
+                                          "rows-per-page-items": [3],
+                                          items: _vm.editedItem.service.data
+                                        },
+                                        scopedSlots: _vm._u(
+                                          [
+                                            {
+                                              key: "items",
+                                              fn: function(props) {
+                                                return [
+                                                  _vm.editedItem.service.data[
+                                                    _vm.serviceIndex
+                                                  ] != props.item ||
+                                                  _vm.addservice
+                                                    ? _c("td", [
+                                                        _vm._v(
+                                                          _vm._s(
+                                                            props.item
+                                                              .service_name
+                                                          )
+                                                        )
+                                                      ])
+                                                    : _c(
+                                                        "td",
+                                                        [
+                                                          _c("v-select", {
+                                                            attrs: {
+                                                              items:
+                                                                _vm.initservice,
+                                                              "item-text":
+                                                                "name_service",
+                                                              "item-value":
+                                                                "id_service",
+                                                              label:
+                                                                "Jasa Service",
+                                                              required: ""
+                                                            },
+                                                            model: {
+                                                              value:
+                                                                _vm
+                                                                  .editedService
+                                                                  .id_service,
+                                                              callback: function(
+                                                                $$v
+                                                              ) {
+                                                                _vm.$set(
+                                                                  _vm.editedService,
+                                                                  "id_service",
+                                                                  $$v
+                                                                )
+                                                              },
+                                                              expression:
+                                                                "editedService.id_service"
+                                                            }
+                                                          })
+                                                        ],
+                                                        1
+                                                      ),
+                                                  _vm._v(" "),
+                                                  _vm.editedItem.service.data[
+                                                    _vm.serviceIndex
+                                                  ] != props.item ||
+                                                  _vm.addservice
+                                                    ? _c(
+                                                        "td",
+                                                        {
+                                                          staticClass:
+                                                            "text-xs-center"
+                                                        },
+                                                        [
+                                                          _vm._v(
+                                                            _vm._s(
+                                                              props.item
+                                                                .plate_number
+                                                            )
+                                                          )
+                                                        ]
+                                                      )
+                                                    : _c(
+                                                        "td",
+                                                        [
+                                                          _c("v-select", {
+                                                            attrs: {
+                                                              items:
+                                                                _vm.initmotorcustomer,
+                                                              "item-text":
+                                                                "plate",
+                                                              "item-value":
+                                                                "id",
+                                                              label: "Motor",
+                                                              required: ""
+                                                            },
+                                                            model: {
+                                                              value:
+                                                                _vm
+                                                                  .editedService
+                                                                  .id_motorcycle,
+                                                              callback: function(
+                                                                $$v
+                                                              ) {
+                                                                _vm.$set(
+                                                                  _vm.editedService,
+                                                                  "id_motorcycle",
+                                                                  $$v
+                                                                )
+                                                              },
+                                                              expression:
+                                                                "editedService.id_motorcycle"
+                                                            }
+                                                          })
+                                                        ],
+                                                        1
+                                                      ),
+                                                  _vm._v(" "),
+                                                  _vm.editedItem.service.data[
+                                                    _vm.serviceIndex
+                                                  ] != props.item ||
+                                                  _vm.addservice
+                                                    ? _c(
+                                                        "td",
+                                                        {
+                                                          staticClass:
+                                                            "text-xs-center"
+                                                        },
+                                                        [
+                                                          _vm._v(
+                                                            _vm._s(
+                                                              props.item
+                                                                .mechanic_name
+                                                            )
+                                                          )
+                                                        ]
+                                                      )
+                                                    : _c(
+                                                        "td",
+                                                        [
+                                                          _c("v-select", {
+                                                            attrs: {
+                                                              items:
+                                                                _vm.initmechanic,
+                                                              "item-text":
+                                                                "name",
+                                                              "item-value":
+                                                                "id",
+                                                              label: "Montir",
+                                                              required: ""
+                                                            },
+                                                            model: {
+                                                              value:
+                                                                _vm
+                                                                  .editedService
+                                                                  .id_employee,
+                                                              callback: function(
+                                                                $$v
+                                                              ) {
+                                                                _vm.$set(
+                                                                  _vm.editedService,
+                                                                  "id_employee",
+                                                                  $$v
+                                                                )
+                                                              },
+                                                              expression:
+                                                                "editedService.id_employee"
+                                                            }
+                                                          })
+                                                        ],
+                                                        1
+                                                      ),
+                                                  _vm._v(" "),
+                                                  _c(
+                                                    "td",
+                                                    {
+                                                      staticClass:
+                                                        "text-xs-center"
+                                                    },
+                                                    [
+                                                      _vm._v(
+                                                        _vm._s(
+                                                          props.item
+                                                            .price_transaction_service
+                                                        )
+                                                      )
+                                                    ]
+                                                  ),
+                                                  _vm._v(" "),
+                                                  _c(
+                                                    "td",
+                                                    {
+                                                      staticClass:
+                                                        "justify-center layout px-0"
+                                                    },
+                                                    [
+                                                      _vm.editedItem.service
+                                                        .data[
+                                                        _vm.serviceIndex
+                                                      ] != props.item ||
+                                                      _vm.addservice
+                                                        ? _c(
+                                                            "v-icon",
+                                                            {
+                                                              staticClass:
+                                                                "mr-2",
+                                                              attrs: {
+                                                                small: ""
+                                                              },
+                                                              on: {
+                                                                click: function(
+                                                                  $event
+                                                                ) {
+                                                                  return _vm.serviceEdit(
+                                                                    props.item
+                                                                  )
+                                                                }
+                                                              }
+                                                            },
+                                                            [
+                                                              _vm._v(
+                                                                "\n                                        edit\n                                    "
+                                                              )
+                                                            ]
+                                                          )
+                                                        : _c(
+                                                            "v-icon",
+                                                            {
+                                                              staticClass:
+                                                                "mr-2",
+                                                              attrs: {
+                                                                small: ""
+                                                              },
+                                                              on: {
+                                                                click: function(
+                                                                  $event
+                                                                ) {
+                                                                  _vm.serviceDone() +
+                                                                    _vm.countTotal
+                                                                }
+                                                              }
+                                                            },
+                                                            [
+                                                              _vm._v(
+                                                                "\n                                        done\n                                    "
+                                                              )
+                                                            ]
+                                                          ),
+                                                      _vm._v(" "),
+                                                      _vm.editedItem.service
+                                                        .data[
+                                                        _vm.serviceIndex
+                                                      ] != props.item ||
+                                                      _vm.addservice
+                                                        ? _c(
+                                                            "v-icon",
+                                                            {
+                                                              attrs: {
+                                                                small: ""
+                                                              },
+                                                              on: {
+                                                                click: function(
+                                                                  $event
+                                                                ) {
+                                                                  return _vm.serviceDelete(
+                                                                    props.item
+                                                                  )
+                                                                }
+                                                              }
+                                                            },
+                                                            [
+                                                              _vm._v(
+                                                                "\n                                        delete\n                                    "
+                                                              )
+                                                            ]
+                                                          )
+                                                        : _c(
+                                                            "v-icon",
+                                                            {
+                                                              staticClass:
+                                                                "mr-2",
+                                                              attrs: {
+                                                                small: ""
+                                                              },
+                                                              on: {
+                                                                click: function(
+                                                                  $event
+                                                                ) {
+                                                                  return _vm.serviceEditClose()
+                                                                }
+                                                              }
+                                                            },
+                                                            [
+                                                              _vm._v(
+                                                                "\n                                        close\n                                    "
+                                                              )
+                                                            ]
+                                                          )
+                                                    ],
+                                                    1
+                                                  )
+                                                ]
+                                              }
+                                            },
+                                            {
+                                              key: "footer",
+                                              fn: function() {
+                                                return [
+                                                  _c(
+                                                    "td",
+                                                    {
+                                                      attrs: {
+                                                        colspan:
+                                                          _vm.serviceheaders[0]
+                                                            .length
+                                                      }
+                                                    },
+                                                    [
+                                                      _vm.addservice
+                                                        ? _c("v-select", {
+                                                            attrs: {
+                                                              items:
+                                                                _vm.initservice,
+                                                              "item-text":
+                                                                "name_service",
+                                                              "item-value":
+                                                                "id_service",
+                                                              label:
+                                                                "Jasa Service",
+                                                              required: ""
+                                                            },
+                                                            model: {
+                                                              value:
+                                                                _vm
+                                                                  .editedService
+                                                                  .id_service,
+                                                              callback: function(
+                                                                $$v
+                                                              ) {
+                                                                _vm.$set(
+                                                                  _vm.editedService,
+                                                                  "id_service",
+                                                                  $$v
+                                                                )
+                                                              },
+                                                              expression:
+                                                                "editedService.id_service"
+                                                            }
+                                                          })
+                                                        : _vm._e()
+                                                    ],
+                                                    1
+                                                  ),
+                                                  _vm._v(" "),
+                                                  _c(
+                                                    "td",
+                                                    {
+                                                      attrs: {
+                                                        colspan:
+                                                          _vm.serviceheaders[1]
+                                                            .length
+                                                      }
+                                                    },
+                                                    [
+                                                      _vm.addservice
+                                                        ? _c("v-select", {
+                                                            attrs: {
+                                                              items:
+                                                                _vm.initmotorcustomer,
+                                                              "item-text":
+                                                                "plate",
+                                                              "item-value":
+                                                                "id",
+                                                              label: "Motor",
+                                                              required: ""
+                                                            },
+                                                            model: {
+                                                              value:
+                                                                _vm
+                                                                  .editedService
+                                                                  .id_motorcycle,
+                                                              callback: function(
+                                                                $$v
+                                                              ) {
+                                                                _vm.$set(
+                                                                  _vm.editedService,
+                                                                  "id_motorcycle",
+                                                                  $$v
+                                                                )
+                                                              },
+                                                              expression:
+                                                                "editedService.id_motorcycle"
+                                                            }
+                                                          })
+                                                        : _vm._e()
+                                                    ],
+                                                    1
+                                                  ),
+                                                  _vm._v(" "),
+                                                  _c(
+                                                    "td",
+                                                    {
+                                                      attrs: {
+                                                        colspan:
+                                                          _vm.serviceheaders[2]
+                                                            .length
+                                                      }
+                                                    },
+                                                    [
+                                                      _vm.addservice
+                                                        ? _c("v-select", {
+                                                            attrs: {
+                                                              items:
+                                                                _vm.initmechanic,
+                                                              "item-text":
+                                                                "name",
+                                                              "item-value":
+                                                                "id",
+                                                              label: "Montir",
+                                                              required: ""
+                                                            },
+                                                            model: {
+                                                              value:
+                                                                _vm
+                                                                  .editedService
+                                                                  .id_employee,
+                                                              callback: function(
+                                                                $$v
+                                                              ) {
+                                                                _vm.$set(
+                                                                  _vm.editedService,
+                                                                  "id_employee",
+                                                                  $$v
+                                                                )
+                                                              },
+                                                              expression:
+                                                                "editedService.id_employee"
+                                                            }
+                                                          })
+                                                        : _vm._e()
+                                                    ],
+                                                    1
+                                                  ),
+                                                  _vm._v(" "),
+                                                  _c("td", {
+                                                    attrs: {
+                                                      colspan:
+                                                        _vm.serviceheaders[3]
+                                                          .length
+                                                    }
+                                                  }),
+                                                  _vm._v(" "),
+                                                  _c(
+                                                    "td",
+                                                    {
+                                                      staticClass:
+                                                        "justify-center layout px-0",
+                                                      attrs: {
+                                                        colspan:
+                                                          _vm.serviceheaders[4]
+                                                            .length
+                                                      }
+                                                    },
+                                                    [
+                                                      !_vm.addservice
+                                                        ? _c(
+                                                            "v-icon",
+                                                            {
+                                                              staticClass:
+                                                                "mr-2",
+                                                              attrs: {
+                                                                small: ""
+                                                              },
+                                                              on: {
+                                                                click: function(
+                                                                  $event
+                                                                ) {
+                                                                  _vm.addservice = true
+                                                                }
+                                                              }
+                                                            },
+                                                            [
+                                                              _vm._v(
+                                                                "\n                                        add\n                                    "
+                                                              )
+                                                            ]
+                                                          )
+                                                        : _vm._e(),
+                                                      _vm._v(" "),
+                                                      _vm.addservice
+                                                        ? _c(
+                                                            "v-icon",
+                                                            {
+                                                              staticClass:
+                                                                "mr-2",
+                                                              attrs: {
+                                                                small: ""
+                                                              },
+                                                              on: {
+                                                                click: function(
+                                                                  $event
+                                                                ) {
+                                                                  _vm.serviceAdd() +
+                                                                    _vm.countTotal
+                                                                }
+                                                              }
+                                                            },
+                                                            [
+                                                              _vm._v(
+                                                                "\n                                        done\n                                    "
+                                                              )
+                                                            ]
+                                                          )
+                                                        : _vm._e(),
+                                                      _vm._v(" "),
+                                                      _vm.addservice
+                                                        ? _c(
+                                                            "v-icon",
+                                                            {
+                                                              staticClass:
+                                                                "mr-2",
+                                                              attrs: {
+                                                                small: ""
+                                                              },
+                                                              on: {
+                                                                click: function(
+                                                                  $event
+                                                                ) {
+                                                                  return _vm.serviceAddClose()
+                                                                }
+                                                              }
+                                                            },
+                                                            [
+                                                              _vm._v(
+                                                                "\n                                        close\n                                    "
+                                                              )
+                                                            ]
+                                                          )
+                                                        : _vm._e()
+                                                    ],
+                                                    1
+                                                  )
+                                                ]
+                                              },
+                                              proxy: true
+                                            }
+                                          ],
+                                          null,
+                                          false,
+                                          2434771728
+                                        )
+                                      })
+                                    ],
+                                    1
+                                  )
+                                ],
+                                1
+                              )
+                            ],
+                            1
+                          )
+                        ],
+                        1
+                      )
+                    : _vm._e()
+                ],
+                1
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "v-dialog",
+            {
+              attrs: { "max-width": "500px" },
+              model: {
+                value: _vm.delDialog,
+                callback: function($$v) {
+                  _vm.delDialog = $$v
+                },
+                expression: "delDialog"
+              }
+            },
+            [
+              _c(
+                "v-card",
+                [
+                  _c("v-card-title", [
+                    _c("span", { staticClass: "headline" }, [
+                      _vm._v("Hapus Transaksi Penjualan")
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("v-card-text", [
+                    _c("h3", { staticClass: "text-sm-center" }, [
+                      _vm._v("Apakah Anda yakin akan menghapus data ini ?")
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "v-card-actions",
+                    [
+                      _c("v-spacer"),
+                      _vm._v(" "),
+                      _c(
+                        "v-btn",
+                        {
+                          attrs: { color: "blue darken-1", flat: "" },
+                          on: {
+                            click: function($event) {
+                              return _vm.deletetransaction()
+                            }
+                          }
+                        },
+                        [_vm._v("Ya")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "v-btn",
+                        {
+                          attrs: { color: "blue darken-1", flat: "" },
+                          on: {
+                            click: function($event) {
+                              return _vm.close()
+                            }
+                          }
+                        },
+                        [_vm._v("Tidak")]
+                      ),
+                      _vm._v(" "),
+                      _c("v-spacer")
+                    ],
+                    1
+                  )
+                ],
+                1
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c("v-spacer"),
+          _vm._v(" "),
+          _c(
+            "v-flex",
+            { attrs: { xs4: "", sm4: "", md4: "" } },
+            [
+              _c("v-text-field", {
+                attrs: {
+                  "append-icon": "search",
+                  label: "Cari",
+                  "single-line": "",
+                  "hide-details": ""
+                },
+                model: {
+                  value: _vm.search,
+                  callback: function($$v) {
+                    _vm.search = $$v
+                  },
+                  expression: "search"
+                }
+              })
+            ],
+            1
+          )
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _vm.loading || _vm.error
+        ? _c(
+            "VCardText",
+            { staticClass: "text-xs-center" },
+            [
+              _vm.error
+                ? _c(
+                    "VAlert",
+                    { attrs: { type: "error", dismissible: "", value: true } },
+                    [
+                      _vm._v(
+                        "\n          " +
+                          _vm._s(_vm.error.message) +
+                          "\n        "
+                      )
+                    ]
+                  )
+                : _vm._e(),
+              _vm._v(" "),
+              _c("VProgressCircular", {
+                staticClass: "loading-section",
+                attrs: { size: 45, indeterminate: "" }
+              })
+            ],
+            1
+          )
+        : _vm._e(),
+      _vm._v(" "),
+      _vm.inittransaction
+        ? _c(
+            "v-data-table",
+            {
+              staticClass: "elevation-1",
+              attrs: {
+                headers: _vm.headers,
+                items: _vm.inittransaction,
+                search: _vm.search
+              },
+              scopedSlots: _vm._u(
+                [
+                  {
+                    key: "items",
+                    fn: function(props) {
+                      return [
+                        _c("td", [_vm._v(_vm._s(props.index + 1))]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-xs-center" }, [
+                          _vm._v(_vm._s(props.item.id_transaction))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-xs-center" }, [
+                          _vm._v(_vm._s(props.item.date_transaction))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-xs-center" }, [
+                          _vm._v(_vm._s(props.item.name_customer))
+                        ]),
+                        _vm._v(" "),
+                        _c(
+                          "td",
+                          { staticClass: "text-xs-center" },
+                          [
+                            props.item.status_process == "Unprocessed"
+                              ? _c(
+                                  "v-chip",
+                                  {
+                                    attrs: {
+                                      light: "",
+                                      color: "red",
+                                      "text-color": "white"
+                                    }
+                                  },
+                                  [_vm._v(_vm._s(props.item.status_process))]
+                                )
+                              : props.item.status_process == "On Process"
+                              ? _c(
+                                  "v-chip",
+                                  {
+                                    attrs: {
+                                      light: "",
+                                      color: "orange",
+                                      "text-color": "white"
+                                    }
+                                  },
+                                  [_vm._v(_vm._s(props.item.status_process))]
+                                )
+                              : _c(
+                                  "v-chip",
+                                  {
+                                    attrs: {
+                                      light: "",
+                                      color: "green",
+                                      "text-color": "white"
+                                    }
+                                  },
+                                  [_vm._v(_vm._s(props.item.status_process))]
+                                )
+                          ],
+                          1
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "td",
+                          { staticClass: "justify-center layout px-0" },
+                          [
+                            _c(
+                              "v-icon",
+                              {
+                                staticClass: "mr-2",
+                                attrs: { small: "" },
+                                on: {
+                                  click: function($event) {
+                                    return _vm.detailItem(props.item)
+                                  }
+                                }
+                              },
+                              [
+                                _vm._v(
+                                  "\n              remove_red_eye\n          "
+                                )
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "v-icon",
+                              {
+                                staticClass: "mr-2",
+                                attrs: {
+                                  small: "",
+                                  disabled:
+                                    props.item.status_process == "Finish" ||
+                                    props.item.status_process == "On Process"
+                                },
+                                on: {
+                                  click: function($event) {
+                                    return _vm.editItem(props.item)
+                                  }
+                                }
+                              },
+                              [_vm._v("\n              edit\n          ")]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "v-icon",
+                              {
+                                staticClass: "mr-2",
+                                attrs: { small: "" },
+                                on: {
+                                  click: function($event) {
+                                    return _vm.deleteItem(props.item)
+                                  }
+                                }
+                              },
+                              [_vm._v("\n              delete\n          ")]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "v-icon",
+                              {
+                                attrs: { small: "" },
+                                on: {
+                                  click: function($event) {
+                                    return _vm.deleteItem(props.item)
+                                  }
+                                }
+                              },
+                              [_vm._v("\n              print\n          ")]
+                            )
+                          ],
+                          1
+                        )
+                      ]
+                    }
+                  }
+                ],
+                null,
+                false,
+                1711916678
+              )
+            },
+            [
+              _vm._v(" "),
+              _c("v-alert", {
+                attrs: { value: true, color: "error", icon: "warning" },
+                scopedSlots: _vm._u(
+                  [
+                    {
+                      key: "no-results",
+                      fn: function() {
+                        return [
+                          _vm._v(
+                            '\n          Pencarian untuk "' +
+                              _vm._s(_vm.search) +
+                              '" tidak ditemukan.\n      '
+                          )
+                        ]
+                      },
+                      proxy: true
+                    }
+                  ],
+                  null,
+                  false,
+                  1552886665
+                )
+              })
+            ],
+            1
+          )
+        : _vm._e(),
       _vm._v(" "),
       _vm.alert.type
         ? _c(
@@ -14895,6 +28420,1134 @@ var render = function() {
               [
                 _c("v-icon", [_vm._v(_vm._s(_vm.alert.icon))]),
                 _vm._v(_vm._s(_vm.alert.message) + "\r\n  ")
+              ],
+              1
+            )
+          : _vm._e()
+      ],
+      1
+    )
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Customer/CustomerIndex.vue?vue&type=template&id=577f79ae&":
+/*!*************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Customer/CustomerIndex.vue?vue&type=template&id=577f79ae& ***!
+  \*************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("v-app", { attrs: { id: "inspire" } }, [
+    _c(
+      "div",
+      { staticClass: "application" },
+      [
+        _c(
+          "v-toolbar",
+          { attrs: { dark: "", app: "", color: _vm.$root.themeColor } },
+          [
+            _c(
+              "v-container",
+              { attrs: { "mx-auto": "", "py-0": "" } },
+              [
+                _c(
+                  "v-layout",
+                  [
+                    _c("v-img", {
+                      staticClass: "mr-3",
+                      attrs: {
+                        src: "http://localhost:8000/images/logo.png",
+                        contain: "",
+                        width: "36",
+                        "max-width": "36"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      {
+                        staticClass: "pt-2 center subheading font-weight-bold"
+                      },
+                      [_vm._v(" Sistem Informasi Bengkel Atma Auto")]
+                    )
+                  ],
+                  1
+                )
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "v-toolbar-items",
+              { staticClass: "hidden-sm-and-down" },
+              [
+                _c("v-btn", { attrs: { flat: "" } }, [_vm._v("Tentang")]),
+                _vm._v(" "),
+                _c("v-btn", { attrs: { flat: "" } }, [_vm._v("Cek Pemesanan")]),
+                _vm._v(" "),
+                _c("v-btn", { attrs: { flat: "" } }, [_vm._v("Sparepart")])
+              ],
+              1
+            )
+          ],
+          1
+        ),
+        _vm._v(" "),
+        _c(
+          "v-content",
+          [
+            _c(
+              "v-layout",
+              { attrs: { row: "", wrap: "" } },
+              [
+                _c(
+                  "v-flex",
+                  { staticClass: "MainBanner", attrs: { xs12: "" } },
+                  [
+                    _c(
+                      "v-card",
+                      { attrs: { dark: "" } },
+                      [
+                        _c(
+                          "v-img",
+                          {
+                            staticClass: "grey lighten-2",
+                            attrs: {
+                              height: "400",
+                              width: "100%",
+                              src: "http://localhost:8000/images/Banner.jpg"
+                            }
+                          },
+                          [
+                            _c(
+                              "v-layout",
+                              {
+                                attrs: {
+                                  "fill-height": "",
+                                  "align-center": "",
+                                  "pa-3": ""
+                                }
+                              },
+                              [
+                                _c(
+                                  "v-flex",
+                                  {
+                                    staticStyle: { "text-align": "center" },
+                                    attrs: { xs12: "" }
+                                  },
+                                  [
+                                    _c("img", {
+                                      attrs: {
+                                        src:
+                                          "http://localhost:8000/images/logo.png",
+                                        width: "100",
+                                        "max-width": "100"
+                                      }
+                                    }),
+                                    _vm._v(" "),
+                                    _c(
+                                      "h1",
+                                      {
+                                        staticClass:
+                                          "display-3 font-weight-light"
+                                      },
+                                      [
+                                        _vm._v(
+                                          "\r\n                                Bengkel Atma Auto\r\n                            "
+                                        )
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "div",
+                                      {
+                                        staticClass:
+                                          "subheading text-uppercase pl-2 mb-4"
+                                      },
+                                      [
+                                        _vm._v(
+                                          "\r\n                                The Art of Mechanism\r\n                            "
+                                        )
+                                      ]
+                                    )
+                                  ]
+                                )
+                              ],
+                              1
+                            )
+                          ],
+                          1
+                        )
+                      ],
+                      1
+                    )
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "v-flex",
+                  { attrs: { xs12: "" } },
+                  [
+                    _c(
+                      "v-card",
+                      {
+                        staticClass: "grey lighten-3 pt-5",
+                        attrs: { height: "400px", flat: "" }
+                      },
+                      [
+                        _c("v-card-title", { staticClass: "justify-center " }, [
+                          _c("h1", { staticClass: "font-weight-bold" }, [
+                            _vm._v("TENTANG")
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c(
+                          "v-card-text",
+                          [
+                            _c("v-container", [
+                              _c(
+                                "h3",
+                                { staticStyle: { "text-align": "center" } },
+                                [
+                                  _vm._v(
+                                    "\r\n                            Bengkel Atma Auto merupakan bengkel yang menyediakan jasa servis \r\n                            berbagai merk motor dan juga menyediakan sparepart sesuai kebutuhan \r\n                            motor anda. Pelayanan kami sangat ramah dan didukung dengan teknologi\r\n                            modern yang bisa membantu anda untuk memantau progres servis motor anda.\r\n                        "
+                                  )
+                                ]
+                              )
+                            ])
+                          ],
+                          1
+                        )
+                      ],
+                      1
+                    )
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "v-flex",
+                  { attrs: { xs12: "", "mt-3": "" } },
+                  [
+                    _c(
+                      "v-card",
+                      { attrs: { flat: "" } },
+                      [
+                        _c("v-card-title", { staticClass: "justify-center " }, [
+                          _c("h1", { staticClass: "font-weight-bold" }, [
+                            _vm._v("CEK TRANSAKSI")
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c(
+                          "v-card-text",
+                          [
+                            _c(
+                              "v-container",
+                              [
+                                _c(
+                                  "v-layout",
+                                  { attrs: { row: "", wrap: "" } },
+                                  [
+                                    _c(
+                                      "v-card",
+                                      { attrs: { width: "100%" } },
+                                      [
+                                        _c(
+                                          "v-layout",
+                                          { attrs: { row: "", wrap: "" } },
+                                          [
+                                            _c(
+                                              "v-flex",
+                                              { attrs: { sm4: "" } },
+                                              [
+                                                _c(
+                                                  "v-card-text",
+                                                  {
+                                                    staticStyle: {
+                                                      "text-align": "center"
+                                                    }
+                                                  },
+                                                  [
+                                                    _c(
+                                                      "span",
+                                                      {
+                                                        staticClass:
+                                                          "headline font-weight-bold"
+                                                      },
+                                                      [
+                                                        _vm._v(
+                                                          "\r\n                                        Cek Riwayat Transaksi Anda\r\n                                    "
+                                                        )
+                                                      ]
+                                                    ),
+                                                    _vm._v(" "),
+                                                    _c("hr"),
+                                                    _vm._v(" "),
+                                                    _c("v-text-field", {
+                                                      staticClass: "mt-3",
+                                                      attrs: {
+                                                        label:
+                                                          "Nomor Plat Motor",
+                                                        counter: 25,
+                                                        required: "",
+                                                        "prepend-inner-icon":
+                                                          "fa fa-motorcycle"
+                                                      },
+                                                      model: {
+                                                        value:
+                                                          _vm.search
+                                                            .platenumber,
+                                                        callback: function(
+                                                          $$v
+                                                        ) {
+                                                          _vm.$set(
+                                                            _vm.search,
+                                                            "platenumber",
+                                                            $$v
+                                                          )
+                                                        },
+                                                        expression:
+                                                          "search.platenumber"
+                                                      }
+                                                    }),
+                                                    _vm._v(" "),
+                                                    _c("v-text-field", {
+                                                      attrs: {
+                                                        label:
+                                                          "Nomor Handphone",
+                                                        counter: 25,
+                                                        required: "",
+                                                        "prepend-inner-icon":
+                                                          "fa fa-phone"
+                                                      },
+                                                      model: {
+                                                        value:
+                                                          _vm.search.handphone,
+                                                        callback: function(
+                                                          $$v
+                                                        ) {
+                                                          _vm.$set(
+                                                            _vm.search,
+                                                            "handphone",
+                                                            $$v
+                                                          )
+                                                        },
+                                                        expression:
+                                                          "search.handphone"
+                                                      }
+                                                    }),
+                                                    _vm._v(" "),
+                                                    _c(
+                                                      "v-btn",
+                                                      {
+                                                        staticStyle: {
+                                                          "text-transform":
+                                                            "none !important"
+                                                        },
+                                                        attrs: {
+                                                          small: "",
+                                                          dark: "",
+                                                          block: "",
+                                                          color: "blue darken-3"
+                                                        },
+                                                        on: {
+                                                          click: function(
+                                                            $event
+                                                          ) {
+                                                            return _vm.findCustomer()
+                                                          }
+                                                        }
+                                                      },
+                                                      [
+                                                        _vm._v(
+                                                          "\r\n                                        Cari\r\n                                    "
+                                                        )
+                                                      ]
+                                                    )
+                                                  ],
+                                                  1
+                                                )
+                                              ],
+                                              1
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "v-flex",
+                                              { attrs: { sm8: "" } },
+                                              [
+                                                _c(
+                                                  "v-card-text",
+                                                  {
+                                                    staticStyle: {
+                                                      "text-align": "center"
+                                                    }
+                                                  },
+                                                  [
+                                                    _c(
+                                                      "span",
+                                                      {
+                                                        staticClass:
+                                                          "headline font-weight-bold"
+                                                      },
+                                                      [
+                                                        _vm._v(
+                                                          "\r\n                                            Profil Pelanggan\r\n                                    "
+                                                        )
+                                                      ]
+                                                    ),
+                                                    _vm._v(" "),
+                                                    _c("hr"),
+                                                    _vm._v(" "),
+                                                    _c(
+                                                      "v-layout",
+                                                      {
+                                                        attrs: {
+                                                          row: "",
+                                                          wrap: ""
+                                                        }
+                                                      },
+                                                      [
+                                                        _c(
+                                                          "v-flex",
+                                                          {
+                                                            attrs: { sm4: "" }
+                                                          },
+                                                          [
+                                                            _c(
+                                                              "div",
+                                                              {
+                                                                staticClass:
+                                                                  "mt-3 text-xs-left subheading font-weight-bold"
+                                                              },
+                                                              [
+                                                                _vm._v(
+                                                                  "\r\n                                                Nama Pelanggan\r\n                                            "
+                                                                )
+                                                              ]
+                                                            ),
+                                                            _vm._v(" "),
+                                                            _c(
+                                                              "div",
+                                                              {
+                                                                staticClass:
+                                                                  "ml-3 text-xs-left subheading"
+                                                              },
+                                                              [
+                                                                _vm._v(
+                                                                  "\r\n                                                " +
+                                                                    _vm._s(
+                                                                      _vm
+                                                                        .customer
+                                                                        .name
+                                                                    ) +
+                                                                    "\r\n                                            "
+                                                                )
+                                                              ]
+                                                            ),
+                                                            _vm._v(" "),
+                                                            _c(
+                                                              "div",
+                                                              {
+                                                                staticClass:
+                                                                  "text-xs-left subheading font-weight-bold mt-2"
+                                                              },
+                                                              [
+                                                                _vm._v(
+                                                                  "\r\n                                                Alamat\r\n                                            "
+                                                                )
+                                                              ]
+                                                            ),
+                                                            _vm._v(" "),
+                                                            _c(
+                                                              "div",
+                                                              {
+                                                                staticClass:
+                                                                  "ml-3 text-xs-left subheading"
+                                                              },
+                                                              [
+                                                                _vm._v(
+                                                                  "\r\n                                                " +
+                                                                    _vm._s(
+                                                                      _vm
+                                                                        .customer
+                                                                        .address
+                                                                    ) +
+                                                                    "\r\n                                            "
+                                                                )
+                                                              ]
+                                                            ),
+                                                            _vm._v(" "),
+                                                            _c(
+                                                              "div",
+                                                              {
+                                                                staticClass:
+                                                                  "text-xs-left subheading font-weight-bold mt-2"
+                                                              },
+                                                              [
+                                                                _vm._v(
+                                                                  "\r\n                                                Handphone\r\n                                            "
+                                                                )
+                                                              ]
+                                                            ),
+                                                            _vm._v(" "),
+                                                            _c(
+                                                              "div",
+                                                              {
+                                                                staticClass:
+                                                                  "ml-3 text-xs-left subheading"
+                                                              },
+                                                              [
+                                                                _vm._v(
+                                                                  "\r\n                                                " +
+                                                                    _vm._s(
+                                                                      _vm
+                                                                        .customer
+                                                                        .phone_number
+                                                                    ) +
+                                                                    "\r\n                                            "
+                                                                )
+                                                              ]
+                                                            )
+                                                          ]
+                                                        ),
+                                                        _vm._v(" "),
+                                                        _c(
+                                                          "v-flex",
+                                                          {
+                                                            attrs: { sm4: "" }
+                                                          },
+                                                          [
+                                                            _c(
+                                                              "div",
+                                                              {
+                                                                staticClass:
+                                                                  "mt-3 text-xs-left subheading font-weight-bold"
+                                                              },
+                                                              [
+                                                                _vm._v(
+                                                                  "\r\n                                                Motor Pelanggan\r\n                                            "
+                                                                )
+                                                              ]
+                                                            ),
+                                                            _vm._v(" "),
+                                                            _c(
+                                                              "div",
+                                                              {
+                                                                staticClass:
+                                                                  "ml-3 text-xs-left subheading"
+                                                              },
+                                                              [
+                                                                _c(
+                                                                  "ul",
+                                                                  _vm._l(
+                                                                    _vm.customer
+                                                                      .motorcycle
+                                                                      .data,
+                                                                    function(
+                                                                      motor,
+                                                                      index
+                                                                    ) {
+                                                                      return _c(
+                                                                        "li",
+                                                                        {
+                                                                          key: index
+                                                                        },
+                                                                        [
+                                                                          _vm._v(
+                                                                            "\r\n                                                        " +
+                                                                              _vm._s(
+                                                                                motor.plate
+                                                                              ) +
+                                                                              "\r\n                                                    "
+                                                                          )
+                                                                        ]
+                                                                      )
+                                                                    }
+                                                                  ),
+                                                                  0
+                                                                )
+                                                              ]
+                                                            )
+                                                          ]
+                                                        ),
+                                                        _vm._v(" "),
+                                                        _c(
+                                                          "v-flex",
+                                                          {
+                                                            attrs: { sm4: "" }
+                                                          },
+                                                          [
+                                                            _c(
+                                                              "div",
+                                                              {
+                                                                staticClass:
+                                                                  "mt-3 text-xs-left subheading font-weight-bold"
+                                                              },
+                                                              [
+                                                                _vm._v(
+                                                                  "\r\n                                                Total Transaksi\r\n                                            "
+                                                                )
+                                                              ]
+                                                            ),
+                                                            _vm._v(" "),
+                                                            _c(
+                                                              "div",
+                                                              {
+                                                                staticClass:
+                                                                  "ml-3 text-xs-left subheading"
+                                                              },
+                                                              [
+                                                                _vm._v(
+                                                                  "\r\n                                                " +
+                                                                    _vm._s(
+                                                                      _vm.search
+                                                                        .totaltransaksi
+                                                                    ) +
+                                                                    "\r\n                                            "
+                                                                )
+                                                              ]
+                                                            )
+                                                          ]
+                                                        )
+                                                      ],
+                                                      1
+                                                    )
+                                                  ],
+                                                  1
+                                                )
+                                              ],
+                                              1
+                                            )
+                                          ],
+                                          1
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "v-flex",
+                                          { attrs: { xs12: "" } },
+                                          [
+                                            _c(
+                                              "v-card-text",
+                                              [
+                                                _c(
+                                                  "v-toolbar",
+                                                  {
+                                                    attrs: {
+                                                      flat: "",
+                                                      color: "grey lighten-3"
+                                                    }
+                                                  },
+                                                  [
+                                                    _c(
+                                                      "v-toolbar-title",
+                                                      {
+                                                        staticClass:
+                                                          "headline font-weight-bold"
+                                                      },
+                                                      [
+                                                        _vm._v(
+                                                          "Riwayat Transaksi"
+                                                        )
+                                                      ]
+                                                    )
+                                                  ],
+                                                  1
+                                                ),
+                                                _vm._v(" "),
+                                                _c("v-data-table", {
+                                                  staticClass: "elevation-1",
+                                                  attrs: {
+                                                    headers: _vm.headers,
+                                                    items: _vm.transactionData
+                                                  },
+                                                  scopedSlots: _vm._u([
+                                                    {
+                                                      key: "items",
+                                                      fn: function(props) {
+                                                        return [
+                                                          _c(
+                                                            "td",
+                                                            {
+                                                              staticClass:
+                                                                "text-xs-center"
+                                                            },
+                                                            [
+                                                              _vm._v(
+                                                                _vm._s(
+                                                                  props.item
+                                                                    .id_transaction
+                                                                )
+                                                              )
+                                                            ]
+                                                          ),
+                                                          _vm._v(" "),
+                                                          _c(
+                                                            "td",
+                                                            {
+                                                              staticClass:
+                                                                "text-xs-center"
+                                                            },
+                                                            [
+                                                              _vm._v(
+                                                                _vm._s(
+                                                                  props.item
+                                                                    .date_transaction
+                                                                )
+                                                              )
+                                                            ]
+                                                          ),
+                                                          _vm._v(" "),
+                                                          _c(
+                                                            "td",
+                                                            {
+                                                              staticClass:
+                                                                "text-xs-center"
+                                                            },
+                                                            [
+                                                              _vm._v(
+                                                                _vm._s(
+                                                                  props.item
+                                                                    .name_customer
+                                                                )
+                                                              )
+                                                            ]
+                                                          ),
+                                                          _vm._v(" "),
+                                                          _c(
+                                                            "td",
+                                                            {
+                                                              staticClass:
+                                                                "text-xs-center"
+                                                            },
+                                                            [
+                                                              props.item
+                                                                .status_process ==
+                                                              "Unprocessed"
+                                                                ? _c(
+                                                                    "v-chip",
+                                                                    {
+                                                                      attrs: {
+                                                                        light:
+                                                                          "",
+                                                                        color:
+                                                                          "red",
+                                                                        "text-color":
+                                                                          "white"
+                                                                      }
+                                                                    },
+                                                                    [
+                                                                      _vm._v(
+                                                                        _vm._s(
+                                                                          props
+                                                                            .item
+                                                                            .status_process
+                                                                        )
+                                                                      )
+                                                                    ]
+                                                                  )
+                                                                : props.item
+                                                                    .status_process ==
+                                                                  "On Process"
+                                                                ? _c(
+                                                                    "v-chip",
+                                                                    {
+                                                                      attrs: {
+                                                                        light:
+                                                                          "",
+                                                                        color:
+                                                                          "orange",
+                                                                        "text-color":
+                                                                          "white"
+                                                                      }
+                                                                    },
+                                                                    [
+                                                                      _vm._v(
+                                                                        _vm._s(
+                                                                          props
+                                                                            .item
+                                                                            .status_process
+                                                                        )
+                                                                      )
+                                                                    ]
+                                                                  )
+                                                                : _c(
+                                                                    "v-chip",
+                                                                    {
+                                                                      attrs: {
+                                                                        light:
+                                                                          "",
+                                                                        color:
+                                                                          "green",
+                                                                        "text-color":
+                                                                          "white"
+                                                                      }
+                                                                    },
+                                                                    [
+                                                                      _vm._v(
+                                                                        _vm._s(
+                                                                          props
+                                                                            .item
+                                                                            .status_process
+                                                                        )
+                                                                      )
+                                                                    ]
+                                                                  )
+                                                            ],
+                                                            1
+                                                          ),
+                                                          _vm._v(" "),
+                                                          _c(
+                                                            "td",
+                                                            {
+                                                              staticClass:
+                                                                "justify-center layout px-0"
+                                                            },
+                                                            [
+                                                              _c(
+                                                                "v-icon",
+                                                                {
+                                                                  staticClass:
+                                                                    "mr-2",
+                                                                  attrs: {
+                                                                    small: ""
+                                                                  }
+                                                                },
+                                                                [
+                                                                  _vm._v(
+                                                                    "\r\n                                                remove_red_eye\r\n                                            "
+                                                                  )
+                                                                ]
+                                                              )
+                                                            ],
+                                                            1
+                                                          )
+                                                        ]
+                                                      }
+                                                    }
+                                                  ])
+                                                })
+                                              ],
+                                              1
+                                            )
+                                          ],
+                                          1
+                                        )
+                                      ],
+                                      1
+                                    )
+                                  ],
+                                  1
+                                )
+                              ],
+                              1
+                            )
+                          ],
+                          1
+                        )
+                      ],
+                      1
+                    )
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "v-flex",
+                  { attrs: { xs12: "" } },
+                  [
+                    _c("v-card-title", { staticClass: "justify-center " }, [
+                      _c("h1", { staticClass: "font-weight-bold" }, [
+                        _vm._v("SPAREPART")
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "v-card-text",
+                      [
+                        _c(
+                          "v-container",
+                          { attrs: { fluid: "" } },
+                          [
+                            _c(
+                              "v-card",
+                              { attrs: { width: "100%" } },
+                              [
+                                _c(
+                                  "v-layout",
+                                  { attrs: { row: "", wrap: "" } },
+                                  [
+                                    _c(
+                                      "v-flex",
+                                      { attrs: { sm2: "" } },
+                                      [
+                                        _c("v-select", {
+                                          attrs: {
+                                            "item-text": "name",
+                                            "item-value": "id",
+                                            label: "Shorting",
+                                            required: "",
+                                            "prepend-inner-icon": "fa fa-user"
+                                          }
+                                        })
+                                      ],
+                                      1
+                                    ),
+                                    _vm._v(" "),
+                                    _c("v-flex", { attrs: { sm7: "" } }),
+                                    _vm._v(" "),
+                                    _c("v-spacer"),
+                                    _vm._v(" "),
+                                    _c(
+                                      "v-flex",
+                                      { attrs: { sm3: "" } },
+                                      [
+                                        _c("v-text-field", {
+                                          attrs: {
+                                            "append-icon": "search",
+                                            label: "Cari",
+                                            "single-line": "",
+                                            "hide-details": ""
+                                          },
+                                          model: {
+                                            value: _vm.search,
+                                            callback: function($$v) {
+                                              _vm.search = $$v
+                                            },
+                                            expression: "search"
+                                          }
+                                        })
+                                      ],
+                                      1
+                                    )
+                                  ],
+                                  1
+                                ),
+                                _vm._v(" "),
+                                _c("v-data-iterator", {
+                                  attrs: {
+                                    items: _vm.spareparts,
+                                    search: _vm.search,
+                                    pagination: _vm.pagination,
+                                    "content-tag": "v-layout",
+                                    "hide-actions": "",
+                                    row: "",
+                                    wrap: ""
+                                  },
+                                  on: {
+                                    "update:pagination": function($event) {
+                                      _vm.pagination = $event
+                                    }
+                                  },
+                                  scopedSlots: _vm._u([
+                                    {
+                                      key: "item",
+                                      fn: function(data) {
+                                        return [
+                                          _c(
+                                            "v-flex",
+                                            {
+                                              staticClass:
+                                                "pl-3 pr-3 mt-3 mb-3",
+                                              attrs: { sm2: "" }
+                                            },
+                                            [
+                                              _c(
+                                                "v-card",
+                                                {
+                                                  attrs: {
+                                                    color: "grey lighten-3"
+                                                  }
+                                                },
+                                                [
+                                                  _c("v-img", {
+                                                    attrs: {
+                                                      src: data.item.image,
+                                                      "aspect-ratio": "1"
+                                                    }
+                                                  }),
+                                                  _vm._v(" "),
+                                                  _c(
+                                                    "v-card-title",
+                                                    {
+                                                      attrs: {
+                                                        "primary-title": ""
+                                                      }
+                                                    },
+                                                    [
+                                                      _c("div", [
+                                                        _c(
+                                                          "h4",
+                                                          {
+                                                            staticClass:
+                                                              "subheading font-weight-bold mb-0"
+                                                          },
+                                                          [
+                                                            _vm._v(
+                                                              _vm._s(
+                                                                data.item.name
+                                                              )
+                                                            )
+                                                          ]
+                                                        ),
+                                                        _vm._v(" "),
+                                                        _c(
+                                                          "div",
+                                                          [
+                                                            _c(
+                                                              "v-icon",
+                                                              {
+                                                                attrs: {
+                                                                  color:
+                                                                    "orange"
+                                                                }
+                                                              },
+                                                              [_vm._v("star")]
+                                                            ),
+                                                            _vm._v(
+                                                              " " +
+                                                                _vm._s(
+                                                                  data.item
+                                                                    .brand
+                                                                )
+                                                            )
+                                                          ],
+                                                          1
+                                                        ),
+                                                        _vm._v(" "),
+                                                        _c(
+                                                          "div",
+                                                          [
+                                                            _c(
+                                                              "v-icon",
+                                                              {
+                                                                attrs: {
+                                                                  color: "red"
+                                                                }
+                                                              },
+                                                              [
+                                                                _vm._v(
+                                                                  "swap_vert"
+                                                                )
+                                                              ]
+                                                            ),
+                                                            _vm._v(
+                                                              " Stok " +
+                                                                _vm._s(
+                                                                  data.item
+                                                                    .stock
+                                                                )
+                                                            )
+                                                          ],
+                                                          1
+                                                        ),
+                                                        _vm._v(" "),
+                                                        _c(
+                                                          "div",
+                                                          [
+                                                            _c(
+                                                              "v-icon",
+                                                              {
+                                                                attrs: {
+                                                                  color: "green"
+                                                                }
+                                                              },
+                                                              [
+                                                                _vm._v(
+                                                                  "attach_money"
+                                                                )
+                                                              ]
+                                                            ),
+                                                            _vm._v(
+                                                              " Rp. " +
+                                                                _vm._s(
+                                                                  data.item
+                                                                    .sell_price
+                                                                )
+                                                            )
+                                                          ],
+                                                          1
+                                                        )
+                                                      ])
+                                                    ]
+                                                  )
+                                                ],
+                                                1
+                                              )
+                                            ],
+                                            1
+                                          )
+                                        ]
+                                      }
+                                    }
+                                  ])
+                                }),
+                                _vm._v(" "),
+                                _c(
+                                  "div",
+                                  { staticClass: "text-xs-center pt-2" },
+                                  [
+                                    _c("v-pagination", {
+                                      attrs: { length: _vm.pages },
+                                      model: {
+                                        value: _vm.pagination.page,
+                                        callback: function($$v) {
+                                          _vm.$set(_vm.pagination, "page", $$v)
+                                        },
+                                        expression: "pagination.page"
+                                      }
+                                    })
+                                  ],
+                                  1
+                                )
+                              ],
+                              1
+                            )
+                          ],
+                          1
+                        )
+                      ],
+                      1
+                    )
+                  ],
+                  1
+                )
+              ],
+              1
+            )
+          ],
+          1
+        ),
+        _vm._v(" "),
+        _vm.alert.type
+          ? _c(
+              "v-snackbar",
+              {
+                attrs: {
+                  right: "",
+                  bottom: "",
+                  color: _vm.alert.type,
+                  value: "true"
+                }
+              },
+              [
+                _c("v-icon", [_vm._v(_vm._s(_vm.alert.icon))]),
+                _vm._v(_vm._s(_vm.alert.message) + "\r\n        ")
               ],
               1
             )
@@ -58952,6 +73605,75 @@ new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
 
 /***/ }),
 
+/***/ "./resources/js/components/Admin/AdminBranch.vue":
+/*!*******************************************************!*\
+  !*** ./resources/js/components/Admin/AdminBranch.vue ***!
+  \*******************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _AdminBranch_vue_vue_type_template_id_28d4d8d4___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./AdminBranch.vue?vue&type=template&id=28d4d8d4& */ "./resources/js/components/Admin/AdminBranch.vue?vue&type=template&id=28d4d8d4&");
+/* harmony import */ var _AdminBranch_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./AdminBranch.vue?vue&type=script&lang=js& */ "./resources/js/components/Admin/AdminBranch.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _AdminBranch_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _AdminBranch_vue_vue_type_template_id_28d4d8d4___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _AdminBranch_vue_vue_type_template_id_28d4d8d4___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/Admin/AdminBranch.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/Admin/AdminBranch.vue?vue&type=script&lang=js&":
+/*!********************************************************************************!*\
+  !*** ./resources/js/components/Admin/AdminBranch.vue?vue&type=script&lang=js& ***!
+  \********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_AdminBranch_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./AdminBranch.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Admin/AdminBranch.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_AdminBranch_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/Admin/AdminBranch.vue?vue&type=template&id=28d4d8d4&":
+/*!**************************************************************************************!*\
+  !*** ./resources/js/components/Admin/AdminBranch.vue?vue&type=template&id=28d4d8d4& ***!
+  \**************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AdminBranch_vue_vue_type_template_id_28d4d8d4___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./AdminBranch.vue?vue&type=template&id=28d4d8d4& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Admin/AdminBranch.vue?vue&type=template&id=28d4d8d4&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AdminBranch_vue_vue_type_template_id_28d4d8d4___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AdminBranch_vue_vue_type_template_id_28d4d8d4___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
 /***/ "./resources/js/components/Admin/AdminCustomer.vue":
 /*!*********************************************************!*\
   !*** ./resources/js/components/Admin/AdminCustomer.vue ***!
@@ -59138,6 +73860,282 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AdminEmployee_vue_vue_type_template_id_718447a2___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AdminEmployee_vue_vue_type_template_id_718447a2___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/Admin/AdminMotorBrand.vue":
+/*!***********************************************************!*\
+  !*** ./resources/js/components/Admin/AdminMotorBrand.vue ***!
+  \***********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _AdminMotorBrand_vue_vue_type_template_id_67dd67f4___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./AdminMotorBrand.vue?vue&type=template&id=67dd67f4& */ "./resources/js/components/Admin/AdminMotorBrand.vue?vue&type=template&id=67dd67f4&");
+/* harmony import */ var _AdminMotorBrand_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./AdminMotorBrand.vue?vue&type=script&lang=js& */ "./resources/js/components/Admin/AdminMotorBrand.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _AdminMotorBrand_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _AdminMotorBrand_vue_vue_type_template_id_67dd67f4___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _AdminMotorBrand_vue_vue_type_template_id_67dd67f4___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/Admin/AdminMotorBrand.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/Admin/AdminMotorBrand.vue?vue&type=script&lang=js&":
+/*!************************************************************************************!*\
+  !*** ./resources/js/components/Admin/AdminMotorBrand.vue?vue&type=script&lang=js& ***!
+  \************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_AdminMotorBrand_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./AdminMotorBrand.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Admin/AdminMotorBrand.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_AdminMotorBrand_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/Admin/AdminMotorBrand.vue?vue&type=template&id=67dd67f4&":
+/*!******************************************************************************************!*\
+  !*** ./resources/js/components/Admin/AdminMotorBrand.vue?vue&type=template&id=67dd67f4& ***!
+  \******************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AdminMotorBrand_vue_vue_type_template_id_67dd67f4___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./AdminMotorBrand.vue?vue&type=template&id=67dd67f4& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Admin/AdminMotorBrand.vue?vue&type=template&id=67dd67f4&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AdminMotorBrand_vue_vue_type_template_id_67dd67f4___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AdminMotorBrand_vue_vue_type_template_id_67dd67f4___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/Admin/AdminMotorType.vue":
+/*!**********************************************************!*\
+  !*** ./resources/js/components/Admin/AdminMotorType.vue ***!
+  \**********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _AdminMotorType_vue_vue_type_template_id_63d9628b___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./AdminMotorType.vue?vue&type=template&id=63d9628b& */ "./resources/js/components/Admin/AdminMotorType.vue?vue&type=template&id=63d9628b&");
+/* harmony import */ var _AdminMotorType_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./AdminMotorType.vue?vue&type=script&lang=js& */ "./resources/js/components/Admin/AdminMotorType.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _AdminMotorType_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _AdminMotorType_vue_vue_type_template_id_63d9628b___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _AdminMotorType_vue_vue_type_template_id_63d9628b___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/Admin/AdminMotorType.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/Admin/AdminMotorType.vue?vue&type=script&lang=js&":
+/*!***********************************************************************************!*\
+  !*** ./resources/js/components/Admin/AdminMotorType.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_AdminMotorType_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./AdminMotorType.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Admin/AdminMotorType.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_AdminMotorType_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/Admin/AdminMotorType.vue?vue&type=template&id=63d9628b&":
+/*!*****************************************************************************************!*\
+  !*** ./resources/js/components/Admin/AdminMotorType.vue?vue&type=template&id=63d9628b& ***!
+  \*****************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AdminMotorType_vue_vue_type_template_id_63d9628b___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./AdminMotorType.vue?vue&type=template&id=63d9628b& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Admin/AdminMotorType.vue?vue&type=template&id=63d9628b&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AdminMotorType_vue_vue_type_template_id_63d9628b___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AdminMotorType_vue_vue_type_template_id_63d9628b___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/Admin/AdminPayment.vue":
+/*!********************************************************!*\
+  !*** ./resources/js/components/Admin/AdminPayment.vue ***!
+  \********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _AdminPayment_vue_vue_type_template_id_690aa0c2___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./AdminPayment.vue?vue&type=template&id=690aa0c2& */ "./resources/js/components/Admin/AdminPayment.vue?vue&type=template&id=690aa0c2&");
+/* harmony import */ var _AdminPayment_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./AdminPayment.vue?vue&type=script&lang=js& */ "./resources/js/components/Admin/AdminPayment.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _AdminPayment_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _AdminPayment_vue_vue_type_template_id_690aa0c2___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _AdminPayment_vue_vue_type_template_id_690aa0c2___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/Admin/AdminPayment.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/Admin/AdminPayment.vue?vue&type=script&lang=js&":
+/*!*********************************************************************************!*\
+  !*** ./resources/js/components/Admin/AdminPayment.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_AdminPayment_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./AdminPayment.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Admin/AdminPayment.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_AdminPayment_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/Admin/AdminPayment.vue?vue&type=template&id=690aa0c2&":
+/*!***************************************************************************************!*\
+  !*** ./resources/js/components/Admin/AdminPayment.vue?vue&type=template&id=690aa0c2& ***!
+  \***************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AdminPayment_vue_vue_type_template_id_690aa0c2___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./AdminPayment.vue?vue&type=template&id=690aa0c2& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Admin/AdminPayment.vue?vue&type=template&id=690aa0c2&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AdminPayment_vue_vue_type_template_id_690aa0c2___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AdminPayment_vue_vue_type_template_id_690aa0c2___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/Admin/AdminProcurement.vue":
+/*!************************************************************!*\
+  !*** ./resources/js/components/Admin/AdminProcurement.vue ***!
+  \************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _AdminProcurement_vue_vue_type_template_id_feca6328___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./AdminProcurement.vue?vue&type=template&id=feca6328& */ "./resources/js/components/Admin/AdminProcurement.vue?vue&type=template&id=feca6328&");
+/* harmony import */ var _AdminProcurement_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./AdminProcurement.vue?vue&type=script&lang=js& */ "./resources/js/components/Admin/AdminProcurement.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _AdminProcurement_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _AdminProcurement_vue_vue_type_template_id_feca6328___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _AdminProcurement_vue_vue_type_template_id_feca6328___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/Admin/AdminProcurement.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/Admin/AdminProcurement.vue?vue&type=script&lang=js&":
+/*!*************************************************************************************!*\
+  !*** ./resources/js/components/Admin/AdminProcurement.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_AdminProcurement_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./AdminProcurement.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Admin/AdminProcurement.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_AdminProcurement_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/Admin/AdminProcurement.vue?vue&type=template&id=feca6328&":
+/*!*******************************************************************************************!*\
+  !*** ./resources/js/components/Admin/AdminProcurement.vue?vue&type=template&id=feca6328& ***!
+  \*******************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AdminProcurement_vue_vue_type_template_id_feca6328___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./AdminProcurement.vue?vue&type=template&id=feca6328& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Admin/AdminProcurement.vue?vue&type=template&id=feca6328&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AdminProcurement_vue_vue_type_template_id_feca6328___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AdminProcurement_vue_vue_type_template_id_feca6328___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
@@ -59419,6 +74417,75 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/Admin/AdminTransaction.vue":
+/*!************************************************************!*\
+  !*** ./resources/js/components/Admin/AdminTransaction.vue ***!
+  \************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _AdminTransaction_vue_vue_type_template_id_526ee39a___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./AdminTransaction.vue?vue&type=template&id=526ee39a& */ "./resources/js/components/Admin/AdminTransaction.vue?vue&type=template&id=526ee39a&");
+/* harmony import */ var _AdminTransaction_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./AdminTransaction.vue?vue&type=script&lang=js& */ "./resources/js/components/Admin/AdminTransaction.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _AdminTransaction_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _AdminTransaction_vue_vue_type_template_id_526ee39a___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _AdminTransaction_vue_vue_type_template_id_526ee39a___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/Admin/AdminTransaction.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/Admin/AdminTransaction.vue?vue&type=script&lang=js&":
+/*!*************************************************************************************!*\
+  !*** ./resources/js/components/Admin/AdminTransaction.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_AdminTransaction_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./AdminTransaction.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Admin/AdminTransaction.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_AdminTransaction_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/Admin/AdminTransaction.vue?vue&type=template&id=526ee39a&":
+/*!*******************************************************************************************!*\
+  !*** ./resources/js/components/Admin/AdminTransaction.vue?vue&type=template&id=526ee39a& ***!
+  \*******************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AdminTransaction_vue_vue_type_template_id_526ee39a___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./AdminTransaction.vue?vue&type=template&id=526ee39a& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Admin/AdminTransaction.vue?vue&type=template&id=526ee39a&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AdminTransaction_vue_vue_type_template_id_526ee39a___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AdminTransaction_vue_vue_type_template_id_526ee39a___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
 /***/ "./resources/js/components/Admin/AdminUser.vue":
 /*!*****************************************************!*\
   !*** ./resources/js/components/Admin/AdminUser.vue ***!
@@ -59552,6 +74619,75 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AdminApp_vue_vue_type_template_id_505ab686___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AdminApp_vue_vue_type_template_id_505ab686___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/Customer/CustomerIndex.vue":
+/*!************************************************************!*\
+  !*** ./resources/js/components/Customer/CustomerIndex.vue ***!
+  \************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _CustomerIndex_vue_vue_type_template_id_577f79ae___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./CustomerIndex.vue?vue&type=template&id=577f79ae& */ "./resources/js/components/Customer/CustomerIndex.vue?vue&type=template&id=577f79ae&");
+/* harmony import */ var _CustomerIndex_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./CustomerIndex.vue?vue&type=script&lang=js& */ "./resources/js/components/Customer/CustomerIndex.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _CustomerIndex_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _CustomerIndex_vue_vue_type_template_id_577f79ae___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _CustomerIndex_vue_vue_type_template_id_577f79ae___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/Customer/CustomerIndex.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/Customer/CustomerIndex.vue?vue&type=script&lang=js&":
+/*!*************************************************************************************!*\
+  !*** ./resources/js/components/Customer/CustomerIndex.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_CustomerIndex_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./CustomerIndex.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Customer/CustomerIndex.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_CustomerIndex_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/Customer/CustomerIndex.vue?vue&type=template&id=577f79ae&":
+/*!*******************************************************************************************!*\
+  !*** ./resources/js/components/Customer/CustomerIndex.vue?vue&type=template&id=577f79ae& ***!
+  \*******************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CustomerIndex_vue_vue_type_template_id_577f79ae___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./CustomerIndex.vue?vue&type=template&id=577f79ae& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Customer/CustomerIndex.vue?vue&type=template&id=577f79ae&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CustomerIndex_vue_vue_type_template_id_577f79ae___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CustomerIndex_vue_vue_type_template_id_577f79ae___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
@@ -60081,6 +75217,20 @@ __webpack_require__.r(__webpack_exports__);
 
       _http__WEBPACK_IMPORTED_MODULE_0__["default"].patch('/api/user/changepassword/' + id, payload, successCallback, errorCallback);
     });
+  },
+  updatecompatibility: function updatecompatibility(payload, id) {
+    return new Promise(function (resolve, reject) {
+      var successCallback = function successCallback(res) {
+        var data = res.data;
+        resolve(data);
+      };
+
+      var errorCallback = function errorCallback(err) {
+        reject(err);
+      };
+
+      _http__WEBPACK_IMPORTED_MODULE_0__["default"].patch('/api/sparepart/updatecompatibility/' + id, payload, successCallback, errorCallback);
+    });
   }
 });
 
@@ -60225,6 +75375,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_Admin_AdminSupplier__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/Admin/AdminSupplier */ "./resources/js/components/Admin/AdminSupplier.vue");
 /* harmony import */ var _components_Admin_AdminSales__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/Admin/AdminSales */ "./resources/js/components/Admin/AdminSales.vue");
 /* harmony import */ var _components_Admin_AdminCustomer__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./components/Admin/AdminCustomer */ "./resources/js/components/Admin/AdminCustomer.vue");
+/* harmony import */ var _components_Admin_AdminBranch__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./components/Admin/AdminBranch */ "./resources/js/components/Admin/AdminBranch.vue");
+/* harmony import */ var _components_Admin_AdminMotorBrand__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./components/Admin/AdminMotorBrand */ "./resources/js/components/Admin/AdminMotorBrand.vue");
+/* harmony import */ var _components_Admin_AdminMotorType__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./components/Admin/AdminMotorType */ "./resources/js/components/Admin/AdminMotorType.vue");
+/* harmony import */ var _components_Admin_AdminProcurement__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./components/Admin/AdminProcurement */ "./resources/js/components/Admin/AdminProcurement.vue");
+/* harmony import */ var _components_Admin_AdminTransaction__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./components/Admin/AdminTransaction */ "./resources/js/components/Admin/AdminTransaction.vue");
+/* harmony import */ var _components_Admin_AdminPayment__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./components/Admin/AdminPayment */ "./resources/js/components/Admin/AdminPayment.vue");
+/* harmony import */ var _components_Customer_CustomerIndex__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./components/Customer/CustomerIndex */ "./resources/js/components/Customer/CustomerIndex.vue");
 
 
 
@@ -60239,7 +75396,18 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+
+
+
+
+
+
 var routes = [{
+  path: '/',
+  name: 'Index',
+  component: _components_Customer_CustomerIndex__WEBPACK_IMPORTED_MODULE_19__["default"]
+}, {
   path: '/panel/login',
   name: 'Login',
   component: _components_Login__WEBPACK_IMPORTED_MODULE_4__["default"],
@@ -60321,6 +75489,60 @@ var routes = [{
   meta: {
     role: ['Admin'],
     menu: 8
+  },
+  beforeEnter: Object(_middleware__WEBPACK_IMPORTED_MODULE_0__["default"])([_middleware__WEBPACK_IMPORTED_MODULE_0__["auth"]])
+}, {
+  path: '/admin/branch',
+  name: 'AdminBranch',
+  component: _components_Admin_AdminBranch__WEBPACK_IMPORTED_MODULE_13__["default"],
+  meta: {
+    role: ['Admin'],
+    menu: 9
+  },
+  beforeEnter: Object(_middleware__WEBPACK_IMPORTED_MODULE_0__["default"])([_middleware__WEBPACK_IMPORTED_MODULE_0__["auth"]])
+}, {
+  path: '/admin/motorbrand',
+  name: 'AdminMotorBrand',
+  component: _components_Admin_AdminMotorBrand__WEBPACK_IMPORTED_MODULE_14__["default"],
+  meta: {
+    role: ['Admin'],
+    menu: 10
+  },
+  beforeEnter: Object(_middleware__WEBPACK_IMPORTED_MODULE_0__["default"])([_middleware__WEBPACK_IMPORTED_MODULE_0__["auth"]])
+}, {
+  path: '/admin/motortype',
+  name: 'AdminMotorType',
+  component: _components_Admin_AdminMotorType__WEBPACK_IMPORTED_MODULE_15__["default"],
+  meta: {
+    role: ['Admin'],
+    menu: 11
+  },
+  beforeEnter: Object(_middleware__WEBPACK_IMPORTED_MODULE_0__["default"])([_middleware__WEBPACK_IMPORTED_MODULE_0__["auth"]])
+}, {
+  path: '/admin/procurement',
+  name: 'AdminProcurement',
+  component: _components_Admin_AdminProcurement__WEBPACK_IMPORTED_MODULE_16__["default"],
+  meta: {
+    role: ['Admin'],
+    menu: 12
+  },
+  beforeEnter: Object(_middleware__WEBPACK_IMPORTED_MODULE_0__["default"])([_middleware__WEBPACK_IMPORTED_MODULE_0__["auth"]])
+}, {
+  path: '/admin/transaction',
+  name: 'AdminTransaction',
+  component: _components_Admin_AdminTransaction__WEBPACK_IMPORTED_MODULE_17__["default"],
+  meta: {
+    role: ['Admin'],
+    menu: 13
+  },
+  beforeEnter: Object(_middleware__WEBPACK_IMPORTED_MODULE_0__["default"])([_middleware__WEBPACK_IMPORTED_MODULE_0__["auth"]])
+}, {
+  path: '/admin/payment',
+  name: 'AdminPayment',
+  component: _components_Admin_AdminPayment__WEBPACK_IMPORTED_MODULE_18__["default"],
+  meta: {
+    role: ['Admin'],
+    menu: 14
   },
   beforeEnter: Object(_middleware__WEBPACK_IMPORTED_MODULE_0__["default"])([_middleware__WEBPACK_IMPORTED_MODULE_0__["auth"]])
 }];
@@ -60569,6 +75791,148 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     }
 
     return get;
+  }(),
+  store: function () {
+    var _store = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(payload) {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+        while (1) {
+          switch (_context2.prev = _context2.next) {
+            case 0:
+              _context2.prev = 0;
+              _context2.next = 3;
+              return _Http__WEBPACK_IMPORTED_MODULE_1__["default"].post('/api/branch', payload);
+
+            case 3:
+              _context2.next = 8;
+              break;
+
+            case 5:
+              _context2.prev = 5;
+              _context2.t0 = _context2["catch"](0);
+              throw new Error(_context2.t0);
+
+            case 8:
+            case "end":
+              return _context2.stop();
+          }
+        }
+      }, _callee2, null, [[0, 5]]);
+    }));
+
+    function store(_x) {
+      return _store.apply(this, arguments);
+    }
+
+    return store;
+  }(),
+  find: function () {
+    var _find = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3(id) {
+      var res;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
+        while (1) {
+          switch (_context3.prev = _context3.next) {
+            case 0:
+              _context3.prev = 0;
+              _context3.next = 3;
+              return _Http__WEBPACK_IMPORTED_MODULE_1__["default"].get("/api/branch/".concat(id));
+
+            case 3:
+              res = _context3.sent;
+              return _context3.abrupt("return", res.data.data);
+
+            case 7:
+              _context3.prev = 7;
+              _context3.t0 = _context3["catch"](0);
+              throw new Error(_context3.t0);
+
+            case 10:
+            case "end":
+              return _context3.stop();
+          }
+        }
+      }, _callee3, null, [[0, 7]]);
+    }));
+
+    function find(_x2) {
+      return _find.apply(this, arguments);
+    }
+
+    return find;
+  }(),
+  update: function () {
+    var _update = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4(id, payload) {
+      var res;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee4$(_context4) {
+        while (1) {
+          switch (_context4.prev = _context4.next) {
+            case 0:
+              _context4.prev = 0;
+              _context4.next = 3;
+              return _Http__WEBPACK_IMPORTED_MODULE_1__["default"].patch("/api/branch/".concat(id), payload);
+
+            case 3:
+              res = _context4.sent;
+              return _context4.abrupt("return", res.data.data);
+
+            case 7:
+              _context4.prev = 7;
+              _context4.t0 = _context4["catch"](0);
+              throw new Error(_context4.t0);
+
+            case 10:
+            case "end":
+              return _context4.stop();
+          }
+        }
+      }, _callee4, null, [[0, 7]]);
+    }));
+
+    function update(_x3, _x4) {
+      return _update.apply(this, arguments);
+    }
+
+    return update;
+  }(),
+  delete: function () {
+    var _delete2 = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee5(id) {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee5$(_context5) {
+        while (1) {
+          switch (_context5.prev = _context5.next) {
+            case 0:
+              _context5.prev = 0;
+              _context5.next = 3;
+              return _Http__WEBPACK_IMPORTED_MODULE_1__["default"].delete("/api/branch/".concat(id));
+
+            case 3:
+              _context5.next = 8;
+              break;
+
+            case 5:
+              _context5.prev = 5;
+              _context5.t0 = _context5["catch"](0);
+              throw new Error(_context5.t0);
+
+            case 8:
+            case "end":
+              return _context5.stop();
+          }
+        }
+      }, _callee5, null, [[0, 5]]);
+    }));
+
+    function _delete(_x5) {
+      return _delete2.apply(this, arguments);
+    }
+
+    return _delete;
   }()
 });
 
@@ -60807,7 +76171,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             case 0:
               _context.prev = 0;
               _context.next = 3;
-              return _Http__WEBPACK_IMPORTED_MODULE_1__["default"].get('/api/employee');
+              return _Http__WEBPACK_IMPORTED_MODULE_1__["default"].get("/api/employee");
 
             case 3:
               res = _context.sent;
@@ -60842,7 +76206,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             case 0:
               _context2.prev = 0;
               _context2.next = 3;
-              return _Http__WEBPACK_IMPORTED_MODULE_1__["default"].post('/api/employee', payload);
+              return _Http__WEBPACK_IMPORTED_MODULE_1__["default"].post("/api/employee", payload);
 
             case 3:
               _context2.next = 8;
@@ -61047,6 +76411,208 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/service/MotorBrand.js":
+/*!********************************************!*\
+  !*** ./resources/js/service/MotorBrand.js ***!
+  \********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _Http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Http */ "./resources/js/service/Http.js");
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  get: function () {
+    var _get = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+      var res;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              _context.prev = 0;
+              _context.next = 3;
+              return _Http__WEBPACK_IMPORTED_MODULE_1__["default"].get('/api/motorbrand');
+
+            case 3:
+              res = _context.sent;
+              return _context.abrupt("return", res.data.data);
+
+            case 7:
+              _context.prev = 7;
+              _context.t0 = _context["catch"](0);
+              throw new Error(_context.t0);
+
+            case 10:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee, null, [[0, 7]]);
+    }));
+
+    function get() {
+      return _get.apply(this, arguments);
+    }
+
+    return get;
+  }(),
+  store: function () {
+    var _store = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(payload) {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+        while (1) {
+          switch (_context2.prev = _context2.next) {
+            case 0:
+              _context2.prev = 0;
+              _context2.next = 3;
+              return _Http__WEBPACK_IMPORTED_MODULE_1__["default"].post('/api/motorbrand', payload);
+
+            case 3:
+              _context2.next = 8;
+              break;
+
+            case 5:
+              _context2.prev = 5;
+              _context2.t0 = _context2["catch"](0);
+              throw new Error(_context2.t0);
+
+            case 8:
+            case "end":
+              return _context2.stop();
+          }
+        }
+      }, _callee2, null, [[0, 5]]);
+    }));
+
+    function store(_x) {
+      return _store.apply(this, arguments);
+    }
+
+    return store;
+  }(),
+  find: function () {
+    var _find = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3(id) {
+      var res;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
+        while (1) {
+          switch (_context3.prev = _context3.next) {
+            case 0:
+              _context3.prev = 0;
+              _context3.next = 3;
+              return _Http__WEBPACK_IMPORTED_MODULE_1__["default"].get("/api/motorbrand/".concat(id));
+
+            case 3:
+              res = _context3.sent;
+              return _context3.abrupt("return", res.data.data);
+
+            case 7:
+              _context3.prev = 7;
+              _context3.t0 = _context3["catch"](0);
+              throw new Error(_context3.t0);
+
+            case 10:
+            case "end":
+              return _context3.stop();
+          }
+        }
+      }, _callee3, null, [[0, 7]]);
+    }));
+
+    function find(_x2) {
+      return _find.apply(this, arguments);
+    }
+
+    return find;
+  }(),
+  update: function () {
+    var _update = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4(id, payload) {
+      var res;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee4$(_context4) {
+        while (1) {
+          switch (_context4.prev = _context4.next) {
+            case 0:
+              _context4.prev = 0;
+              _context4.next = 3;
+              return _Http__WEBPACK_IMPORTED_MODULE_1__["default"].patch("/api/motorbrand/".concat(id), payload);
+
+            case 3:
+              res = _context4.sent;
+              return _context4.abrupt("return", res.data.data);
+
+            case 7:
+              _context4.prev = 7;
+              _context4.t0 = _context4["catch"](0);
+              throw new Error(_context4.t0);
+
+            case 10:
+            case "end":
+              return _context4.stop();
+          }
+        }
+      }, _callee4, null, [[0, 7]]);
+    }));
+
+    function update(_x3, _x4) {
+      return _update.apply(this, arguments);
+    }
+
+    return update;
+  }(),
+  delete: function () {
+    var _delete2 = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee5(id) {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee5$(_context5) {
+        while (1) {
+          switch (_context5.prev = _context5.next) {
+            case 0:
+              _context5.prev = 0;
+              _context5.next = 3;
+              return _Http__WEBPACK_IMPORTED_MODULE_1__["default"].delete("/api/motorbrand/".concat(id));
+
+            case 3:
+              _context5.next = 8;
+              break;
+
+            case 5:
+              _context5.prev = 5;
+              _context5.t0 = _context5["catch"](0);
+              throw new Error(_context5.t0);
+
+            case 8:
+            case "end":
+              return _context5.stop();
+          }
+        }
+      }, _callee5, null, [[0, 5]]);
+    }));
+
+    function _delete(_x5) {
+      return _delete2.apply(this, arguments);
+    }
+
+    return _delete;
+  }()
+});
+
+/***/ }),
+
 /***/ "./resources/js/service/MotorCustomer.js":
 /*!***********************************************!*\
   !*** ./resources/js/service/MotorCustomer.js ***!
@@ -61230,6 +76796,410 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               _context5.prev = 5;
               _context5.t0 = _context5["catch"](0);
               throw new Error(_context5.t0);
+
+            case 8:
+            case "end":
+              return _context5.stop();
+          }
+        }
+      }, _callee5, null, [[0, 5]]);
+    }));
+
+    function _delete(_x5) {
+      return _delete2.apply(this, arguments);
+    }
+
+    return _delete;
+  }()
+});
+
+/***/ }),
+
+/***/ "./resources/js/service/MotorType.js":
+/*!*******************************************!*\
+  !*** ./resources/js/service/MotorType.js ***!
+  \*******************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _Http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Http */ "./resources/js/service/Http.js");
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  get: function () {
+    var _get = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+      var res;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              _context.prev = 0;
+              _context.next = 3;
+              return _Http__WEBPACK_IMPORTED_MODULE_1__["default"].get('/api/motortype');
+
+            case 3:
+              res = _context.sent;
+              return _context.abrupt("return", res.data.data);
+
+            case 7:
+              _context.prev = 7;
+              _context.t0 = _context["catch"](0);
+              throw new Error(_context.t0);
+
+            case 10:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee, null, [[0, 7]]);
+    }));
+
+    function get() {
+      return _get.apply(this, arguments);
+    }
+
+    return get;
+  }(),
+  store: function () {
+    var _store = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(payload) {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+        while (1) {
+          switch (_context2.prev = _context2.next) {
+            case 0:
+              _context2.prev = 0;
+              _context2.next = 3;
+              return _Http__WEBPACK_IMPORTED_MODULE_1__["default"].post('/api/motortype', payload);
+
+            case 3:
+              _context2.next = 8;
+              break;
+
+            case 5:
+              _context2.prev = 5;
+              _context2.t0 = _context2["catch"](0);
+              throw new Error(_context2.t0);
+
+            case 8:
+            case "end":
+              return _context2.stop();
+          }
+        }
+      }, _callee2, null, [[0, 5]]);
+    }));
+
+    function store(_x) {
+      return _store.apply(this, arguments);
+    }
+
+    return store;
+  }(),
+  find: function () {
+    var _find = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3(id) {
+      var res;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
+        while (1) {
+          switch (_context3.prev = _context3.next) {
+            case 0:
+              _context3.prev = 0;
+              _context3.next = 3;
+              return _Http__WEBPACK_IMPORTED_MODULE_1__["default"].get("/api/motortype/".concat(id));
+
+            case 3:
+              res = _context3.sent;
+              return _context3.abrupt("return", res.data.data);
+
+            case 7:
+              _context3.prev = 7;
+              _context3.t0 = _context3["catch"](0);
+              throw new Error(_context3.t0);
+
+            case 10:
+            case "end":
+              return _context3.stop();
+          }
+        }
+      }, _callee3, null, [[0, 7]]);
+    }));
+
+    function find(_x2) {
+      return _find.apply(this, arguments);
+    }
+
+    return find;
+  }(),
+  update: function () {
+    var _update = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4(id, payload) {
+      var res;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee4$(_context4) {
+        while (1) {
+          switch (_context4.prev = _context4.next) {
+            case 0:
+              _context4.prev = 0;
+              _context4.next = 3;
+              return _Http__WEBPACK_IMPORTED_MODULE_1__["default"].patch("/api/motortype/".concat(id), payload);
+
+            case 3:
+              res = _context4.sent;
+              return _context4.abrupt("return", res.data.data);
+
+            case 7:
+              _context4.prev = 7;
+              _context4.t0 = _context4["catch"](0);
+              throw new Error(_context4.t0);
+
+            case 10:
+            case "end":
+              return _context4.stop();
+          }
+        }
+      }, _callee4, null, [[0, 7]]);
+    }));
+
+    function update(_x3, _x4) {
+      return _update.apply(this, arguments);
+    }
+
+    return update;
+  }(),
+  delete: function () {
+    var _delete2 = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee5(id) {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee5$(_context5) {
+        while (1) {
+          switch (_context5.prev = _context5.next) {
+            case 0:
+              _context5.prev = 0;
+              _context5.next = 3;
+              return _Http__WEBPACK_IMPORTED_MODULE_1__["default"].delete("/api/motortype/".concat(id));
+
+            case 3:
+              _context5.next = 8;
+              break;
+
+            case 5:
+              _context5.prev = 5;
+              _context5.t0 = _context5["catch"](0);
+              throw new Error(_context5.t0);
+
+            case 8:
+            case "end":
+              return _context5.stop();
+          }
+        }
+      }, _callee5, null, [[0, 5]]);
+    }));
+
+    function _delete(_x5) {
+      return _delete2.apply(this, arguments);
+    }
+
+    return _delete;
+  }()
+});
+
+/***/ }),
+
+/***/ "./resources/js/service/Procurement.js":
+/*!*********************************************!*\
+  !*** ./resources/js/service/Procurement.js ***!
+  \*********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _Http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Http */ "./resources/js/service/Http.js");
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  get: function () {
+    var _get = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+      var res;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              _context.prev = 0;
+              _context.next = 3;
+              return _Http__WEBPACK_IMPORTED_MODULE_1__["default"].get('/api/procurement');
+
+            case 3:
+              res = _context.sent;
+              return _context.abrupt("return", res.data.data);
+
+            case 7:
+              _context.prev = 7;
+              _context.t0 = _context["catch"](0);
+              throw new Error('Gagal mendapatkan data procurement!');
+
+            case 10:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee, null, [[0, 7]]);
+    }));
+
+    function get() {
+      return _get.apply(this, arguments);
+    }
+
+    return get;
+  }(),
+  store: function () {
+    var _store = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(payload) {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+        while (1) {
+          switch (_context2.prev = _context2.next) {
+            case 0:
+              _context2.prev = 0;
+              _context2.next = 3;
+              return _Http__WEBPACK_IMPORTED_MODULE_1__["default"].post('/api/procurement', payload);
+
+            case 3:
+              _context2.next = 8;
+              break;
+
+            case 5:
+              _context2.prev = 5;
+              _context2.t0 = _context2["catch"](0);
+              throw new Error('Gagal simpan procurement baru!');
+
+            case 8:
+            case "end":
+              return _context2.stop();
+          }
+        }
+      }, _callee2, null, [[0, 5]]);
+    }));
+
+    function store(_x) {
+      return _store.apply(this, arguments);
+    }
+
+    return store;
+  }(),
+  find: function () {
+    var _find = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3(id) {
+      var res;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
+        while (1) {
+          switch (_context3.prev = _context3.next) {
+            case 0:
+              _context3.prev = 0;
+              _context3.next = 3;
+              return _Http__WEBPACK_IMPORTED_MODULE_1__["default"].get("/api/procurement/".concat(id));
+
+            case 3:
+              res = _context3.sent;
+              return _context3.abrupt("return", res.data.data);
+
+            case 7:
+              _context3.prev = 7;
+              _context3.t0 = _context3["catch"](0);
+              throw new Error('Gagal mendapatkan data procurement!');
+
+            case 10:
+            case "end":
+              return _context3.stop();
+          }
+        }
+      }, _callee3, null, [[0, 7]]);
+    }));
+
+    function find(_x2) {
+      return _find.apply(this, arguments);
+    }
+
+    return find;
+  }(),
+  update: function () {
+    var _update = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4(id, payload) {
+      var res;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee4$(_context4) {
+        while (1) {
+          switch (_context4.prev = _context4.next) {
+            case 0:
+              _context4.prev = 0;
+              _context4.next = 3;
+              return _Http__WEBPACK_IMPORTED_MODULE_1__["default"].patch("/api/procurement/".concat(id), payload);
+
+            case 3:
+              res = _context4.sent;
+              return _context4.abrupt("return", res.data.data);
+
+            case 7:
+              _context4.prev = 7;
+              _context4.t0 = _context4["catch"](0);
+              throw new Error('Gagal update data procurement!');
+
+            case 10:
+            case "end":
+              return _context4.stop();
+          }
+        }
+      }, _callee4, null, [[0, 7]]);
+    }));
+
+    function update(_x3, _x4) {
+      return _update.apply(this, arguments);
+    }
+
+    return update;
+  }(),
+  delete: function () {
+    var _delete2 = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee5(id) {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee5$(_context5) {
+        while (1) {
+          switch (_context5.prev = _context5.next) {
+            case 0:
+              _context5.prev = 0;
+              _context5.next = 3;
+              return _Http__WEBPACK_IMPORTED_MODULE_1__["default"].delete("/api/procurement/".concat(id));
+
+            case 3:
+              _context5.next = 8;
+              break;
+
+            case 5:
+              _context5.prev = 5;
+              _context5.t0 = _context5["catch"](0);
+              throw new Error('Gagal hapus data procurement');
 
             case 8:
             case "end":
@@ -61912,36 +77882,72 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
     return updateimage;
   }(),
-  delete: function () {
-    var _delete2 = _asyncToGenerator(
+  sparepartverify: function () {
+    var _sparepartverify = _asyncToGenerator(
     /*#__PURE__*/
-    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee6(id) {
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee6(payload) {
+      var res;
       return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee6$(_context6) {
         while (1) {
           switch (_context6.prev = _context6.next) {
             case 0:
               _context6.prev = 0;
               _context6.next = 3;
-              return _Http__WEBPACK_IMPORTED_MODULE_1__["default"].delete("/api/sparepart/".concat(id));
+              return _Http__WEBPACK_IMPORTED_MODULE_1__["default"].post("/api/sparepart/sparepartverify", payload);
 
             case 3:
-              _context6.next = 8;
-              break;
+              res = _context6.sent;
+              return _context6.abrupt("return", res.data.data);
 
-            case 5:
-              _context6.prev = 5;
+            case 7:
+              _context6.prev = 7;
               _context6.t0 = _context6["catch"](0);
               throw new Error(_context6.t0);
 
-            case 8:
+            case 10:
             case "end":
               return _context6.stop();
           }
         }
-      }, _callee6, null, [[0, 5]]);
+      }, _callee6, null, [[0, 7]]);
     }));
 
-    function _delete(_x6) {
+    function sparepartverify(_x6) {
+      return _sparepartverify.apply(this, arguments);
+    }
+
+    return sparepartverify;
+  }(),
+  delete: function () {
+    var _delete2 = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee7(id) {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee7$(_context7) {
+        while (1) {
+          switch (_context7.prev = _context7.next) {
+            case 0:
+              _context7.prev = 0;
+              _context7.next = 3;
+              return _Http__WEBPACK_IMPORTED_MODULE_1__["default"].delete("/api/sparepart/".concat(id));
+
+            case 3:
+              _context7.next = 8;
+              break;
+
+            case 5:
+              _context7.prev = 5;
+              _context7.t0 = _context7["catch"](0);
+              throw new Error(_context7.t0);
+
+            case 8:
+            case "end":
+              return _context7.stop();
+          }
+        }
+      }, _callee7, null, [[0, 5]]);
+    }));
+
+    function _delete(_x7) {
       return _delete2.apply(this, arguments);
     }
 
@@ -62144,6 +78150,244 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     }));
 
     function _delete(_x5) {
+      return _delete2.apply(this, arguments);
+    }
+
+    return _delete;
+  }()
+});
+
+/***/ }),
+
+/***/ "./resources/js/service/Transaction.js":
+/*!*********************************************!*\
+  !*** ./resources/js/service/Transaction.js ***!
+  \*********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _Http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Http */ "./resources/js/service/Http.js");
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  get: function () {
+    var _get = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+      var res;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              _context.prev = 0;
+              _context.next = 3;
+              return _Http__WEBPACK_IMPORTED_MODULE_1__["default"].get('/api/transaction');
+
+            case 3:
+              res = _context.sent;
+              return _context.abrupt("return", res.data.data);
+
+            case 7:
+              _context.prev = 7;
+              _context.t0 = _context["catch"](0);
+              throw new Error('Gagal mendapatkan data transaction!');
+
+            case 10:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee, null, [[0, 7]]);
+    }));
+
+    function get() {
+      return _get.apply(this, arguments);
+    }
+
+    return get;
+  }(),
+  store: function () {
+    var _store = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(payload) {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+        while (1) {
+          switch (_context2.prev = _context2.next) {
+            case 0:
+              _context2.prev = 0;
+              _context2.next = 3;
+              return _Http__WEBPACK_IMPORTED_MODULE_1__["default"].post('/api/transaction', payload);
+
+            case 3:
+              _context2.next = 8;
+              break;
+
+            case 5:
+              _context2.prev = 5;
+              _context2.t0 = _context2["catch"](0);
+              throw new Error('Gagal simpan transaction baru!');
+
+            case 8:
+            case "end":
+              return _context2.stop();
+          }
+        }
+      }, _callee2, null, [[0, 5]]);
+    }));
+
+    function store(_x) {
+      return _store.apply(this, arguments);
+    }
+
+    return store;
+  }(),
+  find: function () {
+    var _find = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3(id) {
+      var res;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
+        while (1) {
+          switch (_context3.prev = _context3.next) {
+            case 0:
+              _context3.prev = 0;
+              _context3.next = 3;
+              return _Http__WEBPACK_IMPORTED_MODULE_1__["default"].get("/api/transaction/".concat(id));
+
+            case 3:
+              res = _context3.sent;
+              return _context3.abrupt("return", res.data.data);
+
+            case 7:
+              _context3.prev = 7;
+              _context3.t0 = _context3["catch"](0);
+              throw new Error('Gagal mendapatkan data transaction!');
+
+            case 10:
+            case "end":
+              return _context3.stop();
+          }
+        }
+      }, _callee3, null, [[0, 7]]);
+    }));
+
+    function find(_x2) {
+      return _find.apply(this, arguments);
+    }
+
+    return find;
+  }(),
+  update: function () {
+    var _update = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4(id, payload) {
+      var res;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee4$(_context4) {
+        while (1) {
+          switch (_context4.prev = _context4.next) {
+            case 0:
+              _context4.prev = 0;
+              _context4.next = 3;
+              return _Http__WEBPACK_IMPORTED_MODULE_1__["default"].patch("/api/transaction/".concat(id), payload);
+
+            case 3:
+              res = _context4.sent;
+              return _context4.abrupt("return", res.data.data);
+
+            case 7:
+              _context4.prev = 7;
+              _context4.t0 = _context4["catch"](0);
+              throw new Error('Gagal update data transaction!');
+
+            case 10:
+            case "end":
+              return _context4.stop();
+          }
+        }
+      }, _callee4, null, [[0, 7]]);
+    }));
+
+    function update(_x3, _x4) {
+      return _update.apply(this, arguments);
+    }
+
+    return update;
+  }(),
+  payment: function () {
+    var _payment = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee5(id, payload) {
+      var res;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee5$(_context5) {
+        while (1) {
+          switch (_context5.prev = _context5.next) {
+            case 0:
+              _context5.prev = 0;
+              _context5.next = 3;
+              return _Http__WEBPACK_IMPORTED_MODULE_1__["default"].patch("/api/transaction/payment/".concat(id), payload);
+
+            case 3:
+              res = _context5.sent;
+              return _context5.abrupt("return", res.data.data);
+
+            case 7:
+              _context5.prev = 7;
+              _context5.t0 = _context5["catch"](0);
+              throw new Error('Gagal update data transaction!');
+
+            case 10:
+            case "end":
+              return _context5.stop();
+          }
+        }
+      }, _callee5, null, [[0, 7]]);
+    }));
+
+    function payment(_x5, _x6) {
+      return _payment.apply(this, arguments);
+    }
+
+    return payment;
+  }(),
+  delete: function () {
+    var _delete2 = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee6(id) {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee6$(_context6) {
+        while (1) {
+          switch (_context6.prev = _context6.next) {
+            case 0:
+              _context6.prev = 0;
+              _context6.next = 3;
+              return _Http__WEBPACK_IMPORTED_MODULE_1__["default"].delete("/api/transaction/".concat(id));
+
+            case 3:
+              _context6.next = 8;
+              break;
+
+            case 5:
+              _context6.prev = 5;
+              _context6.t0 = _context6["catch"](0);
+              throw new Error('Gagal hapus data transaction');
+
+            case 8:
+            case "end":
+              return _context6.stop();
+          }
+        }
+      }, _callee6, null, [[0, 5]]);
+    }));
+
+    function _delete(_x7) {
       return _delete2.apply(this, arguments);
     }
 
@@ -62497,40 +78741,155 @@ var actions = {
 
     return get;
   }(),
-  //   async store(context, payload) {
-  //     try {
-  //       await branchService.store(payload)
-  //     } catch (err) {
-  //       context.commit('setFailedStore', err)
-  //     }
-  //   },
-  //   async edit(context, id) {
-  //     try {
-  //       const res = await branchService.find(id)
-  //       context.commit('setBranchForm', res)
-  //     } catch (err) {
-  //       context.commit('setFailedAction', err)
-  //     }
-  //   },
-  //   async update(context, payload) {
-  //     try {
-  //       const data = {
-  //         branch_name: payload.branch_name,
-  //         branch_address: payload.branch_address,
-  //         branch_phone_number: payload.branch_phone_number
-  //       }
-  //       await branchService.update(payload.id_branch, data)
-  //     } catch (err) {
-  //       context.commit('setFailedAction', err)
-  //     }
-  //   },
-  //   async delete (context, id) {
-  //     try {
-  //       await branchService.delete(id)
-  //     } catch (err) {
-  //       context.commit('setFailedAction', err)
-  //     }
-  //   },
+  store: function () {
+    var _store = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(context, payload) {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+        while (1) {
+          switch (_context2.prev = _context2.next) {
+            case 0:
+              _context2.prev = 0;
+              _context2.next = 3;
+              return _service_Branch__WEBPACK_IMPORTED_MODULE_1__["default"].store(payload);
+
+            case 3:
+              _context2.next = 8;
+              break;
+
+            case 5:
+              _context2.prev = 5;
+              _context2.t0 = _context2["catch"](0);
+              context.commit('setFailedStore', _context2.t0);
+
+            case 8:
+            case "end":
+              return _context2.stop();
+          }
+        }
+      }, _callee2, null, [[0, 5]]);
+    }));
+
+    function store(_x2, _x3) {
+      return _store.apply(this, arguments);
+    }
+
+    return store;
+  }(),
+  edit: function () {
+    var _edit = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3(context, id) {
+      var res;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
+        while (1) {
+          switch (_context3.prev = _context3.next) {
+            case 0:
+              _context3.prev = 0;
+              _context3.next = 3;
+              return _service_Branch__WEBPACK_IMPORTED_MODULE_1__["default"].find(id);
+
+            case 3:
+              res = _context3.sent;
+              context.commit('setBranchForm', res);
+              _context3.next = 10;
+              break;
+
+            case 7:
+              _context3.prev = 7;
+              _context3.t0 = _context3["catch"](0);
+              context.commit('setFailedAction', _context3.t0);
+
+            case 10:
+            case "end":
+              return _context3.stop();
+          }
+        }
+      }, _callee3, null, [[0, 7]]);
+    }));
+
+    function edit(_x4, _x5) {
+      return _edit.apply(this, arguments);
+    }
+
+    return edit;
+  }(),
+  update: function () {
+    var _update = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4(context, payload) {
+      var data;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee4$(_context4) {
+        while (1) {
+          switch (_context4.prev = _context4.next) {
+            case 0:
+              _context4.prev = 0;
+              data = {
+                branch_name: payload.branch_name,
+                branch_address: payload.branch_address,
+                branch_phone_number: payload.branch_phone_number
+              };
+              _context4.next = 4;
+              return _service_Branch__WEBPACK_IMPORTED_MODULE_1__["default"].update(payload.id_branch, data);
+
+            case 4:
+              _context4.next = 9;
+              break;
+
+            case 6:
+              _context4.prev = 6;
+              _context4.t0 = _context4["catch"](0);
+              context.commit('setFailedAction', _context4.t0);
+
+            case 9:
+            case "end":
+              return _context4.stop();
+          }
+        }
+      }, _callee4, null, [[0, 6]]);
+    }));
+
+    function update(_x6, _x7) {
+      return _update.apply(this, arguments);
+    }
+
+    return update;
+  }(),
+  delete: function () {
+    var _delete2 = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee5(context, id) {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee5$(_context5) {
+        while (1) {
+          switch (_context5.prev = _context5.next) {
+            case 0:
+              _context5.prev = 0;
+              _context5.next = 3;
+              return _service_Branch__WEBPACK_IMPORTED_MODULE_1__["default"].delete(id);
+
+            case 3:
+              _context5.next = 8;
+              break;
+
+            case 5:
+              _context5.prev = 5;
+              _context5.t0 = _context5["catch"](0);
+              context.commit('setFailedAction', _context5.t0);
+
+            case 8:
+            case "end":
+              return _context5.stop();
+          }
+        }
+      }, _callee5, null, [[0, 5]]);
+    }));
+
+    function _delete(_x8, _x9) {
+      return _delete2.apply(this, arguments);
+    }
+
+    return _delete;
+  }(),
   resetForm: function resetForm(context) {
     context.commit('setBranchForm', {});
   }
@@ -63115,6 +79474,257 @@ var getters = {
 
 /***/ }),
 
+/***/ "./resources/js/store/modules/MotorBrand.js":
+/*!**************************************************!*\
+  !*** ./resources/js/store/modules/MotorBrand.js ***!
+  \**************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _service_MotorBrand__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../service/MotorBrand */ "./resources/js/service/MotorBrand.js");
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+
+var state = {
+  motorbrands: [],
+  motorbrand: {
+    id_motorcycle_brand: '',
+    name_motorcycle_brand: ''
+  },
+  loading: true,
+  error: null
+};
+var mutations = {
+  setSource: function setSource(state, payload) {
+    state.motorbrands = payload;
+    state.loading = false;
+    state.error = null;
+  },
+  setFailedAction: function setFailedAction(state, payload) {
+    state.loading = false;
+    state.error = payload.error;
+  }
+};
+var getters = {
+  error: function error(state) {
+    return state.error;
+  },
+  loading: function loading(state) {
+    return state.loading;
+  },
+  motorbrand: function motorbrand(state) {
+    return state.motorbrand;
+  }
+};
+var actions = {
+  get: function () {
+    var _get = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(context) {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              _context.prev = 0;
+              _context.t0 = context;
+              _context.next = 4;
+              return _service_MotorBrand__WEBPACK_IMPORTED_MODULE_1__["default"].get();
+
+            case 4:
+              _context.t1 = _context.sent;
+
+              _context.t0.commit.call(_context.t0, 'setSource', _context.t1);
+
+              _context.next = 11;
+              break;
+
+            case 8:
+              _context.prev = 8;
+              _context.t2 = _context["catch"](0);
+              context.commit('setFailedAction', _context.t2);
+
+            case 11:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee, null, [[0, 8]]);
+    }));
+
+    function get(_x) {
+      return _get.apply(this, arguments);
+    }
+
+    return get;
+  }(),
+  store: function () {
+    var _store = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(context, payload) {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+        while (1) {
+          switch (_context2.prev = _context2.next) {
+            case 0:
+              _context2.prev = 0;
+              _context2.next = 3;
+              return _service_MotorBrand__WEBPACK_IMPORTED_MODULE_1__["default"].store(payload);
+
+            case 3:
+              _context2.next = 8;
+              break;
+
+            case 5:
+              _context2.prev = 5;
+              _context2.t0 = _context2["catch"](0);
+              context.commit('setFailedStore', _context2.t0);
+
+            case 8:
+            case "end":
+              return _context2.stop();
+          }
+        }
+      }, _callee2, null, [[0, 5]]);
+    }));
+
+    function store(_x2, _x3) {
+      return _store.apply(this, arguments);
+    }
+
+    return store;
+  }(),
+  edit: function () {
+    var _edit = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3(context, id) {
+      var res;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
+        while (1) {
+          switch (_context3.prev = _context3.next) {
+            case 0:
+              _context3.prev = 0;
+              _context3.next = 3;
+              return _service_MotorBrand__WEBPACK_IMPORTED_MODULE_1__["default"].find(id);
+
+            case 3:
+              res = _context3.sent;
+              _context3.next = 9;
+              break;
+
+            case 6:
+              _context3.prev = 6;
+              _context3.t0 = _context3["catch"](0);
+              context.commit('setFailedAction', _context3.t0);
+
+            case 9:
+            case "end":
+              return _context3.stop();
+          }
+        }
+      }, _callee3, null, [[0, 6]]);
+    }));
+
+    function edit(_x4, _x5) {
+      return _edit.apply(this, arguments);
+    }
+
+    return edit;
+  }(),
+  update: function () {
+    var _update = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4(context, payload) {
+      var data;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee4$(_context4) {
+        while (1) {
+          switch (_context4.prev = _context4.next) {
+            case 0:
+              _context4.prev = 0;
+              data = {
+                name_motorcycle_brand: payload.name_motorcycle_brand
+              };
+              _context4.next = 4;
+              return _service_MotorBrand__WEBPACK_IMPORTED_MODULE_1__["default"].update(payload.id_motorcycle_brand, data);
+
+            case 4:
+              _context4.next = 9;
+              break;
+
+            case 6:
+              _context4.prev = 6;
+              _context4.t0 = _context4["catch"](0);
+              context.commit('setFailedAction', _context4.t0);
+
+            case 9:
+            case "end":
+              return _context4.stop();
+          }
+        }
+      }, _callee4, null, [[0, 6]]);
+    }));
+
+    function update(_x6, _x7) {
+      return _update.apply(this, arguments);
+    }
+
+    return update;
+  }(),
+  delete: function () {
+    var _delete2 = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee5(context, id) {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee5$(_context5) {
+        while (1) {
+          switch (_context5.prev = _context5.next) {
+            case 0:
+              _context5.prev = 0;
+              _context5.next = 3;
+              return _service_MotorBrand__WEBPACK_IMPORTED_MODULE_1__["default"].delete(id);
+
+            case 3:
+              _context5.next = 8;
+              break;
+
+            case 5:
+              _context5.prev = 5;
+              _context5.t0 = _context5["catch"](0);
+              context.commit('setFailedAction', _context5.t0);
+
+            case 8:
+            case "end":
+              return _context5.stop();
+          }
+        }
+      }, _callee5, null, [[0, 5]]);
+    }));
+
+    function _delete(_x8, _x9) {
+      return _delete2.apply(this, arguments);
+    }
+
+    return _delete;
+  }(),
+  resetForm: function resetForm(context) {
+    context.commit('setMotorBrandForm', {});
+  }
+};
+/* harmony default export */ __webpack_exports__["default"] = ({
+  namespaced: true,
+  state: state,
+  getters: getters,
+  actions: actions,
+  mutations: mutations
+});
+
+/***/ }),
+
 /***/ "./resources/js/store/modules/MotorCustomer.js":
 /*!*****************************************************!*\
   !*** ./resources/js/store/modules/MotorCustomer.js ***!
@@ -63358,6 +79968,560 @@ var actions = {
   }(),
   resetForm: function resetForm(context) {
     context.commit('setMotorCustomerForm', {});
+  }
+};
+/* harmony default export */ __webpack_exports__["default"] = ({
+  namespaced: true,
+  state: state,
+  getters: getters,
+  actions: actions,
+  mutations: mutations
+});
+
+/***/ }),
+
+/***/ "./resources/js/store/modules/MotorType.js":
+/*!*************************************************!*\
+  !*** ./resources/js/store/modules/MotorType.js ***!
+  \*************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _service_MotorType__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../service/MotorType */ "./resources/js/service/MotorType.js");
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+
+var state = {
+  motortypes: [],
+  motortype: {
+    id_motorcycle_type: '',
+    name_motorcycle_type: '',
+    id_motorcycle_brand: ''
+  },
+  loading: true,
+  error: null
+};
+var mutations = {
+  setSource: function setSource(state, payload) {
+    state.motortypes = payload;
+    state.loading = false;
+    state.error = null;
+  },
+  setFailedAction: function setFailedAction(state, payload) {
+    state.loading = false;
+    state.error = payload.error;
+  }
+};
+var getters = {
+  error: function error(state) {
+    return state.error;
+  },
+  loading: function loading(state) {
+    return state.loading;
+  },
+  motortype: function motortype(state) {
+    return state.motortype;
+  }
+};
+var actions = {
+  get: function () {
+    var _get = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(context) {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              _context.prev = 0;
+              _context.t0 = context;
+              _context.next = 4;
+              return _service_MotorType__WEBPACK_IMPORTED_MODULE_1__["default"].get();
+
+            case 4:
+              _context.t1 = _context.sent;
+
+              _context.t0.commit.call(_context.t0, 'setSource', _context.t1);
+
+              _context.next = 11;
+              break;
+
+            case 8:
+              _context.prev = 8;
+              _context.t2 = _context["catch"](0);
+              context.commit('setFailedAction', _context.t2);
+
+            case 11:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee, null, [[0, 8]]);
+    }));
+
+    function get(_x) {
+      return _get.apply(this, arguments);
+    }
+
+    return get;
+  }(),
+  store: function () {
+    var _store = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(context, payload) {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+        while (1) {
+          switch (_context2.prev = _context2.next) {
+            case 0:
+              _context2.prev = 0;
+              _context2.next = 3;
+              return _service_MotorType__WEBPACK_IMPORTED_MODULE_1__["default"].store(payload);
+
+            case 3:
+              _context2.next = 8;
+              break;
+
+            case 5:
+              _context2.prev = 5;
+              _context2.t0 = _context2["catch"](0);
+              context.commit('setFailedStore', _context2.t0);
+
+            case 8:
+            case "end":
+              return _context2.stop();
+          }
+        }
+      }, _callee2, null, [[0, 5]]);
+    }));
+
+    function store(_x2, _x3) {
+      return _store.apply(this, arguments);
+    }
+
+    return store;
+  }(),
+  edit: function () {
+    var _edit = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3(context, id) {
+      var res;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
+        while (1) {
+          switch (_context3.prev = _context3.next) {
+            case 0:
+              _context3.prev = 0;
+              _context3.next = 3;
+              return _service_MotorType__WEBPACK_IMPORTED_MODULE_1__["default"].find(id);
+
+            case 3:
+              res = _context3.sent;
+              _context3.next = 9;
+              break;
+
+            case 6:
+              _context3.prev = 6;
+              _context3.t0 = _context3["catch"](0);
+              context.commit('setFailedAction', _context3.t0);
+
+            case 9:
+            case "end":
+              return _context3.stop();
+          }
+        }
+      }, _callee3, null, [[0, 6]]);
+    }));
+
+    function edit(_x4, _x5) {
+      return _edit.apply(this, arguments);
+    }
+
+    return edit;
+  }(),
+  update: function () {
+    var _update = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4(context, payload) {
+      var data;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee4$(_context4) {
+        while (1) {
+          switch (_context4.prev = _context4.next) {
+            case 0:
+              _context4.prev = 0;
+              data = {
+                name_motorcycle_type: payload.name_motorcycle_type,
+                id_motorcycle_brand: payload.id_motorcycle_brand
+              };
+              _context4.next = 4;
+              return _service_MotorType__WEBPACK_IMPORTED_MODULE_1__["default"].update(payload.id_motorcycle_type, data);
+
+            case 4:
+              _context4.next = 9;
+              break;
+
+            case 6:
+              _context4.prev = 6;
+              _context4.t0 = _context4["catch"](0);
+              context.commit('setFailedAction', _context4.t0);
+
+            case 9:
+            case "end":
+              return _context4.stop();
+          }
+        }
+      }, _callee4, null, [[0, 6]]);
+    }));
+
+    function update(_x6, _x7) {
+      return _update.apply(this, arguments);
+    }
+
+    return update;
+  }(),
+  delete: function () {
+    var _delete2 = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee5(context, id) {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee5$(_context5) {
+        while (1) {
+          switch (_context5.prev = _context5.next) {
+            case 0:
+              _context5.prev = 0;
+              _context5.next = 3;
+              return _service_MotorType__WEBPACK_IMPORTED_MODULE_1__["default"].delete(id);
+
+            case 3:
+              _context5.next = 8;
+              break;
+
+            case 5:
+              _context5.prev = 5;
+              _context5.t0 = _context5["catch"](0);
+              context.commit('setFailedAction', _context5.t0);
+
+            case 8:
+            case "end":
+              return _context5.stop();
+          }
+        }
+      }, _callee5, null, [[0, 5]]);
+    }));
+
+    function _delete(_x8, _x9) {
+      return _delete2.apply(this, arguments);
+    }
+
+    return _delete;
+  }(),
+  resetForm: function resetForm(context) {
+    context.commit('setMotorTypeForm', {});
+  }
+};
+/* harmony default export */ __webpack_exports__["default"] = ({
+  namespaced: true,
+  state: state,
+  getters: getters,
+  actions: actions,
+  mutations: mutations
+});
+
+/***/ }),
+
+/***/ "./resources/js/store/modules/Procurement.js":
+/*!***************************************************!*\
+  !*** ./resources/js/store/modules/Procurement.js ***!
+  \***************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _service_Procurement__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../service/Procurement */ "./resources/js/service/Procurement.js");
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+
+var state = {
+  procurements: [],
+  procurement: {
+    id_procurement: 0,
+    status_procurement: 'Unprocessed',
+    date_procurement: '',
+    id_sales: '',
+    id_supplier: '',
+    sales: '',
+    detail: []
+  },
+  loading: true,
+  error: null
+};
+var mutations = {
+  setSource: function setSource(state, payload) {
+    state.procurements = payload;
+    state.loading = false;
+    state.error = null;
+  },
+  setFailedAction: function setFailedAction(state, payload) {
+    state.loading = false;
+    state.error = payload.error;
+  }
+};
+var getters = {
+  error: function error(state) {
+    return state.error;
+  },
+  loading: function loading(state) {
+    return state.loading;
+  },
+  procurement: function procurement(state) {
+    return state.procurement;
+  }
+};
+var actions = {
+  get: function () {
+    var _get = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(context) {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              _context.prev = 0;
+              _context.t0 = context;
+              _context.next = 4;
+              return _service_Procurement__WEBPACK_IMPORTED_MODULE_1__["default"].get();
+
+            case 4:
+              _context.t1 = _context.sent;
+
+              _context.t0.commit.call(_context.t0, 'setSource', _context.t1);
+
+              _context.next = 11;
+              break;
+
+            case 8:
+              _context.prev = 8;
+              _context.t2 = _context["catch"](0);
+              context.commit('setFailedAction', _context.t2);
+
+            case 11:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee, null, [[0, 8]]);
+    }));
+
+    function get(_x) {
+      return _get.apply(this, arguments);
+    }
+
+    return get;
+  }(),
+  findBySupplier: function () {
+    var _findBySupplier = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(context, id) {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+        while (1) {
+          switch (_context2.prev = _context2.next) {
+            case 0:
+              _context2.prev = 0;
+              _context2.t0 = context;
+              _context2.next = 4;
+              return _service_Procurement__WEBPACK_IMPORTED_MODULE_1__["default"].findBySupplier(id);
+
+            case 4:
+              _context2.t1 = _context2.sent;
+
+              _context2.t0.commit.call(_context2.t0, 'setSource', _context2.t1);
+
+              _context2.next = 11;
+              break;
+
+            case 8:
+              _context2.prev = 8;
+              _context2.t2 = _context2["catch"](0);
+              context.commit('setFailedAction', _context2.t2);
+
+            case 11:
+            case "end":
+              return _context2.stop();
+          }
+        }
+      }, _callee2, null, [[0, 8]]);
+    }));
+
+    function findBySupplier(_x2, _x3) {
+      return _findBySupplier.apply(this, arguments);
+    }
+
+    return findBySupplier;
+  }(),
+  store: function () {
+    var _store = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3(context, payload) {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
+        while (1) {
+          switch (_context3.prev = _context3.next) {
+            case 0:
+              _context3.prev = 0;
+              _context3.next = 3;
+              return _service_Procurement__WEBPACK_IMPORTED_MODULE_1__["default"].store(payload);
+
+            case 3:
+              _context3.next = 8;
+              break;
+
+            case 5:
+              _context3.prev = 5;
+              _context3.t0 = _context3["catch"](0);
+              context.commit('setFailedStore', _context3.t0);
+
+            case 8:
+            case "end":
+              return _context3.stop();
+          }
+        }
+      }, _callee3, null, [[0, 5]]);
+    }));
+
+    function store(_x4, _x5) {
+      return _store.apply(this, arguments);
+    }
+
+    return store;
+  }(),
+  edit: function () {
+    var _edit = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4(context, id) {
+      var res;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee4$(_context4) {
+        while (1) {
+          switch (_context4.prev = _context4.next) {
+            case 0:
+              _context4.prev = 0;
+              _context4.next = 3;
+              return _service_Procurement__WEBPACK_IMPORTED_MODULE_1__["default"].find(id);
+
+            case 3:
+              res = _context4.sent;
+              context.commit('setProcurementForm', res);
+              _context4.next = 10;
+              break;
+
+            case 7:
+              _context4.prev = 7;
+              _context4.t0 = _context4["catch"](0);
+              context.commit('setFailedAction', _context4.t0);
+
+            case 10:
+            case "end":
+              return _context4.stop();
+          }
+        }
+      }, _callee4, null, [[0, 7]]);
+    }));
+
+    function edit(_x6, _x7) {
+      return _edit.apply(this, arguments);
+    }
+
+    return edit;
+  }(),
+  update: function () {
+    var _update = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee5(context, payload) {
+      var data;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee5$(_context5) {
+        while (1) {
+          switch (_context5.prev = _context5.next) {
+            case 0:
+              _context5.prev = 0;
+              data = {
+                status_procurement: payload.status_procurement,
+                id_sales: payload.id_sales,
+                date_procurement: payload.date_procurement,
+                detail: payload.detail
+              };
+              _context5.next = 4;
+              return _service_Procurement__WEBPACK_IMPORTED_MODULE_1__["default"].update(payload.id_procurement, data);
+
+            case 4:
+              state.loading = false;
+              _context5.next = 10;
+              break;
+
+            case 7:
+              _context5.prev = 7;
+              _context5.t0 = _context5["catch"](0);
+              context.commit('setFailedAction', _context5.t0);
+
+            case 10:
+            case "end":
+              return _context5.stop();
+          }
+        }
+      }, _callee5, null, [[0, 7]]);
+    }));
+
+    function update(_x8, _x9) {
+      return _update.apply(this, arguments);
+    }
+
+    return update;
+  }(),
+  delete: function () {
+    var _delete2 = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee6(context, id) {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee6$(_context6) {
+        while (1) {
+          switch (_context6.prev = _context6.next) {
+            case 0:
+              _context6.prev = 0;
+              _context6.next = 3;
+              return _service_Procurement__WEBPACK_IMPORTED_MODULE_1__["default"].delete(id);
+
+            case 3:
+              _context6.next = 8;
+              break;
+
+            case 5:
+              _context6.prev = 5;
+              _context6.t0 = _context6["catch"](0);
+              context.commit('setFailedAction', _context6.t0);
+
+            case 8:
+            case "end":
+              return _context6.stop();
+          }
+        }
+      }, _callee6, null, [[0, 5]]);
+    }));
+
+    function _delete(_x10, _x11) {
+      return _delete2.apply(this, arguments);
+    }
+
+    return _delete;
+  }(),
+  resetForm: function resetForm(context) {
+    context.commit('resetProcurementForm');
   }
 };
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -64259,6 +81423,41 @@ var actions = {
 
     return updateimage;
   }(),
+  sparepartverify: function () {
+    var _sparepartverify = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee7(context, payload) {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee7$(_context7) {
+        while (1) {
+          switch (_context7.prev = _context7.next) {
+            case 0:
+              _context7.prev = 0;
+              _context7.next = 3;
+              return _service_Sparepart__WEBPACK_IMPORTED_MODULE_1__["default"].sparepartverify(payload);
+
+            case 3:
+              _context7.next = 8;
+              break;
+
+            case 5:
+              _context7.prev = 5;
+              _context7.t0 = _context7["catch"](0);
+              context.commit('setFailedStore', _context7.t0);
+
+            case 8:
+            case "end":
+              return _context7.stop();
+          }
+        }
+      }, _callee7, null, [[0, 5]]);
+    }));
+
+    function sparepartverify(_x12, _x13) {
+      return _sparepartverify.apply(this, arguments);
+    }
+
+    return sparepartverify;
+  }(),
   resetForm: function resetForm(context) {
     context.commit('setsparepartForm', {});
   }
@@ -64517,6 +81716,312 @@ var actions = {
   resetForm: function resetForm(context) {
     context.commit('setEmployeeForm', {});
   }
+};
+/* harmony default export */ __webpack_exports__["default"] = ({
+  namespaced: true,
+  state: state,
+  getters: getters,
+  actions: actions,
+  mutations: mutations
+});
+
+/***/ }),
+
+/***/ "./resources/js/store/modules/Transaction.js":
+/*!***************************************************!*\
+  !*** ./resources/js/store/modules/Transaction.js ***!
+  \***************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _service_Transaction__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../service/Transaction */ "./resources/js/service/Transaction.js");
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+
+var state = {
+  transactions: [],
+  transaction: {
+    id_transaction: '',
+    status_process: 'unprocessed',
+    status_paid: '',
+    type_transaction: '',
+    date_transaction: '',
+    discount_transaction: 0,
+    total_transaction: 0,
+    id_customer: '',
+    id_service: '',
+    id_employee: '',
+    service: [],
+    sparepart: []
+  },
+  loading: true,
+  error: null
+};
+var mutations = {
+  setSource: function setSource(state, payload) {
+    state.transactions = payload;
+    state.loading = false;
+    state.error = null;
+  },
+  setFailedAction: function setFailedAction(state, payload) {
+    state.loading = false;
+    state.error = payload.error;
+  }
+};
+var getters = {
+  error: function error(state) {
+    return state.error;
+  },
+  loading: function loading(state) {
+    return state.loading;
+  },
+  transaction: function transaction(state) {
+    return state.transaction;
+  }
+};
+var actions = {
+  get: function () {
+    var _get = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(context) {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              _context.prev = 0;
+              _context.t0 = context;
+              _context.next = 4;
+              return _service_Transaction__WEBPACK_IMPORTED_MODULE_1__["default"].get();
+
+            case 4:
+              _context.t1 = _context.sent;
+
+              _context.t0.commit.call(_context.t0, 'setSource', _context.t1);
+
+              _context.next = 11;
+              break;
+
+            case 8:
+              _context.prev = 8;
+              _context.t2 = _context["catch"](0);
+              context.commit('setFailedAction', _context.t2);
+
+            case 11:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee, null, [[0, 8]]);
+    }));
+
+    function get(_x) {
+      return _get.apply(this, arguments);
+    }
+
+    return get;
+  }(),
+  store: function () {
+    var _store = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(context, payload) {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+        while (1) {
+          switch (_context2.prev = _context2.next) {
+            case 0:
+              _context2.prev = 0;
+              _context2.next = 3;
+              return _service_Transaction__WEBPACK_IMPORTED_MODULE_1__["default"].store(payload);
+
+            case 3:
+              _context2.next = 8;
+              break;
+
+            case 5:
+              _context2.prev = 5;
+              _context2.t0 = _context2["catch"](0);
+              context.commit('setFailedStore', _context2.t0);
+
+            case 8:
+            case "end":
+              return _context2.stop();
+          }
+        }
+      }, _callee2, null, [[0, 5]]);
+    }));
+
+    function store(_x2, _x3) {
+      return _store.apply(this, arguments);
+    }
+
+    return store;
+  }(),
+  edit: function () {
+    var _edit = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3(context, id) {
+      var res;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
+        while (1) {
+          switch (_context3.prev = _context3.next) {
+            case 0:
+              _context3.prev = 0;
+              _context3.next = 3;
+              return _service_Transaction__WEBPACK_IMPORTED_MODULE_1__["default"].find(id);
+
+            case 3:
+              res = _context3.sent;
+              _context3.next = 9;
+              break;
+
+            case 6:
+              _context3.prev = 6;
+              _context3.t0 = _context3["catch"](0);
+              context.commit('setFailedAction', _context3.t0);
+
+            case 9:
+            case "end":
+              return _context3.stop();
+          }
+        }
+      }, _callee3, null, [[0, 6]]);
+    }));
+
+    function edit(_x4, _x5) {
+      return _edit.apply(this, arguments);
+    }
+
+    return edit;
+  }(),
+  update: function () {
+    var _update = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4(context, payload) {
+      var data;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee4$(_context4) {
+        while (1) {
+          switch (_context4.prev = _context4.next) {
+            case 0:
+              _context4.prev = 0;
+              data = {
+                status_process: payload.status_process,
+                id_customer: payload.id_customer,
+                type_transaction: payload.type_transaction,
+                total_transaction: payload.total_transaction,
+                service: payload.service,
+                sparepart: payload.sparepart
+              };
+              _context4.next = 4;
+              return _service_Transaction__WEBPACK_IMPORTED_MODULE_1__["default"].update(payload.id_transaction, data);
+
+            case 4:
+              state.loading = false;
+              _context4.next = 10;
+              break;
+
+            case 7:
+              _context4.prev = 7;
+              _context4.t0 = _context4["catch"](0);
+              context.commit('setFailedAction', _context4.t0);
+
+            case 10:
+            case "end":
+              return _context4.stop();
+          }
+        }
+      }, _callee4, null, [[0, 7]]);
+    }));
+
+    function update(_x6, _x7) {
+      return _update.apply(this, arguments);
+    }
+
+    return update;
+  }(),
+  payment: function () {
+    var _payment = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee5(context, payload) {
+      var data;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee5$(_context5) {
+        while (1) {
+          switch (_context5.prev = _context5.next) {
+            case 0:
+              _context5.prev = 0;
+              data = {
+                discount_transaction: payload.discount_transaction,
+                total_transaction: payload.total_transaction,
+                employee: payload.employee
+              };
+              _context5.next = 4;
+              return _service_Transaction__WEBPACK_IMPORTED_MODULE_1__["default"].payment(payload.id_transaction, data);
+
+            case 4:
+              state.loading = false;
+              _context5.next = 10;
+              break;
+
+            case 7:
+              _context5.prev = 7;
+              _context5.t0 = _context5["catch"](0);
+              context.commit('setFailedAction', _context5.t0);
+
+            case 10:
+            case "end":
+              return _context5.stop();
+          }
+        }
+      }, _callee5, null, [[0, 7]]);
+    }));
+
+    function payment(_x8, _x9) {
+      return _payment.apply(this, arguments);
+    }
+
+    return payment;
+  }(),
+  delete: function () {
+    var _delete2 = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee6(context, id) {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee6$(_context6) {
+        while (1) {
+          switch (_context6.prev = _context6.next) {
+            case 0:
+              _context6.prev = 0;
+              _context6.next = 3;
+              return _service_Transaction__WEBPACK_IMPORTED_MODULE_1__["default"].delete(id);
+
+            case 3:
+              _context6.next = 8;
+              break;
+
+            case 5:
+              _context6.prev = 5;
+              _context6.t0 = _context6["catch"](0);
+              context.commit('setFailedAction', _context6.t0);
+
+            case 8:
+            case "end":
+              return _context6.stop();
+          }
+        }
+      }, _callee6, null, [[0, 5]]);
+    }));
+
+    function _delete(_x10, _x11) {
+      return _delete2.apply(this, arguments);
+    }
+
+    return _delete;
+  }()
 };
 /* harmony default export */ __webpack_exports__["default"] = ({
   namespaced: true,
@@ -64805,7 +82310,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _LoggedUser__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./LoggedUser */ "./resources/js/store/modules/LoggedUser.js");
 /* harmony import */ var _Customer__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./Customer */ "./resources/js/store/modules/Customer.js");
 /* harmony import */ var _MotorCustomer__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./MotorCustomer */ "./resources/js/store/modules/MotorCustomer.js");
+/* harmony import */ var _MotorBrand__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./MotorBrand */ "./resources/js/store/modules/MotorBrand.js");
+/* harmony import */ var _MotorType__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./MotorType */ "./resources/js/store/modules/MotorType.js");
+/* harmony import */ var _Procurement__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./Procurement */ "./resources/js/store/modules/Procurement.js");
+/* harmony import */ var _Transaction__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./Transaction */ "./resources/js/store/modules/Transaction.js");
 // import LoggedUser from './LoggedUser'
+
+
+
+
 
 
 
@@ -64828,7 +82341,11 @@ __webpack_require__.r(__webpack_exports__);
   Sales: _Sales__WEBPACK_IMPORTED_MODULE_7__["default"],
   LoggedUser: _LoggedUser__WEBPACK_IMPORTED_MODULE_8__["default"],
   Customer: _Customer__WEBPACK_IMPORTED_MODULE_9__["default"],
-  MotorCustomer: _MotorCustomer__WEBPACK_IMPORTED_MODULE_10__["default"]
+  MotorCustomer: _MotorCustomer__WEBPACK_IMPORTED_MODULE_10__["default"],
+  MotorBrand: _MotorBrand__WEBPACK_IMPORTED_MODULE_11__["default"],
+  MotorType: _MotorType__WEBPACK_IMPORTED_MODULE_12__["default"],
+  Procurement: _Procurement__WEBPACK_IMPORTED_MODULE_13__["default"],
+  Transaction: _Transaction__WEBPACK_IMPORTED_MODULE_14__["default"]
 });
 
 /***/ }),

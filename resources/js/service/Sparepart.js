@@ -49,6 +49,16 @@ export default {
     }
   },
 
+  async sparepartverify(payload){
+    try {
+      const res = await http.post(`/api/sparepart/sparepartverify`, payload)
+
+      return res.data.data
+    } catch (err) {
+      throw new Error(err)
+    }
+  },
+
   async delete (id) {
     try {
       await http.delete(`/api/sparepart/${id}`)

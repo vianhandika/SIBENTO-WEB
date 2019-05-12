@@ -18,4 +18,8 @@ class Sales extends Model
     {
         return $this->belongsTo('App\Supplier','id_supplier','id_supplier');
     }
+    public function sparepartprocurement()
+    {
+        return $this->hasMany('App\SparepartProcurement','id_sales');
+    }
 }

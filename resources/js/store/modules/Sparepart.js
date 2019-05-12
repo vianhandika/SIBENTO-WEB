@@ -90,6 +90,14 @@ const actions = {
     }
   },
 
+  async sparepartverify(context, payload){
+    try {
+      await sparepartService.sparepartverify(payload)
+    } catch (err) {
+      context.commit('setFailedStore', err)
+    }
+  },
+
   resetForm(context) {
     context.commit('setsparepartForm', {})
   }

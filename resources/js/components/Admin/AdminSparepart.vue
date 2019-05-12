@@ -234,6 +234,38 @@
             </v-card>
           </v-dialog>
 
+          <!-- dialog box compatibility -->
+          <v-dialog v-model="compatibilityDialog" max-width="1000px">
+              <v-card>
+                <v-card-title>
+                    <span class="headline">Kecocokan Motor</span>
+                </v-card-title>
+
+                <v-card-text>
+                    <v-container grid-list-md>
+                    <v-layout wrap>
+
+                      <v-flex xs12 sm3 md3
+                       v-for="tipe in motortypes"
+                       :key="tipe.id">
+                        <v-checkbox v-model="compatibility" :label="tipe.brand.name+' '+tipe.name" :value="tipe.id"></v-checkbox>
+                      </v-flex>
+                      
+
+                    </v-layout>
+                    </v-container>
+                </v-card-text>
+
+                <v-card-actions>
+                    <v-spacer></v-spacer>
+                    <v-btn color="blue darken-1" flat @click="close">Batal</v-btn>
+                    <v-btn color="blue darken-1" flat @click="updatecompatibility()">Simpan</v-btn>
+                </v-card-actions>
+              
+              </v-card>
+          </v-dialog>
+
+
           <!-- Search -->
           <v-spacer></v-spacer>
           <v-flex xs4 sm4 md4>
@@ -279,6 +311,13 @@
               <td class="text-xs-left">{{ props.item.brand }}</td>
               <td class="text-xs-left">{{ props.item.min_stock }}</td>
               <td class="text-xs-left">{{ props.item.stock }}</td>
+              <td class="text-xs-center">
+                  <v-btn depressed small color="grey" dark 
+                    style="text-transform:none !important;"
+                    @click="showCompatibility(props.item)">
+                    Lihat
+                  </v-btn>
+              </td>
               <td class="justify-center layout px-0">
               <v-icon
                   small
@@ -315,6 +354,7 @@
   import Controller from '../../httpController'
   import { mapState, mapActions } from 'vuex'
   import sparepartService from '../../service/Sparepart'
+  import serviceMotorType from '../../service/MotorType'
   import { required, maxLength,minLength, numeric } from 'vuelidate/lib/validators'
 
 
@@ -341,6 +381,7 @@
       
       dialog: false,
       delDialog: false,
+      compatibilityDialog:false,
       search: '',
       i:0,
       headers: [
@@ -350,6 +391,7 @@
         { text: 'Merk', align: 'center', value: 'brand' },
         { text: 'Minimal Stok', align: 'center', value: 'min_stock', sortable: false },
         { text: 'Stok', align: 'center', value: 'stock' },
+        { text: 'Kecocokan', align: 'center',  sortable: false},
         { text: 'Actions', align: 'center',value: 'name', sortable: false }
       ],
       dropdown_type:[],
@@ -368,6 +410,7 @@
       imageName:'',
       defaultImg: 'http://localhost:8000/images/sparepart/default.png',
       sparepartData: [],
+      compatibility:[],
       editedIndex: -1,
       editedItem: {
         id:'',
@@ -415,6 +458,7 @@
         loading: state => state.Sparepart.loading,
         error: state => state.Sparepart.error,
         spareparts: state => state.Sparepart.spareparts,
+        motortypes: state => state.MotorType.motortypes,
 
       }),
       initsparepart () {
@@ -522,6 +566,9 @@
       },
       delDialog (val) {
         val || this.close()
+      },
+      compatibilityDialog (val) {
+        val || this.close()
       }
     },
 
@@ -530,6 +577,7 @@
     mounted(){
       this.getSparepart()
       this.getSparepartType()
+      this.getMotorType();
     },
 
     methods: {
@@ -545,6 +593,7 @@
       },
       ...mapActions({
           getSparepart: 'Sparepart/get',
+           getMotorType: 'MotorType/get',
           storeSparepart: 'Sparepart/store',
           deleteSparepart: 'Sparepart/delete',
           updateSparepart: 'Sparepart/update',
@@ -583,7 +632,7 @@
             data.append('id_sparepart',this.editedItem.id);
             data.append('name_sparepart',this.editedItem.name);
             data.append('brand_sparepart',this.editedItem.brand);
-            data.append('id_sparepart_type', this.type.find(obj => obj.name == this.editedItem.type).id);
+            data.append('id_sparepart_type', this.dropdown_type.find(obj => obj.name == this.editedItem.type).id);
             data.append('stock_sparepart',this.editedItem.stock);
             data.append('minimal_stock_sparepart',this.editedItem.min_stock);
             data.append('buy_price',this.editedItem.buy_price);
@@ -612,7 +661,7 @@
                 
             await this.storeSparepart(data)
             this.sparepartData.push(this.editedItem)
-            this.getSparepart()
+            await this.getSparepart()
             this.close()
             this.showAlert('success','Success Add Sparepart')
         } catch (err) {
@@ -629,7 +678,7 @@
                 id_sparepart : this.editedItem.id,
                 name_sparepart : this.editedItem.name,
                 brand_sparepart : this.editedItem.brand,
-                id_sparepart_type : this.type.find(obj => obj.name == this.editedItem.type).id,
+                id_sparepart_type : this.dropdown_type.find(obj => obj.name == this.editedItem.type).id,
                 stock_sparepart : this.editedItem.stock,
                 minimal_stock_sparepart : this.editedItem.min_stock,
                 buy_price : this.editedItem.buy_price,
@@ -651,7 +700,7 @@
               await this.updateImageSparepart(data);
             }
             Object.assign(this.sparepartData[this.editedIndex], this.editedItem)
-            this.getSparepart()
+            await this.getSparepart()
             this.close()
             this.showAlert('success','Success Update Sparepart')
 
@@ -665,13 +714,35 @@
          try {
             var id_sparepart = this.sparepartData[this.editedIndex].id
             await this.deleteSparepart(id_sparepart)
-            this.getSparepart()
+            await this.getSparepart()
             this.close()
             this.showAlert('success','Success Delete Sparepart')
 
           } catch (err) {
               console.log(err)
             this.showAlert('error','Failed Delete Sparepart')
+
+          }
+      },
+
+      async updatecompatibility () {
+         try {
+            var id_sparepart = this.sparepartData[this.editedIndex].id
+            let data ={
+              motorcycle_types : this.compatibility.toString()
+
+   
+            }
+            //console.log(this.compatibility)
+            
+            await Controller.updatecompatibility(data,id_sparepart)
+            await this.getSparepart()
+            this.close()
+            this.showAlert('success','Berhasil Mengubah Kecocokan')
+
+          } catch (err) {
+              console.log(err)
+            this.showAlert('error','Gagal Mengubah Kecocokan')
 
           }
       },
@@ -692,10 +763,27 @@
         // confirm('Are you sure you want to delete this item?') && this.deleteService()
         
       },
+      showCompatibility(item){
+        this.compatibilityDialog = true
+        this.editedIndex = this.sparepartData.indexOf(item)
 
+        // console.log(item)
+        // console.log(item.compatibility.data)
+
+        for(var obj in item.compatibility.data)
+        {
+            // console.log(obj)
+            this.compatibility.push( item.compatibility.data[obj].id)
+
+        }
+        // this.compatibility = item.compatibility.data
+
+      },
       close () {
         this.dialog = false
         this.delDialog = false
+        this.compatibilityDialog = false
+        this.compatibility =[]
         setTimeout(() => {
           this.editedItem = Object.assign({}, this.defaultItem)
           this.editedIndex = -1

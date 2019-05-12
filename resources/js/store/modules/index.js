@@ -10,6 +10,10 @@ import Sales from './Sales'
 import LoggedUser from './LoggedUser'
 import Customer from './Customer'
 import MotorCustomer from './MotorCustomer'
+import MotorBrand from './MotorBrand'
+import MotorType from './MotorType'
+import Procurement from './Procurement'
+import Transaction from './Transaction'
 
 
 
@@ -27,5 +31,9 @@ export default {
   LoggedUser,
   Customer,
   MotorCustomer,
+  MotorBrand,
+  MotorType,
+  Procurement,
+  Transaction
 
 }

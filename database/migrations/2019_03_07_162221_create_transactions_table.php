@@ -16,8 +16,8 @@ class CreateTransactionsTable extends Migration
         Schema::create('transactions', function (Blueprint $table) {
             $table->string('id_transaction',30)->primary();;
             $table->timestamp('date_transaction');
-            $table->string('status_paid',10);
-            $table->string('status_process',10);
+            $table->string('status_paid',20);
+            $table->string('status_process',20);
             $table->string('type_transaction',50);
             $table->double('discount_transaction');
             $table->double('total_transaction');

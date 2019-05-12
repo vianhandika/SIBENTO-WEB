@@ -24,4 +24,16 @@ class Sparepart extends Model
     public function spareparttype(){
         return $this->belongsTo('App\SparepartType','id_sparepart_type');
     }
+
+    public function motorcycletype(){
+        return $this->belongsToMany('App\MotorcycleType','sparepart_compatibilities','id_sparepart','id_motorcycle_type');
+    }
+
+    public function detailsparepartprocurement(){
+        return $this->hasMany('App\DetailSparepartProcurement','id_sparepart');
+    }
+
+    public function detail_transaction_sparepart(){
+        return $this->hasMany('App\DetailTransactionSparepart','id_sparepart');
+    }
 }

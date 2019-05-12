@@ -12,6 +12,9 @@ class SparepartTransformers extends TransformerAbstract
      *
      * @param Sparepart $sparepart
      */
+    protected $defaultIncludes = [
+        'compatibility'
+    ];
     public function transform(Sparepart $sparepart)
     {
         $placement = explode('-',trim($sparepart->placement));
@@ -30,5 +33,9 @@ class SparepartTransformers extends TransformerAbstract
             'placement_number'          => $placement[2],
             'image'                     => $sparepart->image_sparepart,
         ];
+    }
+    public function includeCompatibility(Sparepart $sparepart)
+    {
+        return $this->collection($sparepart->motorcycletype, new CompatibilityTransformer);
     }
 }

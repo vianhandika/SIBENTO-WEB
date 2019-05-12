@@ -12,9 +12,23 @@ import AdminSparepart from './components/Admin/AdminSparepart'
 import AdminSupplier from './components/Admin/AdminSupplier'
 import AdminSales from './components/Admin/AdminSales'
 import AdminCustomer from './components/Admin/AdminCustomer'
+import AdminBranch from './components/Admin/AdminBranch'
+import AdminMotorBrand from './components/Admin/AdminMotorBrand'
+import AdminMotorType from './components/Admin/AdminMotorType'
+import AdminProcurement from './components/Admin/AdminProcurement'
+import AdminTransaction from './components/Admin/AdminTransaction'
+import AdminPayment from './components/Admin/AdminPayment'
+import CustomerIndex from './components/Customer/CustomerIndex'
+
 
  
 export const routes = [
+    {
+        path: '/',
+        name: 'Index',
+        component: CustomerIndex,
+        
+    },
     {
         path: '/panel/login',
         name: 'Login',
@@ -144,8 +158,93 @@ export const routes = [
         beforeEnter: middleware([
             auth
         ]) 
-    },      
-    
+    }, 
+    {
+        path: '/admin/branch',
+        name: 'AdminBranch',
+        component: AdminBranch,
+        meta: {
+            role: [
+                'Admin',
+            ],
+            menu: 9, 
+        },
+        beforeEnter: middleware([
+            auth
+        ]) 
+    },
+
+    {
+        path: '/admin/motorbrand',
+        name: 'AdminMotorBrand',
+        component: AdminMotorBrand,
+        meta: {
+            role: [
+                'Admin',
+            ],
+            menu: 10, 
+        },
+        beforeEnter: middleware([
+            auth
+        ]) 
+    },
+
+    {
+        path: '/admin/motortype',
+        name: 'AdminMotorType',
+        component: AdminMotorType,
+        meta: {
+            role: [
+                'Admin',
+            ],
+            menu: 11, 
+        },
+        beforeEnter: middleware([
+            auth
+        ]) 
+    },         
+    {
+        path: '/admin/procurement',
+        name: 'AdminProcurement',
+        component: AdminProcurement,
+        meta: {
+            role: [
+                'Admin',
+            ],
+            menu: 12, 
+        },
+        beforeEnter: middleware([
+            auth
+        ]) 
+    },       
+    {
+        path: '/admin/transaction',
+        name: 'AdminTransaction',
+        component: AdminTransaction,
+        meta: {
+            role: [
+                'Admin',
+            ],
+            menu: 13, 
+        },
+        beforeEnter: middleware([
+            auth
+        ]) 
+    },            
+    {
+        path: '/admin/payment',
+        name: 'AdminPayment',
+        component: AdminPayment,
+        meta: {
+            role: [
+                'Admin',
+            ],
+            menu: 14, 
+        },
+        beforeEnter: middleware([
+            auth
+        ]) 
+    },        
     //  {
     //     path: '/admin',
     //     name: 'Admin',

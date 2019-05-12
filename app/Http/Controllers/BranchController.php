@@ -42,7 +42,21 @@ class BranchController extends RestController
      */
     public function store(Request $request)
     {
-        //
+        try {
+
+            $created = Branch::create([
+                'name_branch'    => $request->name_branch,
+                'address_branch'   => $request->address_branch,
+                
+            ]);
+
+            $response = $this->generateItem($created);
+            return $this->sendResponse($response, 201);            
+
+        } catch (\Exception $e) {
+            return $this->sendIseResponse($e->getMessage());
+            // return response()->json(['Failed To Register'=>'Failed'], 400);
+        }
     }
 
     /**
@@ -53,7 +67,14 @@ class BranchController extends RestController
      */
     public function show($id)
     {
-        //
+        try{
+            $branch=Branch::find($id);
+            $response = $this->generateItem($branch);
+            return $this->sendResponse($response, 201);
+
+        } catch (\Exception $e) {
+            return $this->sendIseResponse($e->getMessage());
+        }
     }
 
     /**
@@ -76,7 +97,17 @@ class BranchController extends RestController
      */
     public function update(Request $request, $id)
     {
-        //
+        try{
+
+            $event = Branch::find($id)->update($request->All());
+            $data = Branch::find($id);
+            $response = $this->generateItem($data);
+            return $this->sendResponse($response, 201);
+
+
+        }catch (\Exception $e) {
+            return $this->sendIseResponse($e->getMessage());
+        }
     }
 
     /**
@@ -87,6 +118,13 @@ class BranchController extends RestController
      */
     public function destroy($id)
     {
-        //
+        try {
+            $branch=Branch::find($id);
+            $branch->delete();
+            return response()->json('Success',201);
+
+        } catch (\Exception $e) {
+            return $this->sendIseResponse($e->getMessage());
+        }
     }
 }

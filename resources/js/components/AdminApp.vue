@@ -399,6 +399,13 @@ export default {
                   { id: 6, route: 'AdminSupplier', icon: 'fas fa-truck', text: 'Supplier', name: 'Supplier'},
                   { id: 7, route: 'AdminSales', icon: 'fas fa-user-tie', text: 'Sales', name: 'Sales'},
                   { id: 8, route: 'AdminCustomer', icon: 'fas fa-users', text: 'Pelanggan', name: 'Pelanggan'},
+                  { id: 9, route: 'AdminBranch', icon: 'fas fa-building', text: 'Cabang', name: 'Cabang'},
+                  { id: 10, route: 'AdminMotorBrand', icon: 'fas fa-motorcycle', text: 'Merk Motor', name: 'Merk Motor'},
+                  { id: 11, route: 'AdminMotorType', icon: 'fas fa-motorcycle', text: 'Tipe Motor', name: 'Tipe Motor'},
+                  { id: 12, route: 'AdminProcurement', icon: 'fas fa-truck-loading', text: 'Pengadaan Sparepart', name: 'Pengadaan Sparepart'},
+                  { id: 13, route: 'AdminTransaction', icon: 'fas fa-search-dollar', text: 'Transaksi Penjualan', name: 'Transaksi Penjualan'},
+                  { id: 14, route: 'AdminPayment', icon: 'fas fa-search-dollar', text: 'Pembayaran', name: 'Pembayaran'},
+
                 ]
               }
               break

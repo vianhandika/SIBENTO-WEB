@@ -30,6 +30,7 @@ class MotorcycleCustomerTransformers extends TransformerAbstract
             'id_type'       => $motor->motorcycletype->id_motorcycle_type,
             'brand'         => $motor->motorcycletype->motorcyclebrand->name_motorcycle_brand,
             'id_brand'      => $motor->motorcycletype->motorcyclebrand->id_motorcycle_brand,
+            'id_customer'   => $motor->customer->id_customer,
             'customer'      => $customer
 
         ];

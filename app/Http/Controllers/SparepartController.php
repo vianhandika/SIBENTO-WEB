@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Transformers\SparepartTransformers;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\DB;
 use App\Sparepart;
 
 class SparepartController extends RestController
@@ -43,7 +44,8 @@ class SparepartController extends RestController
     public function store(Request $request)
     {
         try {
-
+            // return $request->motorcycle_types;
+            $motorcyle_types = explode(",",trim($request->motorcycle_types));
             $created = Sparepart::create([
                 'id_sparepart'              => $request->id_sparepart,
                 'name_sparepart'            => $request->name_sparepart,
@@ -128,6 +130,26 @@ class SparepartController extends RestController
         }
     }
 
+    public function updateCompatibility(Request $request, $id)
+    {
+        try{
+            // return $request->motorcycle_types;
+            $sparepart=Sparepart::find($id);
+            // return $sparepart;
+            $motorcycle_types = explode(",",trim($request->motorcycle_types));
+            $sparepart = DB::transaction(function () use ($sparepart,$motorcycle_types) {
+                $sparepart->motorcycleType()->sync($motorcycle_types);
+                return $sparepart;
+            });
+            $response = $this->generateItem($sparepart);
+            return $this->sendResponse($response, 201);
+
+
+        }catch (\Exception $e) {
+            return $this->sendIseResponse($e->getMessage());
+        }
+    }
+
     public function updateImage(Request $request)
     {
         try{
@@ -162,6 +184,26 @@ class SparepartController extends RestController
             $sparepart->delete();
             return response()->json('Success',201);
 
+        } catch (\Exception $e) {
+            return $this->sendIseResponse($e->getMessage());
+        }
+    }
+
+    public function sparepartVerify(Request $request)
+    {
+        try {
+            $spareparts = $request->get('spareparts');
+            foreach($spareparts as $sparepart)
+            {
+                $data=Sparepart::find($sparepart['id_sparepart']);
+                $data->stock_sparepart = $data->stock_sparepart + $sparepart['amount'];
+                $profit = $data->sell_price - $data->buy_price ;
+                $data->buy_price = $sparepart['price'];
+                $data->sell_price = $sparepart['price']+$profit;
+                $data->save();
+                //DB::table('spareparts')->where('id_sparepart',$sparepart->id_sparepart)->increment('stock',$sparepart->stock)->update('purchase_price',$sparepart->purchase_price);
+            }
+            return response()->json('Success',200);
         } catch (\Exception $e) {
             return $this->sendIseResponse($e->getMessage());
         }

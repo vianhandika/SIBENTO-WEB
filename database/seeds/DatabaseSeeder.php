@@ -28,7 +28,7 @@ class DatabaseSeeder extends Seeder
         $this->call(TransactionSeeder::class);
         $this->call(ServiceSeeder::class);
         $this->call(EmployeeOnduty::class);
-        $this->call(MechanicOnduty::class);
+        // $this->call(MechanicOnduty::class);
         $this->call(SparepartCompatibilities::class);
         $this->call(DetailTransactionService::class);
         $this->call(DetailTransactionSparepart::class);
