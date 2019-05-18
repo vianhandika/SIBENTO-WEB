@@ -385,6 +385,7 @@
           </template> -->
         </v-data-table>
         <!-- END Tabel -->
+
         <!-- Alert -->
         <v-snackbar right bottom :color="alert.type"  value="true" v-if="alert.type">
           <v-icon>{{alert.icon}}</v-icon>{{alert.message}}
@@ -584,7 +585,7 @@
 
       }),
 
-       ...mapGetters({
+      ...mapGetters({
         id: 'LoggedUser/id',
         name: 'LoggedUser/name',
         username: 'LoggedUser/username',
@@ -713,7 +714,7 @@
             employee: this.employee,
           }
 
-          console.log(data)
+          // console.log(data)
 
           await this.paymentTransaction(data)
           this.transactionData.push(this.editedItem)
@@ -724,10 +725,11 @@
           this.bayar = 0
           this.kembalian = 0
           this.close()
-          this.showAlert('success','Berhasil Tambah Transaksi')
+          this.showAlert('success','Berhasil Melakukan Pembayaran')
+          window.open(`/api/generate-nota-pdf/${this.editedItem.id_transaction}`, '_blank')
         } catch (err) {
           console.log(err)
-          this.showAlert('error','Gagal Tambah Transaksi')
+          this.showAlert('error','Gagal Melakukan Pembayaran')
         }
             
       },

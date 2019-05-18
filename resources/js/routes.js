@@ -224,6 +224,8 @@ export const routes = [
         meta: {
             role: [
                 'Admin',
+                'Customer Service',
+                
             ],
             menu: 13, 
         },
@@ -238,6 +240,8 @@ export const routes = [
         meta: {
             role: [
                 'Admin',
+                'Cashier'
+                
             ],
             menu: 14, 
         },

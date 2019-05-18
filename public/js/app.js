@@ -5543,6 +5543,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
 
 
 
@@ -5918,18 +5919,18 @@ function payErrors() {
                   id_transaction: this.editedItem.id_transaction,
                   discount_transaction: this.editedItem.discount_transaction,
                   total_transaction: this.editedItem.total_transaction,
-                  employee: this.employee
+                  employee: this.employee // console.log(data)
+
                 };
-                console.log(data);
-                _context.next = 6;
+                _context.next = 5;
                 return this.paymentTransaction(data);
 
-              case 6:
+              case 5:
                 this.transactionData.push(this.editedItem);
-                _context.next = 9;
+                _context.next = 8;
                 return this.getTransaction();
 
-              case 9:
+              case 8:
                 this.editedItem = Object.assign({}, this.transactions.find(function (obj) {
                   return obj.id_transaction == _this2.editedItem.id_transaction;
                 }));
@@ -5938,7 +5939,8 @@ function payErrors() {
                 this.bayar = 0;
                 this.kembalian = 0;
                 this.close();
-                this.showAlert('success', 'Berhasil Tambah Transaksi');
+                this.showAlert('success', 'Berhasil Melakukan Pembayaran');
+                window.open("/api/generate-nota-pdf/".concat(this.editedItem.id_transaction), '_blank');
                 _context.next = 22;
                 break;
 
@@ -5946,7 +5948,7 @@ function payErrors() {
                 _context.prev = 18;
                 _context.t0 = _context["catch"](0);
                 console.log(_context.t0);
-                this.showAlert('error', 'Gagal Tambah Transaksi');
+                this.showAlert('error', 'Gagal Melakukan Pembayaran');
 
               case 22:
               case "end":
@@ -6050,6 +6052,7 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+//
 //
 //
 //
@@ -7017,6 +7020,61 @@ function sparepartSameErrors() {
       }
 
       return deleteprocurement;
+    }(),
+    printprocurement: function () {
+      var _printprocurement = _asyncToGenerator(
+      /*#__PURE__*/
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee5(item) {
+        var date, data;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee5$(_context5) {
+          while (1) {
+            switch (_context5.prev = _context5.next) {
+              case 0:
+                _context5.prev = 0;
+                window.open("/api/generate-procurement-pdf/".concat(item.id_procurement), '_blank');
+                date = item.date_procurement.split(' '); // console.log(detailPayload)
+                // console.log(date[0])
+
+                data = {
+                  id_procurement: item.id_procurement,
+                  date_procurement: date[0],
+                  status_procurement: 'On Process',
+                  id_sales: item.id_sales,
+                  id_supplier: item.id_supplier
+                };
+                console.log(data);
+                _context5.next = 7;
+                return this.updateProcurement(data);
+
+              case 7:
+                _context5.next = 9;
+                return this.getProcurement();
+
+              case 9:
+                // this.close()
+                this.showAlert('success', 'Success Update Procurement');
+                _context5.next = 16;
+                break;
+
+              case 12:
+                _context5.prev = 12;
+                _context5.t0 = _context5["catch"](0);
+                console.log(_context5.t0);
+                this.showAlert('error', 'Failed Update Procurement');
+
+              case 16:
+              case "end":
+                return _context5.stop();
+            }
+          }
+        }, _callee5, this, [[0, 12]]);
+      }));
+
+      function printprocurement(_x) {
+        return _printprocurement.apply(this, arguments);
+      }
+
+      return printprocurement;
     }(),
     getSparepartObj: function getSparepartObj() {
       var _this3 = this;
@@ -8575,7 +8633,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
 
 
 
@@ -8636,6 +8693,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       delDialog: false,
       compatibilityDialog: false,
       search: '',
+      test: '',
       i: 0,
       headers: [{
         text: 'No',
@@ -8926,16 +8984,20 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         this.imageName = files[0].name;
 
         if (this.imageName.lastIndexOf('.') <= 0) {
+          // console.log("Masuk return")
           return;
         }
 
         var fr = new FileReader();
         fr.readAsDataURL(files[0]);
         fr.addEventListener('load', function () {
+          // console.log(fr.result)
+          //  console.log("Masuk FR")
           _this.imageUrl = fr.result;
           _this.editedItem.image = files[0];
         });
       } else {
+        // console.log("else")
         this.imageName = '';
         this.imageUrl = ''; // this.editedItem.image =''
       }
@@ -10843,6 +10905,16 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -11619,6 +11691,57 @@ function phoneNumberSameErrors() {
 
       return deletetransaction;
     }(),
+    printtransaction: function () {
+      var _printtransaction = _asyncToGenerator(
+      /*#__PURE__*/
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4(item) {
+        var data;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee4$(_context4) {
+          while (1) {
+            switch (_context4.prev = _context4.next) {
+              case 0:
+                _context4.prev = 0;
+                window.open("/api/generate-spk-pdf/".concat(item.id_transaction), '_blank');
+                data = {
+                  id_transaction: item.id_transaction,
+                  status_process: 'On Process',
+                  type_transaction: item.type_transaction,
+                  total_transaction: item.total_transaction,
+                  id_customer: item.id_customer
+                };
+                _context4.next = 5;
+                return this.updateTransaction(data);
+
+              case 5:
+                _context4.next = 7;
+                return this.getTransaction();
+
+              case 7:
+                //   this.close()
+                this.showAlert('success', 'Success Update Transaction');
+                _context4.next = 14;
+                break;
+
+              case 10:
+                _context4.prev = 10;
+                _context4.t0 = _context4["catch"](0);
+                console.log(_context4.t0);
+                this.showAlert('error', 'Failed Update Transaction');
+
+              case 14:
+              case "end":
+                return _context4.stop();
+            }
+          }
+        }, _callee4, this, [[0, 10]]);
+      }));
+
+      function printtransaction(_x) {
+        return _printtransaction.apply(this, arguments);
+      }
+
+      return printtransaction;
+    }(),
     //========================================
     //MAIN MODAL AND TABLE====================
     editItem: function editItem(item) {
@@ -11849,26 +11972,26 @@ function phoneNumberSameErrors() {
     addcustomer: function () {
       var _addcustomer = _asyncToGenerator(
       /*#__PURE__*/
-      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4() {
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee5() {
         var _this10 = this;
 
         var data;
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee4$(_context4) {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee5$(_context5) {
           while (1) {
-            switch (_context4.prev = _context4.next) {
+            switch (_context5.prev = _context5.next) {
               case 0:
-                _context4.prev = 0;
+                _context5.prev = 0;
                 data = {
                   name_customer: this.editedCustomer.name,
                   address_customer: this.editedCustomer.address,
                   phone_number_customer: this.editedCustomer.phone_number // console.log(data)
 
                 };
-                _context4.next = 4;
+                _context5.next = 4;
                 return this.storeCustomer(data);
 
               case 4:
-                _context4.next = 6;
+                _context5.next = 6;
                 return this.getCustomer();
 
               case 6:
@@ -11879,21 +12002,21 @@ function phoneNumberSameErrors() {
                 this.editedItem.id_customer = this.editedCustomer.id;
                 this.editedItem.name = this.editedCustomer.name;
                 this.showAlert('success', 'Success Add Customer');
-                _context4.next = 16;
+                _context5.next = 16;
                 break;
 
               case 12:
-                _context4.prev = 12;
-                _context4.t0 = _context4["catch"](0);
-                console.log(_context4.t0);
+                _context5.prev = 12;
+                _context5.t0 = _context5["catch"](0);
+                console.log(_context5.t0);
                 this.showAlert('error', 'Failed Add Customer');
 
               case 16:
               case "end":
-                return _context4.stop();
+                return _context5.stop();
             }
           }
-        }, _callee4, this, [[0, 12]]);
+        }, _callee5, this, [[0, 12]]);
       }));
 
       function addcustomer() {
@@ -11907,15 +12030,15 @@ function phoneNumberSameErrors() {
     addmotorcycle: function () {
       var _addmotorcycle = _asyncToGenerator(
       /*#__PURE__*/
-      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee5() {
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee6() {
         var _this11 = this;
 
         var data;
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee5$(_context5) {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee6$(_context6) {
           while (1) {
-            switch (_context5.prev = _context5.next) {
+            switch (_context6.prev = _context6.next) {
               case 0:
-                _context5.prev = 0;
+                _context6.prev = 0;
                 // console.log(this.editedMotor)
                 data = {
                   plate_number: this.editedMotor.plate,
@@ -11925,15 +12048,15 @@ function phoneNumberSameErrors() {
                   id_customer: this.editedCustomer.id // console.log(data)
 
                 };
-                _context5.next = 4;
+                _context6.next = 4;
                 return this.storeMotorcycle(data);
 
               case 4:
-                _context5.next = 6;
+                _context6.next = 6;
                 return this.getCustomer();
 
               case 6:
-                _context5.next = 8;
+                _context6.next = 8;
                 return this.getMotorCustomer();
 
               case 8:
@@ -11941,21 +12064,21 @@ function phoneNumberSameErrors() {
                 // this.editedCustomer = this.customers.find(obj=>obj.phone_number == this.editedCustomer.phone_number)
                 this.motorAddClose();
                 this.showAlert('success', 'Berhasil Menambahkan Motor');
-                _context5.next = 16;
+                _context6.next = 16;
                 break;
 
               case 12:
-                _context5.prev = 12;
-                _context5.t0 = _context5["catch"](0);
-                console.log(_context5.t0);
+                _context6.prev = 12;
+                _context6.t0 = _context6["catch"](0);
+                console.log(_context6.t0);
                 this.showAlert('error', 'Gagal Menambahkan Motor');
 
               case 16:
               case "end":
-                return _context5.stop();
+                return _context6.stop();
             }
           }
-        }, _callee5, this, [[0, 12]]);
+        }, _callee6, this, [[0, 12]]);
       }));
 
       function addmotorcycle() {
@@ -11967,41 +12090,41 @@ function phoneNumberSameErrors() {
     deletemotorcycle: function () {
       var _deletemotorcycle = _asyncToGenerator(
       /*#__PURE__*/
-      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee6() {
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee6$(_context6) {
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee7() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee7$(_context7) {
           while (1) {
-            switch (_context6.prev = _context6.next) {
+            switch (_context7.prev = _context7.next) {
               case 0:
-                _context6.prev = 0;
-                _context6.next = 3;
+                _context7.prev = 0;
+                _context7.next = 3;
                 return this.deleteMotorcycle(this.editedMotor.id);
 
               case 3:
-                _context6.next = 5;
+                _context7.next = 5;
                 return this.getCustomer();
 
               case 5:
-                _context6.next = 7;
+                _context7.next = 7;
                 return this.getMotorCustomer();
 
               case 7:
                 // this.editedMotor = Object.assign({},this.defaultdMotor)
                 this.showAlert('success', 'Berhasil Menghapus Motor');
-                _context6.next = 14;
+                _context7.next = 14;
                 break;
 
               case 10:
-                _context6.prev = 10;
-                _context6.t0 = _context6["catch"](0);
-                console.log(_context6.t0);
+                _context7.prev = 10;
+                _context7.t0 = _context7["catch"](0);
+                console.log(_context7.t0);
                 this.showAlert('error', 'Gagal Menghapus Motor');
 
               case 14:
               case "end":
-                return _context6.stop();
+                return _context7.stop();
             }
           }
-        }, _callee6, this, [[0, 10]]);
+        }, _callee7, this, [[0, 10]]);
       }));
 
       function deletemotorcycle() {
@@ -12013,15 +12136,15 @@ function phoneNumberSameErrors() {
     updatemotorcycle: function () {
       var _updatemotorcycle = _asyncToGenerator(
       /*#__PURE__*/
-      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee7() {
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee8() {
         var _this12 = this;
 
         var data;
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee7$(_context7) {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee8$(_context8) {
           while (1) {
-            switch (_context7.prev = _context7.next) {
+            switch (_context8.prev = _context8.next) {
               case 0:
-                _context7.prev = 0;
+                _context8.prev = 0;
                 data = {
                   id_motorcycle: this.selectedMotor.id,
                   plate_number: this.editedMotor.plate,
@@ -12031,35 +12154,35 @@ function phoneNumberSameErrors() {
                   id_customer: this.editedCustomer.id // console.log(data)
 
                 };
-                _context7.next = 4;
+                _context8.next = 4;
                 return this.updateMotorcycle(data);
 
               case 4:
-                _context7.next = 6;
+                _context8.next = 6;
                 return this.getCustomer();
 
               case 6:
-                _context7.next = 8;
+                _context8.next = 8;
                 return this.getMotorCustomer();
 
               case 8:
                 this.motorEditClose();
                 this.showAlert('success', 'Success Update Customer');
-                _context7.next = 16;
+                _context8.next = 16;
                 break;
 
               case 12:
-                _context7.prev = 12;
-                _context7.t0 = _context7["catch"](0);
-                console.log(_context7.t0);
+                _context8.prev = 12;
+                _context8.t0 = _context8["catch"](0);
+                console.log(_context8.t0);
                 this.showAlert('error', 'Failed Update Customer');
 
               case 16:
               case "end":
-                return _context7.stop();
+                return _context8.stop();
             }
           }
-        }, _callee7, this, [[0, 12]]);
+        }, _callee8, this, [[0, 12]]);
       }));
 
       function updatemotorcycle() {
@@ -12990,6 +13113,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                 icon: 'dashboard',
                 text: 'Dashboard',
                 name: 'Dashboard'
+              }, {
+                id: 13,
+                route: 'AdminTransaction',
+                icon: 'fas fa-search-dollar',
+                text: 'Transaksi Penjualan',
+                name: 'Transaksi Penjualan'
               }]
             };
             break;
@@ -13003,6 +13132,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                 icon: 'dashboard',
                 text: 'Dashboard',
                 name: 'Dashboard'
+              }, {
+                id: 14,
+                route: 'AdminPayment',
+                icon: 'fas fa-search-dollar',
+                text: 'Pembayaran',
+                name: 'Pembayaran'
               }]
             };
             break;
@@ -13592,6 +13727,214 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -13604,9 +13947,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
-    var _ref;
-
-    return _ref = {
+    return {
+      dialog: false,
       headers: [{
         text: 'Id Transaksi',
         align: 'center',
@@ -13616,9 +13958,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         align: 'center',
         value: 'date_transaction'
       }, {
-        text: 'Pelanggan',
+        text: 'Total Harga',
         align: 'center',
-        value: 'name_customer'
+        value: 'total_transaction'
       }, {
         text: 'Status',
         align: 'center',
@@ -13628,8 +13970,100 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         align: 'center',
         sortable: false
       }],
+      dropdown_shorting: [{
+        id: "None",
+        text: 'None'
+      }, {
+        id: "Harga Tertinggi",
+        text: 'Harga Tertinggi'
+      }, {
+        id: "Harga Terendah",
+        text: 'Harga Terendah'
+      }, {
+        id: "Stok Tertinggi",
+        text: 'Stok Tertinggi'
+      }, {
+        id: "Stok Terendah",
+        text: 'Stok Terendah'
+      }],
+      dropdown_status: [{
+        id: "Unprocessed",
+        text: 'Unprocessed'
+      }, {
+        id: "On Process",
+        text: 'On Process'
+      }, {
+        id: "Finish",
+        text: 'Finish'
+      }],
+      dropdown_tipe: [{
+        id: "Sparepart",
+        text: 'Sparepart'
+      }, {
+        id: "Sparepart dan Service",
+        text: 'Sparepart dan Service'
+      }, {
+        id: "Service",
+        text: 'Service'
+      }],
+      serviceheaders: [{
+        text: 'Jasa Service',
+        align: 'left',
+        value: 'service_name'
+      }, {
+        text: 'Motor Pelanggan',
+        align: 'center',
+        value: 'plate_number',
+        sortable: false
+      }, {
+        text: 'Montir',
+        align: 'center',
+        value: 'mechanic_name',
+        sortable: false
+      }, {
+        text: 'Harga',
+        align: 'center',
+        value: 'price_transaction_service',
+        sortable: false
+      }],
+      sparepartheaders: [{
+        text: 'Merk',
+        align: 'left',
+        value: 'brand_sparepart',
+        sortable: false
+      }, {
+        text: 'Sparepart',
+        align: 'center',
+        value: 'name_sparepart'
+      }, {
+        text: 'Harga Satuan',
+        align: 'center',
+        value: 'price_transaction_sparepart',
+        sortable: false
+      }, {
+        text: 'Jumlah',
+        align: 'center',
+        value: 'amount_transaction_sparepart',
+        sortable: false
+      }, {
+        text: 'Motor Pelanggan',
+        align: 'center',
+        value: 'amount_transaction_sparepart',
+        sortable: false
+      }, {
+        text: 'Montir',
+        align: 'center',
+        value: 'mechanic_name',
+        sortable: false
+      }, {
+        text: 'Subtotal',
+        align: 'center',
+        value: 'subtotal_transaction_sparepart',
+        sortable: false
+      }],
       transactionData: [],
-      search: {
+      sparepartData: [],
+      searchcustomer: {
         platenumber: '',
         handphone: '',
         totaltransaksi: ''
@@ -13640,12 +14074,61 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         phone_number: '-',
         address: '-',
         motorcycle: []
+      },
+      search: '',
+      shorting: 'None',
+      datacount: 0,
+      page: 0,
+      start: 0,
+      end: 0,
+      editedIndex: -1,
+      editedItem: {
+        date_transaction: '',
+        status_process: 'Unprocessed',
+        type_transaction: '',
+        discount_transaction: '',
+        total_transaction: '',
+        id_customer: '',
+        name_customer: '',
+        sparepart: {
+          data: []
+        },
+        service: {
+          data: []
+        },
+        employee: {
+          data: []
+        }
+      },
+      defaultItem: {
+        date_transaction: '',
+        status_process: 'Unprocessed',
+        type_transaction: '',
+        discount_transaction: '',
+        total_transaction: '',
+        id_customer: '',
+        name_customer: '',
+        sparepart: {
+          data: []
+        },
+        service: {
+          data: []
+        },
+        employee: {
+          data: []
+        }
+      },
+      // rowsPerPageItems: [4, 8, 12],
+      // pagination: {
+      //     rowsPerPage: 12
+      // },
+      pagination: {},
+      alert: {
+        type: null,
+        message: null,
+        icon: null
       }
-    }, _defineProperty(_ref, "search", ''), _defineProperty(_ref, "datacount", 0), _defineProperty(_ref, "page", 0), _defineProperty(_ref, "start", 0), _defineProperty(_ref, "end", 0), _defineProperty(_ref, "pagination", {}), _defineProperty(_ref, "alert", {
-      type: null,
-      message: null,
-      icon: null
-    }), _ref;
+    };
   },
   computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapState"])({
     loading: function loading(state) {
@@ -13683,7 +14166,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     //     if(this.spareparts.length) {
     //         // console.log(this.spareparts.length)
     //         return this.spareparts.filter((sparepart, index) => {
-    //             if(this.search != null) return sparepart.name.toLowerCase().includes(this.search.toLowerCase());
+    //             if(this.search != null) return sparepart.name.toLowerCase().includes(this.searchcustomer.toLowerCase());
     //             if(index >= this.start && index < this.end) return true;
     //         });
     //     }
@@ -13695,8 +14178,40 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     inittransaction: function inittransaction() {
       this.transactionData = this.transactions;
       return this.transactionData;
+    },
+    initsparepart: function initsparepart() {
+      if (this.shorting == 'None') {
+        this.sparepartData = this.spareparts;
+      } else if (this.shorting == 'Harga Tertinggi') {
+        this.sparepartData = this.spareparts.sort(function (obj1, obj2) {
+          // Ascending: first age less than the previous
+          return obj2.sell_price - obj1.sell_price;
+        });
+      } else if (this.shorting == 'Harga Terendah') {
+        this.sparepartData = this.spareparts.sort(function (obj1, obj2) {
+          // Descending: first age less than the previous
+          return obj1.sell_price - obj2.sell_price;
+        });
+      } else if (this.shorting == 'Stok Tertinggi') {
+        this.sparepartData = this.spareparts.sort(function (obj1, obj2) {
+          // Ascending: first age less than the previous
+          return obj2.stock - obj1.stock;
+        });
+      } else if (this.shorting == 'Stok Terendah') {
+        this.sparepartData = this.spareparts.sort(function (obj1, obj2) {
+          // Descending: first age less than the previous
+          return obj1.stock - obj2.stock;
+        });
+      }
+
+      return this.sparepartData;
     }
   }),
+  watch: {
+    dialog: function dialog(val) {
+      val || this.close();
+    }
+  },
   mounted: function mounted() {
     this.getTransaction();
     this.getSparepart();
@@ -13746,7 +14261,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         if (this.customers[i].motorcycle.data != null) {
           // console.log(this.customers[i])
           for (var motor in this.customers[i].motorcycle.data) {
-            if (this.customers[i].motorcycle.data[j].plate == this.search.platenumber && this.customers[i].motorcycle.data[j].customer.phone_number == this.search.handphone) {
+            if (this.customers[i].motorcycle.data[j].plate == this.searchcustomer.platenumber && this.customers[i].motorcycle.data[j].customer.phone_number == this.searchcustomer.handphone) {
               this.customer = this.customers[i];
             }
 
@@ -13766,15 +14281,31 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         this.transactionData = this.transactions.filter(function (obj) {
           return obj.id_customer == _this.customer.id;
         });
-        this.search.totaltransaksi = this.transactionData.length;
-        console.log(this.search.totaltransaksi);
+        this.searchcustomer.totaltransaksi = this.transactionData.length;
+        console.log(this.searchcustomer.totaltransaksi);
       } else {
         // console.log("masuk")
         this.showAlert('error', 'Data Tidak Ditemukan !');
       }
     },
-    showAlert: function showAlert(type, alert_message) {
+    detailItem: function detailItem(item) {
+      this.detailMode = true;
+      this.editedIndex = this.transactions.indexOf(item);
+      this.editedItem = Object.assign({}, item);
+      this.dialog = true;
+    },
+    close: function close() {
       var _this2 = this;
+
+      this.dialog = false;
+      setTimeout(function () {
+        _this2.editedItem = Object.assign({}, _this2.defaultItem);
+        _this2.editedIndex = -1;
+        _this2.detailMode = false;
+      }, 300);
+    },
+    showAlert: function showAlert(type, alert_message) {
+      var _this3 = this;
 
       if (type == 'success') {
         this.alert.icon = 'fas fa-check-circle';
@@ -13791,9 +14322,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       }
 
       this.showAlert.timer = setTimeout(function () {
-        _this2.alert.type = null;
-        _this2.alert.icon = null;
-        _this2.alert.message = null;
+        _this3.alert.type = null;
+        _this3.alert.icon = null;
+        _this3.alert.message = null;
       }, 3000);
     }
   })
@@ -21014,7 +21545,9 @@ var render = function() {
                                         transition: "scale-transition",
                                         "offset-y": "",
                                         "full-width": "",
-                                        disabled: _vm.detailMode == true,
+                                        disabled:
+                                          _vm.detailMode == true &&
+                                          _vm.verifMode == true,
                                         "min-width": "290px"
                                       },
                                       scopedSlots: _vm._u([
@@ -21115,7 +21648,9 @@ var render = function() {
                                       "item-value": "id",
                                       label: "Status",
                                       required: "",
-                                      disabled: _vm.detailMode == true,
+                                      disabled:
+                                        _vm.detailMode == true ||
+                                        _vm.verifMode == true,
                                       "prepend-inner-icon": "fas fa-flag"
                                     },
                                     on: {
@@ -21155,7 +21690,9 @@ var render = function() {
                                       "item-value": "id",
                                       label: "Supplier",
                                       required: "",
-                                      disabled: _vm.detailMode == true,
+                                      disabled:
+                                        _vm.detailMode == true ||
+                                        _vm.verifMode == true,
                                       "prepend-inner-icon": "fas fa-truck"
                                     },
                                     on: {
@@ -21194,7 +21731,9 @@ var render = function() {
                                       "item-value": "id",
                                       label: "Sales",
                                       required: "",
-                                      disabled: _vm.detailMode == true,
+                                      disabled:
+                                        _vm.detailMode == true ||
+                                        _vm.verifMode == true,
                                       "prepend-inner-icon": "fas fa-user-tie"
                                     },
                                     on: {
@@ -22029,10 +22568,14 @@ var render = function() {
                             _c(
                               "v-icon",
                               {
-                                attrs: { small: "" },
+                                attrs: {
+                                  small: "",
+                                  disabled:
+                                    props.item.status_procurement == "Finish"
+                                },
                                 on: {
                                   click: function($event) {
-                                    return _vm.deleteItem(props.item)
+                                    return _vm.printprocurement(props.item)
                                   }
                                 }
                               },
@@ -22047,7 +22590,7 @@ var render = function() {
                 ],
                 null,
                 false,
-                2561179671
+                2909453615
               )
             },
             [
@@ -23142,7 +23685,7 @@ var render = function() {
                                     "v-card",
                                     { attrs: { flat: "", color: "#CFD8DC" } },
                                     [
-                                      _vm.imageUrl
+                                      this.imageUrl
                                         ? _c("v-img", {
                                             attrs: {
                                               contain: "",
@@ -23174,14 +23717,7 @@ var render = function() {
                                     {
                                       staticClass: "white--text",
                                       attrs: { small: "", color: "primary" },
-                                      on: { click: _vm.pickFile },
-                                      model: {
-                                        value: this.imageUrl,
-                                        callback: function($$v) {
-                                          _vm.$set(this, "imageUrl", $$v)
-                                        },
-                                        expression: "this.imageUrl"
-                                      }
+                                      on: { click: _vm.pickFile }
                                     },
                                     [
                                       _vm._v(
@@ -24909,6 +25445,9 @@ var render = function() {
                                                                     "id",
                                                                   label:
                                                                     "Nama Pelanggan",
+                                                                  disabled:
+                                                                    _vm.detailMode ==
+                                                                    true,
                                                                   required: "",
                                                                   "prepend-inner-icon":
                                                                     "fa fa-user"
@@ -25307,7 +25846,10 @@ var render = function() {
                                                                 staticClass:
                                                                   "mr-2",
                                                                 attrs: {
-                                                                  small: ""
+                                                                  small: "",
+                                                                  disabled:
+                                                                    _vm.detailMode ==
+                                                                    true
                                                                 },
                                                                 on: {
                                                                   click: function(
@@ -25355,7 +25897,10 @@ var render = function() {
                                                               "v-icon",
                                                               {
                                                                 attrs: {
-                                                                  small: ""
+                                                                  small: "",
+                                                                  disabled:
+                                                                    _vm.detailMode ==
+                                                                    true
                                                                 },
                                                                 on: {
                                                                   click: function(
@@ -25614,7 +26159,10 @@ var render = function() {
                                                                 staticClass:
                                                                   "mr-2",
                                                                 attrs: {
-                                                                  small: ""
+                                                                  small: "",
+                                                                  disabled:
+                                                                    _vm.detailMode ==
+                                                                    true
                                                                 },
                                                                 on: {
                                                                   click: function(
@@ -26193,7 +26741,10 @@ var render = function() {
                                                               staticClass:
                                                                 "mr-2",
                                                               attrs: {
-                                                                small: ""
+                                                                small: "",
+                                                                disabled:
+                                                                  _vm.detailMode ==
+                                                                  true
                                                               },
                                                               on: {
                                                                 click: function(
@@ -26244,7 +26795,10 @@ var render = function() {
                                                             "v-icon",
                                                             {
                                                               attrs: {
-                                                                small: ""
+                                                                small: "",
+                                                                disabled:
+                                                                  _vm.detailMode ==
+                                                                  true
                                                               },
                                                               on: {
                                                                 click: function(
@@ -26537,7 +27091,10 @@ var render = function() {
                                                               staticClass:
                                                                 "mr-2",
                                                               attrs: {
-                                                                small: ""
+                                                                small: "",
+                                                                disabled:
+                                                                  _vm.detailMode ==
+                                                                  true
                                                               },
                                                               on: {
                                                                 click: function(
@@ -26615,7 +27172,7 @@ var render = function() {
                                           ],
                                           null,
                                           false,
-                                          574902964
+                                          1153752278
                                         )
                                       })
                                     ],
@@ -26869,7 +27426,10 @@ var render = function() {
                                                               staticClass:
                                                                 "mr-2",
                                                               attrs: {
-                                                                small: ""
+                                                                small: "",
+                                                                disabled:
+                                                                  _vm.detailMode ==
+                                                                  true
                                                               },
                                                               on: {
                                                                 click: function(
@@ -26920,7 +27480,10 @@ var render = function() {
                                                             "v-icon",
                                                             {
                                                               attrs: {
-                                                                small: ""
+                                                                small: "",
+                                                                disabled:
+                                                                  _vm.detailMode ==
+                                                                  true
                                                               },
                                                               on: {
                                                                 click: function(
@@ -27133,7 +27696,10 @@ var render = function() {
                                                               staticClass:
                                                                 "mr-2",
                                                               attrs: {
-                                                                small: ""
+                                                                small: "",
+                                                                disabled:
+                                                                  _vm.detailMode ==
+                                                                  true
                                                               },
                                                               on: {
                                                                 click: function(
@@ -27211,7 +27777,7 @@ var render = function() {
                                           ],
                                           null,
                                           false,
-                                          2434771728
+                                          1781747634
                                         )
                                       })
                                     ],
@@ -27491,10 +28057,14 @@ var render = function() {
                             _c(
                               "v-icon",
                               {
-                                attrs: { small: "" },
+                                attrs: {
+                                  small: "",
+                                  disabled:
+                                    props.item.status_process == "Finish"
+                                },
                                 on: {
                                   click: function($event) {
-                                    return _vm.deleteItem(props.item)
+                                    return _vm.printtransaction(props.item)
                                   }
                                 }
                               },
@@ -27509,7 +28079,7 @@ var render = function() {
                 ],
                 null,
                 false,
-                1711916678
+                1994005169
               )
             },
             [
@@ -28521,9 +29091,719 @@ var render = function() {
               [
                 _c("v-btn", { attrs: { flat: "" } }, [_vm._v("Tentang")]),
                 _vm._v(" "),
-                _c("v-btn", { attrs: { flat: "" } }, [_vm._v("Cek Pemesanan")]),
+                _c("v-btn", { attrs: { flat: "" } }, [_vm._v("Cek Transaksi")]),
                 _vm._v(" "),
                 _c("v-btn", { attrs: { flat: "" } }, [_vm._v("Sparepart")])
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "v-dialog",
+              {
+                attrs: {
+                  fullscreen: "",
+                  "hide-overlay": "",
+                  transition: "dialog-bottom-transition",
+                  "max-width": "1200px"
+                },
+                model: {
+                  value: _vm.dialog,
+                  callback: function($$v) {
+                    _vm.dialog = $$v
+                  },
+                  expression: "dialog"
+                }
+              },
+              [
+                _c(
+                  "v-card",
+                  [
+                    _c(
+                      "v-toolbar",
+                      { attrs: { dark: "", color: _vm.$root.themeColor } },
+                      [
+                        _c(
+                          "v-btn",
+                          {
+                            attrs: { icon: "", dark: "" },
+                            on: {
+                              click: function($event) {
+                                _vm.dialog = false
+                              }
+                            }
+                          },
+                          [_c("v-icon", [_vm._v("close")])],
+                          1
+                        ),
+                        _vm._v(" "),
+                        _c("v-toolbar-title", [_vm._v("Detail Transaksi")]),
+                        _vm._v(" "),
+                        _c("v-spacer"),
+                        _vm._v(" "),
+                        _c("v-toolbar-items", [
+                          _c(
+                            "div",
+                            {
+                              staticClass: "text-xs-center subheading mt-3 mr-5"
+                            },
+                            [
+                              _vm._v(
+                                "\r\n                          Status Pembayaran: " +
+                                  _vm._s(_vm.editedItem.status_paid) +
+                                  "\r\n                        "
+                              )
+                            ]
+                          )
+                        ])
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("hr"),
+                    _vm._v(" "),
+                    _c(
+                      "v-layout",
+                      { attrs: { row: "", wrap: "" } },
+                      [
+                        _c(
+                          "v-card",
+                          { attrs: { width: "100%", "ml-5": "", "mr-5": "" } },
+                          [
+                            _c(
+                              "v-layout",
+                              { attrs: { row: "", wrap: "" } },
+                              [
+                                _c(
+                                  "v-flex",
+                                  { attrs: { sm3: "", "pr-3": "" } },
+                                  [
+                                    _c(
+                                      "v-card",
+                                      { attrs: { height: "100%" } },
+                                      [
+                                        _c(
+                                          "v-card-title",
+                                          {
+                                            staticClass:
+                                              "grey lighten-2 theme--light justify-center"
+                                          },
+                                          [
+                                            _c(
+                                              "span",
+                                              { staticClass: "headline" },
+                                              [_vm._v("Jenis Transaksi")]
+                                            )
+                                          ]
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "v-card-text",
+                                          [
+                                            _c(
+                                              "v-container",
+                                              { attrs: { "grid-list-md": "" } },
+                                              [
+                                                _c(
+                                                  "v-layout",
+                                                  { attrs: { wrap: "" } },
+                                                  [
+                                                    _c(
+                                                      "v-flex",
+                                                      [
+                                                        _c("v-select", {
+                                                          attrs: {
+                                                            items:
+                                                              _vm.dropdown_tipe,
+                                                            "item-text": "text",
+                                                            "item-value": "id",
+                                                            label: "Transaksi",
+                                                            required: "",
+                                                            disabled: "",
+                                                            "prepend-inner-icon":
+                                                              "fas fa-flag"
+                                                          },
+                                                          model: {
+                                                            value:
+                                                              _vm.editedItem
+                                                                .type_transaction,
+                                                            callback: function(
+                                                              $$v
+                                                            ) {
+                                                              _vm.$set(
+                                                                _vm.editedItem,
+                                                                "type_transaction",
+                                                                $$v
+                                                              )
+                                                            },
+                                                            expression:
+                                                              "editedItem.type_transaction"
+                                                          }
+                                                        })
+                                                      ],
+                                                      1
+                                                    )
+                                                  ],
+                                                  1
+                                                )
+                                              ],
+                                              1
+                                            )
+                                          ],
+                                          1
+                                        ),
+                                        _vm._v(" "),
+                                        _c("hr"),
+                                        _vm._v(" "),
+                                        _c(
+                                          "v-card-title",
+                                          {
+                                            staticClass:
+                                              "grey lighten-2 theme--light justify-center"
+                                          },
+                                          [
+                                            _c(
+                                              "span",
+                                              { staticClass: "headline" },
+                                              [_vm._v("Status Transaksi")]
+                                            )
+                                          ]
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "v-card-text",
+                                          [
+                                            _c(
+                                              "v-container",
+                                              { attrs: { "grid-list-md": "" } },
+                                              [
+                                                _c(
+                                                  "v-layout",
+                                                  { attrs: { wrap: "" } },
+                                                  [
+                                                    _c(
+                                                      "v-flex",
+                                                      [
+                                                        _c("v-select", {
+                                                          attrs: {
+                                                            items:
+                                                              _vm.dropdown_status,
+                                                            "item-text": "text",
+                                                            "item-value":
+                                                              "text",
+                                                            label: "Status",
+                                                            required: "",
+                                                            disabled: "",
+                                                            "prepend-inner-icon":
+                                                              "fas fa-flag"
+                                                          },
+                                                          model: {
+                                                            value:
+                                                              _vm.editedItem
+                                                                .status_process,
+                                                            callback: function(
+                                                              $$v
+                                                            ) {
+                                                              _vm.$set(
+                                                                _vm.editedItem,
+                                                                "status_process",
+                                                                $$v
+                                                              )
+                                                            },
+                                                            expression:
+                                                              "editedItem.status_process"
+                                                          }
+                                                        })
+                                                      ],
+                                                      1
+                                                    )
+                                                  ],
+                                                  1
+                                                )
+                                              ],
+                                              1
+                                            )
+                                          ],
+                                          1
+                                        )
+                                      ],
+                                      1
+                                    )
+                                  ],
+                                  1
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "v-flex",
+                                  { attrs: { sm6: "", "pr-5": "" } },
+                                  [
+                                    _c(
+                                      "v-card",
+                                      {
+                                        attrs: { height: "100%", width: "100%" }
+                                      },
+                                      [
+                                        _c(
+                                          "v-card-title",
+                                          {
+                                            staticClass:
+                                              "green lighten-2 theme--light justify-center"
+                                          },
+                                          [
+                                            _c(
+                                              "span",
+                                              {
+                                                staticClass:
+                                                  "headline font-weight-bold"
+                                              },
+                                              [_vm._v("Informasi")]
+                                            )
+                                          ]
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "v-card-text",
+                                          [
+                                            _c(
+                                              "v-container",
+                                              { attrs: { "grid-list-md": "" } },
+                                              [
+                                                _c(
+                                                  "v-layout",
+                                                  { attrs: { wrap: "" } },
+                                                  [
+                                                    _c(
+                                                      "v-flex",
+                                                      { attrs: { sm12: "" } },
+                                                      [
+                                                        _c(
+                                                          "div",
+                                                          {
+                                                            staticClass:
+                                                              "text-xs-center subheading font-weight-bold"
+                                                          },
+                                                          [
+                                                            _vm._v(
+                                                              "\r\n                                    Kode Transaksi\r\n                                  "
+                                                            )
+                                                          ]
+                                                        ),
+                                                        _vm._v(" "),
+                                                        _c(
+                                                          "div",
+                                                          {
+                                                            staticClass:
+                                                              "text-xs-center headline"
+                                                          },
+                                                          [
+                                                            _vm._v(
+                                                              "\r\n                                    " +
+                                                                _vm._s(
+                                                                  _vm.editedItem
+                                                                    .id_transaction
+                                                                ) +
+                                                                "\r\n                                  "
+                                                            )
+                                                          ]
+                                                        ),
+                                                        _vm._v(" "),
+                                                        _c(
+                                                          "div",
+                                                          {
+                                                            staticClass:
+                                                              "text-xs-center subheading font-weight-bold mt-2"
+                                                          },
+                                                          [
+                                                            _vm._v(
+                                                              "\r\n                                    Total Transaksi\r\n                                  "
+                                                            )
+                                                          ]
+                                                        ),
+                                                        _vm._v(" "),
+                                                        _c(
+                                                          "div",
+                                                          {
+                                                            staticClass:
+                                                              "text-xs-center headline"
+                                                          },
+                                                          [
+                                                            _vm._v(
+                                                              "\r\n                                    Rp. " +
+                                                                _vm._s(
+                                                                  _vm.editedItem
+                                                                    .total_transaction
+                                                                ) +
+                                                                "\r\n                                  "
+                                                            )
+                                                          ]
+                                                        )
+                                                      ]
+                                                    ),
+                                                    _vm._v(" "),
+                                                    _c(
+                                                      "v-flex",
+                                                      { attrs: { sm6: "" } },
+                                                      [
+                                                        _c("v-text-field", {
+                                                          attrs: {
+                                                            "prepend-inner-icon":
+                                                              "fas fa-coins",
+                                                            label: "Diskon",
+                                                            disabled: ""
+                                                          },
+                                                          model: {
+                                                            value:
+                                                              _vm.editedItem
+                                                                .discount_transaction,
+                                                            callback: function(
+                                                              $$v
+                                                            ) {
+                                                              _vm.$set(
+                                                                _vm.editedItem,
+                                                                "discount_transaction",
+                                                                $$v
+                                                              )
+                                                            },
+                                                            expression:
+                                                              "editedItem.discount_transaction"
+                                                          }
+                                                        })
+                                                      ],
+                                                      1
+                                                    )
+                                                  ],
+                                                  1
+                                                )
+                                              ],
+                                              1
+                                            )
+                                          ],
+                                          1
+                                        )
+                                      ],
+                                      1
+                                    )
+                                  ],
+                                  1
+                                )
+                              ],
+                              1
+                            )
+                          ],
+                          1
+                        )
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _vm.editedItem.type_transaction == "Sparepart" ||
+                    _vm.editedItem.type_transaction == "Sparepart dan Service"
+                      ? _c(
+                          "v-layout",
+                          { attrs: { row: "", wrap: "" } },
+                          [
+                            _c("br"),
+                            _vm._v(" "),
+                            _c("hr"),
+                            _vm._v(" "),
+                            _c(
+                              "v-flex",
+                              { attrs: { sm12: "", "ml-5": "", "mr-5": "" } },
+                              [
+                                _c(
+                                  "v-card",
+                                  [
+                                    _c(
+                                      "v-card-title",
+                                      {
+                                        staticClass:
+                                          "grey lighten-2 theme--light justify-center"
+                                      },
+                                      [
+                                        _c(
+                                          "span",
+                                          { staticClass: "headline" },
+                                          [_vm._v("Sparepart")]
+                                        )
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "v-card-text",
+                                      [
+                                        _c("v-data-table", {
+                                          attrs: {
+                                            headers: _vm.sparepartheaders,
+                                            "rows-per-page-items": [3],
+                                            items: _vm.editedItem.sparepart.data
+                                          },
+                                          scopedSlots: _vm._u(
+                                            [
+                                              {
+                                                key: "items",
+                                                fn: function(props) {
+                                                  return [
+                                                    _c("td", [
+                                                      _vm._v(
+                                                        _vm._s(
+                                                          props.item
+                                                            .brand_sparepart
+                                                        )
+                                                      )
+                                                    ]),
+                                                    _vm._v(" "),
+                                                    _c(
+                                                      "td",
+                                                      {
+                                                        staticClass:
+                                                          "text-xs-center"
+                                                      },
+                                                      [
+                                                        _vm._v(
+                                                          _vm._s(
+                                                            props.item
+                                                              .name_sparepart
+                                                          )
+                                                        )
+                                                      ]
+                                                    ),
+                                                    _vm._v(" "),
+                                                    _c(
+                                                      "td",
+                                                      {
+                                                        staticClass:
+                                                          "text-xs-center"
+                                                      },
+                                                      [
+                                                        _vm._v(
+                                                          _vm._s(
+                                                            props.item
+                                                              .price_transaction_sparepart
+                                                          )
+                                                        )
+                                                      ]
+                                                    ),
+                                                    _vm._v(" "),
+                                                    _c(
+                                                      "td",
+                                                      {
+                                                        staticClass:
+                                                          "text-xs-center"
+                                                      },
+                                                      [
+                                                        _vm._v(
+                                                          _vm._s(
+                                                            props.item
+                                                              .amount_transaction_sparepart
+                                                          )
+                                                        )
+                                                      ]
+                                                    ),
+                                                    _vm._v(" "),
+                                                    _c(
+                                                      "td",
+                                                      {
+                                                        staticClass:
+                                                          "text-xs-center"
+                                                      },
+                                                      [
+                                                        _vm._v(
+                                                          _vm._s(
+                                                            props.item
+                                                              .plate_number
+                                                          )
+                                                        )
+                                                      ]
+                                                    ),
+                                                    _vm._v(" "),
+                                                    _c(
+                                                      "td",
+                                                      {
+                                                        staticClass:
+                                                          "text-xs-center"
+                                                      },
+                                                      [
+                                                        _vm._v(
+                                                          _vm._s(
+                                                            props.item
+                                                              .mechanic_name
+                                                          )
+                                                        )
+                                                      ]
+                                                    ),
+                                                    _vm._v(" "),
+                                                    _c(
+                                                      "td",
+                                                      {
+                                                        staticClass:
+                                                          "text-xs-center"
+                                                      },
+                                                      [
+                                                        _vm._v(
+                                                          _vm._s(
+                                                            props.item
+                                                              .subtotal_transaction_sparepart
+                                                          )
+                                                        )
+                                                      ]
+                                                    )
+                                                  ]
+                                                }
+                                              }
+                                            ],
+                                            null,
+                                            false,
+                                            1512530011
+                                          )
+                                        })
+                                      ],
+                                      1
+                                    )
+                                  ],
+                                  1
+                                )
+                              ],
+                              1
+                            )
+                          ],
+                          1
+                        )
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _vm.editedItem.type_transaction == "Service" ||
+                    _vm.editedItem.type_transaction == "Sparepart dan Service"
+                      ? _c(
+                          "v-layout",
+                          { attrs: { row: "", wrap: "" } },
+                          [
+                            _c("br"),
+                            _vm._v(" "),
+                            _c("hr"),
+                            _vm._v(" "),
+                            _c(
+                              "v-flex",
+                              { attrs: { sm12: "", "ml-5": "", "mr-5": "" } },
+                              [
+                                _c(
+                                  "v-card",
+                                  [
+                                    _c(
+                                      "v-card-title",
+                                      {
+                                        staticClass:
+                                          "grey lighten-2 theme--light justify-center"
+                                      },
+                                      [
+                                        _c(
+                                          "span",
+                                          { staticClass: "headline" },
+                                          [_vm._v("Jasa Service")]
+                                        )
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "v-card-text",
+                                      [
+                                        _c("v-data-table", {
+                                          attrs: {
+                                            headers: _vm.serviceheaders,
+                                            "rows-per-page-items": [3],
+                                            items: _vm.editedItem.service.data
+                                          },
+                                          scopedSlots: _vm._u(
+                                            [
+                                              {
+                                                key: "items",
+                                                fn: function(props) {
+                                                  return [
+                                                    _c("td", [
+                                                      _vm._v(
+                                                        _vm._s(
+                                                          props.item
+                                                            .service_name
+                                                        )
+                                                      )
+                                                    ]),
+                                                    _vm._v(" "),
+                                                    _c(
+                                                      "td",
+                                                      {
+                                                        staticClass:
+                                                          "text-xs-center"
+                                                      },
+                                                      [
+                                                        _vm._v(
+                                                          _vm._s(
+                                                            props.item
+                                                              .plate_number
+                                                          )
+                                                        )
+                                                      ]
+                                                    ),
+                                                    _vm._v(" "),
+                                                    _c(
+                                                      "td",
+                                                      {
+                                                        staticClass:
+                                                          "text-xs-center"
+                                                      },
+                                                      [
+                                                        _vm._v(
+                                                          _vm._s(
+                                                            props.item
+                                                              .mechanic_name
+                                                          )
+                                                        )
+                                                      ]
+                                                    ),
+                                                    _vm._v(" "),
+                                                    _c(
+                                                      "td",
+                                                      {
+                                                        staticClass:
+                                                          "text-xs-center"
+                                                      },
+                                                      [
+                                                        _vm._v(
+                                                          _vm._s(
+                                                            props.item
+                                                              .price_transaction_service
+                                                          )
+                                                        )
+                                                      ]
+                                                    )
+                                                  ]
+                                                }
+                                              }
+                                            ],
+                                            null,
+                                            false,
+                                            3213339421
+                                          )
+                                        })
+                                      ],
+                                      1
+                                    )
+                                  ],
+                                  1
+                                )
+                              ],
+                              1
+                            )
+                          ],
+                          1
+                        )
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("hr")
+                  ],
+                  1
+                )
               ],
               1
             )
@@ -28649,7 +29929,7 @@ var render = function() {
                                 { staticStyle: { "text-align": "center" } },
                                 [
                                   _vm._v(
-                                    "\r\n                            Bengkel Atma Auto merupakan bengkel yang menyediakan jasa servis \r\n                            berbagai merk motor dan juga menyediakan sparepart sesuai kebutuhan \r\n                            motor anda. Pelayanan kami sangat ramah dan didukung dengan teknologi\r\n                            modern yang bisa membantu anda untuk memantau progres servis motor anda.\r\n                        "
+                                    "\r\n                            Bengkel Atma Auto merupakan sebuah bengkel sepeda motor yang menyediakan jasa service dan  \r\n                            penjualan  spareparts  yang  berada  di  Kota  Yogyakarta.  Atma  Auto  menyediakan  spareparts  \r\n                            motor  dari  berbagai  merk  sepeda  motor  yang  ada  di  Indonesia.  Selain  menjual  spareparts,  \r\n                            Atma Auto juga menyediakan beberapa jasa service pada sepeda motor. Atma Auto bekerja  \r\n                            sama  dengan  beberapa  supplier  dalam  penyediaan  stok  spareparts  yang  dijual. Pelayanan kami sangat ramah \r\n                            dan didukung dengan teknologi modern yang bisa membantu anda untuk memantau progres servis motor anda.\r\n                        "
                                   )
                                 ]
                               )
@@ -28735,19 +30015,19 @@ var render = function() {
                                                       },
                                                       model: {
                                                         value:
-                                                          _vm.search
+                                                          _vm.searchcustomer
                                                             .platenumber,
                                                         callback: function(
                                                           $$v
                                                         ) {
                                                           _vm.$set(
-                                                            _vm.search,
+                                                            _vm.searchcustomer,
                                                             "platenumber",
                                                             $$v
                                                           )
                                                         },
                                                         expression:
-                                                          "search.platenumber"
+                                                          "searchcustomer.platenumber"
                                                       }
                                                     }),
                                                     _vm._v(" "),
@@ -28762,18 +30042,19 @@ var render = function() {
                                                       },
                                                       model: {
                                                         value:
-                                                          _vm.search.handphone,
+                                                          _vm.searchcustomer
+                                                            .handphone,
                                                         callback: function(
                                                           $$v
                                                         ) {
                                                           _vm.$set(
-                                                            _vm.search,
+                                                            _vm.searchcustomer,
                                                             "handphone",
                                                             $$v
                                                           )
                                                         },
                                                         expression:
-                                                          "search.handphone"
+                                                          "searchcustomer.handphone"
                                                       }
                                                     }),
                                                     _vm._v(" "),
@@ -29040,7 +30321,8 @@ var render = function() {
                                                                 _vm._v(
                                                                   "\r\n                                                " +
                                                                     _vm._s(
-                                                                      _vm.search
+                                                                      _vm
+                                                                        .searchcustomer
                                                                         .totaltransaksi
                                                                     ) +
                                                                     "\r\n                                            "
@@ -29145,10 +30427,11 @@ var render = function() {
                                                             },
                                                             [
                                                               _vm._v(
-                                                                _vm._s(
-                                                                  props.item
-                                                                    .name_customer
-                                                                )
+                                                                "Rp. " +
+                                                                  _vm._s(
+                                                                    props.item
+                                                                      .total_transaction
+                                                                  )
                                                               )
                                                             ]
                                                           ),
@@ -29250,6 +30533,15 @@ var render = function() {
                                                                     "mr-2",
                                                                   attrs: {
                                                                     small: ""
+                                                                  },
+                                                                  on: {
+                                                                    click: function(
+                                                                      $event
+                                                                    ) {
+                                                                      return _vm.detailItem(
+                                                                        props.item
+                                                                      )
+                                                                    }
                                                                   }
                                                                 },
                                                                 [
@@ -29293,11 +30585,11 @@ var render = function() {
                 _vm._v(" "),
                 _c(
                   "v-flex",
-                  { attrs: { xs12: "" } },
+                  { staticClass: "grey lighten-3 ", attrs: { xs12: "" } },
                   [
                     _c("v-card-title", { staticClass: "justify-center " }, [
                       _c("h1", { staticClass: "font-weight-bold" }, [
-                        _vm._v("SPAREPART")
+                        _vm._v("KATALOG SPAREPART")
                       ])
                     ]),
                     _vm._v(" "),
@@ -29310,36 +30602,50 @@ var render = function() {
                           [
                             _c(
                               "v-card",
-                              { attrs: { width: "100%" } },
+                              {
+                                attrs: { width: "100%", "min-height": "600px" }
+                              },
                               [
                                 _c(
                                   "v-layout",
                                   { attrs: { row: "", wrap: "" } },
                                   [
+                                    _c("v-flex", { attrs: { sm7: "" } }),
+                                    _vm._v(" "),
                                     _c(
                                       "v-flex",
-                                      { attrs: { sm2: "" } },
+                                      {
+                                        staticClass: "mt-3 pl-3 pr-3",
+                                        attrs: { sm2: "" }
+                                      },
                                       [
                                         _c("v-select", {
                                           attrs: {
-                                            "item-text": "name",
+                                            items: _vm.dropdown_shorting,
+                                            "item-text": "text",
                                             "item-value": "id",
                                             label: "Shorting",
                                             required: "",
-                                            "prepend-inner-icon": "fa fa-user"
+                                            "prepend-inner-icon": "swap_vert"
+                                          },
+                                          model: {
+                                            value: _vm.shorting,
+                                            callback: function($$v) {
+                                              _vm.shorting = $$v
+                                            },
+                                            expression: "shorting"
                                           }
                                         })
                                       ],
                                       1
                                     ),
                                     _vm._v(" "),
-                                    _c("v-flex", { attrs: { sm7: "" } }),
-                                    _vm._v(" "),
-                                    _c("v-spacer"),
-                                    _vm._v(" "),
                                     _c(
                                       "v-flex",
-                                      { attrs: { sm3: "" } },
+                                      {
+                                        staticClass: "mt-3 pl-3 pr-3",
+                                        attrs: { sm3: "" }
+                                      },
                                       [
                                         _c("v-text-field", {
                                           attrs: {
@@ -29365,7 +30671,7 @@ var render = function() {
                                 _vm._v(" "),
                                 _c("v-data-iterator", {
                                   attrs: {
-                                    items: _vm.spareparts,
+                                    items: _vm.initsparepart,
                                     search: _vm.search,
                                     pagination: _vm.pagination,
                                     "content-tag": "v-layout",
@@ -75609,7 +76915,7 @@ var routes = [{
   name: 'AdminTransaction',
   component: _components_Admin_AdminTransaction__WEBPACK_IMPORTED_MODULE_17__["default"],
   meta: {
-    role: ['Admin'],
+    role: ['Admin', 'Customer Service'],
     menu: 13
   },
   beforeEnter: Object(_middleware__WEBPACK_IMPORTED_MODULE_0__["default"])([_middleware__WEBPACK_IMPORTED_MODULE_0__["auth"]])
@@ -75618,7 +76924,7 @@ var routes = [{
   name: 'AdminPayment',
   component: _components_Admin_AdminPayment__WEBPACK_IMPORTED_MODULE_18__["default"],
   meta: {
-    role: ['Admin'],
+    role: ['Admin', 'Cashier'],
     menu: 14
   },
   beforeEnter: Object(_middleware__WEBPACK_IMPORTED_MODULE_0__["default"])([_middleware__WEBPACK_IMPORTED_MODULE_0__["auth"]])

@@ -32,6 +32,7 @@ Route::resource ('sparepart','SparepartController');
 Route::post ('/sparepart/updateimage','SparepartController@updateImage');
 Route::post('/sparepart/sparepartverify','SparepartController@sparepartVerify');
 Route::patch ('/sparepart/updatecompatibility/{id}','SparepartController@updateCompatibility');
+Route::put('/sparepart/verifymobile/{id}','SparepartController@sparepartVerifyMobile');
 Route::resource ('spareparttype','SparepartTypeController');
 Route::resource ('supplier','SupplierController');
 Route::resource ('sales','SalesController');
@@ -45,12 +46,21 @@ Route::get('procurement/detail/{id}','ProcurementController@showDetail');
 Route::post('procurement/detail','ProcurementController@storeDetail');
 Route::put('procurement/detail/{id}','ProcurementController@updateDetail');
 
+
 Route::resource ('transaction','TransactionController');
 Route::post('transaction/service','TransactionController@storeDetailService');
 Route::get('transaction/service/{id}','TransactionController@showDetailService');
 Route::post('transaction/sparepart','TransactionController@storeDetailSparepart');
 Route::get('transaction/sparepart/{id}','TransactionController@showDetailSparepart');
-Route::patch ('transaction/payment/{id}','TransactionController@payment');
+Route::patch('transaction/payment/{id}','TransactionController@payment');
+
+
+Route::get('/generate-procurement-pdf/{id}', 'FileController@generateProcurementPdf');
+Route::get('/generate-spk-pdf/{id}', 'FileController@generateSPKPdf');
+Route::get('/generate-nota-pdf/{id}', 'FileController@generateNotaPdf');
+Route::get('/generate-report-profit-permonth/{year}', 'FileController@TransactionperYear');
+Route::get('/generate-report-spend/{year}', 'FileController@SpendperYear');
+Route::get('/generate-report-sparepart', 'FileController@TopSellSparepart');
 
 
 

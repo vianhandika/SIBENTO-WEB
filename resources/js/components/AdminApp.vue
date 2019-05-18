@@ -415,6 +415,8 @@ export default {
                 title:'SIBENTO CS Panel',
                 menu:[
                   { id: 1, route: 'AdminDashboard', icon: 'dashboard', text: 'Dashboard', name: 'Dashboard'},
+                  { id: 13, route: 'AdminTransaction', icon: 'fas fa-search-dollar', text: 'Transaksi Penjualan', name: 'Transaksi Penjualan'},
+
                 ]
               }
               break
@@ -424,6 +426,8 @@ export default {
                 title:'SIBENTO Chasier Panel',
                 menu:[
                   { id: 1, route: 'AdminDashboard', icon: 'dashboard', text: 'Dashboard', name: 'Dashboard'},               
+                  { id: 14, route: 'AdminPayment', icon: 'fas fa-search-dollar', text: 'Pembayaran', name: 'Pembayaran'},
+
                 ]
               }
               break

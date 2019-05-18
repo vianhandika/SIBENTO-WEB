@@ -31,7 +31,7 @@
                         transition="scale-transition"
                         offset-y
                         full-width
-                        :disabled="detailMode == true"
+                        :disabled="detailMode == true && verifMode == true"
                         min-width="290px"
                       >
                         <template v-slot:activator="{ on }">
@@ -59,7 +59,7 @@
                         item-value="id"
                         label="Status"
                         required
-                        :disabled="detailMode == true"
+                        :disabled="detailMode == true || verifMode == true"
                         @change="$v.editedItem.status_procurement.$touch()"
                         @blur="$v.editedItem.status_procurement.$touch()"
                         prepend-inner-icon="fas fa-flag">
@@ -74,7 +74,7 @@
                         item-value="id"
                         label="Supplier"
                         required
-                        :disabled="detailMode == true"
+                        :disabled="detailMode == true || verifMode == true"
                         @change="$v.editedItem.id_supplier.$touch()"
                         @blur="$v.editedItem.id_supplier.$touch()"
                         prepend-inner-icon="fas fa-truck">
@@ -89,7 +89,7 @@
                         item-value="id"
                         label="Sales"
                         required
-                        :disabled="detailMode == true"  
+                        :disabled="detailMode == true || verifMode == true"  
                         @change="$v.editedItem.id_sales.$touch()"
                         @blur="$v.editedItem.id_sales.$touch()"
                         prepend-inner-icon="fas fa-user-tie">
@@ -364,7 +364,8 @@
               </v-icon>
                <v-icon
                   small
-                  @click="deleteItem(props.item)"
+                  :disabled="props.item.status_procurement=='Finish'"  
+                  @click="printprocurement(props.item)"
               >
                   print
               </v-icon>
@@ -821,6 +822,32 @@
           }
       },
 
+      async printprocurement (item) {
+        try {
+          window.open(`/api/generate-procurement-pdf/${item.id_procurement}`, '_blank')
+          let date = item.date_procurement.split(' ')
+          // console.log(detailPayload)
+          // console.log(date[0])
+          const data ={
+            id_procurement: item.id_procurement,
+            date_procurement: date[0],
+            status_procurement: 'On Process',
+            id_sales: item.id_sales,
+            id_supplier: item.id_supplier,
+       
+          }
+          console.log(data)
+          await this.updateProcurement(data)
+          // Object.assign(this.procurementData[this.editedIndex], this.editedItem)
+          await this.getProcurement()
+          // this.close()
+          this.showAlert('success','Success Update Procurement')
+
+        } catch (err) {
+            console.log(err)
+            this.showAlert('error','Failed Update Procurement')
+        }
+      },
      
       getSparepartObj(){
         this.editedSparepart.price = this.spareparts.find(obj=>obj.id == this.editedSparepart.id_sparepart).sell_price

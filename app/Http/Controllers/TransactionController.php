@@ -113,6 +113,13 @@ class TransactionController extends RestController
                     $transaction->detail_transaction_sparepart()->createMany($sparepart);
                     return $transaction;
                 });
+
+                // foreach($sparepart as $value)
+                // {
+                //     $data = Sparepart::find($value['id_sparepart']);
+                //     $data->stock_sparepart = $data->stock_sparepart - $value['amount_transaction_sparepart'];
+                //     $data->save();
+                // }
             }
 
             // foreach($sparepart as $value)
@@ -227,26 +234,32 @@ class TransactionController extends RestController
 
             $transaction = Transaction::find($id);
 
-            $t= Transaction::with('detail_transaction_sparepart')->get();
+            // $t= Transaction::with('detail_transaction_sparepart')->get();
 
-            foreach($t as $value )
+            // foreach($t as $value )
+            // {
+            //     if($value->id_transaction==$id)
+            //     {
+            //         $sparepart2=$value->detail_transaction_sparepart;
+            //     }
+            // }
+            // // $sparepart2 = $t->detail_spareparts;
+
+            // foreach($sparepart2 as $value)
+            // {
+            //     $data = Sparepart::find($value->id_sparepart);
+            //     $data->stock_sparepart = $data->stock_sparepart - $value->amount_transaction_sparepart;
+            //     $data->save();
+            // }
+            if($request->has('sparepart'))
             {
-                if($value->id_transaction==$id)
-                {
-                    $sparepart2=$value->detail_transaction_sparepart;
-                }
+                $transaction->detail_transaction_sparepart()->delete();
             }
-            // $sparepart2 = $t->detail_spareparts;
-
-            foreach($sparepart2 as $value)
+            if($request->has('service'))
             {
-                $data = Sparepart::find($value->id_sparepart);
-                $data->stock_sparepart = $data->stock_sparepart - $value->amount_transaction_sparepart;
-                $data->save();
+                $transaction->detail_transaction_service()->delete();
             }
-
-            $transaction->detail_transaction_service()->delete();
-            $transaction->detail_transaction_sparepart()->delete();
+                 
 
             if($request->get('type_transaction')!=$transaction->type_transaction)
             {
@@ -287,7 +300,16 @@ class TransactionController extends RestController
                     $transaction->detail_transaction_sparepart()->createMany($sparepart);
                     return $transaction;
                 });
+ 
+                // foreach($sparepart as $value)
+                // {
+                //     $data = Sparepart::find($value['id_sparepart']);
+                //     $data->stock_sparepart = $data->stock_sparepart - $value['amount_transaction_sparepart'];
+                //     $data->save();
+                // }
+                
             }
+
 
             // foreach($sparepart as $value)
             // {
@@ -360,6 +382,12 @@ class TransactionController extends RestController
                 $transaction->employee()->attach($employee);
                 return $transaction;
             });
+            foreach($transaction->detail_transaction_sparepart as $value)
+            {
+                $data = Sparepart::find($value['id_sparepart']);
+                $data->stock_sparepart = $data->stock_sparepart - $value['amount_transaction_sparepart'];
+                $data->save();
+            }
             $response = $this->generateItem($transaction);
 
             return $this->sendResponse($response, 201);
@@ -399,6 +427,9 @@ class TransactionController extends RestController
             $detail->id_employee=$request->get('id_employee');
             $detail->id_motorcycle=$request->get('id_motorcycle');
             $detail->save();
+            $sparepart = Sparepart::find($request->get('id_sparepart'));
+            $sparepart->stock_sparepart = $data->stock_sparepart - ($request->get('detail_sparepart_amount'));
+            $sparepart->save();
             $response = $this->generateItem($detail, DetailSparepartTransformers::class);
             return $this->sendResponse($response, 201);
         } catch (\Exception $e) {

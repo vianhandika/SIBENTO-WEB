@@ -208,4 +208,20 @@ class SparepartController extends RestController
             return $this->sendIseResponse($e->getMessage());
         }
     }
+    public function sparepartVerifyMobile(Request $request,$id)
+    {
+        try {
+          
+            $data=Sparepart::find($id);
+            $data->stock_sparepart = $data->stock_sparepart + $request->get('amount');
+            // $data->purchase_price = $request->get('price');
+            // $data->sell_price = $request->get('sell_price');
+            $data->save();
+            //DB::table('spareparts')->where('id_sparepart',$sparepart->id_sparepart)->increment('stock',$sparepart->stock)->update('purchase_price',$sparepart->purchase_price);
+            return response()->json('Success',200);
+        
+        } catch (\Exception $e) {
+            return $this->sendIseResponse($e->getMessage());
+        }
+    }
 }

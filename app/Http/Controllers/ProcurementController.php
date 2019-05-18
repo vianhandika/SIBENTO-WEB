@@ -123,9 +123,10 @@ class ProcurementController extends RestController
             $detail = $request->get('detail');
             
             $procurement=SparepartProcurement::find($id);
-
-            $procurement->detailsparepartprocurement()->delete();
-
+            if($request->has('detail'))
+            {
+                $procurement->detailsparepartprocurement()->delete();
+            }
             $procurement->date_procurement=$request->get('date_procurement').' '.date('H:i:s');
             $procurement->status_procurement=$request->get('status_procurement');
             $procurement->id_sales=$request->get('id_sales');

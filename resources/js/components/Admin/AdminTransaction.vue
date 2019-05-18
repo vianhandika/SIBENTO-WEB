@@ -72,7 +72,7 @@
                                         item-text="name"
                                         item-value="id"
                                         label="Nama Pelanggan"
-
+                                        :disabled="detailMode == true"
                                         
                                         required
                                         prepend-inner-icon="fa fa-user">
@@ -177,6 +177,7 @@
                                         small
                                         
                                         class="mr-2"
+                                        :disabled="detailMode == true"
                                         @click="motorEdit(props.item)"
                                     >
                                         edit
@@ -190,7 +191,7 @@
                                     </v-icon>
                                     <v-icon v-if="selectedMotor.id != props.item.id  || addmotor"
                                         small
-                                        
+                                        :disabled="detailMode == true"
                                         @click="motorDelete(props.item)"
                                     >
                                         delete
@@ -251,6 +252,7 @@
                                     <v-icon v-if="!addmotor && editedCustomer.id!=''"
                                         small
                                         class="mr-2"
+                                        :disabled="detailMode == true"
                                         @click="addmotor=true"
                                         
                                     >
@@ -499,6 +501,8 @@
                                             small
                                             
                                             class="mr-2"
+                                            :disabled="detailMode == true"
+
                                             @click="sparepartEdit(props.item) "
                                         >
                                             edit
@@ -512,6 +516,7 @@
                                         </v-icon>
                                         <v-icon v-if="editedItem.sparepart.data[sparepartIndex] != props.item || addsparepart"
                                             small
+                                            :disabled="detailMode == true"
                                             
                                             @click="sparepartDelete(props.item)"
                                         >
@@ -590,6 +595,8 @@
                                         <v-icon v-if="!addsparepart"
                                             small
                                             class="mr-2"
+                                            :disabled="detailMode == true"
+
                                             @click="addsparepart=true"
                                             
                                         >
@@ -678,6 +685,7 @@
                                             small
                                             
                                             class="mr-2"
+                                            :disabled="detailMode == true"
                                             @click="serviceEdit(props.item)"
                                         >
                                             edit
@@ -691,7 +699,7 @@
                                         </v-icon>
                                         <v-icon v-if="editedItem.service.data[serviceIndex] != props.item || addservice"
                                             small
-                                            
+                                            :disabled="detailMode == true"
                                             @click="serviceDelete(props.item)"
                                         >
                                             delete
@@ -747,6 +755,7 @@
                                         <v-icon v-if="!addservice"
                                             small
                                             class="mr-2"
+                                            :disabled="detailMode == true"
                                             @click="addservice=true"
                                             
                                         >
@@ -885,7 +894,8 @@
               </v-icon>
                <v-icon
                   small
-                  @click="deleteItem(props.item)"
+                  :disabled="props.item.status_process=='Finish' "
+                  @click="printtransaction(props.item)"
               >
                   print
               </v-icon>
@@ -1609,6 +1619,30 @@
             this.showAlert('error','Failed Delete Transaction')
 
           }
+      },
+
+      async printtransaction(item){
+        try {
+          window.open(`/api/generate-spk-pdf/${item.id_transaction}`, '_blank')
+          const data ={
+            id_transaction: item.id_transaction,
+            status_process: 'On Process',
+            type_transaction:item.type_transaction,
+            total_transaction: item.total_transaction,
+            id_customer: item.id_customer,
+          }
+
+
+          await this.updateTransaction(data)
+          // Object.assign(this.transactionData[this.editedIndex], this.editedItem)
+          await this.getTransaction()
+        //   this.close()
+          this.showAlert('success','Success Update Transaction')
+
+        } catch (err) {
+            console.log(err)
+            this.showAlert('error','Failed Update Transaction')
+        }
       },
      //========================================
 

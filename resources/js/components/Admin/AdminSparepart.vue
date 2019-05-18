@@ -28,7 +28,7 @@
                           
                         </div> -->
                         <v-card flat color="#CFD8DC">
-                          <v-img contain height="200px" :src="this.imageUrl" v-if="imageUrl"></v-img>
+                          <v-img contain height="200px" :src="this.imageUrl" v-if="this.imageUrl"></v-img>
                           <v-img contain height="200px" :src="this.editedItem.image" v-else-if="this.editedItem.image !='-'"></v-img>
                           <v-img contain height="200px" :src="this.defaultImg" v-else></v-img>
 
@@ -37,8 +37,7 @@
                         <v-btn small
                           color="primary"
                           class="white--text"
-                          @click='pickFile' 
-                          v-model='this.imageUrl'>
+                          @click="pickFile" >
                           Upload Image
                           <v-icon right dark>cloud_upload</v-icon>
                         </v-btn>
@@ -383,6 +382,7 @@
       delDialog: false,
       compatibilityDialog:false,
       search: '',
+      test:'',
       i:0,
       headers: [
         { text: 'No', align: 'left',sortable: false},
@@ -609,15 +609,22 @@
         if(files[0] !== undefined) {
           this.imageName = files[0].name
           if(this.imageName.lastIndexOf('.') <= 0) {
+            // console.log("Masuk return")
             return
           }
           const fr = new FileReader ()
           fr.readAsDataURL(files[0])
           fr.addEventListener('load', () => {
+            // console.log(fr.result)
+          //  console.log("Masuk FR")
+
+  
             this.imageUrl = fr.result
+
             this.editedItem.image = files[0]
           })
         } else {
+          // console.log("else")
           this.imageName = ''
           this.imageUrl = ''
           // this.editedItem.image =''
