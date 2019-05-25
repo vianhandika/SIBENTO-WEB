@@ -405,6 +405,12 @@ export default {
                   { id: 12, route: 'AdminProcurement', icon: 'fas fa-truck-loading', text: 'Pengadaan Sparepart', name: 'Pengadaan Sparepart'},
                   { id: 13, route: 'AdminTransaction', icon: 'fas fa-search-dollar', text: 'Transaksi Penjualan', name: 'Transaksi Penjualan'},
                   { id: 14, route: 'AdminPayment', icon: 'fas fa-search-dollar', text: 'Pembayaran', name: 'Pembayaran'},
+                  { id: 15, route: 'AdminReportProfitMonth', icon: 'fas fa-file-invoice', text: 'Report Profit Bulanan', name: 'Report Profit Bulanan'},
+                  { id: 16, route: 'AdminReportProfitYear', icon: 'fas fa-file-invoice', text: 'Report Profit Tahunan', name: 'Report Profit Tahunan'},
+                  { id: 17, route: 'AdminReportSpendMonth', icon: 'fas fa-file-invoice', text: 'Report Pengeluaran Bulanan', name: 'Report Pengeluaran Bulanan'},
+                  { id: 18, route: 'AdminReportTopsellSparepart', icon: 'fas fa-file-invoice', text: 'Report Penjualan Sparepart', name: 'Report Penjualan Sparepart'},
+                  { id: 19, route: 'AdminReportTopsellService', icon: 'fas fa-file-invoice', text: 'Report Penjualan Jasa', name: 'Report Penjualan Jasa'},
+                  { id: 20, route: 'AdminReportStockSparepart', icon: 'fas fa-file-invoice', text: 'Report Stock Sparepart', name: 'Report Stock Sparepart'},
 
                 ]
               }

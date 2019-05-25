@@ -24,7 +24,7 @@ class DetailSparepartTransformers extends TransformerAbstract
             'type_sparepart' => $detail_sparepart->sparepart->spareparttype->name_sparepart_type,
             'name_sparepart' => $detail_sparepart->sparepart->name_sparepart,
             'brand_sparepart' => $detail_sparepart->sparepart->brand_sparepart,
-            'id_employee' => $detail_sparepart->id_employee,
+            'id_mechanic' => $detail_sparepart->id_employee,
             'mechanic_name' => $detail_sparepart->mechanic->name_employee,
             'id_motorcycle' => $detail_sparepart->motorcyclecustomer->id_motorcycle,
             'plate_number' => $detail_sparepart->motorcyclecustomer->plate_number,

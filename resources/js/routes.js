@@ -18,7 +18,13 @@ import AdminMotorType from './components/Admin/AdminMotorType'
 import AdminProcurement from './components/Admin/AdminProcurement'
 import AdminTransaction from './components/Admin/AdminTransaction'
 import AdminPayment from './components/Admin/AdminPayment'
+import AdminReportProfitMonth from './components/Admin/AdminReportProfitMonth'
+import AdminReportProfitYear from './components/Admin/AdminReportProfitYear'
+import AdminReportSpendMonth from './components/Admin/AdminReportSpendMonth'
 import CustomerIndex from './components/Customer/CustomerIndex'
+import AdminReportTopsellSparepart from './components/Admin/AdminReportTopsellSparepart'
+import AdminReportTopsellService from './components/Admin/AdminReportTopsellService'
+import AdminReportStockSparepart from './components/Admin/AdminReportStockSparepart'
 
 
  
@@ -244,6 +250,102 @@ export const routes = [
                 
             ],
             menu: 14, 
+        },
+        beforeEnter: middleware([
+            auth
+        ]) 
+    },
+    {
+        path: '/admin/report/profitmonth',
+        name: 'AdminReportProfitMonth',
+        component: AdminReportProfitMonth,
+        meta: {
+            role: [
+                'Admin',
+               
+                
+            ],
+            menu: 15, 
+        },
+        beforeEnter: middleware([
+            auth
+        ]) 
+    },           
+    {
+        path: '/admin/report/profityear',
+        name: 'AdminReportProfitYear',
+        component: AdminReportProfitYear,
+        meta: {
+            role: [
+                'Admin',
+               
+                
+            ],
+            menu: 16, 
+        },
+        beforeEnter: middleware([
+            auth
+        ]) 
+    },       
+    {
+        path: '/admin/report/spendmonth',
+        name: 'AdminReportSpendMonth',
+        component: AdminReportSpendMonth,
+        meta: {
+            role: [
+                'Admin',
+               
+                
+            ],
+            menu: 17, 
+        },
+        beforeEnter: middleware([
+            auth
+        ]) 
+    },  
+    {
+        path: '/admin/report/topsellsparepart',
+        name: 'AdminReportTopsellSparepart',
+        component: AdminReportTopsellSparepart,
+        meta: {
+            role: [
+                'Admin',
+               
+                
+            ],
+            menu: 18, 
+        },
+        beforeEnter: middleware([
+            auth
+        ]) 
+    },
+    {
+        path: '/admin/report/topsellservice',
+        name: 'AdminReportTopsellService',
+        component: AdminReportTopsellService,
+        meta: {
+            role: [
+                'Admin',
+               
+                
+            ],
+            menu: 19, 
+        },
+        beforeEnter: middleware([
+            auth
+        ]) 
+    },  
+    {
+        path: '/admin/report/stocksparepart',
+        name: 'AdminReportStockSparepart',
+        component: AdminReportStockSparepart,
+        meta: {
+            role: [
+                'Admin',
+               
+                
+            ],
+            menu: 20, 
         },
         beforeEnter: middleware([
             auth

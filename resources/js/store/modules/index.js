@@ -14,6 +14,8 @@ import MotorBrand from './MotorBrand'
 import MotorType from './MotorType'
 import Procurement from './Procurement'
 import Transaction from './Transaction'
+import Report from './Report'
+
 
 
 
@@ -34,6 +36,7 @@ export default {
   MotorBrand,
   MotorType,
   Procurement,
-  Transaction
+  Transaction,
+  Report
 
 }

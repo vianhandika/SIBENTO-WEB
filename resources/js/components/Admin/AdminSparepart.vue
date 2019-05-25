@@ -691,22 +691,22 @@
                 buy_price : this.editedItem.buy_price,
                 sell_price : this.editedItem.sell_price,
                 placement : this.editedItem.placement_position+'-'+this.editedItem.placement_place+'-'+this.editedItem.placement_number,
-                image_sparepart : this.editedItem.image,
+                // image_sparepart : this.editedItem.image,
             }
-            
-            // const response = await Controller.updateService(this.payload,id_service)
+            // const response = await Co  ntroller.updateService(this.payload,id_service)
             await this.updateSparepart(data)
             if(this.imageUrl !=''){
-              let data = new FormData();
-              data.append('id_sparepart',this.editedItem.id);
-              data.append('image_sparepart',this.editedItem.image);
-              for (var pair of data.entries())
+
+              let data2 = new FormData();
+              data2.append('id_sparepart',this.editedItem.id);
+              data2.append('image_sparepart',this.editedItem.image);
+              for (var pair of data2.entries())
               {
                 console.log(pair[0]+ ', '+ pair[1]); 
               }
-              await this.updateImageSparepart(data);
+              await this.updateImageSparepart(data2);
             }
-            Object.assign(this.sparepartData[this.editedIndex], this.editedItem)
+            // Object.assign(this.sparepartData[this.editedIndex], this.editedItem)
             await this.getSparepart()
             this.close()
             this.showAlert('success','Success Update Sparepart')

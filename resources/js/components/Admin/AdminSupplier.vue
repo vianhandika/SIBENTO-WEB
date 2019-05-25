@@ -66,7 +66,7 @@
               <v-card-actions>
                   <v-spacer></v-spacer>
                   <v-btn color="blue darken-1" flat @click="close">Batal</v-btn>
-                  <v-btn v-if="editedIndex!=-1" color="blue darken-1" flat @click="updatesupplier">Simpan</v-btn>
+                  <v-btn v-if="editedIndex!=-1" color="blue darken-1" :disabled="$v.editedItem.$invalid" flat @click="updatesupplier">Simpan</v-btn>
                   <v-btn v-else color="blue darken-1" :disabled="$v.editedItem.$invalid" flat @click="addsupplier">Tambah</v-btn>
               </v-card-actions>
               
@@ -77,7 +77,7 @@
           <v-dialog v-model="delDialog" max-width="500px">
             <v-card>
               <v-card-title>
-                <span class="headline">Hapus Pegawai</span>
+                <span class="headline">Hapus Supplier</span>
               </v-card-title>
               <v-card-text>
                 <h3 class="text-sm-center">Apakah Anda yakin akan menghapus data ini ?</h3>

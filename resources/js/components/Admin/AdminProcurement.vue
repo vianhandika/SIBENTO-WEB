@@ -824,7 +824,7 @@
 
       async printprocurement (item) {
         try {
-          window.open(`/api/generate-procurement-pdf/${item.id_procurement}`, '_blank')
+          window.open(`/api/generate-procurement/${item.id_procurement}`, '_blank')
           let date = item.date_procurement.split(' ')
           // console.log(detailPayload)
           // console.log(date[0])

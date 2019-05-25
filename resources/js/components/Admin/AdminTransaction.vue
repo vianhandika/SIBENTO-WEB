@@ -72,7 +72,7 @@
                                         item-text="name"
                                         item-value="id"
                                         label="Nama Pelanggan"
-                                        :disabled="detailMode == true"
+                                        :disabled="detailMode == true || editedIndex!=-1"
                                         
                                         required
                                         prepend-inner-icon="fa fa-user">
@@ -335,7 +335,7 @@
                                         item-value="text"
                                         label="Status"
                                         required
-                                        :disabled="detailMode == true"
+                                        :disabled="detailMode == true || editedIndex==-1"
                               
                                         prepend-inner-icon="fas fa-flag">
                                     </v-select>
@@ -855,6 +855,7 @@
           :headers="headers"
           :items="inittransaction"
           :search="search"
+          :pagination.sync="pagination"
           class="elevation-1">
 
           <template v-slot:items="props">
@@ -880,7 +881,7 @@
               <v-icon
                   small
                   class="mr-2"
-                  :disabled="props.item.status_process=='Finish' || props.item.status_process=='On Process' "  
+                  :disabled="props.item.status_process=='Finish'"  
                   @click="editItem(props.item)"
               >
                   edit
@@ -989,7 +990,12 @@
       // sparepartDialog:false,
       search: '',
       i:0,
+
      //HEADER TABLE====================== 
+     pagination: {
+        sortBy: 'date_transaction',
+        descending: true,
+      },
       headers: [
         { text: 'No', align: 'left',sortable: false },
         { text: 'Id Transaksi', align: 'center', value: 'id_transaction' },
@@ -1581,14 +1587,42 @@
       
       async updatetransaction () {
         try {
+
+            const detailSpareparts = this.editedItem.sparepart.data.map(obj => ({
+                id_detail_sparepart:obj.id_detail_sparepart,
+                amount_transaction_sparepart:obj.amount_transaction_sparepart,
+                price_transaction_sparepart:obj.price_transaction_sparepart,
+                subtotal_transaction_sparepart: obj.subtotal_transaction_sparepart,
+                plate_number:obj.plate_number,
+                id_employee:obj.id_mechanic,
+                mechanic_name:obj.mechanic_name,
+                id_sparepart:obj.id_sparepart,
+                id_motorcycle:obj.id_motorcycle,
+                name_sparepart:obj.name_sparepart,
+                brand_sparepart:obj.brand_sparepart,
+                id_transaction:obj.id_transaction,
+            }))
+            const detailServices = this.editedItem.service.data.map(obj => ({
+                id_detail_service:obj.id_detail_service,
+                amount_transaction_service:obj.amount_transaction_service,
+                price_transaction_service:obj.price_transaction_service,
+                subtotal_transaction_service: obj.subtotal_transaction_service,
+                plate_number:obj.plate_number,
+                id_employee:obj.id_mechanic,
+                mechanic_name:obj.mechanic_name,
+                id_service:obj.id_service,
+                id_motorcycle:obj.id_motorcycle,
+                service_name:obj.name_service,
+                id_transaction:obj.id_transaction,
+            }))
           const data ={
             id_transaction: this.editedItem.id_transaction,
             status_process: this.editedItem.status_process,
             type_transaction:this.editedItem.type_transaction,
             total_transaction: this.editedItem.total_transaction,
             id_customer: this.editedItem.id_customer,
-            sparepart: this.editedItem.sparepart.data,
-            service: this.editedItem.service.data,
+            sparepart: detailSpareparts,
+            service: detailServices,
             employee: this.editedItem.employee.data,
           }
 
@@ -1684,6 +1718,8 @@
             // this.sparepartDialog = false
             setTimeout(() => {
             this.editedItem = Object.assign({}, this.defaultItem)
+            this.editedItem.sparepart.data=[]
+            this.editedItem.service.data=[]
             this.editedSparepart = Object.assign({},this.defaultSparepart)
             this.selectedSparepart = Object.assign({},this.defaultSparepart)
             this.editedCustomer = Object.assign({},this.defaultCustomer)

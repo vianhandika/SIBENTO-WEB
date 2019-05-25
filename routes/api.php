@@ -55,14 +55,32 @@ Route::get('transaction/sparepart/{id}','TransactionController@showDetailSparepa
 Route::patch('transaction/payment/{id}','TransactionController@payment');
 
 
-Route::get('/generate-procurement-pdf/{id}', 'FileController@generateProcurementPdf');
 Route::get('/generate-spk-pdf/{id}', 'FileController@generateSPKPdf');
 Route::get('/generate-nota-pdf/{id}', 'FileController@generateNotaPdf');
-Route::get('/generate-report-profit-permonth/{year}', 'FileController@TransactionperYear');
-Route::get('/generate-report-spend/{year}', 'FileController@SpendperYear');
-Route::get('/generate-report-sparepart', 'FileController@TopSellSparepart');
 
+Route::get('/report/profitmonth-pdf/{year}', 'FileController@reportProfitMonthPDF');
+Route::get('/report/profitmonth-data/{year}', 'FileController@reportProfitMonthData');
 
+Route::get('/report/profityear-pdf', 'FileController@reportProfitYearPDF');
+Route::get('/report/profityear-data', 'FileController@reportProfitYearData');
+
+Route::get('/report/spendmonth-pdf/{year}', 'FileController@reportSpendMonthPDF');
+Route::get('/report/spendmonth-data/{year}', 'FileController@reportSpendMonthData');
+
+Route::get('/report/topsell-sparepart-pdf/{year}', 'FileController@reportTopSellSparepartPDF');
+Route::get('/report/topsell-sparepart-data/{year}', 'FileController@reportTopSellSparepartData');
+
+Route::get('/report/topsell-service-pdf/{year}/{month}', 'FileController@reportTopSellServicePDF');
+Route::get('/report/topsell-service-data/{year}/{month}', 'FileController@reportTopSellServiceData');
+
+Route::get('/report/stock-sparepart-pdf/{year}/{sparepart}', 'FileController@reportStockSparepartPDF');
+Route::get('/report/stock-sparepart-data/{year}/{sparepart}', 'FileController@reportStockSparepartData');
+
+Route::get('/generate-procurement/{id}', 'FileController@generateProcurementPdf');
+Route::get('/generate-nota/{id}', 'FileController@generateNota');
+Route::get('/generate-spk/{id}', 'FileController@generateSPK');
+
+Route::post('/customer-transaction', 'TransactionController@searchCustTransaction');
 
 
 

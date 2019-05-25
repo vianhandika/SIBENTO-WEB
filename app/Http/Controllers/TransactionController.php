@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Transaction;
+use App\MotorcycleCustomer;
 use App\Sparepart;
 use App\DetailTransactionService;
 use App\DetailTransactionSparepart;
@@ -17,6 +18,7 @@ use Illuminate\Support\Facades\DB;
 use App\Transformers\TransactionTransformers;
 use App\Transformers\DetailSparepartTransformers;
 use App\Transformers\DetailServiceTransformers;
+
 
 
 class TransactionController extends RestController
@@ -80,7 +82,7 @@ class TransactionController extends RestController
             {
                 $transaction->id_transaction='SP'.'-'.date("d").date("m").date("y").'-'.$count;
             }
-            else if($request->get('type_transaction')=='Service And Sparepart')
+            else if($request->get('type_transaction')=='Sparepart dan Service')
             {
                 $transaction->id_transaction='SS'.'-'.date("d").date("m").date("y").'-'.$count;
             }
@@ -273,7 +275,7 @@ class TransactionController extends RestController
                 {
                     $transaction->id_transaction='SP'.'-'.date("d").date("m").date("y").'-'.$count;
                 }
-                else if($request->get('type_transaction')=='Service And Sparepart')
+                else if($request->get('type_transaction')=='Sparepart dan Service')
                 {
                     $transaction->id_transaction='SS'.'-'.date("d").date("m").date("y").'-'.$count;
                 }
@@ -357,6 +359,57 @@ class TransactionController extends RestController
             //         curl_close($ch);
             //     }
             // }
+
+            $response = $this->generateItem($transaction);
+
+            return $this->sendResponse($response, 201);
+
+        } catch (\Exception $e) {
+            return $this->sendIseResponse($e->getMessage());
+        }
+    }
+    
+    public function updateMobile(Request $request, $id)
+    {
+        try {
+
+            date_default_timezone_set('Asia/Jakarta');
+
+
+            $transaction = Transaction::find($id);
+
+  
+            $transaction->detail_transaction_sparepart()->delete();
+            $transaction->detail_transaction_service()->delete();
+      
+                 
+
+            if($request->get('type_transaction')!=$transaction->type_transaction)
+            {
+                $count = Transaction::get()->count();
+    
+                if($request->get('type_transaction')=='Service')
+                {
+                    $transaction->id_transaction='SV'.'-'.date("d").date("m").date("y").'-'.$count;
+                }
+                else if($request->get('type_transaction')=='Sparepart')
+                {
+                    $transaction->id_transaction='SP'.'-'.date("d").date("m").date("y").'-'.$count;
+                }
+                else if($request->get('type_transaction')=='Sparepart dan Service')
+                {
+                    $transaction->id_transaction='SS'.'-'.date("d").date("m").date("y").'-'.$count;
+                }
+            }         
+            // $transaction->transaction_date=date("Y-m-d").' '.date('H:i:s');
+            $transaction->status_process=$request->get('status_process');
+            $transaction->status_paid="Unpaid";
+            $transaction->type_transaction=$request->get('type_transaction');
+            $transaction->discount_transaction=0;
+            $transaction->total_transaction=$request->get('total_transaction');
+            $transaction->id_customer=$request->get('id_customer');
+            $transaction->save();
+
 
             $response = $this->generateItem($transaction);
 
@@ -452,6 +505,31 @@ class TransactionController extends RestController
             $detail=DetailTransactionSparepart::where("id_transaction",$id)->get();
             $response = $this->generateCollection($detail,DetailSparepartTransformers::class);
             return $this->sendResponse($response);
+        } catch (\Exception $e) {
+            return $this->sendIseResponse($e->getMessage());
+        }
+    }
+
+    public function searchCustTransaction(Request $request)
+    {
+        try {
+            $motorcycle=MotorcycleCustomer::where("plate_number",$request->plate_number)->first();
+
+            $transactions=Transaction::where("id_customer",$motorcycle->id_customer)->get();
+            $search=[];
+            foreach($transactions as $transaction)
+            {
+                if($transaction->customer->phone_number_customer==$request->phone_number)
+                {
+                    array_push($search,$transaction);
+                }
+            }
+            // return $search;
+             $response = $this->generateCollection($transactions);
+
+            // $response = $this->generateCollection($search,CheckStatusTransformer::class);
+            return $this->sendResponse($response);
+
         } catch (\Exception $e) {
             return $this->sendIseResponse($e->getMessage());
         }

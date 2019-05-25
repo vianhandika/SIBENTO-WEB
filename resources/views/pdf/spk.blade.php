@@ -148,50 +148,45 @@
                     <tr>
                         <th>Cust</th>
                         <!-- <td>Stefanus Rojali</td> -->
-                        <td>{{ $transaction->customer->name_customer }}</td>
+                        <td style="width:40%;">{{ $transaction->customer->name_customer }}</td>
+                        <td style="width:15%;"></td>
                         <th>CS</th>
                         <!-- <td>Natalia Ramona</td> -->
                         @foreach ($transaction->employee as $item)
-                            @if ($item->id_role === 2)
+                            @if ($item->id_role === 2 || $item->id_role ===1)
                                 <td>{{ $item->name_employee }}</td>
+                                @break
                             @endif
                         @endforeach
                     </tr>
                     <tr>
                         <th>Telepon</th>
                         <!-- <td>081801234567</td> -->
-                        <td>{{ $transaction->customer->phone_number_customer }}</td>
-
+                        <td style="width:40%;">{{ $transaction->customer->phone_number_customer }}</td>
+                        <td style="width:15%;"></td>
                         <th>Montir</th>
                         <!-- <td>Fatir Kamil</td> -->
                         <td>
-                          
-                            {{ 
-                                
-                                    $mechanics
-                                
-                            }}
-                        
+                        @foreach ($mechanics as $item)
+                            <li style="list-style: none;">{{ $item }}</li>
+                        @endforeach
                         </td>
                         
                     </tr>
                     <tr>
                         <th>Motor</th>
-                        <td>
+                        <td style="width:40%;">
                            
-                            {{ 
-                                
-                                    $motor->motorcycletype->motorcyclebrand->name_motorcycle_brand . ' ' .
-                                    $motor->motorcycletype->name_motorcycle_type . ' ' .
-                                    $motor->plate_number
-                                
-                            }}
+                        @foreach ($motorcycles as $item)
+                            <li style="list-style: none;">{{ $item }}</li>
+                        @endforeach
                            
                         </td>
                     </tr>
                 </tbody>
             </table>
         </div>
+        @if (substr($transaction->id_transaction,0,2)=='SS' || substr($transaction->id_transaction,0,2)=='SP')
         <br>                    
         <hr>
         <div class="text-xs-center sub-title">
@@ -257,7 +252,10 @@
                 </tbody>
             </table>
         </div>
-
+        
+        @endif
+        <br>
+        @if (substr($transaction->id_transaction,0,2)=='SS' || substr($transaction->id_transaction,0,2)=='SV')
         <hr>
         <div class="text-xs-center sub-title">
             SERVICE
@@ -320,6 +318,8 @@
                 </tbody>
             </table>
         </div>
+        @endif
+
 	</div>
 </body>
 </html>

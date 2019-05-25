@@ -162,7 +162,7 @@
                                     Total Transaksi
                                   </div>
                                   <div class="text-xs-center headline">
-                                    Rp. {{editedItem.total_transaction}}
+                                    Rp. {{total_transaction}}
                                   </div>
                                 </v-flex>
 
@@ -173,7 +173,7 @@
                                       label="Diskon"
                                       :disabled="editedItem.status_paid=='Paid'"
                                       :error-messages="discountErrors"
-                                      @input="$v.editedItem.discount_transaction.$touch(),countCharge()"
+                                      @input="$v.editedItem.discount_transaction.$touch(),countCharge(),countTotal()"
                                       @blur="$v.editedItem.discount_transaction.$touch()">
                                       
                                   </v-text-field>
@@ -338,6 +338,7 @@
           :headers="headers"
           :items="inittransaction"
           :search="search"
+          :pagination.sync="pagination"
           class="elevation-1">
 
           <template v-slot:items="props">
@@ -442,6 +443,11 @@
       // sparepartDialog:false,
       search: '',
       i:0,
+
+      pagination: {
+        sortBy: 'date_transaction',
+        descending: true,
+      },
       headers: [
         { text: 'Id Transaksi', align: 'center', value: 'id_transaction' },
         { text: 'Tanggal', align: 'center', value: 'date_transaction' },
@@ -700,6 +706,9 @@
             this.kembalian = this.bayar - (this.editedItem.total_transaction - this.editedItem.discount_transaction)
           } 
       },
+      countTotal(){
+            this.total_transaction = this.editedItem.total_transaction - this.editedItem.discount_transaction
+      },
 
       async payment() {
         try {
@@ -710,7 +719,7 @@
           const data ={
             id_transaction: this.editedItem.id_transaction,            
             discount_transaction:this.editedItem.discount_transaction,
-            total_transaction: this.editedItem.total_transaction,
+            total_transaction: this.total_transaction,
             employee: this.employee,
           }
 
@@ -740,12 +749,14 @@
             this.detailMode = true
             this.editedIndex = this.transactions.indexOf(item)
             this.editedItem = Object.assign({}, item)
+            this.total_transaction = this.editedItem.total_transaction
             this.dialog = true
         },
         payItem(item){
             this.editedIndex = this.transactions.indexOf(item)
             this.editedItem = Object.assign({}, item)
-            this.dialog = true
+            this.total_transaction = this.editedItem.total_transaction
+            this.dialog = true 
         },
         
         close () {
